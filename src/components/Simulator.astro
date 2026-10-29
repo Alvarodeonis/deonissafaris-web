@@ -99,43 +99,43 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
   .sim-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: start; }
   @media (max-width: 960px) { .sim-grid { grid-template-columns: 1fr; } }
   fieldset { border: 0; margin: 0 0 34px; padding: 0; }
-  legend { font: 700 22px var(--display); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; padding: 0; }
+  legend { font: 500 28px var(--display); margin-bottom: 14px; padding: 0; }
   .hint { color: var(--stone); font-size: 15px; margin: -6px 0 14px; }
   .pkgs { display: grid; gap: 10px; }
   .pkg { cursor: pointer; }
   .pkg input { position: absolute; opacity: 0; }
-  .pkg-body { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 18px; background: var(--char-2); border: 2px solid transparent; transition: border-color .2s; }
+  .pkg-body { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 18px; background: var(--char-2); border: 1px solid transparent; transition: border-color .2s; }
   .pkg input:checked + .pkg-body { border-color: var(--red); }
   .pkg input:focus-visible + .pkg-body { outline: 2px solid var(--red-hi); outline-offset: 2px; }
   .pkg-label { font-weight: 500; }
-  .pkg-price { font: 700 20px var(--display); white-space: nowrap; color: var(--bone); }
+  .pkg-price { font: 600 22px var(--display); white-space: nowrap; color: var(--bone); }
   .stepper-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; }
   .stepper-row small, .t-min { display: block; color: var(--stone); font-size: 13px; }
   .stepper { display: flex; align-items: center; border: 1px solid var(--line); }
   .stepper button { width: 42px; height: 42px; background: none; border: 0; color: var(--bone); font-size: 22px; cursor: pointer; }
   .stepper button:hover { background: var(--red); }
   .stepper button:disabled { opacity: .3; cursor: not-allowed; background: none; }
-  .stepper output { min-width: 34px; text-align: center; font: 700 20px var(--display); font-variant-numeric: tabular-nums; }
+  .stepper output { min-width: 34px; text-align: center; font: 600 22px var(--display); font-variant-numeric: lining-nums tabular-nums; }
   .stepper.sm button { width: 34px; height: 34px; font-size: 18px; }
   .trophies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   @media (max-width: 640px) { .trophies { grid-template-columns: 1fr; } }
   .trophy { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 10px 12px 10px 16px; background: var(--char-2); }
   .trophy.off { opacity: .4; }
   .trophy.active { box-shadow: inset 3px 0 0 var(--red); }
-  .t-name em { font-style: normal; font: 700 11px var(--display); letter-spacing: .1em; color: var(--red-hi); border: 1px solid var(--red-hi); padding: 0 4px; margin-left: 8px; vertical-align: 2px; }
+  .t-name em { font-style: normal; font: 500 10px var(--label); letter-spacing: .1em; color: var(--red-hi); border: 1px solid var(--red-hi); padding: 0 4px; margin-left: 8px; vertical-align: 2px; }
   .t-price { font-variant-numeric: tabular-nums; color: var(--stone); font-size: 15px; white-space: nowrap; }
   .check { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; cursor: pointer; }
   .check input { width: 20px; height: 20px; accent-color: var(--red); }
   .f-price { color: var(--stone); white-space: nowrap; font-variant-numeric: tabular-nums; }
 
   .sim-sum { position: sticky; top: 100px; }
-  .sum-inner { background: var(--black); border-top: 4px solid var(--red); padding: 28px; }
-  .sum-inner h3 { font-size: 40px; margin: 6px 0 18px; }
+  .sum-inner { background: var(--black); border-top: 1px solid var(--red); padding: 28px; }
+  .sum-inner h3 { font-size: 34px; margin: 6px 0 18px; }
   #lines { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
   #lines :global(li) { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--stone); }
   #lines :global(li b) { color: var(--bone); font-weight: 600; white-space: nowrap; }
-  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 18px; font: 700 22px var(--display); text-transform: uppercase; letter-spacing: .06em; }
-  .total b { font: 800 clamp(34px, 3.4vw, 46px) var(--display); color: var(--red-hi); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 18px; font: 500 11px var(--label); text-transform: uppercase; letter-spacing: .22em; }
+  .total b { font: 600 clamp(34px, 3.2vw, 44px) var(--display); letter-spacing: 0; color: #fff; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
   .per { color: var(--stone); font-size: 14px; text-align: right; margin-bottom: 18px; }
   .notes { color: var(--stone); font-size: 14px; padding-left: 18px; margin: 0 0 20px; }
   .sum-inner .btn { width: 100%; justify-content: center; margin-bottom: 10px; }

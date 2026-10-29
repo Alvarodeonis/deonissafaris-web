@@ -35,12 +35,12 @@ import { programs } from '../data/programs.js';
 </Layout>
 <style>
   .about { display: grid; gap: 24px; max-width: 980px; }
-  .big { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.3; margin: 0; }
+  .big { font: 500 clamp(26px, 2.6vw, 38px)/1.3 var(--display); margin: 0; }
   .people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 20px; }
   .people img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; margin-bottom: 14px; background: var(--char); }
   .people h3 { font-size: 28px; }
   .people p { margin: 4px 0; color: var(--stone); }
-  .langs { font: 600 13px var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); }
+  .langs { font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); }
   .contact { font-size: 14px; color: var(--stone); margin-top: 8px; }
   @media (max-width: 960px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>

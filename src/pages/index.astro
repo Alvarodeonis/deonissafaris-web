@@ -168,18 +168,18 @@ const simProgram = programs[0];
     opacity: 0; transition: opacity 1.2s;
   }
   .hero-media iframe.on { opacity: 1; }
-  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,.15) 55%, rgba(13,14,13,.92) 100%); }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 35%, rgba(0,0,0,.4) 60%, rgba(13,14,13,.95) 100%); }
   .hero-content { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(64px, 11vh, 120px); }
-  .hero h1 { font-size: clamp(40px, 5.6vw, 88px); font-weight: 800; line-height: .9; margin: 0 0 20px; max-width: 18ch; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
-  .hero h1 span { color: var(--red-hi); }
+  .hero h1 { font-size: clamp(38px, 4.6vw, 74px); font-weight: 500; line-height: 1.04; margin: 0 0 20px; max-width: 18ch; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
+  .hero h1 span { font-style: italic; }
   .hero-cats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
-  .hero-cats a { font: 700 16px var(--display); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 12px 20px; border: 2px solid rgba(255,255,255,.75); background: rgba(0,0,0,.25); backdrop-filter: blur(4px); transition: .2s; }
+  .hero-cats a { font: 500 12px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 10px 18px; border: 1px solid rgba(255,255,255,.4); transition: .2s; }
   .hero-cats a:hover { background: var(--red); border-color: var(--red); }
-  .hero-videos { display: inline-flex; align-items: center; gap: 10px; font: 600 15px var(--display); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
-  .hero-videos svg { width: 30px; height: 30px; padding: 7px; border-radius: 50%; background: var(--red); fill: #fff; }
+  .hero-videos { display: inline-flex; align-items: center; gap: 10px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+  .hero-videos svg { width: 30px; height: 30px; padding: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); fill: #fff; }
   .hero p { font-size: clamp(17px, 1.6vw, 21px); max-width: 46ch; color: rgba(242,239,232,.9); margin: 0 0 32px; }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
-  .sound { position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(64px, 11vh, 120px); display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 10px 16px; cursor: pointer; font: 600 14px var(--display); letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
+  .sound { position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(64px, 11vh, 120px); display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 10px 16px; cursor: pointer; font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
   .sound svg { width: 20px; height: 20px; fill: #fff; stroke: #fff; stroke-width: 2; }
   .sound[aria-pressed='true'] #sound-x { display: none; }
   @media (max-width: 700px) { .sound { bottom: auto; top: 96px; } .sound span { display: none; } }
@@ -187,7 +187,7 @@ const simProgram = programs[0];
 
   .mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(220px, 24vw, 340px); gap: 14px; }
   .mosaic .m0 { grid-column: span 2; grid-row: span 2; }
-  .mosaic .m0 h3 { font-size: clamp(44px, 5vw, 72px); }
+  .mosaic .m0 h3 { font-size: clamp(34px, 3.4vw, 50px); }
   .mosaic .m5 { grid-column: span 4; }
   @media (max-width: 860px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic .m0, .mosaic .m5 { grid-column: span 2; grid-row: span 1; } }
   @media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .m0, .mosaic .m5 { grid-column: auto; } }
@@ -195,23 +195,23 @@ const simProgram = programs[0];
   .featured { background: var(--char); }
   .bestsellers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(260px, 26vw, 380px); gap: 16px; }
   .bestsellers > :first-child { grid-column: span 2; }
-  .bestsellers > :first-child h3 { font-size: clamp(40px, 4.4vw, 64px); }
+  .bestsellers > :first-child h3 { font-size: clamp(32px, 3.2vw, 46px); }
   @media (max-width: 860px) { .bestsellers { grid-template-columns: 1fr 1fr; } .bestsellers > :first-child { grid-column: span 2; } }
   @media (max-width: 520px) { .bestsellers { grid-template-columns: 1fr; } .bestsellers > :first-child { grid-column: auto; } }
 
   .about-text { max-width: 900px; margin-bottom: 48px; }
-  .about h2 { font-size: clamp(48px, 7vw, 104px); margin: 10px 0 20px; }
-  .about blockquote { margin: 28px 0 32px; padding-left: 22px; border-left: 4px solid var(--red); font: 700 clamp(26px, 3vw, 40px)/1.1 var(--display); text-transform: uppercase; }
+  .about h2 { font-size: clamp(38px, 4.6vw, 66px); margin: 12px 0 20px; }
+  .about blockquote { margin: 28px 0 32px; padding-left: 22px; border-left: 2px solid var(--red); font: italic 500 clamp(24px, 2.4vw, 34px)/1.25 var(--display); }
   .new { background: var(--char); }
 
   .contact-home .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; }
-  .contact-home h2 { font-size: clamp(44px, 6vw, 92px); margin: 10px 0 16px; }
+  .contact-home h2 { font-size: clamp(36px, 4.2vw, 60px); margin: 10px 0 16px; }
   .leads { display: grid; gap: 16px; margin-top: 28px; }
   .leads div { display: flex; gap: 16px; align-items: center; color: var(--stone); font-size: 15px; }
   .leads img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--char); }
-  .leads b { display: block; color: var(--bone); font: 700 22px var(--display); text-transform: uppercase; }
+  .leads b { display: block; color: var(--bone); font: 600 24px/1.2 var(--display); }
   #home-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: var(--char); padding: clamp(20px, 3vw, 40px); align-self: start; }
-  #home-form label { display: flex; flex-direction: column; gap: 6px; font: 600 14px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
+  #home-form label { display: flex; flex-direction: column; gap: 6px; font: 500 10px var(--label); letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
   #home-form .full { grid-column: 1 / -1; }
   #home-form input, #home-form textarea { font: 16px var(--body); color: var(--bone); background: var(--black); border: 1px solid var(--line); padding: 13px; min-width: 0; }
   #home-form .chk { flex-direction: row; align-items: center; gap: 10px; letter-spacing: 0; text-transform: none; font: 15px var(--body); }
@@ -220,13 +220,13 @@ const simProgram = programs[0];
 
 
   .sim-band .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
-  .sim-band h2 { font-size: clamp(40px, 5vw, 76px); margin: 12px 0 18px; }
+  .sim-band h2 { font-size: clamp(34px, 3.8vw, 54px); margin: 12px 0 18px; }
   .sim-band .lead { margin-bottom: 30px; }
-  .sim-mock { background: var(--char); border-top: 4px solid var(--red); padding: 28px; font-variant-numeric: tabular-nums; }
+  .sim-mock { background: var(--char); border-top: 1px solid var(--red); padding: 28px; font-variant-numeric: tabular-nums; }
   .sim-mock .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--stone); }
   .sim-mock .row b { color: var(--bone); font-weight: 600; }
-  .sim-mock .total { border: 0; padding-top: 20px; color: var(--bone); font: 700 24px var(--display); text-transform: uppercase; letter-spacing: .06em; }
-  .sim-mock .total b { color: var(--red-hi); font-weight: 800; }
+  .sim-mock .total { border: 0; padding-top: 20px; color: var(--bone); font: 500 12px var(--label); text-transform: uppercase; letter-spacing: .22em; align-items: baseline; }
+  .sim-mock .total b { font: 600 34px var(--display); letter-spacing: 0; color: #fff; }
   @media (max-width: 860px) { .sim-band .wrap { grid-template-columns: 1fr; } }
 
   .videos { background: var(--char); }
@@ -236,7 +236,7 @@ const simProgram = programs[0];
   .faces img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .4s, transform .6s; }
   .faces figure:hover img { filter: none; transform: scale(1.04); }
   .faces figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
-  .faces b { display: block; font: 700 22px/1 var(--display); text-transform: uppercase; }
+  .faces b { display: block; font: 600 24px/1.1 var(--display); }
   .faces span { font-size: 14px; color: rgba(242,239,232,.8); }
 
 </style>
