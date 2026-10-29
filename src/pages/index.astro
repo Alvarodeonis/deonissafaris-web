@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import { programs, programUrl } from '../data/programs.js';
+import { categories, videos, team } from '../data/site.js';
+import { u } from '../lib/url.js';
+
+const hero = videos[0];
+const featured = programs.filter((p) => p.featured);
+const catImage = (slug) => programs.find((p) => p.category === slug)?.hero;
+const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).map((p) => p.country)).size;
+const simProgram = programs[0];
+---
+<Layout transparentHeader image={`https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg`}>
+  <section class="hero" id="hero">
+    <div class="hero-media" style={`background-image:url(https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg)`}>
+      <iframe
+        id="hero-video"
+        src={`https://www.youtube-nocookie.com/embed/${hero.id}?autoplay=1&mute=1&loop=1&playlist=${hero.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1${hero.start ? `&start=${hero.start}` : ''}`}
+        title="Lances de caza de de Onís Safaris"
+        allow="autoplay; encrypted-media"
+        tabindex="-1"
+        aria-hidden="true"></iframe>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="wrap hero-content">
+      <div class="eyebrow">Born wild · Free forever</div>
+      <h1>Caza internacional<br />a tu medida</h1>
+      <p>Más de 30 años organizando safaris en cinco continentes. Solo te llevamos donde nuestro equipo ya ha cazado.</p>
+      <div class="hero-btns">
+        <a class="btn" href="#destinos">Ver destinos</a>
+        <a class="btn outline" href={u('contacto')}>Pedir propuesta</a>
+      </div>
+    </div>
+    <button type="button" class="sound" id="sound" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path id="sound-x" d="M16 9l5 6M21 9l-5 6" /></svg>
+      <span>Activar sonido</span>
+    </button>
+    <a class="scroll-cue" href="#destinos" aria-label="Bajar">
+      <span></span>
+    </a>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div><b>30+</b><span>años de experiencia</span></div>
+      <div><b>5</b><span>continentes</span></div>
+      <div><b>{team.length}</b><span>cazadores en el equipo</span></div>
+      <div><b>3</b><span>oficinas en España</span></div>
+    </div>
+  </div>
+
+  <section id="destinos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Destinos</div><h2>¿Dónde quieres cazar?</h2></div>
+        <p class="lead">Elige continente, después el país y dentro de cada país sus programas con precios, temporadas y simulador de presupuesto.</p>
+      </div>
+      <div class="mosaic">
+        {categories.map((c, i) => (
+          <a class:list={['photo-card', `m${i}`]} href={u(c.slug)}>
+            <img src={catImage(c.slug)} alt={c.title} loading="lazy" />
+            <div class="info">
+              <div class="eyebrow">{catCount(c.slug)} {catCount(c.slug) === 1 ? 'país' : 'países'}</div>
+              <h3>{c.title}</h3>
+              <div class="meta">{c.tagline}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Temporada 2026</div><h2>Programas destacados</h2></div>
+        <a class="btn outline" href={u('caza-en-africa')}>Todos los programas</a>
+      </div>
+      <div class="grid-3">
+        {featured.slice(0, 6).map((p) => <ProgramCard p={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="maxim" style={`background-image:url(${programs[3].gallery[0]})`}>
+    <div class="wrap">
+      <div class="eyebrow">Nuestra máxima</div>
+      <blockquote>Nunca enviamos a un cazador a un destino donde alguno de nosotros no haya cazado antes.</blockquote>
+      <a class="btn outline" href={u('sobre-nosotros')}>Conoce al equipo</a>
+    </div>
+  </section>
+
+  <section class="sim-band">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Nuevo</div>
+        <h2>Calcula tu presupuesto en un minuto</h2>
+        <p class="lead">En cada programa eliges el paquete, cuántos cazadores y acompañantes vais y los animales que quieres. Te mostramos el coste estimado al momento y nos lo puedes enviar por WhatsApp.</p>
+        <a class="btn" href={`${u(programUrl(simProgram))}#simulador`}>Probar con {simProgram.countryName}</a>
+      </div>
+      <div class="sim-mock" aria-hidden="true">
+        <div class="row"><span>Paquete 10 días · 1×1</span><b>2 × US$ 17.500</b></div>
+        <div class="row"><span>Acompañante · 10 días</span><b>US$ 4.200</b></div>
+        <div class="row"><span>Nyala</span><b>US$ 4.500</b></div>
+        <div class="row"><span>Certificados y transporte</span><b>US$ 1.950</b></div>
+        <div class="row total"><span>Total estimado</span><b>US$ 45.650</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">En el campo</div><h2>Nuestros lances</h2></div>
+        <a class="btn outline" href={u('videos')}>Todos los vídeos</a>
+      </div>
+      <VideoGrid videos={videos.slice(1, 6)} />
+    </div>
+  </section>
+
+  <section class="team-strip">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">El equipo</div><h2>Cazadores que organizan cacerías</h2></div>
+        <a class="btn outline" href={u('sobre-nosotros')}>Sobre nosotros</a>
+      </div>
+    </div>
+    <div class="faces">
+      {team.map((t) => (
+        <figure>
+          <img src={t.photo} alt={t.name} loading="lazy" />
+          <figcaption><b>{t.name}</b><span>{t.role}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Cuéntanos qué quieres cazar</h2>
+      <p class="lead">Te preparamos una propuesta a medida con destino, fechas, presupuesto y trámites.</p>
+      <a class="btn" href={u('contacto')}>Contactar</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; padding: 0; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero-media { position: absolute; inset: 0; background: var(--black) center / cover no-repeat; }
+  .hero-media iframe {
+    position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none;
+    width: 100vw; height: 56.25vw; min-height: 100%; min-width: 177.78vh;
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0; transition: opacity 1.2s;
+  }
+  .hero-media iframe.on { opacity: 1; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,.15) 55%, rgba(13,14,13,.92) 100%); }
+  .hero-content { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(64px, 11vh, 120px); }
+  .hero h1 { font-size: clamp(56px, 10.5vw, 168px); font-weight: 800; line-height: .86; margin: 14px 0 22px; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
+  .hero p { font-size: clamp(17px, 1.6vw, 21px); max-width: 46ch; color: rgba(242,239,232,.9); margin: 0 0 32px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  .sound { position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(64px, 11vh, 120px); display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 10px 16px; cursor: pointer; font: 600 14px var(--display); letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
+  .sound svg { width: 20px; height: 20px; fill: #fff; stroke: #fff; stroke-width: 2; }
+  .sound[aria-pressed='true'] #sound-x { display: none; }
+  .scroll-cue { position: absolute; z-index: 2; left: 50%; bottom: 22px; width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.7); border-radius: 14px; transform: translateX(-50%); }
+  .scroll-cue span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; background: #fff; border-radius: 2px; animation: cue 1.8s infinite; }
+  @keyframes cue { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
+  @media (max-width: 700px) { .sound { bottom: auto; top: 96px; } .sound span { display: none; } }
+
+  .stats { background: var(--red); }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-block: 28px; }
+  .stats div { display: flex; align-items: baseline; gap: 12px; }
+  .stats b { font: 800 clamp(40px, 4.5vw, 64px)/1 var(--display); }
+  .stats span { font: 600 15px/1.2 var(--display); letter-spacing: .12em; text-transform: uppercase; }
+  @media (max-width: 760px) { .stats .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  .mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(220px, 24vw, 340px); gap: 14px; }
+  .mosaic .m0 { grid-column: span 2; grid-row: span 2; }
+  .mosaic .m0 h3 { font-size: clamp(44px, 5vw, 72px); }
+  .mosaic .m5 { grid-column: span 4; }
+  @media (max-width: 860px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic .m0, .mosaic .m5 { grid-column: span 2; grid-row: span 1; } }
+  @media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .m0, .mosaic .m5 { grid-column: auto; } }
+
+  .featured { background: var(--char); }
+
+  .maxim { position: relative; background: center / cover no-repeat fixed; padding-block: clamp(120px, 18vw, 240px); }
+  .maxim::before { content: ''; position: absolute; inset: 0; background: rgba(8,9,8,.62); }
+  .maxim .wrap { position: relative; }
+  .maxim blockquote { margin: 16px 0 36px; font: 800 clamp(40px, 6vw, 96px)/.95 var(--display); text-transform: uppercase; max-width: 16ch; }
+  @media (max-width: 860px) { .maxim { background-attachment: scroll; } }
+
+  .sim-band .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  .sim-band h2 { font-size: clamp(40px, 5vw, 76px); margin: 12px 0 18px; }
+  .sim-band .lead { margin-bottom: 30px; }
+  .sim-mock { background: var(--char); border-top: 4px solid var(--red); padding: 28px; font-variant-numeric: tabular-nums; }
+  .sim-mock .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--stone); }
+  .sim-mock .row b { color: var(--bone); font-weight: 600; }
+  .sim-mock .total { border: 0; padding-top: 20px; color: var(--bone); font: 700 24px var(--display); text-transform: uppercase; letter-spacing: .06em; }
+  .sim-mock .total b { color: var(--red-hi); font-weight: 800; }
+  @media (max-width: 860px) { .sim-band .wrap { grid-template-columns: 1fr; } }
+
+  .videos { background: var(--char); }
+
+  .faces { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .faces figure { position: relative; margin: 0; aspect-ratio: 3 / 4; overflow: hidden; background: var(--char); }
+  .faces img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter .4s, transform .6s; }
+  .faces figure:hover img { filter: none; transform: scale(1.04); }
+  .faces figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+  .faces b { display: block; font: 700 22px/1 var(--display); text-transform: uppercase; }
+  .faces span { font-size: 14px; color: rgba(242,239,232,.8); }
+
+  .cta { text-align: center; background: var(--red); }
+  .cta h2 { font-size: clamp(44px, 7vw, 108px); }
+  .cta .lead { margin: 18px auto 30px; color: rgba(255,255,255,.88); }
+  .cta .btn { background: #fff; color: var(--black); border-color: #fff; }
+  .cta .btn:hover { background: var(--black); color: #fff; border-color: var(--black); }
+</style>
+
+<script>
+  const iframe = document.getElementById('hero-video') as HTMLIFrameElement;
+  // Dejamos ver la miniatura mientras YouTube arranca y luego fundimos el vídeo.
+  iframe.addEventListener('load', () => setTimeout(() => iframe.classList.add('on'), 1800));
+  const btn = document.getElementById('sound')!;
+  const cmd = (func: string) => iframe.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args: [] }), '*');
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    cmd(on ? 'unMute' : 'mute');
+    if (on) cmd('playVideo');
+    btn.setAttribute('aria-pressed', String(on));
+    btn.querySelector('span')!.textContent = on ? 'Silenciar' : 'Activar sonido';
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { categories } from '../../data/site.js';
+import { countries, fromPrice, money } from '../../data/programs.js';
+import { u } from '../../lib/url.js';
+
+export function getStaticPaths() {
+  return categories
+    .filter((c) => countries(c.slug).length)
+    .map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props;
+const list = countries(cat.slug);
+const cheapest = (c) => {
+  const ps = c.programs.map(fromPrice).filter(Boolean);
+  return ps.length ? ps.reduce((a, b) => (a.amount <= b.amount ? a : b)) : null;
+};
+---
+<Layout title={cat.title} description={cat.tagline} image={list[0].hero} transparentHeader>
+  <div class="page-hero">
+    <img src={list[0].hero} alt="" />
+    <div class="wrap">
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>{cat.title}</span></div>
+      <h1>{cat.title}</h1>
+      <p class="lead" style="color:rgba(242,239,232,.85)">{cat.tagline}</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">Países</div><h2>Elige destino</h2></div></div>
+      <div class="grid-3">
+        {list.map((c) => {
+          const from = cheapest(c);
+          return (
+            <a class="photo-card" href={u(`${cat.slug}/${c.slug}`)}>
+              <img src={c.hero} alt={c.name} loading="lazy" />
+              <div class="info">
+                <div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div>
+                <h3>{c.name}</h3>
+                <div class="meta">{c.programs.map((p) => p.title).join(' · ')}</div>
+                {from && <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div>}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Layout>

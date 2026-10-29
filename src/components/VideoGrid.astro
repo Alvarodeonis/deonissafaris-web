@@ -1,0 +1,51 @@
+---
+// Miniaturas de YouTube que abren el vídeo en un reproductor a pantalla completa.
+const { videos } = Astro.props;
+---
+<div class="vgrid">
+  {videos.map((v, i) => (
+    <button type="button" class:list={['vthumb', { big: i === 0 }]} data-yt={v.id}>
+      <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" />
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
+      <span class="vtitle">{v.title}</span>
+    </button>
+  ))}
+</div>
+<div class="vmodal" id="vmodal" hidden>
+  <button type="button" class="vclose" id="vclose" aria-label="Cerrar vídeo">×</button>
+  <div class="vframe" id="vframe"></div>
+</div>
+
+<style>
+  .vgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .vthumb { position: relative; aspect-ratio: 16 / 9; border: 0; padding: 0; cursor: pointer; overflow: hidden; background: var(--char); color: #fff; text-align: left; }
+  .vthumb.big { grid-column: span 2; grid-row: span 2; }
+  .vthumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s, filter .3s; filter: brightness(.75); }
+  .vthumb:hover img { transform: scale(1.05); filter: brightness(.95); }
+  .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: var(--red); display: grid; place-items: center; transition: transform .3s; }
+  .vthumb.big .play { width: 92px; height: 92px; }
+  .vthumb:hover .play { transform: scale(1.1); }
+  .play svg { width: 45%; fill: #fff; margin-left: 4px; }
+  .vtitle { position: absolute; left: 14px; bottom: 10px; right: 14px; font: 700 18px/1.1 var(--display); text-transform: uppercase; letter-spacing: .06em; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+  .vthumb.big .vtitle { font-size: 30px; left: 22px; bottom: 18px; }
+  .vmodal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.92); display: grid; place-items: center; padding: 20px; }
+  .vmodal[hidden] { display: none; }
+  .vframe { width: min(1200px, 100%); aspect-ratio: 16 / 9; }
+  .vframe iframe { width: 100%; height: 100%; border: 0; }
+  .vclose { position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 44px; cursor: pointer; line-height: 1; }
+  @media (max-width: 860px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .vgrid { grid-template-columns: 1fr; } .vthumb.big { grid-column: auto; grid-row: auto; } }
+</style>
+
+<script>
+  const modal = document.getElementById('vmodal');
+  const frame = document.getElementById('vframe');
+  const close = () => { modal.hidden = true; frame.innerHTML = ''; };
+  document.querySelectorAll('[data-yt]').forEach((b) => b.addEventListener('click', () => {
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="Vídeo"></iframe>`;
+    modal.hidden = false;
+  }));
+  document.getElementById('vclose').addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

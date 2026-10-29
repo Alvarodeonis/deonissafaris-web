@@ -1,0 +1,29 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ProgramCard from '../../../components/ProgramCard.astro';
+import { categories } from '../../../data/site.js';
+import { countries } from '../../../data/programs.js';
+import { u } from '../../../lib/url.js';
+
+export function getStaticPaths() {
+  return categories.flatMap((cat) =>
+    countries(cat.slug).map((c) => ({ params: { category: cat.slug, country: c.slug }, props: { cat, c } })),
+  );
+}
+const { cat, c } = Astro.props;
+---
+<Layout title={`Caza en ${c.name}`} description={`Programas de caza en ${c.name}: ${c.programs.map((p) => p.title).join(', ')}.`} image={c.hero} transparentHeader>
+  <div class="page-hero">
+    <img src={c.hero} alt="" />
+    <div class="wrap">
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>
+      <h1>{cat.slug === 'caza-con-arco' ? `Arco en ${c.name}` : `Caza en ${c.name}`}</h1>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">Temporada 2026</div><h2>Programas</h2></div></div>
+      <div class="grid-3">{c.programs.map((p) => <ProgramCard p={p} />)}</div>
+    </div>
+  </section>
+</Layout>

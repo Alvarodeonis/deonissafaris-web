@@ -1,0 +1,270 @@
+---
+// Simulador de presupuesto. La configuración viene de `simulator` en data/programs.js.
+import { contact } from '../data/site.js';
+const { p } = Astro.props;
+const s = p.simulator;
+const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contact.whatsapp, email: contact.email };
+---
+<section class="sim" id="simulador">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Simulador</div><h2>Calcula tu presupuesto</h2></div>
+      <p class="lead">Elige paquete, cazadores, acompañantes y animales. El total es orientativo y no incluye vuelos.</p>
+    </div>
+    <div class="sim-grid" data-sim={JSON.stringify(config)}>
+      <div class="sim-form">
+        <fieldset>
+          <legend>1 · Paquete</legend>
+          <div class="pkgs">
+            {s.packages.map((k, i) => (
+              <label class="pkg">
+                <input type="radio" name="pkg" value={k.id} checked={i === 0} />
+                <span class="pkg-body"><span class="pkg-label">{k.label}</span><span class="pkg-price" data-pkg-price={k.id}></span></span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2 · Grupo</legend>
+          <div class="stepper-row">
+            <span>Cazadores<small id="hunters-hint"></small></span>
+            <div class="stepper" data-step="hunters">
+              <button type="button" data-d="-1" aria-label="Menos cazadores">−</button>
+              <output id="hunters">{s.hunters.min}</output>
+              <button type="button" data-d="1" aria-label="Más cazadores">+</button>
+            </div>
+          </div>
+          {s.companions.map((c, i) => (
+            <div class="stepper-row">
+              <span>{c.label}<small>{c.per === 'day' ? 'por día' : 'por viaje'}</small></span>
+              <div class="stepper" data-step={`comp-${i}`}>
+                <button type="button" data-d="-1" aria-label="Menos acompañantes">−</button>
+                <output>0</output>
+                <button type="button" data-d="1" aria-label="Más acompañantes">+</button>
+              </div>
+            </div>
+          ))}
+        </fieldset>
+
+        {s.trophies.length > 0 && (
+          <fieldset>
+            <legend>3 · Animales adicionales</legend>
+            <p class="hint">Tasas de abate por animal, además de los incluidos en el paquete.</p>
+            <div class="trophies">
+              {s.trophies.map((t, i) => (
+                <div class="trophy" data-trophy={i}>
+                  <span class="t-name">{t.name}{t.cites && <em>CITES</em>}<small class="t-min">{t.minDays ? `mín. ${t.minDays} días` : ''}</small></span>
+                  <span class="t-price"></span>
+                  <div class="stepper sm" data-step={`t-${i}`}>
+                    <button type="button" data-d="-1" aria-label={`Quitar ${t.name}`}>−</button>
+                    <output>{s.defaultTrophies?.[t.name] ?? 0}</output>
+                    <button type="button" data-d="1" aria-label={`Añadir ${t.name}`}>+</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+        )}
+
+        {s.fees.some((f) => f.optional) && (
+          <fieldset>
+            <legend>{s.trophies.length ? '4' : '3'} · Extras</legend>
+            {s.fees.filter((f) => f.optional).map((f) => (
+              <label class="check"><input type="checkbox" data-fee={f.id} checked={f.checked} /><span>{f.label}</span><span class="f-price" data-fee-price={f.id}></span></label>
+            ))}
+          </fieldset>
+        )}
+      </div>
+
+      <aside class="sim-sum">
+        <div class="sum-inner">
+          <div class="eyebrow">Tu presupuesto</div>
+          <h3>{p.countryName}</h3>
+          <ul id="lines"></ul>
+          <div class="total"><span>Total estimado</span><b id="total"></b></div>
+          <div class="per" id="per"></div>
+          {s.notes?.length > 0 && <ul class="notes">{s.notes.map((n) => <li>{n}</li>)}</ul>}
+          <a class="btn wa" id="send-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+          <a class="btn outline" id="send-mail" href="#">Pedir por email</a>
+          <p class="disclaimer">Estimación orientativa según las tarifas publicadas. No incluye vuelos, hoteles fuera del programa, propinas no indicadas ni envío de trofeos a España. Precios sujetos a cambios y a disponibilidad de cupos.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sim { background: var(--char); }
+  .sim-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+  @media (max-width: 960px) { .sim-grid { grid-template-columns: 1fr; } }
+  fieldset { border: 0; margin: 0 0 34px; padding: 0; }
+  legend { font: 700 22px var(--display); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; padding: 0; }
+  .hint { color: var(--stone); font-size: 15px; margin: -6px 0 14px; }
+  .pkgs { display: grid; gap: 10px; }
+  .pkg { cursor: pointer; }
+  .pkg input { position: absolute; opacity: 0; }
+  .pkg-body { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 18px; background: var(--char-2); border: 2px solid transparent; transition: border-color .2s; }
+  .pkg input:checked + .pkg-body { border-color: var(--red); }
+  .pkg input:focus-visible + .pkg-body { outline: 2px solid var(--red-hi); outline-offset: 2px; }
+  .pkg-label { font-weight: 500; }
+  .pkg-price { font: 700 20px var(--display); white-space: nowrap; color: var(--bone); }
+  .stepper-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; }
+  .stepper-row small, .t-min { display: block; color: var(--stone); font-size: 13px; }
+  .stepper { display: flex; align-items: center; border: 1px solid var(--line); }
+  .stepper button { width: 42px; height: 42px; background: none; border: 0; color: var(--bone); font-size: 22px; cursor: pointer; }
+  .stepper button:hover { background: var(--red); }
+  .stepper button:disabled { opacity: .3; cursor: not-allowed; background: none; }
+  .stepper output { min-width: 34px; text-align: center; font: 700 20px var(--display); font-variant-numeric: tabular-nums; }
+  .stepper.sm button { width: 34px; height: 34px; font-size: 18px; }
+  .trophies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  @media (max-width: 640px) { .trophies { grid-template-columns: 1fr; } }
+  .trophy { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 10px 12px 10px 16px; background: var(--char-2); }
+  .trophy.off { opacity: .4; }
+  .trophy.active { box-shadow: inset 3px 0 0 var(--red); }
+  .t-name em { font-style: normal; font: 700 11px var(--display); letter-spacing: .1em; color: var(--red-hi); border: 1px solid var(--red-hi); padding: 0 4px; margin-left: 8px; vertical-align: 2px; }
+  .t-price { font-variant-numeric: tabular-nums; color: var(--stone); font-size: 15px; white-space: nowrap; }
+  .check { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; cursor: pointer; }
+  .check input { width: 20px; height: 20px; accent-color: var(--red); }
+  .f-price { color: var(--stone); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  .sim-sum { position: sticky; top: 100px; }
+  .sum-inner { background: var(--black); border-top: 4px solid var(--red); padding: 28px; }
+  .sum-inner h3 { font-size: 40px; margin: 6px 0 18px; }
+  #lines { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
+  #lines :global(li) { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--stone); }
+  #lines :global(li b) { color: var(--bone); font-weight: 600; white-space: nowrap; }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 18px; font: 700 22px var(--display); text-transform: uppercase; letter-spacing: .06em; }
+  .total b { font: 800 clamp(34px, 3.4vw, 46px) var(--display); color: var(--red-hi); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .per { color: var(--stone); font-size: 14px; text-align: right; margin-bottom: 18px; }
+  .notes { color: var(--stone); font-size: 14px; padding-left: 18px; margin: 0 0 20px; }
+  .sum-inner .btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+  .btn.wa { background: #25d366; border-color: #25d366; color: #0d0e0d; }
+  .btn.wa:hover { background: #1fb457; border-color: #1fb457; }
+  .disclaimer { font-size: 12px; color: var(--stone); margin: 10px 0 0; line-height: 1.5; }
+</style>
+
+<script>
+  type Fee = { id: string; label: string; price: number; per: string; optional?: boolean; checked?: boolean };
+  type Pkg = { id: string; label: string; days: number; price?: number; tiers?: { min: number; max: number; price: number }[]; includedTrophies?: number; hunterStep?: number; feeOverrides?: Record<string, number> };
+
+  const root = document.querySelector<HTMLElement>('[data-sim]')!;
+  const cfg = JSON.parse(root.dataset.sim!);
+  const fmt = (n: number) => {
+    const v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return cfg.currency === 'USD' ? `US$ ${v}` : `${v} €`;
+  };
+  const state = {
+    pkg: cfg.packages[0].id as string,
+    hunters: cfg.hunters.min as number,
+    comps: cfg.companions.map(() => 0) as number[],
+    trophies: cfg.trophies.map((t: any) => cfg.defaultTrophies?.[t.name] ?? 0) as number[],
+    fees: Object.fromEntries(cfg.fees.filter((f: Fee) => f.optional).map((f: Fee) => [f.id, !!f.checked])) as Record<string, boolean>,
+  };
+
+  const pkg = (): Pkg => cfg.packages.find((k: Pkg) => k.id === state.pkg);
+  const unitPrice = (k: Pkg, h: number) => {
+    if (!k.tiers) return k.price!;
+    const t = k.tiers.find((t) => h >= t.min && h <= t.max) ?? k.tiers[k.tiers.length - 1];
+    return t.price;
+  };
+  const step = () => pkg().hunterStep ?? 1;
+
+  function compute() {
+    const k = pkg();
+    const h = state.hunters;
+    const lines: [string, number][] = [];
+    const price = unitPrice(k, h);
+    lines.push([`${k.label} · ${h} ${h === 1 ? 'cazador' : 'cazadores'} × ${fmt(price)}`, price * h]);
+    cfg.companions.forEach((c: any, i: number) => {
+      const n = state.comps[i];
+      if (!n) return;
+      const mult = c.per === 'day' ? k.days : 1;
+      lines.push([`${c.label} × ${n}${c.per === 'day' ? ` · ${k.days} días` : ''}`, c.price * mult * n]);
+    });
+    let extraTrophies = 0, cites = 0;
+    cfg.trophies.forEach((t: any, i: number) => {
+      const n = state.trophies[i];
+      if (!n || (t.minDays && k.days < t.minDays)) return;
+      extraTrophies += n;
+      if (t.cites) cites += n;
+      lines.push([`${t.name}${n > 1 ? ` × ${n}` : ''}`, t.price * n]);
+    });
+    const trophyCount = extraTrophies + (k.includedTrophies ?? 0) * h;
+    cfg.fees.forEach((f: Fee) => {
+      if (f.optional && !state.fees[f.id]) return;
+      const price = k.feeOverrides?.[f.id] ?? f.price;
+      const qty = { hunter: h, group: 1, trophy: trophyCount, cites, single: h === 1 ? 1 : 0 }[f.per] ?? 0;
+      if (!qty) return;
+      lines.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty]);
+    });
+    return { lines, total: lines.reduce((a, [, v]) => a + v, 0) };
+  }
+
+  function render() {
+    const k = pkg();
+    cfg.packages.forEach((p: Pkg) => {
+      const el = root.querySelector(`[data-pkg-price="${p.id}"]`)!;
+      el.textContent = p.tiers ? `${fmt(unitPrice(p, state.hunters))} / cazador` : `${fmt(p.price!)} / cazador`;
+    });
+    const hint = root.querySelector('#hunters-hint')!;
+    hint.textContent = step() === 2 ? '2×1: dos cazadores por profesional' : `de ${cfg.hunters.min} a ${cfg.hunters.max}`;
+    root.querySelector('#hunters')!.textContent = String(state.hunters);
+    root.querySelectorAll<HTMLElement>('.stepper').forEach((st) => {
+      const key = st.dataset.step!;
+      const [val, min, max] = key === 'hunters'
+        ? [state.hunters, cfg.hunters.min, cfg.hunters.max]
+        : key.startsWith('comp-') ? [state.comps[+key.slice(5)], 0, 10] : [state.trophies[+key.slice(2)], 0, 5];
+      st.querySelector('output')!.textContent = String(val);
+      (st.querySelector('[data-d="-1"]') as HTMLButtonElement).disabled = val <= min;
+      (st.querySelector('[data-d="1"]') as HTMLButtonElement).disabled = val >= max;
+    });
+    cfg.trophies.forEach((t: any, i: number) => {
+      const row = root.querySelector<HTMLElement>(`[data-trophy="${i}"]`)!;
+      const off = !!t.minDays && k.days < t.minDays;
+      row.classList.toggle('off', off);
+      row.classList.toggle('active', !off && state.trophies[i] > 0);
+      row.querySelector('.t-price')!.textContent = fmt(t.price);
+      row.querySelectorAll('button').forEach((b) => { if (off) b.disabled = true; });
+    });
+    cfg.fees.filter((f: Fee) => f.optional).forEach((f: Fee) => {
+      const el = root.querySelector(`[data-fee-price="${f.id}"]`);
+      if (el) el.textContent = `${fmt(f.price)}${f.per === 'hunter' ? ' / cazador' : ''}`;
+    });
+
+    const { lines, total } = compute();
+    root.querySelector('#lines')!.innerHTML = lines.map(([l, v]) => `<li><span>${l}</span><b>${fmt(v)}</b></li>`).join('');
+    root.querySelector('#total')!.textContent = fmt(total);
+    root.querySelector('#per')!.textContent = state.hunters > 1 ? `${fmt(total / state.hunters)} por cazador` : '';
+
+    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), '', `Total estimado: ${fmt(total)}`, '', '¿Me podéis confirmar fechas y disponibilidad?'].join('\n');
+    (root.querySelector('#send-wa') as HTMLAnchorElement).href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`;
+    (root.querySelector('#send-mail') as HTMLAnchorElement).href = `mailto:${cfg.email}?subject=${encodeURIComponent(`Presupuesto ${cfg.title}`)}&body=${encodeURIComponent(msg)}`;
+  }
+
+  root.querySelectorAll<HTMLInputElement>('input[name="pkg"]').forEach((r) => r.addEventListener('change', () => {
+    state.pkg = r.value;
+    if (state.hunters % step()) state.hunters = Math.min(cfg.hunters.max, state.hunters + 1);
+    render();
+  }));
+  root.querySelectorAll<HTMLElement>('.stepper').forEach((st) => st.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest('button');
+    if (!b) return;
+    const d = +b.dataset.d!;
+    const key = st.dataset.step!;
+    if (key === 'hunters') {
+      const n = state.hunters + d * step();
+      state.hunters = Math.max(cfg.hunters.min, Math.min(cfg.hunters.max, n));
+      if (state.hunters % step()) state.hunters += 1;
+    } else if (key.startsWith('comp-')) {
+      const i = +key.slice(5);
+      state.comps[i] = Math.max(0, Math.min(10, state.comps[i] + d));
+    } else {
+      const i = +key.slice(2);
+      state.trophies[i] = Math.max(0, Math.min(5, state.trophies[i] + d));
+    }
+    render();
+  }));
+  root.querySelectorAll<HTMLInputElement>('[data-fee]').forEach((c) => c.addEventListener('change', () => { state.fees[c.dataset.fee!] = c.checked; render(); }));
+  render();
+</script>

@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contact, team } from '../data/site.js';
+const lead = team.filter((t) => t.phone);
+---
+<Layout title="Contacto" description="Cuéntanos qué quieres cazar y te preparamos una propuesta a medida.">
+  <section style="padding-top:150px">
+    <div class="wrap ct">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h1>Cuéntanos qué quieres cazar</h1>
+        <p class="lead">Te preparamos una propuesta a medida con destino, fechas, presupuesto y trámites.</p>
+        <div class="people">
+          {lead.map((t) => <div><b>{t.name}</b><span>{t.phone}</span><span>{t.email}</span></div>)}
+        </div>
+        <div class="offices">
+          {contact.offices.map((o) => <div><b>{o.city}</b><span>{o.phone}</span><span>{o.email}</span></div>)}
+        </div>
+        <p class="addr">{contact.address}</p>
+      </div>
+      <form id="contact-form">
+        <label>Nombre<input name="nombre" required autocomplete="name" /></label>
+        <label>Teléfono<input name="telefono" autocomplete="tel" /></label>
+        <label class="full">Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Destino<select name="destino"><option>África</option><option>Asia</option><option>Europa</option><option>América</option><option>Oceanía</option><option>Aún no lo sé</option></select></label>
+        <label>Modalidad<select name="modalidad"><option>Rifle</option><option>Arco</option><option>Pesca</option><option>Fotográfico</option></select></label>
+        <label>Fechas aproximadas<input name="fechas" /></label>
+        <label>Cazadores y acompañantes<input name="grupo" /></label>
+        <label class="full">¿Qué te gustaría cazar?<textarea name="mensaje" rows="5"></textarea></label>
+        <label class="full chk"><input type="checkbox" required /> Acepto la política de privacidad</label>
+        <button class="btn full" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+<style>
+  .ct { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; }
+  h1 { font-size: clamp(48px, 6vw, 92px); margin: 12px 0 20px; }
+  .people, .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+  .people div, .offices div { display: flex; flex-direction: column; border-top: 2px solid var(--red); padding-top: 12px; color: var(--stone); font-size: 15px; }
+  .people b, .offices b { font: 700 20px var(--display); text-transform: uppercase; color: var(--bone); }
+  .addr { color: var(--stone); margin-top: 24px; }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: var(--char); padding: clamp(20px, 3vw, 40px); align-self: start; }
+  label { display: flex; flex-direction: column; gap: 6px; font: 600 14px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
+  .full { grid-column: 1 / -1; }
+  input, select, textarea { font: 16px var(--body); color: var(--bone); background: var(--black); border: 1px solid var(--line); padding: 13px; min-width: 0; }
+  .chk { flex-direction: row; align-items: center; gap: 10px; letter-spacing: 0; text-transform: none; font: 15px var(--body); }
+  .chk input { width: 18px; height: 18px; accent-color: var(--red); }
+  @media (max-width: 860px) { .ct, form, .people, .offices { grid-template-columns: 1fr; } }
+</style>
+<script>
+  // Hasta conectar un servicio de formularios, abrimos el correo con los datos rellenos.
+  document.getElementById('contact-form')!.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target as HTMLFormElement);
+    const body = [...f.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+    location.href = `mailto:info@deonissafaris.com?subject=${encodeURIComponent('Solicitud de safari')}&body=${encodeURIComponent(body)}`;
+  });
+</script>

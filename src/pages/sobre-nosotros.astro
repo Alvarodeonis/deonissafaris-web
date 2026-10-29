@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { team, contact } from '../data/site.js';
+import { programs } from '../data/programs.js';
+---
+<Layout title="Sobre nosotros" description="Un equipo de cazadores con más de 30 años organizando safaris de caza internacional." transparentHeader>
+  <div class="page-hero">
+    <img src={programs[3].gallery[2]} alt="" />
+    <div class="wrap">
+      <div class="eyebrow">Sobre nosotros</div>
+      <h1>Cazadores que organizan cacerías</h1>
+    </div>
+  </div>
+  <section>
+    <div class="wrap about">
+      <p class="big">Organizamos safaris de caza en cinco continentes con outfitters de confianza. Todo el equipo es cazador y tenemos una regla: nunca enviamos a nadie a un destino donde alguno de nosotros no haya cazado antes.</p>
+      <p class="lead">Así podemos recomendarte con honestidad qué destino encaja con tu forma de cazar, tu calendario y tu presupuesto, y acompañarte desde la primera llamada hasta que el trofeo llega a casa.</p>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="people">
+        {team.map((t) => (
+          <article>
+            <img src={t.photo} alt={t.name} loading="lazy" />
+            <h3>{t.name}</h3>
+            <p>{t.role}</p>
+            <div class="langs">Idiomas: ES · {t.langs.replace('ES', '').trim() || '—'}</div>
+            {t.phone && <div class="contact">{t.phone}<br />{t.email}</div>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+<style>
+  .about { display: grid; gap: 24px; max-width: 980px; }
+  .big { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.3; margin: 0; }
+  .people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 20px; }
+  .people img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; margin-bottom: 14px; background: var(--char); }
+  .people h3 { font-size: 28px; }
+  .people p { margin: 4px 0; color: var(--stone); }
+  .langs { font: 600 13px var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); }
+  .contact { font-size: 14px; color: var(--stone); margin-top: 8px; }
+  @media (max-width: 960px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

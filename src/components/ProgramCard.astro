@@ -1,0 +1,16 @@
+---
+import { programUrl, fromPrice, money } from '../data/programs.js';
+import { u } from '../lib/url.js';
+const { p } = Astro.props;
+const from = fromPrice(p);
+---
+<a class="photo-card" href={u(programUrl(p))}>
+  <img src={p.hero} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
+  {p.tag && <span class="tag">{p.tag}</span>}
+  <div class="info">
+    <div class="eyebrow">{p.countryName}</div>
+    <h3>{p.title}</h3>
+    <div class="meta">{p.duration} · {p.season}</div>
+    {from && <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div>}
+  </div>
+</a>
