@@ -4,6 +4,12 @@ import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
 
 const { title, description = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false } = Astro.props;
+const links = [
+  ['Safari Club International', 'https://safariclub.org/'],
+  ['Federación Española de Caza', 'https://www.fecaza.com/'],
+  ['Ministerio de Asuntos Exteriores', 'https://www.exteriores.gob.es/'],
+  ['Convertidor de divisas', 'https://www.xe.com/es/'],
+];
 const fullTitle = title ? `${title} · de Onís Safaris` : 'de Onís Safaris · Safaris de caza internacional';
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, me gustaría información sobre un safari de caza.')}`;
 ---
@@ -25,7 +31,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
 <body>
   <header class:list={['site-header', { always: !transparentHeader }]} id="header">
     <div class="wrap">
-      <a class="logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris · Born wild, free forever" width="64" height="71" /></a>
+      <a class="logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris · Born wild, free forever" width="112" height="124" /></a>
       <button class="menu-toggle" type="button" id="menu-open" aria-controls="nav" aria-expanded="false">Menú</button>
       <nav class="main-nav" id="nav" aria-label="Principal">
         <button class="menu-toggle menu-close" type="button" id="menu-close">Cerrar</button>
@@ -57,6 +63,10 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
         <div>
           <h4>Destinos</h4>
           <ul>{categories.map((c) => <li><a href={u(c.slug)}>{c.title}</a></li>)}</ul>
+        </div>
+        <div>
+          <h4>Links de interés</h4>
+          <ul>{links.map(([n, h]) => <li><a href={h} target="_blank" rel="noopener">{n}</a></li>)}</ul>
         </div>
         <div>
           <h4>Oficinas</h4>
