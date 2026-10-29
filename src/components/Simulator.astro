@@ -9,7 +9,7 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
   <div class="wrap">
     <div class="sec-head">
       <div><div class="eyebrow">Simulador</div><h2>Calcula tu presupuesto</h2></div>
-      <p class="lead">Elige paquete, cazadores, acompañantes y animales. El total es orientativo y no incluye vuelos.</p>
+      <p class="lead">Elige paquete, cazadores, acompañantes y animales. El total es orientativo, puede contener errores y debes confirmarlo con nosotros.</p>
     </div>
     <div class="sim-grid" data-sim={JSON.stringify(config)}>
       <div class="sim-form">
@@ -81,6 +81,7 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
         <div class="sum-inner">
           <div class="eyebrow">Tu presupuesto</div>
           <h3>{p.countryName}</h3>
+          <p class="warn">Este cálculo es orientativo y puede contener errores. <b>Confirma siempre el precio final con nosotros</b> antes de reservar.</p>
           <ul id="lines"></ul>
           <div class="total"><span>Total estimado</span><b id="total"></b></div>
           <div class="per" id="per"></div>
@@ -141,6 +142,8 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
   .sum-inner .btn { width: 100%; justify-content: center; margin-bottom: 10px; }
   .btn.wa { background: #25d366; border-color: #25d366; color: #0d0e0d; }
   .btn.wa:hover { background: #1fb457; border-color: #1fb457; }
+  .warn { margin: 0 0 14px; padding: 12px 14px; border: 1px solid rgba(216,30,42,.5); background: rgba(191,18,29,.1); font-size: 14px; line-height: 1.5; color: var(--bone); }
+  .warn b { font-weight: 500; }
   .disclaimer { font-size: 12px; color: var(--stone); margin: 10px 0 0; line-height: 1.5; }
 </style>
 
@@ -237,7 +240,7 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
     root.querySelector('#total')!.textContent = fmt(total);
     root.querySelector('#per')!.textContent = state.hunters > 1 ? `${fmt(total / state.hunters)} por cazador` : '';
 
-    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), '', `Total estimado: ${fmt(total)}`, '', '¿Me podéis confirmar fechas y disponibilidad?'].join('\n');
+    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), '', `Total estimado (simulador web): ${fmt(total)}`, '', '¿Me podéis confirmar el precio, fechas y disponibilidad?'].join('\n');
     (root.querySelector('#send-wa') as HTMLAnchorElement).href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`;
     (root.querySelector('#send-mail') as HTMLAnchorElement).href = `mailto:${cfg.email}?subject=${encodeURIComponent(`Presupuesto ${cfg.title}`)}&body=${encodeURIComponent(msg)}`;
   }
