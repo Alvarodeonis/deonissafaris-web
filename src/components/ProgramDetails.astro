@@ -1,0 +1,54 @@
+---
+// Programa completo (tarifas, tasas, incluye, condiciones) de data/details.js.
+const { d, title } = Astro.props;
+---
+<section class="details" id="programa">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Programa completo</div><h2>Tarifas y condiciones</h2></div>
+      {d.pdf && <a class="btn outline" href={d.pdf} target="_blank" rel="noopener">Descargar PDF</a>}
+    </div>
+    <div class="blocks">
+      {d.blocks.map((b) => (
+        <article class:list={['block', { wide: b.table && b.table.head.length > 3 }]}>
+          <h3>{b.title}</h3>
+          {b.text && b.text.map((t) => <p>{t}</p>)}
+          {b.list && <ul>{b.list.map((i) => <li>{i}</li>)}</ul>}
+          {b.rows && (
+            <dl>{b.rows.map(([k, v]) => <div><dt>{k}</dt>{v && <dd>{v}</dd>}</div>)}</dl>
+          )}
+          {b.table && (
+            <div class="tscroll">
+              <table>
+                <thead><tr>{b.table.head.map((h) => <th>{h}</th>)}</tr></thead>
+                <tbody>{b.table.rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .blocks { columns: 2 420px; column-gap: 48px; }
+  .block { break-inside: avoid; margin-bottom: 44px; }
+  .block.wide { column-span: all; }
+  .block h3 { font-size: 30px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--red); }
+  .block p { color: var(--stone); margin: 0 0 12px; }
+  .block ul { margin: 0; padding-left: 18px; color: var(--bone); }
+  .block li { margin-bottom: 6px; }
+  .block li::marker { color: var(--red-hi); }
+  dl { margin: 0; }
+  dl div { display: flex; justify-content: space-between; gap: 20px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  dt { color: var(--bone); }
+  dd { margin: 0; white-space: nowrap; font-weight: 500; text-align: right; }
+  .tscroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 15px; }
+  th { text-align: left; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+  td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line); }
+  td:nth-child(even), th:nth-child(even) { text-align: right; padding-right: 28px; }
+  .block:not(.wide) td:last-child, .block:not(.wide) th:last-child { text-align: right; padding-right: 0; }
+  @media (max-width: 600px) { dd { white-space: normal; } }
+</style>

@@ -2,6 +2,8 @@
 import Layout from '../../../layouts/Layout.astro';
 import Simulator from '../../../components/Simulator.astro';
 import ProgramCard from '../../../components/ProgramCard.astro';
+import ProgramDetails from '../../../components/ProgramDetails.astro';
+import { details } from '../../../data/details.js';
 import { categories } from '../../../data/site.js';
 import { programs, fromPrice, money } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
@@ -15,6 +17,7 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 const cat = categories.find((c) => c.slug === p.category);
 const from = fromPrice(p);
+const d = details[p.slug];
 const related = programs.filter((o) => o !== p && (o.category === p.category || o.featured)).slice(0, 3);
 const facts = [
   ['Temporada', p.season],
@@ -35,6 +38,7 @@ const facts = [
       <div class="hero-row">
         {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / cazador</div>}
         <a class="btn" href="#simulador">Calcular presupuesto</a>
+        {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
       </div>
     </div>
   </div>
@@ -54,9 +58,11 @@ const facts = [
     </div>
   )}
 
+  {d && <ProgramDetails d={d} title={p.title} />}
+
   {p.simulator && <Simulator p={p} />}
 
-  <section>
+  {!d && <section>
     <div class="wrap inc">
       <div>
         <h2>Incluye</h2>
@@ -67,7 +73,7 @@ const facts = [
         <ul class="no">{p.excludes.map((i) => <li>{i}</li>)}</ul>
       </div>
     </div>
-  </section>
+  </section>}
 
   {p.video && (
     <section class="video-sec">
