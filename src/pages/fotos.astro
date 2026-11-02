@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { reportajes } from '../data/media.js';
+import { galleries } from '../data/galleries.js';
+import { programs, programUrl } from '../data/programs.js';
+import { u } from '../lib/url.js';
+
+const albums = [
+  ...reportajes.map((r) => ({ id: r.slug, title: r.title, group: 'Reportajes', photos: r.photos })),
+  ...programs.filter((p) => galleries[p.slug]?.length).map((p) => ({ id: p.slug, title: `${p.countryName} · ${p.title}`, group: 'Programas', photos: galleries[p.slug], link: u(programUrl(p)) })),
+];
+const total = albums.reduce((n, a) => n + a.photos.length, 0);
+---
+<Layout title="Fotos" description="Fotos de nuestras cacerías en África, Asia, Europa, América y Oceanía.">
+  <section class="head">
+    <div class="wrap">
+      <div class="eyebrow">Galería</div>
+      <h1>Fotos</h1>
+      <p class="lead">{total} fotos de nuestras cacerías. Elige un álbum y pulsa cualquier foto para verla a pantalla completa.</p>
+      <div class="chips" role="tablist">
+        {albums.map((a, i) => (
+          <button type="button" role="tab" class:list={['chip', { on: i === 0 }]} data-album={a.id} aria-selected={i === 0 ? 'true' : 'false'}>
+            {a.title} <span>{a.photos.length}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="albums">
+    <div class="wrap">
+      {albums.map((a, i) => (
+        <div class="album" id={`album-${a.id}`} hidden={i !== 0}>
+          {a.link && <a class="prog-link" href={a.link}>Ver el programa →</a>}
+          <div class="masonry">
+            {a.photos.map((src) => (
+              <button type="button" data-lb={a.id} data-src={src}><img src={src} alt={a.title} loading="lazy" /></button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  <Lightbox />
+</Layout>
+
+<script>
+  const chips = document.querySelectorAll<HTMLElement>('.chip');
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((o) => { o.classList.toggle('on', o === c); o.setAttribute('aria-selected', String(o === c)); });
+    document.querySelectorAll<HTMLElement>('.album').forEach((a) => { a.hidden = a.id !== `album-${c.dataset.album}`; });
+  }));
+</script>
+
+<style>
+  .head { padding-block: 150px 24px; }
+  .head h1 { font-size: clamp(44px, 5vw, 72px); margin: 10px 0 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .chip { background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 400 12px var(--label); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: .2s; }
+  .chip span { color: var(--stone); margin-left: 6px; }
+  .chip:hover { border-color: var(--bone); }
+  .chip.on { background: var(--red); border-color: var(--red); }
+  .chip.on span { color: rgba(255,255,255,.8); }
+  .albums { padding-top: 16px; }
+  .prog-link { display: inline-block; margin-bottom: 16px; font: 500 12px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--red-hi); text-decoration: none; }
+  .masonry { columns: 4 260px; column-gap: 6px; }
+  .masonry button { display: block; width: 100%; padding: 0; border: 0; margin: 0 0 6px; background: var(--char); cursor: zoom-in; break-inside: avoid; }
+  .masonry img { display: block; width: 100%; height: auto; transition: opacity .3s; }
+  .masonry button:hover img { opacity: .85; }
+</style>

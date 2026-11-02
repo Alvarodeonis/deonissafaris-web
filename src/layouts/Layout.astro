@@ -36,7 +36,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
       <nav class="main-nav" id="nav" aria-label="Principal">
         <button class="menu-toggle menu-close" type="button" id="menu-close">Cerrar</button>
         <div class="dropdown">
-          <button type="button" aria-haspopup="true">Destinos</button>
+          <button type="button" aria-haspopup="true">Caza con rifle</button>
           <div class="dropdown-menu">
             {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => (
               <a href={u(c.slug)}>{c.title}<small>{c.tagline}</small></a>
@@ -44,8 +44,10 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           </div>
         </div>
         <a href={u('caza-con-arco')}>Caza con arco</a>
-        <a href={u('videos')}>Vídeos</a>
-        <a href={u('sobre-nosotros')}>Nosotros</a>
+        <a href={u('fotos')}>Fotos</a>
+        <a href={u('videos')}>Películas</a>
+        <a href={u('articulos-revistas')}>Artículos / revistas</a>
+        <a href={u('sobre-nosotros')}>Sobre nosotros</a>
         <a class="nav-cta" href={u('contacto')}>Contacto</a>
       </nav>
     </div>
@@ -55,36 +57,49 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
 
   <footer class="site-footer">
     <div class="wrap">
+      <div class="f-top">
+        <a href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
+        <p class="motto">Born wild · Free forever</p>
+        <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años.<br />Solo le llevamos donde nuestro equipo ya ha cazado.</p>
+        <div class="orn" aria-hidden="true"><span></span><i></i><span></span></div>
+      </div>
       <div class="cols">
         <div>
-          <img src={u('logo.png')} alt="" width="88" height="97" style="margin-bottom:18px" />
-          <p>Safaris de caza internacional a medida. Solo te llevamos donde nuestro equipo ya ha cazado.</p>
+          <h4>Caza con rifle</h4>
+          <ul>{categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <li><a href={u(c.slug)}>{c.title.replace('Caza en ', '')}</a></li>)}</ul>
         </div>
         <div>
-          <h4>Destinos</h4>
-          <ul>{categories.map((c) => <li><a href={u(c.slug)}>{c.title}</a></li>)}</ul>
-        </div>
-        <div>
-          <h4>Links de interés</h4>
-          <ul>{links.map(([n, h]) => <li><a href={h} target="_blank" rel="noopener">{n}</a></li>)}</ul>
+          <h4>de Onís Safaris</h4>
+          <ul>
+            <li><a href={u('caza-con-arco')}>Caza con arco</a></li>
+            <li><a href={u('sobre-nosotros')}>Sobre nosotros</a></li>
+            <li><a href={u('fotos')}>Fotos</a></li>
+            <li><a href={u('videos')}>Películas</a></li>
+            <li><a href={u('articulos-revistas')}>Artículos y revistas</a></li>
+          </ul>
         </div>
         <div>
           <h4>Oficinas</h4>
-          <ul>{contact.offices.map((o) => <li><span style="color:var(--bone)">{o.city}</span><br />{o.phone}</li>)}</ul>
+          <ul class="offices">{contact.offices.map((o) => <li><b>{o.city}</b>{o.phone}</li>)}</ul>
         </div>
         <div>
-          <h4>Síguenos</h4>
-          <ul>
-            <li><a href={contact.social.youtube} target="_blank" rel="noopener">YouTube</a></li>
-            <li><a href={contact.social.instagram} target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href={contact.social.facebook} target="_blank" rel="noopener">Facebook</a></li>
-          </ul>
-          <p style="margin-top:18px">{contact.address}<br />{contact.email}</p>
+          <h4>Atención personal</h4>
+          <a class="f-phone" href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+          <p><a href={`mailto:${contact.email}`}>{contact.email}</a><br />{contact.address}</p>
+          <div class="social">
+            <a href={contact.social.youtube} target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3z"/></svg></a>
+            <a href={contact.social.instagram} target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c2.7 0 3 0 4 .1 2.8.1 4.1 1.4 4.2 4.2.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 4.1-4.2 4.2-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.8-.1-4.1-1.5-4.2-4.2-.1-1-.1-1.3-.1-4s0-3 .1-4C3.9 3.7 5.2 2.4 8 2.3c1-.1 1.3-.1 4-.1z"/></svg></a>
+            <a href={contact.social.facebook} target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.5a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.7v8z"/></svg></a>
+          </div>
         </div>
       </div>
+      <div class="links">
+        <span>Enlaces de interés</span>
+        {links.map(([n, h]) => <a href={h} target="_blank" rel="noopener">{n}</a>)}
+      </div>
       <div class="legal">
-        <span>© {new Date().getFullYear()} de Onís Safaris</span>
-        <span><a href={u('aviso-legal')}>Aviso legal</a> · <a href={u('politica-de-privacidad')}>Privacidad</a> · <a href={u('politica-de-cookies')}>Cookies</a></span>
+        <span>© {new Date().getFullYear()} de Onís Safaris · Todos los derechos reservados</span>
+        <span><a href={u('aviso-legal')}>Aviso legal</a><a href={u('politica-de-privacidad')}>Privacidad</a><a href={u('politica-de-cookies')}>Cookies</a></span>
       </div>
     </div>
   </footer>

@@ -1,0 +1,64 @@
+---
+// Visor de fotos a pantalla completa. Cualquier elemento con data-lb="grupo" y data-src="url"
+// lo abre; las fotos del mismo grupo se recorren con flechas, teclado o deslizando el dedo.
+---
+<div class="lb" id="lb" hidden>
+  <button type="button" class="lb-close" id="lb-close" aria-label="Cerrar">×</button>
+  <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Foto anterior">‹</button>
+  <img id="lb-img" alt="" />
+  <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Foto siguiente">›</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<script>
+  const lb = document.getElementById('lb')!;
+  const img = document.getElementById('lb-img') as HTMLImageElement;
+  const count = document.getElementById('lb-count')!;
+  let list: string[] = [];
+  let cur = 0;
+  const show = (i: number) => {
+    cur = (i + list.length) % list.length;
+    img.src = list[cur];
+    count.textContent = `${cur + 1} / ${list.length}`;
+    [cur + 1, cur - 1].forEach((j) => { new Image().src = list[(j + list.length) % list.length]; });
+  };
+  const close = () => { lb.hidden = true; img.removeAttribute('src'); document.body.style.overflow = ''; };
+  document.addEventListener('click', (e) => {
+    const t = (e.target as HTMLElement).closest<HTMLElement>('[data-lb][data-src]');
+    if (!t) return;
+    e.preventDefault();
+    list = [...new Set([...document.querySelectorAll<HTMLElement>(`[data-lb="${t.dataset.lb}"][data-src]`)].map((el) => el.dataset.src!))];
+    show(list.indexOf(t.dataset.src!));
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('lb-close')!.addEventListener('click', close);
+  document.getElementById('lb-prev')!.addEventListener('click', () => show(cur - 1));
+  document.getElementById('lb-next')!.addEventListener('click', () => show(cur + 1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  let x0: number | null = null;
+  lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(dx < 0 ? cur + 1 : cur - 1);
+  });
+</script>
+
+<style>
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.96); display: grid; place-items: center; padding: 56px 72px; }
+  .lb[hidden] { display: none; }
+  .lb img { max-width: 100%; max-height: calc(100vh - 112px); object-fit: contain; user-select: none; }
+  .lb-close { position: absolute; top: 12px; right: 18px; z-index: 2; background: none; border: 0; color: #fff; font-size: 44px; line-height: 1; cursor: pointer; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: rgba(0,0,0,.35); color: #fff; font-size: 34px; line-height: 1; cursor: pointer; display: grid; place-items: center; padding-bottom: 4px; }
+  .lb-nav:hover { background: var(--red); border-color: var(--red); }
+  .lb-prev { left: 14px; } .lb-next { right: 14px; }
+  .lb-count { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font: 500 12px var(--label); letter-spacing: .2em; color: rgba(255,255,255,.75); }
+  @media (max-width: 700px) { .lb { padding: 56px 0 72px; } .lb-nav { top: auto; bottom: 10px; transform: none; width: 44px; height: 44px; } }
+</style>
