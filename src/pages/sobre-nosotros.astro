@@ -5,7 +5,10 @@ import { programs } from '../data/programs.js';
 ---
 <Layout title="Sobre nosotros" description="Un equipo de cazadores con más de 30 años organizando safaris de caza internacional." transparentHeader>
   <div class="page-hero">
-    <img src={programs[3].gallery[2]} alt="" />
+    <div class="hero-media">
+      <img class="bg" src={programs[3].gallery[2]} alt="" aria-hidden="true" />
+      <img class="fg" src={programs[3].gallery[2]} alt="" />
+    </div>
     <div class="wrap">
       <div class="eyebrow">Sobre nosotros</div>
       <h1>Cazadores que organizan cacerías</h1>

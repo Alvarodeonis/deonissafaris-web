@@ -18,7 +18,10 @@ const cheapest = (c) => {
 ---
 <Layout title={cat.title} description={cat.tagline} image={list[0].hero} transparentHeader>
   <div class="page-hero">
-    <img src={list[0].hero} alt="" />
+    <div class="hero-media">
+      <img class="bg" src={list[0].hero} alt="" aria-hidden="true" />
+      <img class="fg" src={list[0].hero} alt="" />
+    </div>
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>{cat.title}</span></div>
       <h1>{cat.title}</h1>

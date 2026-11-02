@@ -14,7 +14,10 @@ const { cat, c } = Astro.props;
 ---
 <Layout title={`Caza en ${c.name}`} description={`Programas de caza en ${c.name}: ${c.programs.map((p) => p.title).join(', ')}.`} image={c.hero} transparentHeader>
   <div class="page-hero">
-    <img src={c.hero} alt="" />
+    <div class="hero-media">
+      <img class="bg" src={c.hero} alt="" aria-hidden="true" />
+      <img class="fg" src={c.hero} alt="" />
+    </div>
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>
       <h1>{cat.slug === 'caza-con-arco' ? `Arco en ${c.name}` : `Caza en ${c.name}`}</h1>

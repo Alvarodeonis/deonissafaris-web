@@ -29,7 +29,10 @@ const facts = [
 ---
 <Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader>
   <div class="page-hero program-hero">
-    <img src={p.hero} alt={`${p.title} en ${p.countryName}`} />
+    <div class="hero-media">
+      <img class="bg" src={p.hero} alt="" aria-hidden="true" />
+      <img class="fg" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
+    </div>
     <div class="wrap">
       <div class="crumbs">
         <a href={u()}>Inicio</a><span>/</span><a href={u(p.category)}>{cat.title}</a><span>/</span><a href={u(`${p.category}/${p.country}`)}>{p.countryName}</a>
@@ -124,7 +127,6 @@ const facts = [
 </script>
 
 <style>
-  .program-hero { min-height: 86vh; }
   .hero-row { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 26px; }
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
   .from b { font: 600 34px var(--display); letter-spacing: 0; color: #fff; margin: 0 6px; text-transform: none; }
@@ -135,8 +137,8 @@ const facts = [
   .facts dt { font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red-hi); padding-top: 3px; }
   .facts dd { margin: 0; }
   @media (max-width: 860px) { .intro .wrap { grid-template-columns: 1fr; gap: 32px; } }
-  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 32vw); gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
-  .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; scroll-snap-align: start; background: var(--char); }
+  .gallery { display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .gallery img { flex: none; height: clamp(240px, 34vw, 420px); width: auto; max-width: none; scroll-snap-align: start; background: var(--char); }
   .inc { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
   .inc h2 { font-size: 36px; margin-bottom: 18px; }
   .inc ul { list-style: none; margin: 0; padding: 0; }
