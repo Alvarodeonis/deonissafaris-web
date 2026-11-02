@@ -5,6 +5,7 @@ import ProgramCard from '../../../components/ProgramCard.astro';
 import ProgramDetails from '../../../components/ProgramDetails.astro';
 import LegalNote from '../../../components/LegalNote.astro';
 import { details } from '../../../data/details.js';
+import { galleries } from '../../../data/galleries.js';
 import { categories } from '../../../data/site.js';
 import { programs, fromPrice, money } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
@@ -19,6 +20,7 @@ const { p } = Astro.props;
 const cat = categories.find((c) => c.slug === p.category);
 const from = fromPrice(p);
 const d = details[p.slug];
+const photos = galleries[p.slug] ?? [p.hero, ...p.gallery];
 const related = programs.filter((o) => o !== p && (o.category === p.category || o.featured)).slice(0, 3);
 const facts = [
   ['Temporada', p.season],
@@ -29,25 +31,32 @@ const facts = [
 ---
 <Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader>
   <div class="page-hero program-hero">
-    <div class="hero-media">
-      <img class="bg" src={p.hero} alt="" aria-hidden="true" />
-      <img class="fg" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
-    </div>
-    <div class="wrap">
-      <div class="crumbs">
-        <a href={u()}>Inicio</a><span>/</span><a href={u(p.category)}>{cat.title}</a><span>/</span><a href={u(`${p.category}/${p.country}`)}>{p.countryName}</a>
-      </div>
-      {p.tag && <span class="tag" style="position:static;display:inline-block;margin-bottom:14px">{p.tag}</span>}
-      <h1>{p.title}</h1>
-      <div class="hero-row">
+    <div class="ph">
+      <button type="button" class="hero-media" data-photo="0" aria-label="Ampliar foto">
+        <img class="bg" src={p.hero} alt="" aria-hidden="true" />
+        <img class="fg" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
+      </button>
+      <div class="wrap ph-info">
+        <div class="crumbs">
+          <a href={u()}>Inicio</a><span>/</span><a href={u(p.category)}>{cat.title}</a><span>/</span><a href={u(`${p.category}/${p.country}`)}>{p.countryName}</a>
+        </div>
+        {p.tag && <span class="tag" style="position:static;display:inline-block;margin-bottom:14px">{p.tag}</span>}
+        <h1>{p.title}</h1>
         {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / cazador</div>}
-        <a class="btn" href="#simulador">Calcular presupuesto</a>
-        {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
-        {p.video && (
-          <button type="button" class="hero-play" data-yt={p.video}>
-            <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Ver vídeo
+        <div class="hero-btns">
+          <a class="btn" href="#simulador">Calcular presupuesto</a>
+          {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
+        </div>
+        <div class="hero-media-btns">
+          {p.video && (
+            <button type="button" class="hero-play" data-yt={p.video}>
+              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeo
+            </button>
+          )}
+          <button type="button" class="hero-play" data-photo="0">
+            <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM6 17h12l-4-5-3 4-2-2z" /></svg></span>Fotos ({photos.length})
           </button>
-        )}
+        </div>
       </div>
     </div>
   </div>
@@ -61,9 +70,13 @@ const facts = [
     </div>
   </section>
 
-  {p.gallery.length > 0 && (
-    <div class="gallery">
-      {p.gallery.map((g) => <img src={g} alt={`${p.title}, ${p.countryName}`} loading="lazy" />)}
+  {photos.length > 1 && (
+    <div class="gallery" id="fotos">
+      {photos.slice(1).map((g, i) => (
+        <button type="button" data-photo={i + 1} aria-label={`Ampliar foto ${i + 2} de ${photos.length}`}>
+          <img src={g} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
+        </button>
+      ))}
     </div>
   )}
 
@@ -83,6 +96,8 @@ const facts = [
   {d && <ProgramDetails d={d} title={p.title} />}
 
   {p.simulator && <Simulator p={p} />}
+
+  <LegalNote />
 
   {!d && <section>
     <div class="wrap inc">
@@ -105,11 +120,17 @@ const facts = [
     </div>
   </section>
 
-  <LegalNote />
-
   <div class="vmodal" id="vmodal" hidden>
     <button type="button" class="vclose" id="vclose" aria-label="Cerrar vídeo">×</button>
     <div class="vframe" id="vframe"></div>
+  </div>
+
+  <div class="pmodal" id="pmodal" hidden data-photos={JSON.stringify(photos)}>
+    <button type="button" class="vclose" id="pclose" aria-label="Cerrar fotos">×</button>
+    <button type="button" class="pnav prev" id="pprev" aria-label="Foto anterior">‹</button>
+    <img id="pimg" alt={`${p.title}, ${p.countryName}`} />
+    <button type="button" class="pnav next" id="pnext" aria-label="Foto siguiente">›</button>
+    <div class="pcount" id="pcount"></div>
   </div>
 </Layout>
 
@@ -124,10 +145,52 @@ const facts = [
   document.getElementById('vclose')!.addEventListener('click', close);
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  const pm = document.getElementById('pmodal')!;
+  const pimg = document.getElementById('pimg') as HTMLImageElement;
+  const pcount = document.getElementById('pcount')!;
+  const photos: string[] = JSON.parse(pm.dataset.photos || '[]');
+  let cur = 0;
+  const show = (i: number) => {
+    cur = (i + photos.length) % photos.length;
+    pimg.src = photos[cur];
+    pcount.textContent = `${cur + 1} / ${photos.length}`;
+    [cur + 1, cur - 1].forEach((j) => { const k = (j + photos.length) % photos.length; new Image().src = photos[k]; });
+  };
+  const pclose = () => { pm.hidden = true; document.body.style.overflow = ''; };
+  document.querySelectorAll<HTMLElement>('[data-photo]').forEach((b) => b.addEventListener('click', () => {
+    show(Number(b.dataset.photo)); pm.hidden = false; document.body.style.overflow = 'hidden';
+  }));
+  document.getElementById('pclose')!.addEventListener('click', pclose);
+  document.getElementById('pprev')!.addEventListener('click', () => show(cur - 1));
+  document.getElementById('pnext')!.addEventListener('click', () => show(cur + 1));
+  pm.addEventListener('click', (e) => { if (e.target === pm) pclose(); });
+  document.addEventListener('keydown', (e) => {
+    if (pm.hidden) return;
+    if (e.key === 'Escape') pclose();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  let x0: number | null = null;
+  pm.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  pm.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(dx < 0 ? cur + 1 : cur - 1);
+  });
 </script>
 
 <style>
-  .hero-row { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 26px; }
+  .hero-media { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
+  .from { margin-top: 22px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+  .hero-media-btns { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px; }
+  @media (min-width: 961px) {
+    .ph { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); min-height: min(80vh, 780px); background: var(--black); }
+    .ph .hero-media { order: 2; height: auto; min-height: 520px; }
+    .ph .ph-info { order: 1; align-self: center; padding: 56px 48px 56px max(32px, calc((100vw - 1280px) / 2 + 32px)); }
+    .ph h1 { font-size: clamp(40px, 4vw, 66px); }
+  }
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
   .from b { font: 600 34px var(--display); letter-spacing: 0; color: #fff; margin: 0 6px; text-transform: none; }
   .intro .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; }
@@ -138,7 +201,9 @@ const facts = [
   .facts dd { margin: 0; }
   @media (max-width: 860px) { .intro .wrap { grid-template-columns: 1fr; gap: 32px; } }
   .gallery { display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
-  .gallery img { flex: none; height: clamp(240px, 34vw, 420px); width: auto; max-width: none; scroll-snap-align: start; background: var(--char); }
+  .gallery button { flex: none; padding: 0; border: 0; background: var(--char); cursor: zoom-in; scroll-snap-align: start; }
+  .gallery button:hover img { opacity: .85; }
+  .gallery img { display: block; transition: opacity .3s; flex: none; height: clamp(240px, 34vw, 420px); width: auto; max-width: none; scroll-snap-align: start; background: var(--char); }
   .inc { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
   .inc h2 { font-size: 36px; margin-bottom: 18px; }
   .inc ul { list-style: none; margin: 0; padding: 0; }
@@ -162,5 +227,13 @@ const facts = [
   .vmodal[hidden] { display: none; }
   .vframe { width: min(1280px, 100%); aspect-ratio: 16 / 9; }
   .vframe :global(iframe) { width: 100%; height: 100%; border: 0; }
-  .vclose { position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 44px; cursor: pointer; line-height: 1; }
+  .pmodal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.95); display: grid; place-items: center; padding: 56px 64px; }
+  .pmodal[hidden] { display: none; }
+  .pmodal img { max-width: 100%; max-height: calc(100vh - 112px); object-fit: contain; user-select: none; }
+  .pnav { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); background: rgba(0,0,0,.35); color: #fff; font-size: 34px; line-height: 1; cursor: pointer; display: grid; place-items: center; padding-bottom: 4px; }
+  .pnav:hover { background: var(--red); border-color: var(--red); }
+  .prev { left: 14px; } .next { right: 14px; }
+  .pcount { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font: 500 12px var(--label); letter-spacing: .2em; color: rgba(255,255,255,.75); }
+  @media (max-width: 700px) { .pmodal { padding: 56px 0; } .pnav { top: auto; bottom: 8px; transform: none; width: 44px; height: 44px; } }
+  .vclose { z-index: 2; position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 44px; cursor: pointer; line-height: 1; }
 </style>
