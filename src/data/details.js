@@ -2,13 +2,6 @@
 // Bloques: { title, rows: [[concepto, precio]] } | { title, table: { head, rows } } | { title, list } | { title, text }
 const F = 'https://www.deonissafaris.com/media/files/';
 
-const disclaimer = {
-  title: 'Aviso',
-  text: [
-    'Los programas no son un documento contractual; son meramente informativos. Los precios pueden cambiar sin previo aviso por causas ajenas a la empresa y sus representadas.',
-  ],
-};
-
 export const details = {
   'mozambique-bufalos-pack-7-y-10-dias': {
     pdf: `${F}proyectos_43_mozambique%202026%20bufalos.pdf`,
@@ -32,7 +25,6 @@ export const details = {
       { title: 'Chárter Beira – campamento (coste compartido por el grupo)', rows: [['Cessna 206 (3-4 pasajeros)', 'US$ 3.000'], ['Airvan (4-5 pasajeros)', 'US$ 3.600'], ['Islander (5-6 pasajeros)', 'US$ 4.000']] },
       { title: 'Forma de pago', list: ['50 % de depósito al reservar.', '50 % restante 30 días antes de la llegada al campamento.', 'La factura final (tasas y varios) se paga en efectivo en el campamento. No se aceptan cheques.'] },
       { title: 'Cancelación', list: ['Más de 365 días antes: se devuelve todo menos el 10 %.', 'Entre 180 y 365 días antes: se devuelve el 50 %.', 'Menos de 180 días: sin devolución.', 'Si se aplaza al año siguiente y después se cancela: sin devolución, salvo que se encuentre un sustituto para las mismas fechas.', 'Causas de fuerza mayor: el outfitter puede modificar o cancelar itinerarios y las devoluciones quedan a su criterio.'] },
-      disclaimer,
     ],
   },
 
@@ -53,7 +45,6 @@ export const details = {
       { title: 'Incluye', list: ['Traslados desde el aeropuerto.', 'Lodge de lujo en pensión completa.', 'Bebidas alcohólicas en cantidades razonables.', 'Lavandería diaria.', 'Servicios de un PH y vehículo de caza.', 'Licencia de caza.', 'Primera preparación de trofeos.'] },
       { title: 'No incluye', rows: [['Vuelos', ''], ['Tasas de abate de animales adicionales abatidos o heridos y no cobrados', ''], ['Objetos de naturaleza personal', ''], ['Permisos de importación y exportación de armas', ''], ['Propinas (recomendadas)', '400 €'], ['Alquiler de rifle y munición', '200 € / 6 días']] },
       { title: 'Cancelación', text: ['Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -73,7 +64,6 @@ export const details = {
       { title: 'Incluye', list: ['Recogida y regreso al aeropuerto de Johannesburgo.', 'Cazador profesional con vehículo y equipo de ayudantes.', 'Lodge de lujo en pensión completa.', 'Lavandería diaria.', 'Primera preparación de trofeos.'] },
       { title: 'No incluye', list: ['Vuelos.', 'Tasas de abate de animales adicionales abatidos o heridos y no recuperados (en África se consideran abatidos).', 'Alojamiento o comidas antes o después del safari.', 'Alquiler de rifle (80 €/día) y munición.', 'Propinas al profesional y al personal.', 'Preparación, embalaje, documentación y exportación de trofeos.', 'Gastos personales y bebidas alcohólicas.'] },
       { title: 'Cancelación', text: ['Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -88,7 +78,6 @@ export const details = {
       { title: 'Incluye', list: ['Guía experimentado.', 'Pensión completa en el campamento.', 'Guía intérprete.', 'Transporte a la zona de caza y durante la cacería.'] },
       { title: 'No incluye', rows: [['Billetes de avión', ''], ['Hoteles y comidas en Almaty antes y después', ''], ['Bebidas alcohólicas o con gas', ''], ['Gastos personales', ''], ['Documentación (invitación, recepción en aeropuerto, transporte y permiso de un rifle)', '350 €'], ['Certificado CITES', '700 €'], ['Certificado veterinario', '300 €'], ['Envío DHL', 'Consultar']] },
       { title: 'Notas', list: ['Hay que indicar el número de serie del cuchillo de caza.', 'Saco de dormir caliente obligatorio para los campamentos volantes.', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -103,7 +92,6 @@ export const details = {
       { title: 'No incluye', rows: [['Vuelos y alojamientos antes o después de la cacería', ''], ['Importación de armas', '30 € / rifle'], ['Documentación de caza', '80 €'], ['Bebidas alcohólicas y con gas', ''], ['Propinas recomendadas para los ojeadores', '170 € / cazador'], ['Preparación de colmillos', '60 €'], ['Traslado extra si el grupo llega en vuelos distintos', 'Consultar'], ['Gastos personales', '']] },
       { title: 'Forma de pago', list: ['Reserva: 900 €, no reembolsables si no se asiste a la batida.', 'Importe de la caza y tasas de llegada: en metálico al viajar.', 'Liquidación final: en metálico después de la cacería.'] },
       { title: 'Expectativas y normas', list: ['Un buen resultado es un jabalí por cazador y día, de los que un 20-30 % son machos: en 4 días, unos 40 jabalíes y entre 8 y 12 machos, algunos de hasta 30 cm.', 'Máximo 50 balas por persona.', 'En la escala de Estambul no se permiten lentes en la mochila (se requisan): deben ir en el maletín del rifle.', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -115,7 +103,6 @@ export const details = {
       { title: 'Incluye', list: ['Guía profesional con experiencia.', 'Alojamiento y comidas durante la cacería.', 'Transporte durante la cacería.', 'Intérprete.'] },
       { title: 'No incluye', rows: [['Vuelos y alojamiento antes o después', ''], ['Tasas de aeropuerto', ''], ['Importación de armas', '40 € / persona'], ['Documentación de caza', '80 €'], ['Bebidas alcohólicas y con gas', ''], ['Propinas', '60 € / jabalí abatido'], ['Preparación de colmillos', '60 €'], ['Suplemento habitación individual', '35 € / noche'], ['Gastos personales', '']] },
       { title: 'Normas', list: ['Máximo 50 balas.', 'En la escala de Estambul las lentes deben ir en el maletín del rifle, no en la mochila (se requisan).', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -128,7 +115,6 @@ export const details = {
       { title: 'No incluye', rows: [['Importación de rifle (se paga en el aeropuerto)', '25 €'], ['Tasas de abate del lobo y CITES', 'Ver arriba'], ['Envío de trofeos y taxidermia', ''], ['Bebidas alcohólicas', '']] },
       { title: 'Forma de pago', list: ['30 % del paquete para reservar.', '70 % restante más las tasas de abate, en efectivo el último día de caza.'] },
       { title: 'Documentación', list: ['DNI o pasaporte.', 'Pasaporte europeo de armas o licencia; la carta de invitación la preparamos nosotros.', 'Para la invitación: nombre completo y pasaporte, marca, modelo y número del rifle, número de balas (máximo 40) y vuelos.', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -140,7 +126,6 @@ export const details = {
       { title: 'Incluye', list: ['Campamento de caza en cabañas compartidas, pensión completa.', 'Un PH por cada 4 cazadores.', 'Transporte en coches, quads y botes.', 'Licencia de caza y pesca.', 'Documentación para importar rifles a Groenlandia.', 'Primera preparación de trofeos.'] },
       { title: 'No incluye', rows: [['Vuelos y hoteles antes y después', ''], ['Habitación individual', ''], ['Tasas de abate de animales y programas adicionales', ''], ['Propinas, bebidas alcohólicas y gastos personales', ''], ['Alquiler de rifle', '55 € / día'], ['Munición', ''], ['Documentos de exportación', ''], ['Helicóptero (opcional)', '']] },
       { title: 'Forma de pago', list: ['Reserva: depósito del 50 %.', 'Resto: un mes antes de la cacería.', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 
@@ -153,7 +138,6 @@ export const details = {
       { title: 'Incluye (banteng)', list: ['1 tasa de trofeo de banteng.', 'Traslado desde el aeródromo de la zona de caza.', 'Campamento de tiendas cerca de la zona.', 'Comidas y bebidas (en esta zona no se permite alcohol).', 'Licencia temporal de armas del Territorio del Norte.', 'Uso de rifles.'] },
       { title: 'No incluye (ambos)', rows: [['Preparación del trofeo: cráneo / cuernos', 'US$ 250'], ['Cabeza con capa / cuernos', 'US$ 400'], ['Piel completa', 'US$ 900'], ['Flete y taxidermia', ''], ['Alojamiento en Darwin', ''], ['Avioneta Darwin – zona de búfalo (Cessna 210, 3 pax / Cessna 402, 7 pax)', 'US$ 1.500 / 2.900 por vuelo'], ['Avioneta Darwin – zona de banteng (Cessna 210)', 'aprox. AUD 1.500']] },
       { title: 'Forma de pago', list: ['Depósito de US$ 4.000 por cazador, no reembolsable.', 'El pago principal de la caza no es reembolsable.', 'Precios en dólares con impuestos (GST) incluidos. Llegada a Darwin.'] },
-      disclaimer,
     ],
   },
 
@@ -165,7 +149,6 @@ export const details = {
       { title: 'Incluye', list: ['Lodge de lujo en pensión completa.', 'Bebidas alcohólicas en cantidades razonables.', 'Lavandería diaria.', 'PH y vehículo de caza.', 'Licencia de caza.', 'Primera preparación de trofeos.', 'Traslados desde el aeropuerto.'] },
       { title: 'No incluye', rows: [['Vuelos', 'aprox. 700 €'], ['Tasas de abate de animales adicionales abatidos o heridos y no cobrados', ''], ['Propinas', '50 € / día'], ['Objetos personales', ''], ['Permisos de importación y exportación de arcos', '']] },
       { title: 'Forma de pago', list: ['Depósito de reserva de 500 €. Las reservas se hacen por riguroso orden de recepción.', 'Condiciones de cancelación según outfitter.'] },
-      disclaimer,
     ],
   },
 };

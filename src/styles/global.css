@@ -16,7 +16,7 @@
   color-scheme: dark;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; font-feature-settings: 'lnum' 1; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
