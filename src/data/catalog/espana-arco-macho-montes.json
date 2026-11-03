@@ -1,0 +1,74 @@
+{
+ "title": "Macho montés en Gredos",
+ "summary": "Macho montés con arco en una finca privada de la Sierra de Gredos, con guía de caza y caballerías: un reto único en España.",
+ "season": "Septiembre - marzo",
+ "duration": "2/3 días",
+ "area": "Sierra de Gredos (finca privada)",
+ "lodging": "Casa rural cercana (pago directo)",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_157_espan%CC%83a%20-%20arco%20macho%20montes%202019-2020.pdf",
+ "video": "",
+ "images": [
+  "proyectos_157_macho-montes.png"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifas",
+   "rows": [
+    [
+     "Caza, 2/3 días",
+     "1.000 €"
+    ],
+    [
+     "Macho hasta 79 cm",
+     "6.900 €"
+    ],
+    [
+     "Macho de más de 79 cm",
+     "8.900 €"
+    ],
+    [
+     "Hembra (solo después de cazar el macho)",
+     "450 €"
+    ],
+    [
+     "Ciervo (solo después de cazar el macho)",
+     "1.900 €"
+    ],
+    [
+     "Jabalí (solo después de cazar el macho)",
+     "900 €"
+    ],
+    [
+     "Licencia de caza (solo cazadores extranjeros)",
+     "100 €"
+    ],
+    [
+     "Macho herido y no cobrado",
+     "Importe total del animal contratado"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "2/3 días de caza, que terminan al abatir el animal contratado",
+    "Recogida en el aeropuerto y traslado a la zona de caza",
+    "Caballerías y guía de caza",
+    "Primera preparación de trofeos"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos, alojamientos, desplazamientos y comidas anteriores y posteriores a la cacería",
+    "Visados, tasas, documentos de exportación y certificados veterinarios",
+    "Hospedaje y cenas en casa rural cercana (pago directo del cazador)",
+    "Propinas y gastos de naturaleza personal"
+   ]
+  }
+ ],
+ "slug": "espana-arco-macho-montes",
+ "category": "caza-con-arco",
+ "country": "espana",
+ "countryName": "España"
+}

@@ -413,8 +413,8 @@ const parsePrice = (v) => {
 export const fromPrice = (p) => {
   const s = p.simulator;
   if (!s) {
-    const b = p.details?.blocks.find((x) => x.rows && /paquete|precio/i.test(x.title));
-    const ps = (b?.rows || []).filter((r) => !/tasa|acompa|licencia|dip|total|día adicional/i.test(r[0])).map((r) => parsePrice(r[1] || '')).filter((x) => x && x.amount >= 500);
+    const b = p.details?.blocks.find((x) => x.rows && /paquete|precio|tarifa|programa/i.test(x.title) && !/pieza|trofeo|abate/i.test(x.title));
+    const ps = (b?.rows || []).filter((r) => !/tasa|acompa|licencia|dip|total|día adicional|día extra|segundo|tercer|adicional|extra|transporte|ch[aá]rter|gst|herido|alquiler|reserva|depósito|helic|solo después|opcional|cites|turismo|pesca/i.test(r[0])).map((r) => parsePrice(r[1] || '')).filter((x) => x && x.amount >= 500);
     return ps.length ? ps.reduce((a, c) => (c.amount < a.amount ? c : a)) : null;
   }
   const prices = s.packages.flatMap((k) => (k.tiers ? k.tiers.map((t) => t.price) : [k.price]));

@@ -44,7 +44,7 @@ export const categories = [
   { slug: 'caza-en-africa', name: 'África', title: 'Caza en África', tagline: 'Big Five, búfalo, leopardo y plains game en once países africanos.' },
   { slug: 'caza-en-asia', name: 'Asia', title: 'Caza en Asia', tagline: 'Marco Polo, íbex, osos de Siberia y grandes jabalíes en ocho países.' },
   { slug: 'caza-en-europa', name: 'Europa', title: 'Caza en Europa', tagline: 'Osos de los Cárpatos, rebecos, corzos a peso, muskox de Groenlandia y grandes trofeos de España.' },
-  { slug: 'caza-en-america', name: 'América', title: 'Caza en América', tagline: 'Alce y oso del Yukón, puma en Columbia Británica, ciervo colorado en Argentina y Kodiak en Alaska.' },
-  { slug: 'caza-en-oceania', name: 'Oceanía', title: 'Caza en Oceanía', tagline: 'Banteng y búfalo de agua en la Tierra de Arnhem, Australia.' },
-  { slug: 'caza-con-arco', name: 'Arco', title: 'Caza con arco', tagline: 'Fincas dedicadas solo al arco, en espera y rececho.' },
+  { slug: 'caza-en-america', name: 'América', title: 'Caza en América', tagline: 'Alce y grizzly del Yukón, osos de Quebec, felinos de British Columbia, ciervo colorado en Argentina y Kodiak en Alaska.' },
+  { slug: 'caza-en-oceania', name: 'Oceanía', title: 'Caza en Oceanía', tagline: 'Ciervos gigantes, tahr y rebeco en Nueva Zelanda; banteng y búfalo de agua en Australia.' },
+  { slug: 'caza-con-arco', name: 'Arco', title: 'Caza con arco', tagline: 'Arco en África, España, Norteamérica, Groenlandia, Nueva Zelanda y Turquía.' },
 ];

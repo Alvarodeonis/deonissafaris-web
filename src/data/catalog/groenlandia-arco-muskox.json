@@ -1,0 +1,79 @@
+{
+ "title": "Buey almizclero",
+ "summary": "Buey almizclero con arco en los alrededores de Kangerlussuaq, con helicóptero incluido para llegar a zonas alejadas de la caza local.",
+ "season": "Julio, agosto y septiembre",
+ "duration": "3 o 4 días de caza",
+ "area": "Alrededores de Kangerlussuaq",
+ "lodging": "Campamentos de caza",
+ "pdf": "",
+ "video": "",
+ "images": [
+  "proyectos_152_muskox%20arco.png",
+  "proyectos_152_sin-titulo1.png",
+  "proyectos_152_sin-titulo3.png"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifas",
+   "rows": [
+    [
+     "Paquete de 3 o 4 días, con 1 buey almizclero macho",
+     "6.000 €"
+    ],
+    [
+     "Trofeo adicional de buey almizclero",
+     "2.900 €"
+    ],
+    [
+     "Trofeo adicional de caribú (muy complicado)",
+     "2.900 €"
+    ],
+    [
+     "Acompañante",
+     "3.500 €"
+    ]
+   ]
+  },
+  {
+   "title": "Programa",
+   "list": [
+    "Día 1: llegada a Kangerlussuaq, traslado en coche al barco y unas 2,5 horas río arriba. Se puede cazar ese mismo día",
+    "Días 2, 3 y 4: caza"
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Campamentos de caza en pensión completa",
+    "Servicios de un PH",
+    "Transporte en barca y coche",
+    "Helicóptero",
+    "Licencia de caza",
+    "Primera preparación de trofeos"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos",
+    "Hoteles antes y después de la cacería",
+    "Tasas de abate y programas adicionales",
+    "Propinas",
+    "Objetos de naturaleza personal",
+    "Permisos de importación y exportación de armas",
+    "Bebidas alcohólicas"
+   ]
+  },
+  {
+   "title": "Forma de pago",
+   "list": [
+    "Depósito del 30% para reservar",
+    "Resto 1 mes antes de la cacería"
+   ]
+  }
+ ],
+ "slug": "groenlandia-arco-muskox",
+ "category": "caza-con-arco",
+ "country": "groenlandia",
+ "countryName": "Groenlandia"
+}
