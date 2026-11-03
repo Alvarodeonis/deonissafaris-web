@@ -10,6 +10,7 @@ import { galleries } from '../../../data/galleries.js';
 import { categories } from '../../../data/site.js';
 import { programs, fromPrice, money } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
+import { contact } from '../../../data/site.js';
 
 export function getStaticPaths() {
   return programs.map((p) => ({
@@ -20,15 +21,16 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 const cat = categories.find((c) => c.slug === p.category);
 const from = fromPrice(p);
-const d = details[p.slug];
+const d = details[p.slug] ?? p.details;
 const photos = galleries[p.slug] ?? [p.hero, ...p.gallery];
-const related = programs.filter((o) => o !== p && (o.category === p.category || o.featured)).slice(0, 3);
+const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
+const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(`Hola, me gustaría recibir un presupuesto del programa «${p.title}» en ${p.countryName}.`)}`;
 const facts = [
   ['Temporada', p.season],
   ['Duración', p.duration],
   ['Zona', p.area],
   ['Alojamiento', p.lodging],
-];
+].filter(([, v]) => v);
 ---
 <Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader>
   <div class="page-hero program-hero">
@@ -42,10 +44,11 @@ const facts = [
           <a href={u()}>Inicio</a><span>/</span><a href={u(p.category)}>{cat.title}</a><span>/</span><a href={u(`${p.category}/${p.country}`)}>{p.countryName}</a>
         </div>
         {p.tag && <span class="tag" style="position:static;display:inline-block;margin-bottom:14px">{p.tag}</span>}
+        <div class="eyebrow" style="margin-bottom:10px">{p.countryName}</div>
         <h1>{p.title}</h1>
         {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / cazador</div>}
         <div class="hero-btns">
-          <a class="btn" href="#simulador">Calcular presupuesto</a>
+          {p.simulator ? <a class="btn" href="#simulador">Calcular presupuesto</a> : <a class="btn" href={wa} target="_blank" rel="noopener">Pedir presupuesto</a>}
           {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
         </div>
         <div class="hero-media-btns">
@@ -97,11 +100,25 @@ const facts = [
     </section>
   )}
 
-  {p.simulator && <Simulator p={p} />}
+  {p.simulator ? <Simulator p={p} /> : (
+    <section class="ask" id="presupuesto">
+      <div class="wrap ask-box">
+        <div>
+          <div class="eyebrow">Presupuesto a medida</div>
+          <h2>{d?.blocks.length ? 'Te preparamos el presupuesto' : 'Consúltanos este programa'}</h2>
+          <p>{d?.blocks.length ? 'Cuéntanos cuántos cazadores y acompañantes sois, las fechas y los trofeos que te interesan, y te enviamos un presupuesto cerrado.' : 'Las tarifas de este destino cambian cada temporada. Escríbenos y te enviamos los precios actualizados, las fechas disponibles y un presupuesto sin compromiso.'}</p>
+        </div>
+        <div class="ask-btns">
+          <a class="btn" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          <a class="btn outline" href={`mailto:${contact.email}?subject=${encodeURIComponent(`Presupuesto: ${p.title} (${p.countryName})`)}`}>Pedir por email</a>
+        </div>
+      </div>
+    </section>
+  )}
 
   <LegalNote />
 
-  {!d && <section>
+  {!d && p.includes && <section>
     <div class="wrap inc">
       <div>
         <h2>Incluye</h2>
@@ -162,6 +179,11 @@ const facts = [
 </script>
 
 <style>
+  .ask-box { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 40px; align-items: center; border: 1px solid var(--line); border-left: 2px solid var(--red); background: var(--char); padding: clamp(24px, 3vw, 44px); }
+  .ask h2 { font-size: clamp(30px, 3vw, 42px); margin: 10px 0 12px; }
+  .ask p { margin: 0; color: var(--stone); max-width: 60ch; }
+  .ask-btns { display: flex; flex-direction: column; gap: 12px; }
+  @media (max-width: 760px) { .ask-box { grid-template-columns: 1fr; } }
   .hero-media { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
   .from { margin-top: 22px; }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }

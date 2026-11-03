@@ -25,7 +25,7 @@ const { cat, c } = Astro.props;
   </div>
   <section>
     <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">Temporada 2026</div><h2>Programas</h2></div></div>
+      <div class="sec-head"><div><div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div><h2>Programas</h2></div></div>
       <div class="grid-3">{c.programs.map((p) => <ProgramCard p={p} />)}</div>
     </div>
   </section>

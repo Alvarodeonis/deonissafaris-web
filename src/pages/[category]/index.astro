@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { categories } from '../../data/site.js';
-import { countries, fromPrice, money } from '../../data/programs.js';
+import { countries, programUrl, fromPrice, money } from '../../data/programs.js';
 import { u } from '../../lib/url.js';
 
 export function getStaticPaths() {
@@ -11,42 +11,75 @@ export function getStaticPaths() {
 }
 const { cat } = Astro.props;
 const list = countries(cat.slug);
-const cheapest = (c) => {
-  const ps = c.programs.map(fromPrice).filter(Boolean);
-  return ps.length ? ps.reduce((a, b) => (a.amount <= b.amount ? a : b)) : null;
-};
+const total = list.reduce((n, c) => n + c.programs.length, 0);
+// Portada de cada país: el primer programa con foto propia.
+const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.programs[0].hero;
 ---
-<Layout title={cat.title} description={cat.tagline} image={list[0].hero} transparentHeader>
-  <div class="page-hero">
-    <div class="hero-media">
-      <img class="bg" src={list[0].hero} alt="" aria-hidden="true" />
-      <img class="fg" src={list[0].hero} alt="" />
-    </div>
+<Layout title={cat.title} description={`${cat.title}: ${list.map((c) => c.name).join(', ')}.`} image={cover(list[0])}>
+  <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>{cat.title}</span></div>
       <h1>{cat.title}</h1>
-      <p class="lead" style="color:rgba(242,239,232,.85)">{cat.tagline}</p>
+      <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
+      <nav class="jump" aria-label="Países">
+        {list.map((c) => <a href={`#${c.slug}`}>{c.name}</a>)}
+      </nav>
     </div>
-  </div>
-  <section>
+  </section>
+
+  <section class="countries">
     <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">Países</div><h2>Elige destino</h2></div></div>
-      <div class="grid-3">
-        {list.map((c) => {
-          const from = cheapest(c);
-          return (
-            <a class="photo-card" href={u(`${cat.slug}/${c.slug}`)}>
-              <img src={c.hero} alt={c.name} loading="lazy" />
-              <div class="info">
-                <div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div>
-                <h3>{c.name}</h3>
-                <div class="meta">{c.programs.map((p) => p.title).join(' · ')}</div>
-                {from && <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div>}
-              </div>
-            </a>
-          );
-        })}
-      </div>
+      {list.map((c) => (
+        <article class="country" id={c.slug}>
+          <a class="pic" href={u(`${cat.slug}/${c.slug}`)} aria-label={`Ver ${c.name}`}>
+            <img src={cover(c)} alt={c.name} loading="lazy" />
+          </a>
+          <div class="body">
+            <div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div>
+            <h2><a href={u(`${cat.slug}/${c.slug}`)}>{c.name}</a></h2>
+            <ul>
+              {c.programs.map((p) => {
+                const from = fromPrice(p);
+                return (
+                  <li>
+                    <a href={u(programUrl(p))}>
+                      <span class="t">{p.title}</span>
+                      <span class="m">{[p.duration, p.season].filter(Boolean).join(' · ')}</span>
+                      <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : 'Consultar'}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 </Layout>
+
+<style>
+  .head { padding-block: 150px 8px; }
+  .head h1 { font-size: clamp(44px, 5vw, 76px); }
+  .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .jump a { border: 1px solid var(--line); padding: 8px 16px; font: 400 12px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: .2s; }
+  .jump a:hover { background: var(--red); border-color: var(--red); }
+  .countries { padding-top: 24px; }
+  .countries .wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 40px 28px; }
+  .country { scroll-margin-top: 90px; display: flex; flex-direction: column; }
+  .pic { display: block; aspect-ratio: 3 / 2; background: var(--black); overflow: hidden; }
+  .pic img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s; }
+  .pic:hover img { transform: scale(1.03); }
+  .body { padding-top: 18px; }
+  .body h2 { font-size: clamp(28px, 2.4vw, 36px); margin: 4px 0 8px; }
+  .body h2 a { text-decoration: none; }
+  .body h2 a:hover { color: var(--red-hi); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.06); text-decoration: none; }
+  .t { font: 500 19px/1.25 var(--display); color: var(--bone); transition: color .2s; }
+  .m { grid-column: 1; font-size: 13px; color: var(--stone); }
+  .pr { grid-column: 2; grid-row: 1 / span 2; align-self: center; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); white-space: nowrap; }
+  li a:hover .t { color: var(--red-hi); }
+  @media (max-width: 760px) { .head { padding-top: 120px; } }
+</style>

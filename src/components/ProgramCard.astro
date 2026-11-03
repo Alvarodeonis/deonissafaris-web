@@ -10,7 +10,7 @@ const from = fromPrice(p);
   <div class="info">
     <div class="eyebrow">{p.countryName}</div>
     <h3>{p.title}</h3>
-    <div class="meta">{p.duration} · {p.season}</div>
-    {from && <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div>}
+    <div class="meta">{[p.duration, p.season].filter(Boolean).join(' · ') || 'Temporada y precios a consultar'}</div>
+    {from ? <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div> : <div class="price">Precio a consultar</div>}
   </div>
 </a>

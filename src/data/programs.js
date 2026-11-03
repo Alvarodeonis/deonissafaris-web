@@ -365,20 +365,46 @@ export const programs = [
   },
 ];
 
+// Programas importados de la web antigua (src/data/catalog/*.json): contenido completo sin simulador.
+const img = (f) => M + encodeURI(decodeURIComponent(f.replace(/^.*\/media\/images\//, '')));
+const catalog = Object.values(import.meta.glob('./catalog/*.json', { eager: true, import: 'default' })).map((j) => {
+  const imgs = (j.images || []).map(img);
+  return {
+    ...j,
+    hero: imgs[0],
+    gallery: imgs.slice(1),
+    video: j.video || undefined,
+    details: j.blocks?.length || j.pdf ? { pdf: j.pdf || undefined, blocks: j.blocks || [] } : null,
+  };
+});
+programs.push(...catalog);
+
+const byName = (a, b) => a.name.localeCompare(b.name, 'es');
+
 export const countries = (category) => {
   const map = new Map();
   for (const p of programs.filter((p) => p.category === category)) {
     if (!map.has(p.country)) map.set(p.country, { slug: p.country, name: p.countryName, hero: p.hero, programs: [] });
     map.get(p.country).programs.push(p);
   }
-  return [...map.values()];
+  return [...map.values()].sort(byName);
 };
 
 export const programUrl = (p) => `${p.category}/${p.country}/${p.slug}`;
 
+// Precio "desde": del simulador o, en los importados, del primer bloque de paquete/precio.
+const parsePrice = (v) => {
+  const m = /^(US\$\s?)?([\d.]+)(\s?€)?$/.exec(v.trim());
+  if (!m || (!m[1] && !m[3])) return null;
+  return { amount: Number(m[2].replace(/\./g, '')), currency: m[1] ? 'USD' : 'EUR' };
+};
 export const fromPrice = (p) => {
   const s = p.simulator;
-  if (!s) return null;
+  if (!s) {
+    const b = p.details?.blocks.find((x) => x.rows && /paquete|precio/i.test(x.title));
+    const ps = (b?.rows || []).filter((r) => !/tasa|acompa|licencia|dip|total|día adicional/i.test(r[0])).map((r) => parsePrice(r[1] || '')).filter((x) => x && x.amount >= 500);
+    return ps.length ? ps.reduce((a, c) => (c.amount < a.amount ? c : a)) : null;
+  }
   const prices = s.packages.flatMap((k) => (k.tiers ? k.tiers.map((t) => t.price) : [k.price]));
   return { amount: Math.min(...prices), currency: s.currency };
 };
