@@ -16,7 +16,7 @@ const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).m
 const simProgram = programs[0];
 ---
 <Layout transparentHeader image={`https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg`}>
-  <section class="hero" id="hero">
+  <section class="hero dark" id="hero">
     <div class="hero-media" style={`background-image:url(https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg)`}>
       <iframe
         id="hero-video"
@@ -86,7 +86,7 @@ const simProgram = programs[0];
         <a class="btn outline" href={u('sobre-nosotros')}>Sobre nosotros</a>
       </div>
     </div>
-    <div class="faces">
+    <div class="faces dark">
       {team.map((t) => (
         <figure>
           <img src={t.photo} alt={t.name} loading="lazy" />
@@ -106,7 +106,7 @@ const simProgram = programs[0];
     </div>
   </section>
 
-  <section class="sim-band">
+  <section class="sim-band dark">
     <div class="wrap">
       <div>
         <div class="eyebrow">Nuevo</div>

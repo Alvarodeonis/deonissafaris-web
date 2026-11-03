@@ -1,0 +1,95 @@
+{
+ "title": "Bisonte europeo",
+ "summary": "Caza del bisonte europeo, el rey de los bosques pantanosos de Bielorrusia, en grandes espacios vírgenes. Una de las cacerías más especiales de Europa.",
+ "season": "Primera quincena de septiembre o noviembre",
+ "duration": "6 días, 5 de caza",
+ "area": "Bielorrusia",
+ "lodging": "Alojamiento y comidas durante la caza",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_189_bielorusia%20bisonte%20%202022.pdf",
+ "video": "",
+ "images": [
+  "proyectos_189_bisonte.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precio por cazador",
+   "rows": [
+    [
+     "Grupo de 2 cazadores",
+     "2.000 €"
+    ],
+    [
+     "Grupo de 3 cazadores",
+     "1.800 €"
+    ],
+    [
+     "Grupo de 4 cazadores",
+     "1.700 €"
+    ]
+   ]
+  },
+  {
+   "title": "Trofeo de bisonte",
+   "rows": [
+    [
+     "Sin medalla (hasta 129,99 puntos)",
+     "8.500 €"
+    ],
+    [
+     "Bronce (130 a 149,99)",
+     "11.000 €"
+    ],
+    [
+     "Plata (150 a 169,99)",
+     "13.200 €"
+    ],
+    [
+     "Oro (170 o más)",
+     "15.000 €"
+    ]
+   ]
+  },
+  {
+   "title": "Programa",
+   "list": [
+    "Día 1: vuelo a Minsk, trámite de armas y traslado al cazadero (3-4 horas).",
+    "Días 2-6: cinco días de caza (recomendados, porque el mal tiempo o el viento hacen a los animales muy desconfiados).",
+    "Día 6: regreso a Minsk y vuelo a España."
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "6 días de estancia y 5 de caza.",
+    "Traslados durante la caza.",
+    "Alojamiento y comida.",
+    "Organización de la caza y guías.",
+    "Gestión de trámites."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos.",
+    "Día adicional de caza: 290 €.",
+    "Habitación individual: 20 € / noche.",
+    "Traslado al aeropuerto: 100 € / persona.",
+    "Documentación, invitación, importación de armas y seguro: 130 €.",
+    "Certificado veterinario: 70 €.",
+    "Preparación del cráneo: 140 €.",
+    "Preparación de la piel para medallón: 250 €.",
+    "Envío de trofeos a España: 150-200 € por paquete."
+   ]
+  },
+  {
+   "title": "Cancelación",
+   "list": [
+    "Condiciones de cancelación según outfitter."
+   ]
+  }
+ ],
+ "slug": "bielorrusia-bisonte",
+ "category": "caza-en-europa",
+ "country": "bielorrusia",
+ "countryName": "Bielorrusia"
+}

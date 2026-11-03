@@ -12,21 +12,25 @@ export function getStaticPaths() {
 }
 const { cat, c } = Astro.props;
 ---
-<Layout title={`Caza en ${c.name}`} description={`Programas de caza en ${c.name}: ${c.programs.map((p) => p.title).join(', ')}.`} image={c.hero} transparentHeader>
-  <div class="page-hero">
-    <div class="hero-media">
-      <img class="bg" src={c.hero} alt="" aria-hidden="true" />
-      <img class="fg" src={c.hero} alt="" />
-    </div>
+<Layout title={`Caza en ${c.name}`} description={`Programas de caza en ${c.name}: ${c.programs.map((p) => p.title).join(', ')}.`} image={c.programs[0].hero}>
+  <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>
       <h1>{cat.slug === 'caza-con-arco' ? `Arco en ${c.name}` : `Caza en ${c.name}`}</h1>
+      <p class="count">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'} · los más actualizados primero</p>
     </div>
-  </div>
-  <section>
+  </section>
+  <section class="list">
     <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div><h2>Programas</h2></div></div>
       <div class="grid-3">{c.programs.map((p) => <ProgramCard p={p} />)}</div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .head { padding-block: 150px 0; }
+  .head h1 { font-size: clamp(44px, 5vw, 76px); }
+  .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
+  .list { padding-top: 32px; }
+  @media (max-width: 760px) { .head { padding-top: 120px; } }
+</style>

@@ -8,6 +8,8 @@
 //   fees:       costes que se suman según `per`:
 //                 hunter | group | trophy (cada trofeo, incluidos los del paquete) | cites | single (solo si va 1 cazador)
 //               `optional: true` los convierte en casillas; `checked` marca la casilla por defecto.
+import { details as fullDetails } from './details.js';
+
 const M = 'https://www.deonissafaris.com/media/images/';
 
 export const programs = [
@@ -381,13 +383,23 @@ programs.push(...catalog);
 
 const byName = (a, b) => a.name.localeCompare(b.name, 'es');
 
+// Año de la tarifa: el más reciente que aparezca en temporada, título o PDF. Los programas sin año van al final.
+export const programYear = (p) => {
+  const txt = decodeURIComponent([p.season, p.title, p.details?.pdf, fullDetails[p.slug]?.pdf].filter(Boolean).join(' '));
+  const ys = [...txt.matchAll(/\b20(1\d|2\d)\b/g)].map((m) => Number(m[0]));
+  return p.year || (ys.length ? Math.max(...ys) : 0);
+};
+export const byUpdate = (a, b) => programYear(b) - programYear(a);
+
 export const countries = (category) => {
   const map = new Map();
   for (const p of programs.filter((p) => p.category === category)) {
     if (!map.has(p.country)) map.set(p.country, { slug: p.country, name: p.countryName, hero: p.hero, programs: [] });
     map.get(p.country).programs.push(p);
   }
-  return [...map.values()].sort(byName);
+  const list = [...map.values()].sort(byName);
+  list.forEach((c) => c.programs.sort(byUpdate));
+  return list;
 };
 
 export const programUrl = (p) => `${p.category}/${p.country}/${p.slug}`;

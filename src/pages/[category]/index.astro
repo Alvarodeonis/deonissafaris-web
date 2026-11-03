@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { categories } from '../../data/site.js';
-import { countries, programUrl, fromPrice, money } from '../../data/programs.js';
+import { countries, programUrl, fromPrice, money, programYear } from '../../data/programs.js';
 import { u } from '../../lib/url.js';
 
 export function getStaticPaths() {
@@ -44,7 +44,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
                   <li>
                     <a href={u(programUrl(p))}>
                       <span class="t">{p.title}</span>
-                      <span class="m">{[p.duration, p.season].filter(Boolean).join(' · ')}</span>
+                      <span class="m">{[programYear(p) ? `Tarifas ${programYear(p)}` : '', p.duration].filter(Boolean).join(' · ')}</span>
                       <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : 'Consultar'}</span>
                     </a>
                   </li>
@@ -76,7 +76,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
   .body h2 a { text-decoration: none; }
   .body h2 a:hover { color: var(--red-hi); }
   ul { list-style: none; margin: 0; padding: 0; }
-  li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.06); text-decoration: none; }
+  li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
   .t { font: 500 19px/1.25 var(--display); color: var(--bone); transition: color .2s; }
   .m { grid-column: 1; font-size: 13px; color: var(--stone); }
   .pr { grid-column: 2; grid-row: 1 / span 2; align-self: center; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); white-space: nowrap; }

@@ -1,19 +1,31 @@
-/* Fotografía a sangre sobre negro carbón; el rojo del logo solo para acciones y acentos. */
+/* Contenido sobre marfil; cabecera, portada, fotos y pie en negro carbón. El rojo del logo solo para acciones y acentos.
+   --black es el fondo, --bone el texto: en las zonas oscuras se invierten. */
 :root {
-  --black: #0d0e0d;
-  --char: #161816;
-  --char-2: #1f221f;
-  --bone: #f2efe8;
-  --stone: #a7a49b;
+  --black: #f6f2ea;
+  --char: #eee8dc;
+  --char-2: #e4ddcd;
+  --bone: #1c1b18;
+  --stone: #6c675d;
   --red: #bf121d;
   --red-hi: #d81e2a;
-  --line: rgba(242, 239, 232, 0.14);
+  --line: rgba(28, 27, 24, 0.14);
   --display: 'Cormorant Garamond', Garamond, Georgia, serif;
   --label: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --body: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --wrap: 1320px;
   --gutter: max(20px, 4vw);
+  color-scheme: light;
+}
+section.dark { background: var(--black); color: var(--bone); }
+.site-header, .site-footer, .dark, .photo-card, .lb, .vmodal {
+  --black: #0d0e0d;
+  --char: #161816;
+  --char-2: #1f221f;
+  --bone: #f2efe8;
+  --stone: #a7a49b;
+  --line: rgba(242, 239, 232, 0.14);
   color-scheme: dark;
+  color: var(--bone);
 }
 
 *, *::before, *::after { box-sizing: border-box; font-feature-settings: 'lnum' 1; }
@@ -61,8 +73,8 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
   cursor: pointer; transition: background .2s, border-color .2s, color .2s;
 }
 .btn:hover { background: var(--red-hi); border-color: var(--red-hi); }
-.btn.outline { background: transparent; border-color: rgba(255,255,255,.45); }
-.btn.outline:hover { background: #fff; color: var(--black); border-color: #fff; }
+.btn.outline { background: transparent; color: var(--bone); border-color: var(--stone); }
+.btn.outline:hover { background: var(--bone); color: var(--black); border-color: var(--bone); }
 
 /* Header */
 .site-header {

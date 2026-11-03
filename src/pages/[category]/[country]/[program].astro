@@ -88,7 +88,7 @@ const facts = [
   {d && <ProgramDetails d={d} title={p.title} />}
 
   {p.video && (
-    <section class="video-sec" id="video">
+    <section class="video-sec dark" id="video">
       <div class="wrap">
         <div class="eyebrow">Vídeo</div>
         <h2>Así se caza aquí</h2>
@@ -196,7 +196,7 @@ const facts = [
     .ph h1 { font-size: clamp(40px, 4vw, 66px); }
   }
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
-  .from b { font: 600 34px var(--display); letter-spacing: 0; color: #fff; margin: 0 6px; text-transform: none; }
+  .from b { font: 600 34px var(--display); letter-spacing: 0; color: var(--bone); margin: 0 6px; text-transform: none; }
   .intro .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; }
   .summary { font: 500 clamp(24px, 2.2vw, 32px)/1.35 var(--display); margin: 0; }
   .facts { margin: 0; display: grid; gap: 0; }
@@ -224,10 +224,10 @@ const facts = [
   .vplay { position: absolute; inset: 0; margin: auto; width: 96px; height: 96px; border-radius: 50%; border: 1px solid rgba(255,255,255,.8); background: rgba(0,0,0,.3); display: grid; place-items: center; transition: background .3s, border-color .3s, transform .3s; }
   .video-facade:hover .vplay { background: var(--red); border-color: var(--red); transform: scale(1.06); }
   .vplay svg { width: 40%; fill: #fff; margin-left: 5px; }
-  .hero-play { display: inline-flex; align-items: center; gap: 12px; background: none; border: 0; color: #fff; cursor: pointer; font: 500 12px var(--label); letter-spacing: .24em; text-transform: uppercase; padding: 0; }
-  .hero-play span { width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: background .3s, border-color .3s; }
-  .hero-play:hover span { background: var(--red); border-color: var(--red); }
-  .hero-play svg { width: 40%; fill: #fff; margin-left: 3px; }
+  .hero-play { display: inline-flex; align-items: center; gap: 12px; background: none; border: 0; color: var(--bone); cursor: pointer; font: 500 12px var(--label); letter-spacing: .24em; text-transform: uppercase; padding: 0; }
+  .hero-play span { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--stone); display: grid; place-items: center; transition: background .3s, border-color .3s; }
+  .hero-play:hover span { background: var(--red); border-color: var(--red); color: #fff; }
+  .hero-play svg { width: 40%; fill: currentColor; margin-left: 3px; }
   .vmodal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.94); display: grid; place-items: center; padding: 20px; }
   .vmodal[hidden] { display: none; }
   .vframe { width: min(1280px, 100%); aspect-ratio: 16 / 9; }
