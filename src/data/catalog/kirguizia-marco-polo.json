@@ -1,0 +1,104 @@
+{
+ "title": "Marco Polo",
+ "summary": "Caza del carnero Marco Polo en las montañas del Tian Shan, entre 3.000 y 3.500 metros, a caballo y con guía experimentado. Alojamiento en yurtas o cabañas.",
+ "season": "15 agosto – 1 marzo (mejor del 15 de octubre al 30 de noviembre)",
+ "duration": "11 o 12 días (7 de caza)",
+ "area": "Tian Shan, a 400-450 km de Bishkek",
+ "lodging": "Yurtas o cabañas; campamento a 3.000 m con electricidad",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_83_kirguizia%20%20%20marco%20polo%202022.pdf",
+ "video": "",
+ "images": [
+  "proyectos_83_kirguizia%20marco%20polo.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "La cacería",
+   "list": [
+    "A caballo; requiere cierta forma física.",
+    "Entre 3.000 y 3.500 metros de altitud.",
+    "Grupos de 1 a 4 cazadores.",
+    "Clima continental: en septiembre +15 °C de día y -5 °C de noche; en diciembre -10 °C de día y -25 °C de noche."
+   ]
+  },
+  {
+   "title": "Itinerario",
+   "list": [
+    "Día 1: llegada a Bishkek y traslado al campamento.",
+    "Día 2: aclimatación y prueba de rifles.",
+    "Días 3-9: siete días de caza.",
+    "Día 10: regreso a Bishkek y hotel.",
+    "Día 11 o 12: vuelo de regreso."
+   ]
+  },
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Programa desde Bishkek, 1 Marco Polo incluido",
+     "20.000 €"
+    ],
+    [
+     "· Caza (por adelantado)",
+     "11.000 €"
+    ],
+    [
+     "· CITES (tras la caza, con la entrega de trofeos)",
+     "9.000 €"
+    ],
+    [
+     "Segundo Marco Polo",
+     "20.000 €"
+    ],
+    [
+     "Íbex",
+     "2.500 €"
+    ],
+    [
+     "Acompañante desde Bishkek",
+     "2.000 €"
+    ],
+    [
+     "Gestión y documentación",
+     "250 €"
+    ],
+    [
+     "CITES y documentación de exportación",
+     "150 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Guía de caza experimentado.",
+    "Alojamiento y comidas durante la cacería.",
+    "Intérprete.",
+    "Traslados por carretera al área de caza."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos.",
+    "Hoteles antes o después de la cacería.",
+    "Comidas en Bishkek.",
+    "Bebidas.",
+    "Gastos personales."
+   ]
+  },
+  {
+   "title": "Qué llevar",
+   "list": [
+    "Saco de dormir.",
+    "Gafas de sol.",
+    "Telescopio terrestre con trípode.",
+    "Ropa térmica.",
+    "Bolsas para los trofeos."
+   ]
+  }
+ ],
+ "slug": "kirguizia-marco-polo",
+ "category": "caza-en-asia",
+ "country": "kirguizia",
+ "countryName": "Kirguizia"
+}

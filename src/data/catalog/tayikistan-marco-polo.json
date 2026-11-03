@@ -1,0 +1,102 @@
+{
+ "title": "Marco Polo",
+ "summary": "Argalí Marco Polo con un 100 % de éxito en los últimos 12 años, trofeos medios de 55-56 pulgadas y machos de 60-62 cada temporada. Se puede completar con íbex y lobo.",
+ "season": "1 septiembre – 15 diciembre; febrero y marzo",
+ "duration": "10 días (8 de caza)",
+ "area": "Pamir, a 6 horas en coche de Jorog",
+ "lodging": "Campamento base de madera a 3.600-4.000 m",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_96_tayikistan%20marco%20polo%202024.pdf",
+ "video": "",
+ "images": [
+  "proyectos_96_tayikistan.jpg",
+  "proyectos_96_img-20230628-wa0027.jpg",
+  "proyectos_96_img-20230628-wa0025.jpg",
+  "proyectos_96_img-20230628-wa0026.jpg",
+  "proyectos_96_img-20230628-wa0030.jpg",
+  "proyectos_96_img-20230628-wa0031.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Cómo llegar",
+   "list": [
+    "Vuelo a Dusambé vía Estambul (dos vuelos semanales).",
+    "Recogida VIP con asistencia en aduana.",
+    "Vuelo de 45 minutos a Jorog y 6 horas en coche hasta el campamento."
+   ]
+  },
+  {
+   "title": "La cacería",
+   "list": [
+    "Por la mañana se recorren los valles en jeep y se localiza el trofeo con prismáticos.",
+    "Rececho final a pie por encima de 4.000 m: requiere buena forma física.",
+    "Disparos habituales a 300-400 m. En Tayikistán no se caza a caballo.",
+    "Grupos de 1 a 4 cazadores.",
+    "En noviembre, de 0 a 10 °C de día y de -15 a -10 °C de noche."
+   ]
+  },
+  {
+   "title": "Campamento",
+   "list": [
+    "Estructura de madera, cálida, limpia y confortable, con zonas separadas de comedor, aseo y dormitorios.",
+    "Electricidad con generador, teléfono satélite o radio y botiquín."
+   ]
+  },
+  {
+   "title": "Precios desde Dusambé",
+   "rows": [
+    [
+     "Caza",
+     "20.000 €"
+    ],
+    [
+     "Marco Polo (unas 55 pulgadas)",
+     "18.000 €"
+    ],
+    [
+     "Marco Polo extragrande (más de 60 pulgadas)",
+     "38.000 €"
+    ],
+    [
+     "Íbex",
+     "6.000 €"
+    ],
+    [
+     "Lobo (no exportable)",
+     "1.300 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Dos guías de caza experimentados.",
+    "Conductor y vehículos de caza.",
+    "Alojamiento y comidas durante la cacería.",
+    "Intérprete.",
+    "Traslados por carretera a la zona de caza."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Desplazamiento a la zona de caza: 500 €.",
+    "Recepción y salida VIP en el aeropuerto: 90 €.",
+    "Hotel antes o después de la cacería.",
+    "Comidas en Dusambé.",
+    "Vuelos Dusambé – Jorog.",
+    "Bebidas.",
+    "Gastos personales."
+   ]
+  },
+  {
+   "title": "Cancelación",
+   "list": [
+    "Condiciones de cancelación según outfitter."
+   ]
+  }
+ ],
+ "slug": "tayikistan-marco-polo",
+ "category": "caza-en-asia",
+ "country": "tayikistan",
+ "countryName": "Tayikistán"
+}

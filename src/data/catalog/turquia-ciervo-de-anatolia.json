@@ -1,0 +1,80 @@
+{
+ "title": "Ciervo de Anatolia",
+ "summary": "Caza del ciervo de Anatolia a dos horas y media de Ankara, con tarifas según el peso del trofeo y la posibilidad de combinar con grandes jabalíes.",
+ "season": "Celo e invierno",
+ "duration": "A medida",
+ "area": "A 2,5 horas al noroeste de Ankara",
+ "lodging": "Casa de huéspedes sencilla con baño privado",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_192_turquia%202022%20ciervo%20anatolia.pdf",
+ "video": "",
+ "images": [
+  "proyectos_192_20201004_180738.jpg",
+  "proyectos_192_20201004_085251.jpg",
+  "proyectos_192_20201004_180707.jpg",
+  "proyectos_192_img-20181007-wa0015.jpg",
+  "proyectos_192_img-20181007-wa0017.jpg",
+  "proyectos_192_img-20200929-wa0016.jpg",
+  "proyectos_192_img-20181007-wa0016.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Servicio de caza",
+     "2.950 €"
+    ],
+    [
+     "Trofeo hasta 10 kg",
+     "6.500 €"
+    ],
+    [
+     "10 a 11 kg",
+     "8.500 €"
+    ],
+    [
+     "11 a 12 kg",
+     "10.500 €"
+    ],
+    [
+     "12 a 13 kg",
+     "12.500 €"
+    ],
+    [
+     "13 kg o más",
+     "14.500 €"
+    ],
+    [
+     "Herido",
+     "2.000 €"
+    ]
+   ]
+  },
+  {
+   "title": "Preparación del trofeo",
+   "rows": [
+    [
+     "Solo cráneo",
+     "130 €"
+    ],
+    [
+     "Cráneo, desollado de hombros y salado",
+     "250 €"
+    ]
+   ]
+  },
+  {
+   "title": "La cacería",
+   "list": [
+    "El celo es la mejor época, pero en invierno, cuando los machos se agrupan, también se cazan ciervos de 13 kg o más.",
+    "De noche la localización en los campos es sencilla.",
+    "La zona tiene buenos jabalíes que se pueden combinar.",
+    "Aeropuerto: Ankara."
+   ]
+  }
+ ],
+ "slug": "turquia-ciervo-de-anatolia",
+ "category": "caza-en-asia",
+ "country": "turquia",
+ "countryName": "Turquía"
+}

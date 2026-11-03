@@ -1,0 +1,79 @@
+{
+ "title": "Batidas de lobos",
+ "summary": "Batidas de lobo en las estepas de Mongolia desde campamentos de yurtas: siete días de viaje, cinco de caza y un lobo incluido en el precio.",
+ "season": "1 abril – 1 noviembre",
+ "duration": "7 días, 5 de caza",
+ "area": "A 450 km de Ulán Bator",
+ "lodging": "Campamento de yurtas en pensión completa",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_88_mongolia%20%20caceria%20%20lobo%202022.pdf",
+ "video": "",
+ "images": [
+  "proyectos_88_mongolia-lobos.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifas",
+   "rows": [
+    [
+     "Lobo 1×1 (1 lobo incluido)",
+     "US$ 4.300"
+    ],
+    [
+     "Lobo 2×1, por cazador (1 lobo incluido)",
+     "US$ 3.850"
+    ],
+    [
+     "Lobo adicional",
+     "US$ 900"
+    ],
+    [
+     "Corzo siberiano en batida",
+     "US$ 1.500"
+    ],
+    [
+     "Acompañante",
+     "US$ 2.100"
+    ],
+    [
+     "Suplemento cazador individual",
+     "10 %"
+    ]
+   ]
+  },
+  {
+   "title": "Itinerario",
+   "list": [
+    "Día 1: llegada a Ulán Bator y traslado a la zona de caza (450 km, 4-5 horas).",
+    "Días 2-6: caza del lobo.",
+    "Día 7: regreso a Ulán Bator y hotel.",
+    "Día 8: vuelo de regreso."
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "1 trofeo de lobo.",
+    "Vuelo interior con 20 kg de equipaje.",
+    "Pensión completa en campamento de yurtas.",
+    "Organización de la cacería, guías locales e intérprete.",
+    "Primera preparación de trofeos.",
+    "Asistencia en el aeropuerto y traslados en 4×4.",
+    "Hotel en Ulán Bator si es necesario."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelo internacional a Ulán Bator.",
+    "Lobos adicionales.",
+    "Exceso de equipaje.",
+    "Bebidas.",
+    "Visado, licencia, importación de arma, exportación de trofeos y certificado veterinario: US$ 300, a pagar a la llegada."
+   ]
+  }
+ ],
+ "slug": "mongolia-batidas-de-lobos",
+ "category": "caza-en-asia",
+ "country": "mongolia",
+ "countryName": "Mongolia"
+}

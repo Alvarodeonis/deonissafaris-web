@@ -1,0 +1,98 @@
+{
+ "title": "Íbex",
+ "summary": "Caza del íbex de Asia Central en las montañas de Girgatol, con trofeos de 1 m a 135 cm y la posibilidad de cazar jabalí y lobo en la misma zona.",
+ "season": "Mediados de agosto – mediados de diciembre",
+ "duration": "10 días (7 de caza)",
+ "area": "Montañas de Girgatol, a 250 km de Dusambé",
+ "lodging": "Campamento de caza",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_97_tayikistan%20ibex%202024.pdf",
+ "video": "",
+ "images": [
+  "proyectos_97_tayikistan%20ibex.jpg",
+  "proyectos_97_img-20230628-wa0029.jpg",
+  "proyectos_97_img-20230628-wa0025.jpg",
+  "proyectos_97_img-20230422-wa0029.jpg",
+  "proyectos_97_img-20230628-wa0028.jpg",
+  "proyectos_97_img-20240117-wa0001.jpg",
+  "proyectos_97_img-20240117-wa0003.jpg",
+  "proyectos_97_img-20240117-wa0004.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "La cacería",
+   "list": [
+    "Montañas muy abruptas, de 2.000 a 2.500 m: requiere buena forma física.",
+    "Rececho a pie; los recorridos largos, a caballo cuando se puede.",
+    "Grupos de 1 a 3 cazadores, cada uno en una zona distinta.",
+    "Trofeos de 1 m a 135 cm. Tras el íbex se puede cazar jabalí y lobo.",
+    "Clima suave: en otoño de +2 a +15 °C; en diciembre unos +3 °C de día y -2 °C de noche."
+   ]
+  },
+  {
+   "title": "Cómo llegar",
+   "list": [
+    "Vuelo a Dusambé vía Estambul, con tránsito de armas permitido.",
+    "Recogida en Dusambé, ayuda con la aduana y 6 horas en coche al campamento."
+   ]
+  },
+  {
+   "title": "Itinerario",
+   "list": [
+    "Día 1: llegada a Dusambé y traslado a la zona de caza.",
+    "Días 2-8: siete días de caza.",
+    "Día 9: regreso a Dusambé.",
+    "Día 10: vuelo de regreso."
+   ]
+  },
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Caza, 9 días (7 de caza)",
+     "3.000 €"
+    ],
+    [
+     "Íbex",
+     "3.900 €"
+    ],
+    [
+     "Segundo íbex",
+     "5.000 €"
+    ],
+    [
+     "Lobo (normalmente no se puede exportar)",
+     "1.300 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Guía de caza experimentado.",
+    "Alojamiento y comidas durante la cacería.",
+    "Intérprete.",
+    "Traslados por carretera al área de caza.",
+    "Documentación para exportar los trofeos."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Hoteles antes o después de la cacería.",
+    "Comidas en Dusambé.",
+    "Bebidas.",
+    "Gastos personales."
+   ]
+  },
+  {
+   "title": "Cancelación",
+   "list": [
+    "Condiciones de cancelación según outfitter."
+   ]
+  }
+ ],
+ "slug": "tayikistan-ibex",
+ "category": "caza-en-asia",
+ "country": "tayikistan",
+ "countryName": "Tayikistán"
+}

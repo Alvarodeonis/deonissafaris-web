@@ -1,0 +1,67 @@
+{
+ "title": "Corzo siberiano",
+ "summary": "Caza del gran corzo siberiano en Mongolia con alojamiento en yurtas y pensión completa. Siete días de viaje, cinco de caza, y se puede combinar con pesca.",
+ "season": "",
+ "duration": "7 días, 5 de caza",
+ "area": "Mongolia",
+ "lodging": "Campamento de yurtas",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_89_mongolia%20%20caceria%20corzo%20siberiano%20%202022.pdf",
+ "video": "",
+ "images": [
+  "proyectos_89_mongolia-corzo-siberiano.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Caza 1×1 (1 corzo incluido)",
+     "US$ 5.000"
+    ],
+    [
+     "Caza 2×1, por cazador (1 corzo incluido)",
+     "US$ 4.200"
+    ],
+    [
+     "Corzo adicional",
+     "US$ 1.300"
+    ],
+    [
+     "Lobo",
+     "US$ 900"
+    ],
+    [
+     "Acompañante",
+     "US$ 2.100"
+    ],
+    [
+     "Suplemento cazador individual",
+     "10 %"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Vuelo interior con 20 kg de equipaje.",
+    "Pensión completa en campamento de yurtas.",
+    "Organización de la caza, guías locales e intérprete.",
+    "Primera preparación de trofeos.",
+    "Asistencia en el aeropuerto y transportes terrestres."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelo internacional a Ulán Bator.",
+    "Exceso de equipaje.",
+    "Bebidas.",
+    "Visado, licencia, importación de armas, exportación de trofeos y certificado veterinario: US$ 300, a pagar a la llegada."
+   ]
+  }
+ ],
+ "slug": "mongolia-corzo-siberiano",
+ "category": "caza-en-asia",
+ "country": "mongolia",
+ "countryName": "Mongolia"
+}
