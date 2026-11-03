@@ -1,0 +1,111 @@
+{
+ "title": "Caza de ciervo",
+ "summary": "Ciervo en tres tipos de bosque rumano: llanura, colina y montaña de los Cárpatos. El periodo óptimo para los machos es la berrea, de septiembre a octubre.",
+ "season": "Machos: 1 sep - 31 dic · Hembras: 1 sep - 15 feb",
+ "duration": "4 noches con 3 días de caza",
+ "area": "Llanura, colina y montaña de los Cárpatos",
+ "lodging": "Pensión completa",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_136_rumania%20%202025%20ciervo.pdf",
+ "video": "",
+ "images": [
+  "proyectos_136_imagen1.jpg",
+  "proyectos_136_imagen2.jpg",
+  "proyectos_136_imagen3.jpg",
+  "proyectos_136_imagen4.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precio",
+   "rows": [
+    [
+     "Cazador en bosque de llanura",
+     "1.200 €"
+    ],
+    [
+     "Cazador en bosque de colina y montaña",
+     "1.400 €"
+    ],
+    [
+     "Acompañante no cazador, habitación doble",
+     "100 €/noche"
+    ],
+    [
+     "Acompañante no cazador, habitación individual",
+     "150 €/noche"
+    ],
+    [
+     "Día extra de caza",
+     "250 €"
+    ],
+    [
+     "Herido y no cobrado",
+     "1.500 €"
+    ]
+   ]
+  },
+  {
+   "title": "Tarifa por trofeo",
+   "rows": [
+    [
+     "Hasta 7,0 kg",
+     "1.950 €"
+    ],
+    [
+     "7,01 - 8 kg",
+     "2.000 € (+8 € por cada 10 g)"
+    ],
+    [
+     "8,01 - 9 kg",
+     "2.800 € (+10 € por cada 10 g)"
+    ],
+    [
+     "9,01 - 10 kg",
+     "3.800 € (+12 € por cada 10 g)"
+    ],
+    [
+     "10,01 - 11 kg",
+     "5.000 € (+20 € por cada 10 g)"
+    ],
+    [
+     "Más de 11,01 kg",
+     "7.000 € (+60 € por cada 10 g)"
+    ]
+   ]
+  },
+  {
+   "title": "Especies y zonas",
+   "list": [
+    "Llanura: ciervo, corzo, gamo y jabalí; desde el 1 de octubre, también faisán salvaje",
+    "Colina: ciervo, corzo, jabalí, lobo y oso",
+    "Montaña: ciervo, rebeco, jabalí, lobo y oso"
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "4 noches con 3 días de caza",
+    "Transporte aeropuerto-hotel-aeropuerto",
+    "Alojamiento con pensión completa",
+    "Intérprete",
+    "Transporte hasta la zona de caza y en el terreno",
+    "Licencia de caza rumana",
+    "Asistencia técnica de un especialista en caza",
+    "Preparación primaria de los trofeos"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Billete de avión",
+    "Trofeos",
+    "Envío de los trofeos",
+    "Bebidas alcohólicas",
+    "Gastos personales"
+   ]
+  }
+ ],
+ "slug": "rumania-caza-de-ciervo",
+ "category": "caza-en-europa",
+ "country": "rumania",
+ "countryName": "Rumanía"
+}

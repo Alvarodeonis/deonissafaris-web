@@ -1,0 +1,85 @@
+{
+ "title": "Corzos y ciervos",
+ "summary": "Corzos y ciervos en la zona de Peterhead, en el noreste de Escocia, con pensión completa, guía, rifle y preparación del trofeo incluidos.",
+ "season": "Corzo macho 1 abril – 20 octubre; ciervo macho 1 julio – 20 octubre",
+ "duration": "A medida",
+ "area": "Peterhead",
+ "lodging": "Pensión completa",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_114_escocia%20%20corzo%202025.pdf",
+ "video": "",
+ "images": [
+  "proyectos_114_escocia-corzos.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Cuota diaria",
+   "rows": [
+    [
+     "Cazador",
+     "£ 500 / día"
+    ],
+    [
+     "Acompañante en habitación doble",
+     "£ 150 / noche"
+    ],
+    [
+     "Acompañante en habitación individual",
+     "£ 200 / noche"
+    ]
+   ]
+  },
+  {
+   "title": "Tasas de abate: corzo",
+   "rows": [
+    [
+     "Hembra (21 octubre – 31 marzo)",
+     "£ 100"
+    ],
+    [
+     "Macho, cráneo hasta 449 g",
+     "£ 400"
+    ],
+    [
+     "450 a 509 g",
+     "£ 700"
+    ],
+    [
+     "510 a 569 g",
+     "£ 850"
+    ],
+    [
+     "Más de 570 g",
+     "£ 1.000"
+    ]
+   ]
+  },
+  {
+   "title": "Tasas de abate: ciervo",
+   "rows": [
+    [
+     "Macho",
+     "£ 1.000"
+    ],
+    [
+     "Hembra (21 octubre – 15 febrero)",
+     "£ 250"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Permiso de caza escocés.",
+    "Pensión completa.",
+    "Traslados por las zonas de caza.",
+    "Guía de caza.",
+    "Alquiler de rifle.",
+    "Preparación del trofeo."
+   ]
+  }
+ ],
+ "slug": "escocia-corzos-y-ciervos",
+ "category": "caza-en-europa",
+ "country": "escocia",
+ "countryName": "Escocia"
+}

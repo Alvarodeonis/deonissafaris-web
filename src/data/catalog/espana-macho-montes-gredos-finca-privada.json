@@ -1,0 +1,89 @@
+{
+ "title": "Macho montés en Gredos, finca privada",
+ "summary": "Programa de caza de macho montés en finca privada de la Sierra de Gredos, con recogida en aeropuerto, caballerías y guía de caza. Temporada de septiembre a marzo.",
+ "season": "Septiembre - marzo",
+ "duration": "2/3 días",
+ "area": "Sierra de Gredos",
+ "lodging": "Casa rural cercana a la finca (pago directo del cazador)",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_117_espa%C3%91a%20%202026%20macho%20montes%20gredos%20finca%20privada.pdf",
+ "video": "",
+ "images": [
+  "proyectos_117_img_0429.jpg",
+  "proyectos_117_gredos-finca-privada.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifas",
+   "rows": [
+    [
+     "Caza, 2/3 días",
+     "1.000 €"
+    ],
+    [
+     "Macho hasta 79 cm",
+     "6.900 €"
+    ],
+    [
+     "Macho de más de 79 cm",
+     "9.400 €"
+    ],
+    [
+     "Hembra (solo después de cazar el macho)",
+     "500 €"
+    ],
+    [
+     "Ciervo (solo después de cazar el macho)",
+     "1.900 €"
+    ],
+    [
+     "Jabalí (solo después de cazar el macho)",
+     "900 €"
+    ],
+    [
+     "Macho herido y no cobrado",
+     "Importe total del animal contratado"
+    ],
+    [
+     "Alquiler de rifle y munición (solo cazadores extranjeros)",
+     "120 €"
+    ],
+    [
+     "Licencia de caza (solo cazadores extranjeros)",
+     "100 €"
+    ],
+    [
+     "Reserva (depósito al reservar)",
+     "3.250 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "2/3 días de caza, finalizada al abatir el animal contratado",
+    "Recogida en el aeropuerto y traslado a la zona de caza",
+    "Caballerías y guía de caza",
+    "Primera preparación de trofeos"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos, alojamientos, desplazamientos y comidas anteriores y posteriores a la cacería",
+    "Visados, tasas gubernamentales, documentos de exportación y certificados veterinarios",
+    "Hospedaje y cenas en casa rural cercana a la finca, abonados directamente por el cazador",
+    "Propinas y gastos de naturaleza personal"
+   ]
+  },
+  {
+   "title": "Forma de pago",
+   "list": [
+    "Depósito al reservar de 3.250 €"
+   ]
+  }
+ ],
+ "slug": "espana-macho-montes-gredos-finca-privada",
+ "category": "caza-en-europa",
+ "country": "espana",
+ "countryName": "España"
+}

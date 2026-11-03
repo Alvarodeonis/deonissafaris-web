@@ -1,0 +1,124 @@
+{
+ "title": "Oso pardo",
+ "summary": "Oso pardo en espera desde torretas sobre cebaderos en los grandes bosques del centro de Croacia, con guía local. La mayoría de los osos abatidos son de medalla.",
+ "season": "16 febrero – 15 mayo y 15 septiembre – 15 diciembre",
+ "duration": "7 días, 6 de caza",
+ "area": "Centro de Croacia, a 2-3 horas de Zagreb o Liubliana",
+ "lodging": "Hotel o casa de caza en la zona",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_112_croacia%20oso%202023%20por%20puntos.pdf",
+ "video": "",
+ "images": [
+  "proyectos_112_croacia-oso.jpg",
+  "proyectos_112_img-20180515-wa0049.jpg",
+  "proyectos_112_la%20foto.jpg",
+  "proyectos_112_dsc_0474.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "La cacería",
+   "list": [
+    "La población de osos ha crecido mucho en la última década y la mayoría de los abatidos son de medalla.",
+    "Esperas de tarde y noche en torretas junto a cebaderos controlados semanas antes, con luna llena.",
+    "Un guarda local acompaña al cazador y le asesora sobre el tamaño del oso (sistema CIC).",
+    "La cacería termina al abatir el oso."
+   ]
+  },
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Cacería con 1 guía por cazador",
+     "1.900 €"
+    ],
+    [
+     "Oso bronce o plata (hasta 300 puntos CIC)",
+     "4.900 €"
+    ],
+    [
+     "Oso oro (300 a 350 puntos)",
+     "7.500 €"
+    ],
+    [
+     "Oso gran oro (350 a 450 puntos)",
+     "7.500 € + 120 € / punto sobre 350"
+    ],
+    [
+     "Oso excepcional (más de 450 puntos)",
+     "19.000 € + 220 € / punto sobre 450"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "6 días de caza con 1 guía por cazador.",
+    "7 noches en hotel o casa de caza (habitación doble).",
+    "Cebado y control previo.",
+    "Transportes durante la caza.",
+    "Desollado y primera preparación del trofeo.",
+    "Documentación para exportar el trofeo."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "rows": [
+    [
+     "Vuelos a Zagreb o Liubliana",
+     ""
+    ],
+    [
+     "Traslado al hotel, por vehículo",
+     "300 €"
+    ],
+    [
+     "Permiso temporal del arma",
+     "15 €"
+    ],
+    [
+     "Licencia de caza",
+     "80 €"
+    ],
+    [
+     "Alquiler de rifle",
+     "50 € / día"
+    ],
+    [
+     "Alquiler de visor térmico",
+     "30 € / día"
+    ],
+    [
+     "Día adicional",
+     "300 €"
+    ],
+    [
+     "Habitación individual",
+     "25 € / noche"
+    ],
+    [
+     "Tiro fallado",
+     "200 €"
+    ],
+    [
+     "Acompañante en habitación compartida",
+     "150 € / día"
+    ],
+    [
+     "Oso herido y no cobrado",
+     "1.900 €"
+    ],
+    [
+     "Equipo de rastreo si se cobra el oso",
+     "500 €"
+    ],
+    [
+     "Preparación y envío del trofeo, bebidas, propinas y hoteles extra",
+     ""
+    ]
+   ]
+  }
+ ],
+ "slug": "croacia-oso",
+ "category": "caza-en-europa",
+ "country": "croacia",
+ "countryName": "Croacia"
+}

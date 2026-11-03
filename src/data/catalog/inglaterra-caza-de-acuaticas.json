@@ -1,0 +1,105 @@
+{
+ "title": "Caza de acuáticas",
+ "summary": "Jornadas de acuáticas y faisanes en fincas de West Norfolk, a una hora del aeropuerto de Stansted, con guía local por cazador, escopetas y cartuchos incluidos.",
+ "season": "Acuáticas: 1 sep - 31 ene · Faisanes: 1 oct - 31 ene",
+ "duration": "Mínimo dos días",
+ "area": "West Norfolk, a una hora de Stansted",
+ "lodging": "Bungalow de la finca",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_140_inglaterra%20acuaticas%20%202022.pdf",
+ "video": "",
+ "images": [
+  "proyectos_140_acuaticas.jpg",
+  "proyectos_140_img-20161122-wa0005.jpg",
+  "proyectos_140_img-20141227-wa0002.jpg",
+  "proyectos_140_img-20161124-wa0005.jpg",
+  "proyectos_140_img-20161123-wa0008.jpg",
+  "proyectos_140_img-20161124-wa0011.jpg",
+  "proyectos_140_p1050216.jpg",
+  "proyectos_140_p1050253.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifas",
+   "rows": [
+    [
+     "Día de caza (programa mínimo de dos días)",
+     "£ 250"
+    ],
+    [
+     "Acompañante",
+     "Gratis"
+    ]
+   ]
+  },
+  {
+   "title": "Tasas de abate",
+   "rows": [
+    [
+     "Acuáticas (por unidad)",
+     "£ 20"
+    ],
+    [
+     "Faisanes, perdiz, becada y agachadiza (por unidad)",
+     "£ 30"
+    ],
+    [
+     "Muntjac medalla",
+     "£ 800"
+    ],
+    [
+     "Muntjac no medallable",
+     "£ 500"
+    ],
+    [
+     "CWD medalla",
+     "£ 1.000"
+    ],
+    [
+     "CWD no medalla",
+     "£ 500"
+    ]
+   ]
+  },
+  {
+   "title": "Especies de acuáticas",
+   "list": [
+    "Garantizadas: ánade real, silbón, cerceta, ganso común y ganso canadiense",
+    "Frecuentes: ánade friso, porrón moñudo y ganso egipcio",
+    "Ocasionales: ánade rabudo, cuchara, porrón europeo y ganso careto"
+   ]
+  },
+  {
+   "title": "Condiciones de caza",
+   "list": [
+    "Mejor época: acuáticas en octubre y noviembre; faisanes de noviembre a enero",
+    "Se puede combinar con muntjac y CWD",
+    "Los animales heridos se cobran según la tasa de abate",
+    "Recomendamos no llevar arma propia: el corresponsal dispone de escopetas y rifles de buena calidad, de uso gratuito"
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Guía local de caza por cazador",
+    "Permiso de caza",
+    "Transporte aeropuerto – zona de caza – aeropuerto",
+    "Escopetas y cartuchos",
+    "Alojamiento en el bungalow de la finca con desayuno y taco al mediodía",
+    "Cena en algún pub de la zona"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Billetes de avión",
+    "Alojamiento en hoteles de la zona (pago directo del cliente)",
+    "Bebidas, comidas y cenas fuera del programa",
+    "Propinas y gastos de naturaleza personal"
+   ]
+  }
+ ],
+ "slug": "inglaterra-caza-de-acuaticas",
+ "category": "caza-en-europa",
+ "country": "inglaterra",
+ "countryName": "Inglaterra"
+}

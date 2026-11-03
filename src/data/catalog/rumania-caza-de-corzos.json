@@ -1,0 +1,109 @@
+{
+ "title": "Caza de corzos",
+ "summary": "Corzos en llanuras con bosque y zonas agrícolas, y en colinas y montaña baja. Según la época y la zona, se combina con jabalí, gamo, ciervo y rebeco.",
+ "season": "Machos: 1 may - 15 oct · Hembras: 1 sep - 15 feb",
+ "duration": "4 noches con 3 días de caza",
+ "area": "Llanura, colina y montaña baja",
+ "lodging": "Pensión completa",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_133_rumania%202025%20corzos.pdf",
+ "video": "",
+ "images": [
+  "proyectos_133_img-20190520-wa0017.jpg",
+  "proyectos_133_rumania-corzos-varias-zonas.jpg",
+  "proyectos_133_dsc01035.jpg",
+  "proyectos_133_dsc03484.jpg",
+  "proyectos_133_img-20170817-wa0027.jpg",
+  "proyectos_133_img-20190506-wa0011.jpg",
+  "proyectos_133_img-20190519-wa0003.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Cazador",
+     "1.000 €"
+    ],
+    [
+     "Acompañante no cazador, habitación doble",
+     "100 €/noche"
+    ],
+    [
+     "Acompañante no cazador, habitación individual",
+     "150 €/noche"
+    ],
+    [
+     "Día extra de caza",
+     "250 €"
+    ],
+    [
+     "Herido y no cobrado",
+     "250 €"
+    ]
+   ]
+  },
+  {
+   "title": "Tarifa por trofeo",
+   "rows": [
+    [
+     "Hasta 300 g",
+     "300 €"
+    ],
+    [
+     "301 - 350 g",
+     "350 € (+4 €/g)"
+    ],
+    [
+     "351 - 400 g",
+     "550 € (+5 €/g)"
+    ],
+    [
+     "401 - 450 g",
+     "850 € (+10 €/g)"
+    ],
+    [
+     "451 - 500 g",
+     "1.400 € (+12 €/g)"
+    ],
+    [
+     "A partir de 501 g",
+     "2.000 € (+30 €/g)"
+    ]
+   ]
+  },
+  {
+   "title": "Periodo óptimo para machos",
+   "list": [
+    "1 de mayo - 15 de junio (vegetación baja)",
+    "20 de julio - 10 de agosto (celo, posible caza con reclamo)"
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "4 noches con 3 días de caza",
+    "Transporte aeropuerto - hotel - aeropuerto",
+    "Alojamiento con pensión completa",
+    "Intérprete",
+    "Transporte hasta la zona de caza y en el terreno",
+    "Licencia de caza rumana",
+    "Asistencia técnica de un especialista en caza",
+    "Preparación primaria de los trofeos"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Billete de avión",
+    "Trofeos",
+    "Envío de los trofeos",
+    "Bebidas alcohólicas",
+    "Gastos personales"
+   ]
+  }
+ ],
+ "slug": "rumania-caza-de-corzos",
+ "category": "caza-en-europa",
+ "country": "rumania",
+ "countryName": "Rumanía"
+}

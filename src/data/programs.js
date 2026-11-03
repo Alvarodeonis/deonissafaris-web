@@ -278,7 +278,7 @@ export const programs = [
   },
   {
     slug: 'groenlandia-caribous',
-    category: 'caza-en-america', country: 'groenlandia', countryName: 'Groenlandia',
+    category: 'caza-en-europa', country: 'groenlandia', countryName: 'Groenlandia',
     title: 'Caribú en Narsarsuaq',
     summary: 'Caribú en la zona de Narsarsuaq desde un campamento de cabañas compartidas en pensión completa, con opción de combinar con buey almizclero.',
     season: 'Agosto – septiembre (mejor del 24/8 al 30/9)', duration: '3 a 6 días', area: 'Narsarsuaq',
@@ -406,9 +406,9 @@ export const programUrl = (p) => `${p.category}/${p.country}/${p.slug}`;
 
 // Precio "desde": del simulador o, en los importados, del primer bloque de paquete/precio.
 const parsePrice = (v) => {
-  const m = /^(US\$\s?)?([\d.]+)(\s?€)?$/.exec(v.trim());
+  const m = /^(US\$\s?|£\s?)?([\d.]+)(\s?€)?(\s?\/.*|\s?por .*)?$/.exec(v.trim());
   if (!m || (!m[1] && !m[3])) return null;
-  return { amount: Number(m[2].replace(/\./g, '')), currency: m[1] ? 'USD' : 'EUR' };
+  return { amount: Number(m[2].replace(/\./g, '')), currency: m[1] ? (m[1].startsWith('£') ? 'GBP' : 'USD') : 'EUR' };
 };
 export const fromPrice = (p) => {
   const s = p.simulator;
@@ -423,5 +423,5 @@ export const fromPrice = (p) => {
 
 export const money = (n, c) => {
   const v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  return c === 'USD' ? `US$ ${v}` : `${v} €`;
+  return c === 'USD' ? `US$ ${v}` : c === 'GBP' ? `£ ${v}` : `${v} €`;
 };

@@ -1,0 +1,71 @@
+{
+ "title": "Rebeco pirineo",
+ "summary": "Programa de caza de rebeco pirineo en Benasque y terrenos privados del Pirineo catalán, con cazadores profesionales y sin límite de puntos. La mejor época es hasta el 15 de junio.",
+ "season": "Mayo - 15 de junio",
+ "duration": "2 días de caza",
+ "area": "Benasque y Pirineo catalán",
+ "lodging": "No incluido (60 € por día)",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_119_espa%C3%91a%20rebeco%20pirineo%20%202021.pdf",
+ "video": "",
+ "images": [
+  "proyectos_119_rebeco-pirineo.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios",
+   "rows": [
+    [
+     "Rebeco pirineo sin límite de puntos",
+     "3.600 €"
+    ],
+    [
+     "Acompañante no cazador por día",
+     "250 €"
+    ],
+    [
+     "Alquiler de rifle y munición",
+     "120 €"
+    ],
+    [
+     "Licencia de caza",
+     "100 €"
+    ]
+   ]
+  },
+  {
+   "title": "Condiciones de caza",
+   "list": [
+    "La caza termina cuando se captura el rebeco"
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Asistencia en aeropuerto",
+    "Traslado a las zonas de caza",
+    "Todos los traslados durante la caza",
+    "2 días de caza",
+    "Asistencia de cazadores muy profesionales",
+    "Preparación del primer trofeo"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Billetes de avión",
+    "Alojamiento (60 € por día)",
+    "Comidas",
+    "Traslados antes y después de la caza",
+    "Tasas de importación y exportación de armas y munición",
+    "Documentos de exportación y certificados veterinarios",
+    "Propinas y gratificaciones",
+    "Bebidas alcohólicas",
+    "Artículos de carácter personal"
+   ]
+  }
+ ],
+ "slug": "espana-rebeco-pirineo",
+ "category": "caza-en-europa",
+ "country": "espana",
+ "countryName": "España"
+}

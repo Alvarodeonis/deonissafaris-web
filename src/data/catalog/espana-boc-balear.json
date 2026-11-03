@@ -1,0 +1,76 @@
+{
+ "title": "Boc balear",
+ "summary": "Caza de la cabra salvaje de Mallorca, el boc balear, con guía y precinto incluidos. Se caza todo el año, aunque lo mejor es noviembre, marzo y abril.",
+ "season": "Todo el año (mejor noviembre, marzo y abril)",
+ "duration": "Por días",
+ "area": "Mallorca",
+ "lodging": "",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_118_espa%C3%91a%20boc%20balear%20%202024.pdf",
+ "video": "",
+ "images": [
+  "proyectos_118_boc-balear.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Tarifa",
+   "rows": [
+    [
+     "Día de caza",
+     "150 €"
+    ],
+    [
+     "Desplazamiento fuera de Palma",
+     "50 €"
+    ]
+   ]
+  },
+  {
+   "title": "Trofeos",
+   "rows": [
+    [
+     "Representativo",
+     "1.800 €"
+    ],
+    [
+     "Bronce",
+     "2.200 €"
+    ],
+    [
+     "Plata",
+     "3.800 €"
+    ],
+    [
+     "Oro",
+     "4.500 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Guía de caza y precinto.",
+    "Primera preparación de trofeos."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos.",
+    "Animales adicionales abatidos o heridos y no cobrados.",
+    "Propinas: 50 € / día.",
+    "Gastos personales.",
+    "Permisos de armas (solo extranjeros)."
+   ]
+  },
+  {
+   "title": "Forma de pago",
+   "list": [
+    "Depósito de 500 € para reservar, por orden de llegada."
+   ]
+  }
+ ],
+ "slug": "espana-boc-balear",
+ "category": "caza-en-europa",
+ "country": "espana",
+ "countryName": "España"
+}

@@ -1,0 +1,69 @@
+{
+ "title": "Caza de rececho",
+ "summary": "Rececho en Francia de corzo, ciervo, muflón y rebeco de los Alpes y del Pirineo, con servicio de caza 1x1 con guía y coche y alojamiento en media pensión.",
+ "season": "",
+ "duration": "",
+ "area": "Francia",
+ "lodging": "Media pensión, habitación doble",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_139_francia%20programa%20general%202021.pdf",
+ "video": "",
+ "images": [
+  "proyectos_139_francia-rececho.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios de estancia",
+   "rows": [
+    [
+     "Día de caza",
+     "300 €"
+    ],
+    [
+     "Acompañante",
+     "80 €"
+    ],
+    [
+     "Licencia de caza 9 días",
+     "90 €"
+    ],
+    [
+     "Seguro anual",
+     "30 €"
+    ],
+    [
+     "Gastos administrativos",
+     "40 €"
+    ],
+    [
+     "Hospedaje adicional día de llegada o salida, por persona",
+     "80 €"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Alojamiento en media pensión, base habitación doble",
+    "Todos los servicios de caza 1x1 (guía, coche, etc.)"
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Viaje",
+    "Tasas de abate",
+    "Gastos administrativos (40 €)",
+    "Seguro anual (30 €)",
+    "Licencia de caza francesa (90 €)",
+    "Suplemento habitación individual (30 €)",
+    "Acompañante (80 €/noche en media pensión, base habitación doble)",
+    "Taxidermia, bebidas y propinas",
+    "Cualquier otro servicio no especificado en el apartado de incluido"
+   ]
+  }
+ ],
+ "slug": "francia-caza-de-rececho",
+ "category": "caza-en-europa",
+ "country": "francia",
+ "countryName": "Francia"
+}
