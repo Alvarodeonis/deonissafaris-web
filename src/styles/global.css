@@ -64,7 +64,7 @@ h1, h2, h3, h4 {
   color: var(--red-hi);
 }
 .lead { font-size: 17px; color: var(--stone); max-width: 60ch; }
-section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
+section { padding-block: clamp(32px, 3.6vw, 56px); scroll-margin-top: 70px; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
@@ -147,12 +147,12 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
 .tag { position: absolute; top: 16px; left: 16px; z-index: 1; background: var(--red); color: #fff; font: 500 10px var(--label); letter-spacing: .24em; text-transform: uppercase; padding: 5px 10px; }
 
 .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.grid-3 .photo-card { aspect-ratio: 4 / 5; }
+.grid-3 .photo-card { aspect-ratio: 4 / 3; }
 @media (max-width: 960px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .grid-3 .photo-card { aspect-ratio: 4 / 3; } }
 
-.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 44px; }
-.sec-head h2 { font-size: clamp(36px, 4.2vw, 60px); margin-top: 12px; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 32px; flex-wrap: wrap; margin-bottom: 28px; }
+.sec-head h2 { font-size: clamp(32px, 3.4vw, 50px); margin-top: 12px; }
 
 /* Footer */
 .site-footer { background: #090a09; border-top: 3px solid var(--red); padding-block: 56px 28px; color: var(--stone); font-size: 15px; position: relative; }

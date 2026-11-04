@@ -57,18 +57,18 @@ const hunted = new Set(pins.map((p) => GEO[p.slug][0]));
       ))}
     </g>
   </svg>
-  <p class="wmap-note">{pins.length} países en los cinco continentes. Pulsa un punto para ver sus programas.</p>
+  <p class="wmap-note">Pulsa un punto para ver los programas de cada país.</p>
 </div>
 
 <style>
-  .wmap svg { width: 100%; height: auto; display: block; }
-  .land path { fill: var(--char-2); stroke: var(--black); stroke-width: .5; }
-  .land path.on { fill: rgba(191, 18, 29, .28); }
+  .wmap svg { width: 100%; max-width: 1040px; margin: 0 auto; height: auto; display: block; }
+  .land path { fill: rgba(255,255,255,.09); stroke: #0d0e0d; stroke-width: .6; }
+  .land path.on { fill: rgba(191, 18, 29, .78); }
   .land { pointer-events: none; }
   .pins a { cursor: pointer; }
-  .pins .dot { fill: var(--red); stroke: #fff; stroke-width: 1.2; }
-  .pins .halo { fill: var(--red); opacity: 0; transition: opacity .2s; }
-  .pins text { font: 500 11px var(--body, sans-serif); fill: var(--bone); opacity: 0; pointer-events: none; paint-order: stroke; stroke: var(--black); stroke-width: 3px; transition: opacity .2s; }
+  .pins .dot { fill: #fff; stroke: #0d0e0d; stroke-width: 1; }
+  .pins .halo { fill: #fff; opacity: 0; transition: opacity .2s; }
+  .pins text { font: 500 11px var(--body, sans-serif); fill: #fff; opacity: 0; pointer-events: none; paint-order: stroke; stroke: #0d0e0d; stroke-width: 3px; transition: opacity .2s; }
   .pins a:hover .halo, .pins a:focus .halo { opacity: .25; }
   .pins a:hover text, .pins a:focus text { opacity: 1; }
   .wmap-note { margin: 14px 0 0; text-align: center; color: var(--stone); font-size: 14px; }

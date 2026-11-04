@@ -12,6 +12,7 @@ const bySlug = (slug) => programs.find((p) => p.slug.startsWith(slug));
 // Mismo orden que la web actual.
 const bestSellers = ['mozambique', 'kazakhstan', 'namibia-paquete', 'sudafrica', 'turquia'].map(bySlug);
 const newPrograms = ['groenlandia', 'macedonia', 'australia'].map(bySlug);
+const nHunt = new Set(programs.map((p) => p.country)).size;
 const catImage = (slug) => programs.find((p) => p.category === slug)?.hero;
 const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).map((p) => p.country)).size;
 const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
@@ -63,11 +64,15 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
     </div>
   </section>
 
-  <section class="map-sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><div class="eyebrow">Dónde cazamos</div><h2>Nuestro mapa de caza</h2></div>
-        <p class="lead">Solo enviamos a un cliente donde alguien de nuestro equipo ha cazado antes.</p>
+  <section class="map-sec dark">
+    <div class="wrap map-grid">
+      <div class="map-txt">
+        <div class="eyebrow">Dónde cazamos</div>
+        <h2>{nHunt} países en cinco continentes</h2>
+        <p>Solo enviamos a un cliente donde alguien de nuestro equipo ha cazado antes.</p>
+        <ul class="map-conts">
+          {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <li><a href={u(c.slug)}><span>{c.name}</span><b>{catCount(c.slug)}</b></a></li>)}
+        </ul>
       </div>
       <WorldMap />
     </div>
@@ -198,12 +203,12 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   @media (max-width: 700px) { .sound { bottom: auto; top: 96px; } .sound span { display: none; } }
 
 
-  .mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(220px, 24vw, 340px); gap: 14px; }
-  .mosaic .m0 { grid-column: span 2; grid-row: span 2; }
-  .mosaic .m0 h3 { font-size: clamp(34px, 3.4vw, 50px); }
-  .mosaic .m5 { grid-column: span 4; }
-  @media (max-width: 860px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic .m0, .mosaic .m5 { grid-column: span 2; grid-row: span 1; } }
-  @media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .m0, .mosaic .m5 { grid-column: auto; } }
+  .mosaic { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(170px, 16vw, 230px); gap: 10px; }
+  .mosaic .photo-card .info { padding: 18px 20px; }
+  .mosaic .photo-card h3 { font-size: clamp(24px, 2vw, 30px); }
+  .mosaic .photo-card .meta { font-size: 13px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  @media (max-width: 860px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } }
 
   .featured { background: var(--char); }
   .bestsellers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(260px, 26vw, 380px); gap: 16px; }
@@ -252,6 +257,15 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   .faces b { display: block; font: 600 24px/1.1 var(--display); }
   .faces span { font-size: 14px; color: rgba(242,239,232,.8); }
 
+  .map-sec { background: #0d0e0d; }
+  .map-grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .map-txt h2 { font-size: clamp(32px, 3vw, 44px); margin: 12px 0 14px; line-height: 1.08; }
+  .map-txt p { color: var(--stone); margin: 0 0 22px; }
+  .map-conts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .map-conts a { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); text-decoration: none; font: 500 12px var(--label); letter-spacing: .16em; text-transform: uppercase; transition: color .2s, padding .2s; }
+  .map-conts b { font: 500 22px var(--display); letter-spacing: 0; color: var(--red); }
+  .map-conts a:hover { color: var(--red); padding-left: 6px; }
+  @media (max-width: 960px) { .map-grid { grid-template-columns: 1fr; gap: 28px; } }
 </style>
 
 <script>
