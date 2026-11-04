@@ -27,6 +27,8 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
     </div>
   </section>
 
+  <div class="wrap"><div class="divider"><span>Programas por país</span></div></div>
+
   <section class="countries">
     <div class="wrap">
       {list.map((c) => (
@@ -79,6 +81,10 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
   .jump small { display: block; margin-top: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.8); }
   .jump a:hover img { transform: scale(1.06); opacity: 1; }
   .jump a:hover::after { background: linear-gradient(180deg, rgba(191,18,29,0) 30%, rgba(191,18,29,.85)); }
+  .divider { display: flex; align-items: center; gap: 22px; margin: 56px 0 8px; font: 500 11px var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--red); }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .divider span { display: flex; align-items: center; gap: 14px; }
+  .divider span::before, .divider span::after { content: ''; width: 6px; height: 6px; background: var(--red); transform: rotate(45deg); }
   .countries { padding-top: 24px; }
   .countries .wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 40px 28px; }
   .country { scroll-margin-top: 90px; display: flex; flex-direction: column; }
