@@ -168,7 +168,7 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
 </Layout>
 
 <style>
-  .hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; padding: 0; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; padding: 0; overflow: hidden; display: flex; align-items: center; }
   .hero-media { position: absolute; inset: 0; background: var(--black) center / cover no-repeat; }
   .hero-media iframe {
     position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none;
@@ -178,13 +178,13 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   }
   .hero-media iframe.on { opacity: 1; }
   .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 35%, rgba(0,0,0,.4) 60%, rgba(13,14,13,.95) 100%); }
-  .hero-content { position: relative; z-index: 1; width: 100%; padding-bottom: clamp(64px, 11vh, 120px); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero-content { position: relative; z-index: 1; width: 100%; padding-bottom: 0; text-align: center; display: flex; flex-direction: column; align-items: center; padding-top: 80px; }
   .hero h1 { font-size: clamp(38px, 4.6vw, 74px); font-weight: 500; line-height: 1.04; margin: 0 0 20px; max-width: 28ch; margin-inline: auto; text-wrap: balance; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
   .hero h1 span { font-style: italic; }
   .hero-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .hero-cats a { font: 500 13px var(--label); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; padding: 15px 30px; background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.4); transition: .2s; }
   .hero-cats a:hover, .hero-cats a.arco { background: var(--red); border-color: var(--red); }
-  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .hero-cats a { padding: 14px 8px; } .hero-cats a.arco { grid-column: span 2; } }
+  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .hero-cats a { padding: 14px 8px; } }
   .hero-cats a.arco:hover { background: var(--red-hi); border-color: var(--red-hi); }
   .hero-arco { font: 500 12px var(--label); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; padding: 12px 34px; background: var(--red); border: 1px solid var(--red); transition: .2s; }
   .hero-arco:hover { background: var(--red-hi); border-color: var(--red-hi); }

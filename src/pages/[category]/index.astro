@@ -22,7 +22,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
       <h1>{cat.title}</h1>
       <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
       <nav class="jump" aria-label="Países">
-        {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)} title={`${c.programs.length} ${c.programs.length === 1 ? 'programa' : 'programas'}`}><b>{c.name}</b><sup>{c.programs.length}</sup></a>)}
+        {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)}><img src={cover(c)} alt="" loading="lazy" /><span><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></span></a>)}
       </nav>
     </div>
   </section>
@@ -62,8 +62,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
   .head { padding-block: var(--page-top) 8px; }
   .head h1 { font-size: clamp(44px, 5vw, 76px); }
   @media (max-width: 960px) {
-    .jump { justify-content: flex-start; padding: 16px 0; }
-    .jump { gap: 10px 26px; }
+    .jump { grid-template-columns: 1fr 1fr; }
   }
   @media (min-width: 961px) {
     .head { padding-top: 104px; }
@@ -71,11 +70,15 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
     .head h1 { margin: 10px 0 0; }
   }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
-  .jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 48px; margin: 34px auto 0; padding: 22px 0; max-width: 1100px; border-block: 1px solid var(--line); }
-  .jump a { position: relative; padding: 2px 0; text-decoration: none; color: var(--bone); }
-  .jump b { font: 500 clamp(22px, 1.9vw, 28px)/1.1 var(--display); transition: color .2s; background: linear-gradient(var(--red), var(--red)) 0 100% / 0 1px no-repeat; transition: color .2s, background-size .3s; padding-bottom: 2px; }
-  .jump sup { margin-left: 5px; font: 500 10px var(--label); letter-spacing: .08em; color: var(--red); vertical-align: super; }
-  .jump a:hover b { color: var(--red); background-size: 100% 1px; }
+  .jump { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-top: 34px; }
+  .jump a { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #111; text-decoration: none; }
+  .jump img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .6s, opacity .3s; opacity: .85; }
+  .jump a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.78)); transition: background .3s; }
+  .jump span { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1; color: #fff; }
+  .jump b { display: block; font: 500 24px/1.05 var(--display); }
+  .jump small { display: block; margin-top: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.8); }
+  .jump a:hover img { transform: scale(1.06); opacity: 1; }
+  .jump a:hover::after { background: linear-gradient(180deg, rgba(191,18,29,0) 30%, rgba(191,18,29,.85)); }
   .countries { padding-top: 24px; }
   .countries .wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 40px 28px; }
   .country { scroll-margin-top: 90px; display: flex; flex-direction: column; }
