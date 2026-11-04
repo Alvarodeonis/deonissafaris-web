@@ -74,8 +74,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
           <fieldset>
             <legend>{s.trophies.length ? '4' : '3'} · Extras</legend>
             {s.fees.filter((f) => f.optional).map((f) => isQty(f) ? (
-              <div class="stepper-row fee-qty">
-                <div><span>{f.label}</span><small><span data-fee-price={f.id}></span> · ¿cuántos cazadores?</small></div>
+              <div class:list={['stepper-row', 'fee-qty', { rec: f.badge }]}>
+                <div>{f.badge && <em class="badge">{f.badge}</em>}<span>{f.label}</span><small><span data-fee-price={f.id}></span> · ¿cuántos cazadores?</small></div>
                 <div class="stepper sm" data-step={`f-${f.id}`}><button type="button" data-d="-1" aria-label="Menos">−</button><output>0</output><button type="button" data-d="1" aria-label="Más">+</button></div>
               </div>
             ) : (
@@ -139,6 +139,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
   .t-name em { font-style: normal; font: 500 10px var(--label); letter-spacing: .1em; color: var(--red-hi); border: 1px solid var(--red-hi); padding: 0 4px; margin-left: 8px; vertical-align: 2px; }
   .t-price { font-variant-numeric: tabular-nums; color: var(--stone); font-size: 15px; white-space: nowrap; }
   .fee-qty span { color: var(--bone); }
+  .fee-qty.rec { box-shadow: inset 3px 0 0 var(--red); }
+  .badge { display: inline-block; margin: 0 0 6px; padding: 3px 8px; background: var(--red); color: #fff; font: 500 9px var(--label); letter-spacing: .16em; text-transform: uppercase; font-style: normal; }
+  .fee-qty .badge + span { display: block; }
   .fee-qty small span { color: var(--stone); }
   .check { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; cursor: pointer; }
   .check input { width: 20px; height: 20px; accent-color: var(--red); }

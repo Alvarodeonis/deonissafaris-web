@@ -99,7 +99,7 @@ export const programs = [
       ],
       fees: [
         { id: 'kalahari1', label: 'Extensión Kalahari 1 (2 días, 2 springbuck y 1 blesbuck)', price: 950, per: 'hunter', optional: true },
-        { id: 'kalahari2', label: 'Extensión Kalahari 2 (1 día, 2 springbok)', price: 550, per: 'hunter', optional: true },
+        { id: 'kalahari2', label: 'Extensión Kalahari 2 (1 día, 2 springbok)', price: 550, per: 'hunter', optional: true, badge: 'Recomendada · la más vendida' },
         { id: 'zebra', label: 'Extensión cebra de montaña (Khomas Hochland, 1 día)', price: 1100, per: 'hunter', optional: true },
         { id: 'rifle', label: 'Alquiler de rifle y munición (6 días)', price: 200, per: 'hunter', optional: true },
         { id: 'tips', label: 'Propinas recomendadas', price: 400, per: 'hunter', optional: true, checked: true },
