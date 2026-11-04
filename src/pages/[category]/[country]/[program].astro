@@ -1,4 +1,5 @@
 ---
+import { filmGroups } from '../../../data/films.js';
 import Layout from '../../../layouts/Layout.astro';
 import Simulator from '../../../components/Simulator.astro';
 import ProgramCard from '../../../components/ProgramCard.astro';
@@ -26,6 +27,9 @@ const cur = isCurrent(p);
 const oldYear = programYear(p);
 const sim = cur && p.simulator;
 const d = details[p.slug] ?? p.details;
+const fslug = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, '-');
+const countryFilm = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films[0]?.id;
+const heroVideo = p.video || countryFilm;
 const photos = galleries[p.slug] ?? [p.hero, ...p.gallery];
 const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(`Hola, me gustaría recibir un presupuesto del programa «${p.title}» en ${p.countryName}.`)}`;
@@ -57,10 +61,14 @@ const facts = [
           {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
         </div>
         <div class="hero-media-btns">
-          {p.video && (
-            <button type="button" class="hero-play" data-yt={p.video}>
-              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeo
+          {heroVideo ? (
+            <button type="button" class="hero-play" data-yt={heroVideo}>
+              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeos
             </button>
+          ) : (
+            <a class="hero-play" href={u('videos')}>
+              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeos
+            </a>
           )}
           <button type="button" class="hero-play" data-lb="prog" data-src={photos[0]}>
             <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM6 17h12l-4-5-3 4-2-2z" /></svg></span>Fotos ({photos.length})
@@ -264,7 +272,7 @@ const facts = [
   .vplay { position: absolute; inset: 0; margin: auto; width: 96px; height: 96px; border-radius: 50%; border: 1px solid rgba(255,255,255,.8); background: rgba(0,0,0,.3); display: grid; place-items: center; transition: background .3s, border-color .3s, transform .3s; }
   .video-facade:hover .vplay { background: var(--red); border-color: var(--red); transform: scale(1.06); }
   .vplay svg { width: 40%; fill: #fff; margin-left: 5px; }
-  .hero-play { display: inline-flex; align-items: center; gap: 12px; background: none; border: 0; color: var(--bone); cursor: pointer; font: 500 12px var(--label); letter-spacing: .24em; text-transform: uppercase; padding: 0; }
+  .hero-play { display: inline-flex; align-items: center; gap: 12px; background: none; border: 0; color: var(--bone); cursor: pointer; font: 500 12px var(--label); letter-spacing: .24em; text-transform: uppercase; padding: 0; text-decoration: none; }
   .hero-play span { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--stone); display: grid; place-items: center; transition: background .3s, border-color .3s; }
   .hero-play:hover span { background: var(--red); border-color: var(--red); color: #fff; }
   .hero-play svg { width: 40%; fill: currentColor; margin-left: 3px; }
