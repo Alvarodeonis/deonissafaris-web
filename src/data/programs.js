@@ -396,6 +396,7 @@ export const byUpdate = (a, b) => programYear(b) - programYear(a);
 // Orden destacado de países por continente (el resto va después, por orden alfabético).
 const COUNTRY_ORDER = {
   'caza-en-africa': ['namibia', 'sudafrica', 'mozambique', 'tanzania', 'mauritania'],
+  'caza-en-asia': ['turquia', 'kazakhstan'],
 };
 // Programas que van primero dentro de su país.
 const PINNED = ['namibia-paquete-windhoek'];
