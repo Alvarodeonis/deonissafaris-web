@@ -60,10 +60,15 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
   <footer class="site-footer">
     <div class="wrap">
       <div class="f-top">
-        <a href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
-        <p class="motto">Born wild · Free forever</p>
-        <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años.<br />Solo le llevamos donde nuestro equipo ya ha cazado.</p>
-        <div class="orn" aria-hidden="true"><span></span><i></i><span></span></div>
+        <a class="f-logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
+        <div class="f-brand">
+          <p class="motto">Born wild · Free forever</p>
+          <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años. Solo le llevamos donde nuestro equipo ya ha cazado.</p>
+        </div>
+        <div class="f-cta">
+          <a class="btn" href={u('contacto')}>Planifica tu cacería</a>
+          <a class="f-tel" href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+        </div>
       </div>
       <nav class="f-nav" aria-label="Secciones">
         <a href={u('caza-en-africa')}>Caza con rifle</a><a href={u('caza-con-arco')}>Caza con arco</a><a href={u('fotos')}>Fotos</a><a href={u('videos')}>Películas</a><a href={u('articulos-revistas')}>Artículos / revistas</a><a href={u('sobre-nosotros')}>Sobre nosotros</a><a href={u('contacto')}>Contacto</a>

@@ -155,18 +155,17 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
 .sec-head h2 { font-size: clamp(36px, 4.2vw, 60px); margin-top: 12px; }
 
 /* Footer */
-.site-footer { background: #090a09; border-top: 1px solid var(--line); padding-block: 72px 28px; color: var(--stone); font-size: 15px; position: relative; }
+.site-footer { background: #090a09; border-top: 3px solid var(--red); padding-block: 56px 28px; color: var(--stone); font-size: 15px; position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 4px; left: 0; right: 0; border-top: 1px solid rgba(255,255,255,.05); }
 .site-footer a { text-decoration: none; transition: color .2s; } .site-footer a:hover { color: var(--bone); }
-.f-top { text-align: center; }
-.f-top img { width: 120px; height: auto; margin-inline: auto; }
-.f-top .motto { margin: 18px 0 0; font: italic 500 22px var(--display); color: var(--bone); letter-spacing: .04em; }
-.f-top .claim { margin: 10px auto 0; max-width: 70ch; font: 500 18px/1.5 var(--display); color: var(--stone); }
-.orn { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 40px auto 48px; max-width: 520px; }
-.orn span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line)); }
-.orn span:last-child { background: linear-gradient(90deg, var(--line), transparent); }
-.orn i { width: 7px; height: 7px; background: var(--red); transform: rotate(45deg); }
-.f-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 30px; margin: 34px 0 40px; padding: 18px 0; border-block: 1px solid var(--line); }
+.f-top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 32px; align-items: center; padding-bottom: 40px; }
+.f-logo img { width: 104px; height: auto; display: block; }
+.f-top .motto { margin: 0; font: italic 500 26px var(--display); color: var(--bone); letter-spacing: .02em; }
+.f-top .claim { margin: 8px 0 0; max-width: 56ch; font: 400 15px/1.6 var(--body, sans-serif); color: var(--stone); }
+.f-cta { display: grid; gap: 12px; justify-items: end; }
+.f-tel { font: 500 22px var(--display); color: var(--bone); }
+@media (max-width: 860px) { .f-top { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 18px; } .f-top .claim { margin-inline: auto; } .f-cta { justify-items: center; } }
+.f-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 30px; margin: 0 0 44px; padding: 18px 0; border-block: 1px solid var(--line); }
 .f-nav a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone); }
 .f-nav a:hover { color: var(--red-hi); }
 .site-footer .cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }

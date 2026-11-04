@@ -34,6 +34,23 @@ const principles = [
     </div>
   </section>
 
+  <section class="team-sec">
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">El equipo</div><h2>Las personas detrás de cada cacería</h2></div></div>
+      <div class="people">
+        {team.map((t) => (
+          <article>
+            <img src={t.photo} alt={t.name} loading="lazy" />
+            <h3>{t.name}</h3>
+            <p>{t.role}</p>
+            <div class="langs">Español{t.langs.replace('ES', '').trim() ? ` · ${t.langs.replace('ES', '').trim().replace(/EN/, 'Inglés').replace(/FR/, 'Francés').replace(/IT/, 'Italiano')}` : ''}</div>
+            {t.phone && <div class="contact"><a href={`tel:${t.phone.replace(/\s/g, '')}`}>{t.phone}</a><br /><a href={`mailto:${t.email}`}>{t.email}</a></div>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="principles-sec">
     <div class="wrap">
       <div class="sec-head"><div><div class="eyebrow">Nuestra forma de trabajar</div><h2>Lo que nos distingue</h2></div></div>
@@ -51,23 +68,6 @@ const principles = [
         <p>Nunca enviamos a un cliente a un destino donde alguien de nuestro equipo no haya cazado antes.</p>
         <footer>Nuestra regla desde el primer día</footer>
       </blockquote>
-    </div>
-  </section>
-
-  <section class="team-sec">
-    <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">El equipo</div><h2>Las personas detrás de cada cacería</h2></div></div>
-      <div class="people">
-        {team.map((t) => (
-          <article>
-            <img src={t.photo} alt={t.name} loading="lazy" />
-            <h3>{t.name}</h3>
-            <p>{t.role}</p>
-            <div class="langs">Español{t.langs.replace('ES', '').trim() ? ` · ${t.langs.replace('ES', '').trim().replace(/EN/, 'Inglés').replace(/FR/, 'Francés').replace(/IT/, 'Italiano')}` : ''}</div>
-            {t.phone && <div class="contact"><a href={`tel:${t.phone.replace(/\s/g, '')}`}>{t.phone}</a><br /><a href={`mailto:${t.email}`}>{t.email}</a></div>}
-          </article>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -89,7 +89,7 @@ const principles = [
   .ab-head .crumbs { margin-bottom: 26px; }
   .ab-head h1 { font-size: clamp(42px, 5.4vw, 84px); line-height: 1.02; margin: 12px 0 24px; max-width: 16ch; font-weight: 500; }
   .intro { max-width: 60ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: var(--stone); margin: 0; }
-  .figures-sec { padding-block: 10px 30px; }
+  .figures-sec { padding-block: 10px 10px; }
   .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
   .figures div { padding: 34px 24px; border-left: 1px solid var(--line); }
   .figures div:first-child { border-left: 0; padding-left: 0; }

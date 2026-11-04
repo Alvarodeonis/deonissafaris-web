@@ -1,35 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VideoGrid from '../components/VideoGrid.astro';
 import { contact } from '../data/site.js';
+import { u } from '../lib/url.js';
 import { filmGroups, allFilms, featuredFilms } from '../data/films.js';
+
+const first = featuredFilms[0];
+const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 ---
-<Layout title="Películas" description="Todas las películas de nuestras cacerías, por países.">
-  <section class="films-head">
+<Layout
+  title="Películas de caza internacional"
+  description={`${allFilms.length} películas de nuestras cacerías: búfalo y leopardo en Mozambique, leones en el Kalahari, ciervos de récord en Nueva Zelanda, osos en Rumanía y Siberia, jabalíes en Irán y Turquía, buey almizclero en Groenlandia y caza con arco.`}>
+  <section class="films-top">
     <div class="wrap">
-      <div class="sec-head">
-        <div><div class="eyebrow">En el campo</div><h2>Películas de caza</h2></div>
-        <p class="lead">{allFilms.length} películas rodadas en nuestras cacerías, muchas con Iberalia TV. Empieza por nuestras recomendadas o elige un país.</p>
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Películas</div>
+      <div class="ft-head">
+        <h1>Películas de caza</h1>
+        <p>{allFilms.length} películas rodadas en nuestras propias cacerías por todo el mundo, muchas emitidas en Iberalia TV.</p>
       </div>
-      <div class="eyebrow rec">Recomendadas</div>
-      <VideoGrid videos={featuredFilms} />
+
+      <div class="stage">
+        <div class="player">
+          <div class="frame" id="frame">
+            <iframe id="player" src={`https://www.youtube-nocookie.com/embed/${first.id}?rel=0&modestbranding=1`} title={first.title} allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="now"><span class="eyebrow" id="now-group">{first.groupName}</span><h2 id="now-title">{first.title}</h2></div>
+        </div>
+        <aside class="recs">
+          <div class="eyebrow">Recomendadas</div>
+          {featuredFilms.map((f, i) => (
+            <button type="button" class:list={['rec', { on: i === 0 }]} data-play={f.id} data-title={f.title} data-group={f.groupName}>
+              <span class="rth" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt="" loading="lazy" /></span>
+              <span class="rtx"><small>{f.groupName}</small>{f.title}</span>
+            </button>
+          ))}
+        </aside>
+      </div>
     </div>
   </section>
 
   <section class="films-all">
     <div class="wrap">
+      <div class="eyebrow">Todas las películas</div>
       <nav class="ffilter" aria-label="Filtrar por país">
-        <button type="button" class="on" data-f="all">Todas <i>{allFilms.length}</i></button>
-        {filmGroups.map((g) => <button type="button" data-f={g.slug}>{g.name} <i>{g.films.length}</i></button>)}
+        <button type="button" class="on" data-f="all"><b>Todas</b><small>{allFilms.length} películas</small></button>
+        {filmGroups.map((g) => <button type="button" data-f={g.slug}><b>{g.name}</b><small>{g.films.length} {g.films.length === 1 ? 'película' : 'películas'}</small></button>)}
       </nav>
       {filmGroups.map((g) => (
         <div class="fgroup" data-g={g.slug}>
           <h3>{g.name}</h3>
           <div class="flist">
             {g.films.map((f) => (
-              <button type="button" class="fcard" data-yt={f.id}>
-                <span class="th"><img src={`https://i.ytimg.com/vi/${f.id}/hqdefault.jpg`} alt="" loading="lazy" /><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
-                <span class="ft">{f.title}</span>
+              <button type="button" class="fcard" data-play={f.id} data-title={f.title} data-group={g.name}>
+                <span class="th" data-hover={f.id}><img src={thumb(f.id)} alt="" loading="lazy" /><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
+                <span class="ftl">{f.title}</span>
               </button>
             ))}
           </div>
@@ -41,32 +64,76 @@ import { filmGroups, allFilms, featuredFilms } from '../data/films.js';
 </Layout>
 
 <style>
-  .films-head { padding-top: var(--page-top); }
-  .rec { margin: 8px 0 14px; }
-  .films-all { padding-top: 10px; }
-  .ffilter { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0; margin-bottom: 18px; background: var(--black); border-bottom: 1px solid var(--line); }
-  .ffilter button { font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; padding: 9px 14px; background: none; color: var(--bone); border: 1px solid var(--line); cursor: pointer; transition: .2s; }
-  .ffilter button i { font-style: normal; color: var(--stone); margin-left: 4px; }
+  .films-top { padding-top: calc(var(--page-top) - 30px); padding-bottom: 30px; }
+  .ft-head { display: flex; justify-content: space-between; align-items: end; gap: 12px 40px; flex-wrap: wrap; margin: 14px 0 22px; }
+  .ft-head h1 { font-size: clamp(38px, 4.4vw, 64px); margin: 0; line-height: 1; }
+  .ft-head p { margin: 0; max-width: 52ch; color: var(--stone); }
+  .stage { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+  .frame { aspect-ratio: 16 / 9; background: #000; }
+  .frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .now { margin-top: 14px; }
+  .now h2 { font-size: clamp(24px, 2.2vw, 32px); margin: 6px 0 0; }
+  .recs { display: grid; gap: 10px; }
+  .rec { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px; background: none; border: 1px solid transparent; text-align: left; color: var(--bone); cursor: pointer; transition: .2s; }
+  .rec:hover, .rec.on { background: var(--char); border-color: var(--line); }
+  .rec.on { box-shadow: inset 3px 0 0 var(--red); }
+  .rth { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char-2); }
+  .rth img, .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rtx { font: 500 17px/1.2 var(--display); }
+  .rtx small { display: block; margin-bottom: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
+  .films-all { padding-top: 20px; }
+  .ffilter { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 14px 0 10px; }
+  .ffilter button { text-align: left; padding: 12px 14px 10px; background: var(--char); border: 1px solid rgba(28,27,24,.22); border-top: 3px solid var(--red); color: var(--bone); cursor: pointer; transition: .2s; }
+  .ffilter b { display: block; font: 500 20px/1.1 var(--display); }
+  .ffilter small { display: block; margin-top: 4px; font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
   .ffilter button:hover, .ffilter button.on { background: var(--red); border-color: var(--red); color: #fff; }
-  .ffilter button.on i, .ffilter button:hover i { color: rgba(255,255,255,.75); }
+  .ffilter button:hover small, .ffilter button.on small { color: rgba(255,255,255,.8); }
   .fgroup { margin: 34px 0 0; }
   .fgroup[hidden] { display: none; }
   .fgroup h3 { font-size: 30px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
   .flist { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px 16px; }
   .fcard { border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
-  .th img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-  .fcard:hover .th img { transform: scale(1.05); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
-  .fcard:hover .pl { background: var(--red); border-color: var(--red); }
+  .fcard:hover .pl { background: var(--red); border-color: var(--red); opacity: 0; }
   .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
-  .ft { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
+  .ftl { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
   .yt { margin-top: 48px; text-align: center; }
+  @media (max-width: 960px) {
+    .stage { grid-template-columns: 1fr; }
+    .rec { grid-template-columns: 120px minmax(0, 1fr); }
+  }
 </style>
 
 <script>
-  const btns = document.querySelectorAll('.ffilter button');
-  const groups = document.querySelectorAll('.fgroup');
+  const player = document.getElementById('player') as HTMLIFrameElement;
+  const play = (b: HTMLElement) => {
+    player.src = `https://www.youtube-nocookie.com/embed/${b.dataset.play}?autoplay=1&rel=0&modestbranding=1`;
+    player.title = b.dataset.title!;
+    document.getElementById('now-title')!.textContent = b.dataset.title!;
+    document.getElementById('now-group')!.textContent = b.dataset.group!;
+    document.querySelectorAll('.rec').forEach((r) => r.classList.toggle('on', (r as HTMLElement).dataset.play === b.dataset.play));
+    document.getElementById('frame')!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  document.querySelectorAll<HTMLElement>('[data-play]').forEach((b) => b.addEventListener('click', () => play(b)));
+
+  // Al pasar el ratón, la miniatura recorre varios fotogramas del vídeo.
+  document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
+    const img = el.querySelector('img')!;
+    const orig = img.src;
+    const id = el.dataset.hover;
+    const frames = [1, 2, 3].map((n) => `https://i.ytimg.com/vi/${id}/hq${n}.jpg`);
+    let t: number | undefined, i = 0;
+    el.addEventListener('mouseenter', () => {
+      frames.forEach((f) => { new Image().src = f; });
+      i = 0;
+      t = window.setInterval(() => { img.src = frames[i++ % frames.length]; }, 700);
+    });
+    el.addEventListener('mouseleave', () => { clearInterval(t); img.src = orig; });
+  });
+
+  const btns = document.querySelectorAll<HTMLElement>('.ffilter button');
+  const groups = document.querySelectorAll<HTMLElement>('.fgroup');
   btns.forEach((b) => b.addEventListener('click', () => {
     btns.forEach((x) => x.classList.toggle('on', x === b));
     groups.forEach((g) => { g.hidden = b.dataset.f !== 'all' && g.dataset.g !== b.dataset.f; });
