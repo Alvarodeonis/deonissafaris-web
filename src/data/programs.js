@@ -8,6 +8,7 @@
 //   fees:       costes que se suman según `per`:
 //                 hunter | group | trophy (cada trofeo, incluidos los del paquete) | cites | single (solo si va 1 cazador)
 //               `optional: true` los convierte en casillas; `checked` marca la casilla por defecto.
+import { u } from '../lib/url.js';
 import { details as fullDetails } from './details.js';
 
 const M = 'https://www.deonissafaris.com/media/images/';
@@ -74,7 +75,7 @@ export const programs = [
     summary: 'Seis días de plains game 1×1 en 80.000 hectáreas de fincas abiertas, a 40 km del aeropuerto de Windhoek. Ideal para ir en familia y combinar con turismo en la costa o los parques.',
     season: 'Febrero – noviembre', duration: '6 días', area: 'Windhoek, a 40 km del aeropuerto',
     lodging: 'Lodge de lujo a 30 minutos del aeropuerto',
-    hero: `${M}proyectos_52_img-20190521-wa0042.jpg`,
+    hero: u('img/namibia-kudu.jpg'),
     gallery: ['proyectos_52_img-20141015-wa0002%20%28copiar%29.jpg', 'proyectos_52_img-20150826-wa0000.jpg', 'proyectos_52_img-20160623-wa0009.jpg', 'proyectos_52_img-20141016-wa0005%20-%20copia.jpg'].map((f) => M + f),
     featured: true,
     includes: ['Traslados aeropuerto', 'Lodge de lujo en pensión completa', 'Bebidas alcohólicas en cantidad razonable', 'Lavandería diaria', 'Cazador profesional y vehículo', 'Licencia de caza', 'Preparación del primer trofeo'],

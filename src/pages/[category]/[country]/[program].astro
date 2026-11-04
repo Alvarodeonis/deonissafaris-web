@@ -30,7 +30,7 @@ const d = details[p.slug] ?? p.details;
 const fslug = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, '-');
 const countryFilm = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films[0]?.id;
 const heroVideo = p.video || countryFilm;
-const photos = galleries[p.slug] ?? [p.hero, ...p.gallery];
+const photos = [...new Set([p.hero, ...(galleries[p.slug] ?? p.gallery)])];
 const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(`Hola, me gustaría recibir un presupuesto del programa «${p.title}» en ${p.countryName}.`)}`;
 const facts = [

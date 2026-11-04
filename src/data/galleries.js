@@ -42,7 +42,6 @@ export const galleries = {
     'proyectos_52_img-20160623-wa0010.jpg',
     'proyectos_52_img-20160623-wa0012.jpg',
     'proyectos_52_img-20160623-wa0013%20-%20copia.jpg',
-    'proyectos_52_img_6683.jpg',
     'proyectos_52_onganja%20sept%202010%20051%20%5Bhdtv%20%28720%29%5D.jpg',
     'proyectos_52_onganja%20sept%202010%20052%20%5Bhdtv%20%28720%29%5D.jpg',
     'proyectos_52_onganja%20sept%202010%20035%20%5Bhdtv%20%28720%29%5D.jpg',
