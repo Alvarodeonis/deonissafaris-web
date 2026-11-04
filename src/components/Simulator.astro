@@ -1,4 +1,6 @@
 ---
+// Extras por cazador (extensiones, alquiler de rifle…): se elige cuántos cazadores los toman.
+const isQty = (f) => f.optional && f.per === 'hunter' && !/propina/i.test(f.label);
 // Simulador de presupuesto. La configuración viene de `simulator` en data/programs.js.
 import { contact } from '../data/site.js';
 import { travel } from '../data/travel.js';
@@ -71,7 +73,12 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
         {s.fees.some((f) => f.optional) && (
           <fieldset>
             <legend>{s.trophies.length ? '4' : '3'} · Extras</legend>
-            {s.fees.filter((f) => f.optional).map((f) => (
+            {s.fees.filter((f) => f.optional).map((f) => isQty(f) ? (
+              <div class="stepper-row fee-qty">
+                <div><span>{f.label}</span><small><span data-fee-price={f.id}></span> · ¿cuántos cazadores?</small></div>
+                <div class="stepper sm" data-step={`f-${f.id}`}><button type="button" data-d="-1" aria-label="Menos">−</button><output>0</output><button type="button" data-d="1" aria-label="Más">+</button></div>
+              </div>
+            ) : (
               <label class="check"><input type="checkbox" data-fee={f.id} checked={f.checked} /><span>{f.label}</span><span class="f-price" data-fee-price={f.id}></span></label>
             ))}
           </fieldset>
@@ -131,6 +138,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
   .trophy.active { box-shadow: inset 3px 0 0 var(--red); }
   .t-name em { font-style: normal; font: 500 10px var(--label); letter-spacing: .1em; color: var(--red-hi); border: 1px solid var(--red-hi); padding: 0 4px; margin-left: 8px; vertical-align: 2px; }
   .t-price { font-variant-numeric: tabular-nums; color: var(--stone); font-size: 15px; white-space: nowrap; }
+  .fee-qty span { color: var(--bone); }
+  .fee-qty small span { color: var(--stone); }
   .check { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px; background: var(--char-2); margin-bottom: 8px; cursor: pointer; }
   .check input { width: 20px; height: 20px; accent-color: var(--red); }
   .f-price { color: var(--stone); white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -168,6 +177,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
 
   const root = document.querySelector<HTMLElement>('[data-sim]')!;
   const cfg = JSON.parse(root.dataset.sim!);
+  const isQty = (f: Fee) => f.optional && f.per === 'hunter' && !/propina/i.test(f.label);
   const fmt = (n: number) => {
     const v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     return cfg.currency === 'USD' ? `US$ ${v}` : `${v} €`;
@@ -178,6 +188,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     comps: cfg.companions.map(() => 0) as number[],
     trophies: cfg.trophies.map((t: any) => cfg.defaultTrophies?.[t.name] ?? 0) as number[],
     fees: Object.fromEntries(cfg.fees.filter((f: Fee) => f.optional).map((f: Fee) => [f.id, !!f.checked])) as Record<string, boolean>,
+    qty: Object.fromEntries(cfg.fees.filter((f: Fee) => isQty(f)).map((f: Fee) => [f.id, f.checked ? cfg.hunters.min : 0])) as Record<string, number>,
   };
 
   const pkg = (): Pkg => cfg.packages.find((k: Pkg) => k.id === state.pkg);
@@ -211,9 +222,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     const ownTips: [string, number, number][] = [];
     const trophyCount = extraTrophies + (k.includedTrophies ?? 0) * h;
     cfg.fees.forEach((f: Fee) => {
-      if (f.optional && !state.fees[f.id]) return;
+      if (isQty(f)) { if (!state.qty[f.id]) return; } else if (f.optional && !state.fees[f.id]) return;
       const price = k.feeOverrides?.[f.id] ?? f.price;
-      const qty = { hunter: h, group: 1, trophy: trophyCount, cites, single: h === 1 ? 1 : 0 }[f.per] ?? 0;
+      const qty = isQty(f) ? Math.min(state.qty[f.id], h) : { hunter: h, group: 1, trophy: trophyCount, cites, single: h === 1 ? 1 : 0 }[f.per] ?? 0;
       if (!qty) return;
       if (/propina/i.test(f.label)) { ownTips.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty, price * qty]); return; }
       lines.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty]);
@@ -238,12 +249,14 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     });
     const hint = root.querySelector('#hunters-hint')!;
     hint.textContent = step() === 2 ? '2×1: dos cazadores por profesional' : `de ${cfg.hunters.min} a ${cfg.hunters.max}`;
+    for (const id in state.qty) state.qty[id] = Math.min(state.qty[id], state.hunters);
     root.querySelector('#hunters')!.textContent = String(state.hunters);
     root.querySelectorAll<HTMLElement>('.stepper').forEach((st) => {
       const key = st.dataset.step!;
       const [val, min, max] = key === 'hunters'
         ? [state.hunters, cfg.hunters.min, cfg.hunters.max]
-        : key.startsWith('comp-') ? [state.comps[+key.slice(5)], 0, 10] : [state.trophies[+key.slice(2)], 0, 5];
+        : key.startsWith('comp-') ? [state.comps[+key.slice(5)], 0, 10]
+        : key.startsWith('f-') ? [state.qty[key.slice(2)], 0, state.hunters] : [state.trophies[+key.slice(2)], 0, 5];
       st.querySelector('output')!.textContent = String(val);
       (st.querySelector('[data-d="-1"]') as HTMLButtonElement).disabled = val <= min;
       (st.querySelector('[data-d="1"]') as HTMLButtonElement).disabled = val >= max;
@@ -298,6 +311,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     } else if (key.startsWith('comp-')) {
       const i = +key.slice(5);
       state.comps[i] = Math.max(0, Math.min(10, state.comps[i] + d));
+    } else if (key.startsWith('f-')) {
+      const id = key.slice(2);
+      state.qty[id] = Math.max(0, Math.min(state.hunters, state.qty[id] + d));
     } else {
       const i = +key.slice(2);
       state.trophies[i] = Math.max(0, Math.min(5, state.trophies[i] + d));
