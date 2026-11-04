@@ -14,7 +14,7 @@ const bestSellers = ['mozambique', 'kazakhstan', 'namibia-paquete', 'sudafrica',
 const newPrograms = ['groenlandia', 'macedonia', 'australia'].map(bySlug);
 const catImage = (slug) => programs.find((p) => p.category === slug)?.hero;
 const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).map((p) => p.country)).size;
-const simProgram = programs[0];
+const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
 ---
 <Layout transparentHeader image={`https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg`}>
   <section class="hero dark" id="hero">
@@ -123,7 +123,7 @@ const simProgram = programs[0];
         <div class="eyebrow">Nuevo</div>
         <h2>Calcula tu presupuesto en un minuto</h2>
         <p class="lead">En cada programa eliges el paquete, cuántos cazadores y acompañantes vais y los animales que quieres. Te mostramos el coste estimado al momento y nos lo puedes enviar por WhatsApp.</p>
-        <a class="btn" href={`${u(programUrl(simProgram))}#simulador`}>Probar con {simProgram.countryName}</a>
+        <a class="btn" href={`${u(programUrl(simProgram))}#simulador`}>Probar con Namibia · paquete Windhoek</a>
       </div>
       <div class="sim-mock" aria-hidden="true">
         <div class="row"><span>Paquete 10 días · 1×1</span><b>2 × US$ 17.500</b></div>

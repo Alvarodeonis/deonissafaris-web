@@ -1,9 +1,10 @@
 ---
 // Simulador de presupuesto. La configuración viene de `simulator` en data/programs.js.
 import { contact } from '../data/site.js';
+import { travel } from '../data/travel.js';
 const { p } = Astro.props;
 const s = p.simulator;
-const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contact.whatsapp, email: contact.email };
+const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryName} · ${p.title}`, whatsapp: contact.whatsapp, email: contact.email };
 ---
 <section class="sim" id="simulador">
   <div class="wrap">
@@ -82,13 +83,18 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
           <div class="eyebrow">Tu presupuesto</div>
           <h3>{p.countryName}</h3>
           <p class="warn">Este cálculo es orientativo y puede contener errores. <b>Confirma siempre el precio final con nosotros</b> antes de reservar.</p>
+          <div class="blk">1 · La cacería <small>lo que organizamos nosotros</small></div>
           <ul id="lines"></ul>
-          <div class="total"><span>Total estimado</span><b id="total"></b></div>
+          <div class="total"><span>Total cacería</span><b id="total"></b></div>
           <div class="per" id="per"></div>
+          <div class="blk">2 · Gastos aparte <small>no dependen de nosotros</small></div>
+          <ul id="xlines"></ul>
+          <p class="xnote" id="xnote"></p>
+          <div class="trip" id="trip"></div>
           {s.notes?.length > 0 && <ul class="notes">{s.notes.map((n) => <li>{n}</li>)}</ul>}
           <a class="btn wa" id="send-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
           <a class="btn outline" id="send-mail" href="#">Pedir por email</a>
-          <p class="disclaimer">Estimación orientativa según las tarifas publicadas. No incluye vuelos, hoteles fuera del programa, propinas no indicadas ni envío de trofeos a España. Precios sujetos a cambios y a disponibilidad de cupos.</p>
+          <p class="disclaimer">Estimación orientativa según las tarifas publicadas. Los vuelos y las propinas son una referencia aproximada: el precio de los vuelos depende de la aerolínea y de las fechas, no de nosotros. Taxidermia y envío de trofeos a España se presupuestan aparte. Precios sujetos a cambios y a disponibilidad de cupos.</p>
         </div>
       </aside>
     </div>
@@ -138,6 +144,15 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
   .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 18px; font: 500 11px var(--label); text-transform: uppercase; letter-spacing: .22em; }
   .total b { font: 600 clamp(34px, 3.2vw, 44px) var(--display); letter-spacing: 0; color: #fff; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
   .per { color: var(--stone); font-size: 14px; text-align: right; margin-bottom: 18px; }
+  .blk { font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--bone); margin: 18px 0 4px; }
+  .blk small { display: block; margin-top: 4px; letter-spacing: .08em; text-transform: none; font: 400 13px var(--body, sans-serif); color: var(--stone); }
+  #xlines { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
+  #xlines :global(li) { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px; color: var(--stone); }
+  #xlines :global(li b) { color: var(--bone); font-weight: 500; white-space: nowrap; }
+  .xnote { font-size: 12px; color: var(--stone); margin: 8px 0 0; line-height: 1.5; }
+  .trip { margin: 18px 0 20px; padding: 14px 16px; border: 1px solid var(--line); font-size: 14px; color: var(--stone); }
+  .trip:empty { display: none; }
+  .trip :global(b) { display: block; margin-top: 4px; font: 600 26px var(--display); color: #fff; font-variant-numeric: lining-nums tabular-nums; }
   .notes { color: var(--stone); font-size: 14px; padding-left: 18px; margin: 0 0 20px; }
   .sum-inner .btn { width: 100%; justify-content: center; margin-bottom: 10px; }
   .btn.wa { background: #25d366; border-color: #25d366; color: #0d0e0d; }
@@ -193,15 +208,26 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
       if (t.cites) cites += n;
       lines.push([`${t.name}${n > 1 ? ` × ${n}` : ''}`, t.price * n]);
     });
+    const ownTips: [string, number, number][] = [];
     const trophyCount = extraTrophies + (k.includedTrophies ?? 0) * h;
     cfg.fees.forEach((f: Fee) => {
       if (f.optional && !state.fees[f.id]) return;
       const price = k.feeOverrides?.[f.id] ?? f.price;
       const qty = { hunter: h, group: 1, trophy: trophyCount, cites, single: h === 1 ? 1 : 0 }[f.per] ?? 0;
       if (!qty) return;
+      if (/propina/i.test(f.label)) { ownTips.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty, price * qty]); return; }
       lines.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty]);
     });
-    return { lines, total: lines.reduce((a, [, v]) => a + v, 0) };
+    const total = lines.reduce((a, [, v]) => a + v, 0);
+    const extras: [string, number, number][] = [];
+    const t = cfg.travel;
+    const people = h + state.comps.reduce((a, b) => a + b, 0);
+    if (t) {
+      extras.push([`Vuelos ${t.route} · ${people} ${people === 1 ? 'persona' : 'personas'}`, t.flight[0] * people, t.flight[1] * people]);
+      if (!ownTips.length) extras.push([`Propinas recomendadas · ${h} ${h === 1 ? 'cazador' : 'cazadores'} × ${k.days} días`, t.tipsDay[0] * k.days * h, t.tipsDay[1] * k.days * h]);
+    }
+    extras.push(...ownTips);
+    return { lines, total, extras };
   }
 
   function render() {
@@ -235,12 +261,22 @@ const config = { ...s, title: `${p.countryName} · ${p.title}`, whatsapp: contac
       if (el) el.textContent = `${fmt(f.price)}${f.per === 'hunter' ? ' / cazador' : ''}`;
     });
 
-    const { lines, total } = compute();
+    const { lines, total, extras } = compute();
     root.querySelector('#lines')!.innerHTML = lines.map(([l, v]) => `<li><span>${l}</span><b>${fmt(v)}</b></li>`).join('');
     root.querySelector('#total')!.textContent = fmt(total);
     root.querySelector('#per')!.textContent = state.hunters > 1 ? `${fmt(total / state.hunters)} por cazador` : '';
+    const eur = (n: number) => `${Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} €`;
+    const rng = (a: number, b: number) => a === b ? fmt(a) : `${eur(a)} – ${eur(b)}`;
+    root.querySelector('#xlines')!.innerHTML = extras.length
+      ? extras.map(([l, a, b]) => `<li><span>${l}</span><b>${rng(a, b)}</b></li>`).join('') + '<li><span>Hoteles antes o después, taxidermia y envío de trofeos a España</span><b>Aparte</b></li>'
+      : '<li><span>Vuelos, propinas, hoteles fuera del programa y envío de trofeos</span><b>Consultar</b></li>';
+    root.querySelector('#xnote')!.textContent = extras.length ? 'Vuelos: ida y vuelta desde Madrid en turista, precio orientativo que depende de la aerolínea y de las fechas. Propinas: recomendación habitual para el profesional, rastreadores y personal del campamento.' : '';
+    const xa = extras.reduce((a, e) => a + e[1], 0), xb = extras.reduce((a, e) => a + e[2], 0);
+    root.querySelector('#trip')!.innerHTML = !extras.length ? '' : cfg.currency === 'EUR'
+      ? `Coste aproximado del viaje completo<b>${rng(total + xa, total + xb)}</b>`
+      : `Coste aproximado del viaje completo<b>${fmt(total)} + ${rng(xa, xb)}</b>`;
 
-    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), '', `Total estimado (simulador web): ${fmt(total)}`, '', '¿Me podéis confirmar el precio, fechas y disponibilidad?'].join('\n');
+    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', 'CACERÍA', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), `Total cacería (simulador web): ${fmt(total)}`, ...(extras.length ? ['', 'GASTOS APARTE (aprox.)', ...extras.map(([l, a, b]) => `• ${l}: ${rng(a, b)}`)] : []), '', '¿Me podéis confirmar el precio, fechas y disponibilidad?'].join('\n');
     (root.querySelector('#send-wa') as HTMLAnchorElement).href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`;
     (root.querySelector('#send-mail') as HTMLAnchorElement).href = `mailto:${cfg.email}?subject=${encodeURIComponent(`Presupuesto ${cfg.title}`)}&body=${encodeURIComponent(msg)}`;
   }
