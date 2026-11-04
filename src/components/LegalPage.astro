@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { u } from '../lib/url.js';
+const { title, description, updated = '4 de noviembre de 2026' } = Astro.props;
+---
+<Layout title={title} description={description}>
+  <section class="legal-page">
+    <div class="wrap">
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>{title}</div>
+      <h1>{title}</h1>
+      <p class="upd">Última actualización: {updated}</p>
+      <div class="legal-body"><slot /></div>
+      <nav class="legal-nav"><a href={u('aviso-legal')}>Aviso legal</a><a href={u('politica-de-privacidad')}>Política de privacidad</a><a href={u('politica-de-cookies')}>Política de cookies</a></nav>
+    </div>
+  </section>
+</Layout>
+<style>
+  .legal-page { padding-block: var(--page-top) 40px; }
+  h1 { font-size: clamp(40px, 4.4vw, 64px); margin: 14px 0 6px; }
+  .upd { font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); margin: 0 0 34px; }
+  .legal-body { max-width: 78ch; line-height: 1.75; }
+  .legal-body :global(h2) { font-size: clamp(24px, 2vw, 30px); margin: 38px 0 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .legal-body :global(p), .legal-body :global(li) { color: var(--stone); }
+  .legal-body :global(strong) { color: var(--bone); font-weight: 500; }
+  .legal-body :global(table) { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
+  .legal-body :global(th), .legal-body :global(td) { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body :global(th) { font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--bone); }
+  .legal-body :global(a) { color: var(--red); }
+  .legal-nav { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; }
+  .legal-nav a { color: var(--bone); text-decoration: none; }
+  .legal-nav a:hover { color: var(--red); }
+</style>

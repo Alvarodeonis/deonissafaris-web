@@ -80,12 +80,16 @@ const facts = [
   </section>
 
   {photos.length > 1 && (
+    <div class="gal-wrap">
+      <button type="button" class="gal-arrow prev" data-gal="-1" aria-label="Fotos anteriores">‹</button>
+      <button type="button" class="gal-arrow next" data-gal="1" aria-label="Fotos siguientes">›</button>
     <div class="gallery" id="fotos">
       {photos.slice(1).map((g, i) => (
         <button type="button" data-lb="prog" data-src={g} aria-label={`Ampliar foto ${i + 2} de ${photos.length}`}>
           <img src={g} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
         </button>
       ))}
+    </div>
     </div>
   )}
 
@@ -183,6 +187,26 @@ const facts = [
     };
     requestAnimationFrame(step);
   }
+  // Arrastrar con el ratón para pasar las fotos.
+  if (gal) {
+    let down = false, moved = false, sx = 0, sl = 0;
+    gal.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('grab');
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - sx;
+      if (Math.abs(dx) > 5) moved = true;
+      gal.scrollLeft = sl - dx;
+    });
+    window.addEventListener('pointerup', () => { if (!down) return; down = false; gal.classList.remove('grab'); });
+    gal.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+    gal.addEventListener('dragstart', (e) => e.preventDefault());
+    document.querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => {
+      gal.scrollBy({ left: Number(b.dataset.gal) * gal.clientWidth * 0.8, behavior: 'smooth' });
+    }));
+  }
 </script>
 
 <style>
@@ -213,6 +237,15 @@ const facts = [
   @media (max-width: 860px) { .intro .wrap { grid-template-columns: 1fr; gap: 32px; } }
   .gallery { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .gallery::-webkit-scrollbar { display: none; }
+  .gal-wrap { position: relative; }
+  .gal-arrow { position: absolute; top: 50%; z-index: 2; width: 46px; height: 46px; margin-top: -23px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; font: 300 30px/1 var(--display); cursor: pointer; opacity: 0; transition: opacity .25s, background .2s; }
+  .gal-arrow.prev { left: 14px; } .gal-arrow.next { right: 14px; }
+  .gal-wrap:hover .gal-arrow { opacity: 1; }
+  .gal-arrow:hover { background: var(--red); border-color: var(--red); }
+  @media (hover: none) { .gal-arrow { display: none; } }
+  .gallery { cursor: grab; user-select: none; }
+  .gallery.grab { cursor: grabbing; }
+  .gallery.grab button { cursor: grabbing; }
   .gallery button { flex: none; padding: 0; border: 0; background: var(--char); cursor: zoom-in; }
   .gallery button:hover img { opacity: .85; }
   .gallery img { display: block; transition: opacity .3s; flex: none; height: clamp(140px, 16vw, 220px); width: auto; max-width: none; background: var(--char); }
