@@ -389,6 +389,8 @@ export const programYear = (p) => {
   const ys = [...txt.matchAll(/\b20(1\d|2\d)\b/g)].map((m) => Number(m[0]));
   return p.year || (ys.length ? Math.max(...ys) : 0);
 };
+export const CURRENT_FROM = 2025;
+export const isCurrent = (p) => programYear(p) >= CURRENT_FROM;
 export const byUpdate = (a, b) => programYear(b) - programYear(a);
 
 export const countries = (category) => {
@@ -411,6 +413,7 @@ const parsePrice = (v) => {
   return { amount: Number(m[2].replace(/\./g, '')), currency: m[1] ? (m[1].startsWith('£') ? 'GBP' : 'USD') : 'EUR' };
 };
 export const fromPrice = (p) => {
+  if (!isCurrent(p)) return null;
   const s = p.simulator;
   if (!s) {
     const b = p.details?.blocks.find((x) => x.rows && /paquete|precio|tarifa|programa/i.test(x.title) && !/pieza|trofeo|abate/i.test(x.title));

@@ -165,6 +165,9 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
 .orn span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line)); }
 .orn span:last-child { background: linear-gradient(90deg, var(--line), transparent); }
 .orn i { width: 7px; height: 7px; background: var(--red); transform: rotate(45deg); }
+.f-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 30px; margin: 34px 0 40px; padding: 18px 0; border-block: 1px solid var(--line); }
+.f-nav a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone); }
+.f-nav a:hover { color: var(--red-hi); }
 .site-footer .cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
 .site-footer h4 { color: var(--bone); font: 500 11px var(--label); letter-spacing: .28em; text-transform: uppercase; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
@@ -190,3 +193,5 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
 .wa-float svg { width: 30px; height: 30px; fill: #fff; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+.cemo { display: inline-block; margin-right: 10px; font-size: 1.25em; letter-spacing: 0; vertical-align: -0.1em; }

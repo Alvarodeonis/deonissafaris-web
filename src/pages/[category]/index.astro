@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { categories } from '../../data/site.js';
-import { countries, programUrl, fromPrice, money, programYear } from '../../data/programs.js';
+import { countries, programUrl, fromPrice, money, programYear, isCurrent } from '../../data/programs.js';
 import { u } from '../../lib/url.js';
 
 export function getStaticPaths() {
@@ -44,8 +44,8 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
                   <li>
                     <a href={u(programUrl(p))}>
                       <span class="t">{p.title}</span>
-                      <span class="m">{[programYear(p) ? `Tarifas ${programYear(p)}` : '', p.duration].filter(Boolean).join(' · ')}</span>
-                      <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : 'Consultar'}</span>
+                      <span class="m">{[isCurrent(p) ? `Tarifas ${programYear(p)}` : '', p.duration].filter(Boolean).join(' · ')}</span>
+                      <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : isCurrent(p) ? 'Consultar' : 'Consultar disponibilidad'}</span>
                     </a>
                   </li>
                 );
@@ -69,7 +69,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
   .countries .wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 40px 28px; }
   .country { scroll-margin-top: 90px; display: flex; flex-direction: column; }
   .pic { display: block; aspect-ratio: 3 / 2; background: var(--black); overflow: hidden; }
-  .pic img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s; }
+  .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .6s; }
   .pic:hover img { transform: scale(1.03); }
   .body { padding-top: 18px; }
   .body h2 { font-size: clamp(28px, 2.4vw, 36px); margin: 4px 0 8px; }

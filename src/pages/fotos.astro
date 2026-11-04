@@ -3,41 +3,54 @@ import Layout from '../layouts/Layout.astro';
 import Lightbox from '../components/Lightbox.astro';
 import { reportajes } from '../data/media.js';
 import { galleries } from '../data/galleries.js';
-import { programs, programUrl } from '../data/programs.js';
+import { programs } from '../data/programs.js';
+import { categories } from '../data/site.js';
 import { u } from '../lib/url.js';
 
-const albums = [
-  ...reportajes.map((r) => ({ id: r.slug, title: r.title, group: 'Reportajes', photos: r.photos })),
-  ...programs.filter((p) => galleries[p.slug]?.length).map((p) => ({ id: p.slug, title: `${p.countryName} · ${p.title}`, group: 'Programas', photos: galleries[p.slug], link: u(programUrl(p)) })),
-];
+// Un álbum por país: junta las fotos de todos sus programas (rifle y arco) y los reportajes.
+const contOf = {};
+for (const p of programs) if (p.category !== 'caza-con-arco') contOf[p.country] ??= p.category;
+const map = new Map();
+for (const p of programs) {
+  const a = map.get(p.country) ?? { slug: p.country, name: p.countryName, cat: contOf[p.country] ?? 'caza-con-arco', photos: [] };
+  a.photos.push(p.hero, ...(p.gallery || []), ...(galleries[p.slug] || []));
+  map.set(p.country, a);
+}
+for (const r of reportajes) map.get(r.slug)?.photos.push(...r.photos);
+const albums = [...map.values()]
+  .map((a) => ({ ...a, photos: [...new Set(a.photos.filter(Boolean))] }))
+  .filter((a) => a.photos.length)
+  .sort((a, b) => a.name.localeCompare(b.name, 'es'));
+const conts = categories.filter((c) => c.slug !== 'caza-con-arco' && albums.some((a) => a.cat === c.slug));
 const total = albums.reduce((n, a) => n + a.photos.length, 0);
 ---
-<Layout title="Fotos" description="Fotos de nuestras cacerías en África, Asia, Europa, América y Oceanía.">
+<Layout title="Fotos" description="Fotos de nuestras cacerías en los cinco continentes, por países.">
   <section class="head">
     <div class="wrap">
-      <div class="eyebrow">Galería</div>
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Fotos</div>
       <h1>Fotos</h1>
-      <p class="lead">{total} fotos de nuestras cacerías. Elige un álbum y pulsa cualquier foto para verla a pantalla completa.</p>
-      <div class="chips" role="tablist">
-        {albums.map((a, i) => (
-          <button type="button" role="tab" class:list={['chip', { on: i === 0 }]} data-album={a.id} aria-selected={i === 0 ? 'true' : 'false'}>
-            {a.title} <span>{a.photos.length}</span>
-          </button>
-        ))}
-      </div>
+      <p class="lead">{total} fotos de nuestras cacerías en {albums.length} países. Abra un país para recorrer su álbum a pantalla completa.</p>
+      <nav class="cfilter" aria-label="Filtrar por continente">
+        <button type="button" class="on" data-f="all">Todos</button>
+        {conts.map((c) => <button type="button" data-f={c.slug}><span aria-hidden="true">{c.emoji}</span> {c.name}</button>)}
+      </nav>
     </div>
   </section>
+
   <section class="albums">
-    <div class="wrap">
-      {albums.map((a, i) => (
-        <div class="album" id={`album-${a.id}`} hidden={i !== 0}>
-          {a.link && <a class="prog-link" href={a.link}>Ver el programa →</a>}
-          <div class="masonry">
-            {a.photos.map((src) => (
-              <button type="button" data-lb={a.id} data-src={src}><img src={src} alt={a.title} loading="lazy" /></button>
-            ))}
+    <div class="wrap grid">
+      {albums.map((a) => (
+        <article class="album" data-c={a.cat}>
+          <button type="button" class="cover" data-lb={a.slug} data-src={a.photos[0]} aria-label={`Ver fotos de ${a.name}`}>
+            <img src={a.photos[0]} alt={a.name} loading="lazy" />
+            <span class="strip" aria-hidden="true">{a.photos.slice(1, 4).map((s) => <img src={s} alt="" loading="lazy" />)}</span>
+          </button>
+          <div class="meta">
+            <h2>{a.name}</h2>
+            <span>{a.photos.length} fotos</span>
           </div>
-        </div>
+          <div hidden>{a.photos.slice(1).map((s) => <span data-lb={a.slug} data-src={s}></span>)}</div>
+        </article>
       ))}
     </div>
   </section>
@@ -45,26 +58,28 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
 </Layout>
 
 <script>
-  const chips = document.querySelectorAll<HTMLElement>('.chip');
-  chips.forEach((c) => c.addEventListener('click', () => {
-    chips.forEach((o) => { o.classList.toggle('on', o === c); o.setAttribute('aria-selected', String(o === c)); });
-    document.querySelectorAll<HTMLElement>('.album').forEach((a) => { a.hidden = a.id !== `album-${c.dataset.album}`; });
+  const btns = document.querySelectorAll<HTMLElement>('.cfilter button');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((x) => x.classList.toggle('on', x === b));
+    document.querySelectorAll<HTMLElement>('.album').forEach((a) => { a.hidden = b.dataset.f !== 'all' && a.dataset.c !== b.dataset.f; });
   }));
 </script>
 
 <style>
-  .head { padding-block: 150px 24px; }
-  .head h1 { font-size: clamp(44px, 5vw, 72px); margin: 10px 0 12px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-  .chip { background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 400 12px var(--label); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: .2s; }
-  .chip span { color: var(--stone); margin-left: 6px; }
-  .chip:hover { border-color: var(--bone); }
-  .chip.on { background: var(--red); border-color: var(--red); }
-  .chip.on span { color: rgba(255,255,255,.8); }
-  .albums { padding-top: 16px; }
-  .prog-link { display: inline-block; margin-bottom: 16px; font: 500 12px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--red-hi); text-decoration: none; }
-  .masonry { columns: 4 260px; column-gap: 6px; }
-  .masonry button { display: block; width: 100%; padding: 0; border: 0; margin: 0 0 6px; background: var(--char); cursor: zoom-in; break-inside: avoid; }
-  .masonry img { display: block; width: 100%; height: auto; transition: opacity .3s; }
-  .masonry button:hover img { opacity: .85; }
+  .head { padding-block: 150px 10px; }
+  .head h1 { font-size: clamp(44px, 5vw, 72px); margin: 18px 0 12px; }
+  .cfilter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .cfilter button { background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: .2s; }
+  .cfilter button:hover, .cfilter button.on { background: var(--red); border-color: var(--red); color: #fff; }
+  .albums { padding-top: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 22px; }
+  .album[hidden] { display: none; }
+  .cover { display: block; width: 100%; padding: 0; border: 0; background: var(--char); cursor: zoom-in; position: relative; }
+  .cover > img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; transition: opacity .4s; }
+  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3px; }
+  .strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .cover:hover > img { opacity: .88; }
+  .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .meta h2 { font-size: 28px; margin: 0; }
+  .meta span { font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
 </style>

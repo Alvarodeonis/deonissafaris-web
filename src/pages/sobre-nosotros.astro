@@ -2,48 +2,119 @@
 import Layout from '../layouts/Layout.astro';
 import { team, contact } from '../data/site.js';
 import { programs } from '../data/programs.js';
+import { u } from '../lib/url.js';
+
+const nCountries = new Set(programs.map((p) => p.country)).size;
+const figures = [
+  ['30+', 'años organizando caza internacional'],
+  ['5', 'continentes'],
+  [String(nCountries), 'países con programas propios'],
+  ['3', 'oficinas en España'],
+];
+const principles = [
+  ['Solo destinos que conocemos', 'Cada programa que proponemos lo ha vivido antes alguien de nuestro equipo, en el mismo cazadero y con el mismo organizador.'],
+  ['Un único interlocutor', 'Una misma persona le acompaña desde la primera conversación hasta que el trofeo llega a su casa: elección del destino, fechas, viaje, cacería y regreso.'],
+  ['Outfitters seleccionados', 'Trabajamos con organizadores locales de largo recorrido, elegidos por su ética, su seguridad y la calidad de sus guías y de sus cazaderos.'],
+  ['Acompañamiento en la documentación', 'Le orientamos en las licencias y permisos de armas, en los permisos de exportación e importación de trofeos y en el CITES, para que nada quede al azar.'],
+];
 ---
-<Layout title="Sobre nosotros" description="Un equipo de cazadores con más de 30 años organizando safaris de caza internacional." transparentHeader>
-  <div class="page-hero">
-    <div class="hero-media">
-      <img class="bg" src={programs[3].gallery[2]} alt="" aria-hidden="true" />
-      <img class="fg" src={programs[3].gallery[2]} alt="" />
-    </div>
+<Layout title="Sobre nosotros" description="Más de treinta años organizando caza internacional en los cinco continentes.">
+  <section class="ab-head">
     <div class="wrap">
-      <div class="eyebrow">Sobre nosotros</div>
-      <h1>Cazadores que organizan cacerías</h1>
-    </div>
-  </div>
-  <section>
-    <div class="wrap about">
-      <p class="big">Organizamos safaris de caza en cinco continentes con outfitters de confianza. Todo el equipo es cazador y tenemos una regla: nunca enviamos a nadie a un destino donde alguno de nosotros no haya cazado antes.</p>
-      <p class="lead">Así podemos recomendarte con honestidad qué destino encaja con tu forma de cazar, tu calendario y tu presupuesto, y acompañarte desde la primera llamada hasta que el trofeo llega a casa.</p>
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Sobre nosotros</div>
+      <div class="eyebrow">de Onís Safaris · desde hace más de tres décadas</div>
+      <h1>Caza internacional, organizada por cazadores</h1>
+      <p class="intro">de Onís Safaris es una casa española dedicada exclusivamente a la caza internacional. Diseñamos cada cacería a la medida de quien la va a vivir, con el rigor y la discreción que exige un viaje de este tipo.</p>
     </div>
   </section>
-  <section style="padding-top:0">
+
+  <section class="figures-sec">
+    <div class="wrap figures">
+      {figures.map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
+    </div>
+  </section>
+
+  <section class="principles-sec">
     <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">Nuestra forma de trabajar</div><h2>Lo que nos distingue</h2></div></div>
+      <ol class="principles">
+        {principles.map(([t, d], i) => (
+          <li><span class="n">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="founder dark">
+    <div class="wrap">
+      <blockquote>
+        <p>Nunca enviamos a un cliente a un destino donde alguien de nuestro equipo no haya cazado antes.</p>
+        <footer>Nuestra regla desde el primer día</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="team-sec">
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">El equipo</div><h2>Las personas detrás de cada cacería</h2></div></div>
       <div class="people">
         {team.map((t) => (
           <article>
             <img src={t.photo} alt={t.name} loading="lazy" />
             <h3>{t.name}</h3>
             <p>{t.role}</p>
-            <div class="langs">Idiomas: ES · {t.langs.replace('ES', '').trim() || '—'}</div>
-            {t.phone && <div class="contact">{t.phone}<br />{t.email}</div>}
+            <div class="langs">Español{t.langs.replace('ES', '').trim() ? ` · ${t.langs.replace('ES', '').trim().replace(/EN/, 'Inglés').replace(/FR/, 'Francés').replace(/IT/, 'Italiano')}` : ''}</div>
+            {t.phone && <div class="contact"><a href={`tel:${t.phone.replace(/\s/g, '')}`}>{t.phone}</a><br /><a href={`mailto:${t.email}`}>{t.email}</a></div>}
           </article>
         ))}
       </div>
     </div>
   </section>
+
+  <section class="offices-sec">
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">Oficinas</div><h2>Dónde encontrarnos</h2></div></div>
+      <div class="offices">
+        {contact.offices.map((o) => (
+          <div><h3>{o.city}</h3><a href={`tel:${o.phone.replace(/\s/g, '')}`}>{o.phone}</a><a href={`mailto:${o.email}`}>{o.email}</a></div>
+        ))}
+      </div>
+      <p class="cta"><a class="btn" href={u('contacto')}>Hablar con nosotros</a></p>
+    </div>
+  </section>
 </Layout>
+
 <style>
-  .about { display: grid; gap: 24px; max-width: 980px; }
-  .big { font: 500 clamp(26px, 2.6vw, 38px)/1.3 var(--display); margin: 0; }
-  .people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 20px; }
-  .people img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; margin-bottom: 14px; background: var(--char); }
-  .people h3 { font-size: 28px; }
-  .people p { margin: 4px 0; color: var(--stone); }
-  .langs { font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); }
-  .contact { font-size: 14px; color: var(--stone); margin-top: 8px; }
-  @media (max-width: 960px) { .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .ab-head { padding-top: 150px; padding-bottom: 20px; }
+  .ab-head .crumbs { margin-bottom: 26px; }
+  .ab-head h1 { font-size: clamp(42px, 5.4vw, 84px); line-height: 1.02; margin: 12px 0 24px; max-width: 16ch; font-weight: 500; }
+  .intro { max-width: 60ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: var(--stone); margin: 0; }
+  .figures-sec { padding-block: 10px 30px; }
+  .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+  .figures div { padding: 34px 24px; border-left: 1px solid var(--line); }
+  .figures div:first-child { border-left: 0; padding-left: 0; }
+  .figures b { display: block; font: 500 clamp(44px, 4.6vw, 68px)/1 var(--display); color: var(--red); }
+  .figures span { display: block; margin-top: 10px; font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+  .principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 64px; }
+  .principles li { padding: 30px 0; border-top: 1px solid var(--line); }
+  .principles .n { font: 500 12px var(--label); letter-spacing: .2em; color: var(--red); }
+  .principles h3 { font-size: clamp(26px, 2.2vw, 32px); margin: 10px 0 10px; }
+  .principles p { margin: 0; color: var(--stone); line-height: 1.7; max-width: 52ch; }
+  .founder blockquote { margin: 0 auto; max-width: 900px; text-align: center; }
+  .founder p { font: italic 500 clamp(28px, 3.2vw, 46px)/1.25 var(--display); margin: 0; }
+  .founder footer { margin-top: 24px; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+  .people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 44px 22px; }
+  .people img { aspect-ratio: 4 / 5; width: 100%; object-fit: cover; object-position: center 25%; margin-bottom: 16px; background: var(--char); filter: grayscale(1) contrast(1.05); transition: filter .5s; }
+  .people article:hover img { filter: none; }
+  .people h3 { font-size: 26px; margin: 0; }
+  .people p { margin: 6px 0 8px; color: var(--stone); font-size: 15px; }
+  .langs { font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
+  .contact { font-size: 14px; margin-top: 10px; line-height: 1.6; }
+  .contact a { color: var(--bone); }
+  .offices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .offices div { padding: 26px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+  .offices h3 { font-size: 26px; margin: 0 0 6px; }
+  .offices a { color: var(--stone); }
+  .cta { margin-top: 40px; text-align: center; }
+  @media (max-width: 960px) { .figures { grid-template-columns: 1fr 1fr; } .figures div:nth-child(3) { border-left: 0; padding-left: 0; } .principles { grid-template-columns: 1fr; } .people { grid-template-columns: repeat(2, minmax(0, 1fr)); } .offices { grid-template-columns: 1fr; } }
 </style>

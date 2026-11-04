@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
+import { countries as countriesOf } from '../data/programs.js';
+const arcoCountries = countriesOf('caza-con-arco');
 
 const { title, description = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false } = Astro.props;
 const links = [
@@ -39,7 +41,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           <button type="button" aria-haspopup="true">Caza con rifle</button>
           <div class="dropdown-menu">
             {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => (
-              <a href={u(c.slug)}>{c.title}<small>{c.tagline}</small></a>
+              <a href={u(c.slug)}><span class="cemo" aria-hidden="true">{c.emoji}</span>{c.title}<small>{c.tagline}</small></a>
             ))}
           </div>
         </div>
@@ -63,20 +65,17 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
         <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años.<br />Solo le llevamos donde nuestro equipo ya ha cazado.</p>
         <div class="orn" aria-hidden="true"><span></span><i></i><span></span></div>
       </div>
+      <nav class="f-nav" aria-label="Secciones">
+        <a href={u('caza-en-africa')}>Caza con rifle</a><a href={u('caza-con-arco')}>Caza con arco</a><a href={u('fotos')}>Fotos</a><a href={u('videos')}>Películas</a><a href={u('articulos-revistas')}>Artículos / revistas</a><a href={u('sobre-nosotros')}>Sobre nosotros</a><a href={u('contacto')}>Contacto</a>
+      </nav>
       <div class="cols">
         <div>
           <h4>Caza con rifle</h4>
           <ul>{categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <li><a href={u(c.slug)}>{c.title.replace('Caza en ', '')}</a></li>)}</ul>
         </div>
         <div>
-          <h4>de Onís Safaris</h4>
-          <ul>
-            <li><a href={u('caza-con-arco')}>Caza con arco</a></li>
-            <li><a href={u('sobre-nosotros')}>Sobre nosotros</a></li>
-            <li><a href={u('fotos')}>Fotos</a></li>
-            <li><a href={u('videos')}>Películas</a></li>
-            <li><a href={u('articulos-revistas')}>Artículos y revistas</a></li>
-          </ul>
+          <h4>Caza con arco</h4>
+          <ul>{arcoCountries.map((c) => <li><a href={u(`caza-con-arco/${c.slug}`)}>{c.name}</a></li>)}</ul>
         </div>
         <div>
           <h4>Oficinas</h4>

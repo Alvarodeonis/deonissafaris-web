@@ -8,7 +8,7 @@ import Lightbox from '../../../components/Lightbox.astro';
 import { details } from '../../../data/details.js';
 import { galleries } from '../../../data/galleries.js';
 import { categories } from '../../../data/site.js';
-import { programs, fromPrice, money } from '../../../data/programs.js';
+import { programs, fromPrice, money, isCurrent, programYear } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
 import { contact } from '../../../data/site.js';
 
@@ -21,6 +21,9 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 const cat = categories.find((c) => c.slug === p.category);
 const from = fromPrice(p);
+const cur = isCurrent(p);
+const oldYear = programYear(p);
+const sim = cur && p.simulator;
 const d = details[p.slug] ?? p.details;
 const photos = galleries[p.slug] ?? [p.hero, ...p.gallery];
 const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
@@ -46,9 +49,10 @@ const facts = [
         {p.tag && <span class="tag" style="position:static;display:inline-block;margin-bottom:14px">{p.tag}</span>}
         <div class="eyebrow" style="margin-bottom:10px">{p.countryName}</div>
         <h1>{p.title}</h1>
+        {!cur && <p class="old-note">Programa de temporadas anteriores{oldYear ? ` (tarifas ${oldYear})` : ''}. Los precios son orientativos: escríbenos y te confirmamos disponibilidad y tarifa actualizada.</p>}
         {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / cazador</div>}
         <div class="hero-btns">
-          {p.simulator ? <a class="btn" href="#simulador">Calcular presupuesto</a> : <a class="btn" href={wa} target="_blank" rel="noopener">Pedir presupuesto</a>}
+          {sim ? <a class="btn" href="#simulador">Calcular presupuesto</a> : <a class="btn" href={wa} target="_blank" rel="noopener">Pedir presupuesto</a>}
           {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
         </div>
         <div class="hero-media-btns">
@@ -85,6 +89,7 @@ const facts = [
   )}
 
 
+  {d && !cur && <div class="wrap"><p class="old-note band">Precios orientativos de {oldYear || 'temporadas anteriores'}. <a href={wa} target="_blank" rel="noopener">Pídenos la tarifa actual por WhatsApp</a>.</p></div>}
   {d && <ProgramDetails d={d} title={p.title} />}
 
   {p.video && (
@@ -100,7 +105,7 @@ const facts = [
     </section>
   )}
 
-  {p.simulator ? <Simulator p={p} /> : (
+  {sim ? <Simulator p={p} /> : (
     <section class="ask" id="presupuesto">
       <div class="wrap ask-box">
         <div>
@@ -233,4 +238,9 @@ const facts = [
   .vframe { width: min(1280px, 100%); aspect-ratio: 16 / 9; }
   .vframe :global(iframe) { width: 100%; height: 100%; border: 0; }
   .vclose { z-index: 2; position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 44px; cursor: pointer; line-height: 1; }
+</style>
+<style>
+  .old-note { max-width: 560px; margin: 0 0 18px; padding: 12px 16px; border-left: 2px solid var(--red, #BF121D); background: rgba(191,18,29,.08); font-size: 14px; line-height: 1.5; color: var(--bone); }
+  .old-note.band { max-width: none; margin: 28px 0 0; color: var(--bone); }
+  .old-note a { color: var(--red, #BF121D); text-decoration: underline; }
 </style>
