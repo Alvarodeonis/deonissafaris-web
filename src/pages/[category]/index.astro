@@ -22,7 +22,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
       <h1>{cat.title}</h1>
       <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
       <nav class="jump" aria-label="Países">
-        {list.map((c) => <a href={`#${c.slug}`}>{c.name}</a>)}
+        {list.map((c) => <a href={`#${c.slug}`}><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></a>)}
       </nav>
     </div>
   </section>
@@ -59,12 +59,15 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
 </Layout>
 
 <style>
-  .head { padding-block: 150px 8px; }
+  .head { padding-block: var(--page-top) 8px; }
   .head h1 { font-size: clamp(44px, 5vw, 76px); }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
-  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-  .jump a { border: 1px solid var(--line); padding: 8px 16px; font: 400 12px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: .2s; }
-  .jump a:hover { background: var(--red); border-color: var(--red); }
+  .jump { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-top: 30px; }
+  .jump a { display: block; padding: 16px 18px 14px; background: var(--char); border: 1px solid rgba(28,27,24,.22); border-top: 3px solid var(--red); text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+  .jump b { display: block; font: 500 24px/1.1 var(--display); color: var(--bone); }
+  .jump small { display: block; margin-top: 6px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+  .jump a:hover { background: var(--red); border-color: var(--red); transform: translateY(-2px); }
+  .jump a:hover b, .jump a:hover small { color: #fff; }
   .countries { padding-top: 24px; }
   .countries .wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 40px 28px; }
   .country { scroll-margin-top: 90px; display: flex; flex-direction: column; }

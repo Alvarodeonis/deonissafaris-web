@@ -66,7 +66,7 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
 </script>
 
 <style>
-  .head { padding-block: 150px 10px; }
+  .head { padding-block: var(--page-top) 10px; }
   .head h1 { font-size: clamp(44px, 5vw, 72px); margin: 18px 0 12px; }
   .cfilter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
   .cfilter button { background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: .2s; }

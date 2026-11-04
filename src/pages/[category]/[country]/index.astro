@@ -28,7 +28,7 @@ const { cat, c } = Astro.props;
 </Layout>
 
 <style>
-  .head { padding-block: 150px 0; }
+  .head { padding-block: var(--page-top) 0; }
   .head h1 { font-size: clamp(44px, 5vw, 76px); }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
   .list { padding-top: 32px; }
