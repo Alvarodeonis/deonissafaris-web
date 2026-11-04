@@ -64,7 +64,7 @@ h1, h2, h3, h4 {
   color: var(--red-hi);
 }
 .lead { font-size: 17px; color: var(--stone); max-width: 60ch; }
-section { padding-block: clamp(32px, 3.6vw, 56px); scroll-margin-top: 70px; }
+section { padding-block: clamp(24px, 2.6vw, 40px); scroll-margin-top: 70px; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 10px;

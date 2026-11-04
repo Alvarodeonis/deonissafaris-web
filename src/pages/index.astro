@@ -216,9 +216,10 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   @media (max-width: 860px) { .bestsellers { grid-template-columns: 1fr 1fr; } .bestsellers > :first-child { grid-column: span 2; } }
   @media (max-width: 520px) { .bestsellers { grid-template-columns: 1fr; } .bestsellers > :first-child { grid-column: auto; } }
 
-  .about-text { max-width: 900px; margin-bottom: 48px; }
+  .about-text { max-width: 900px; margin: 0 auto 36px; text-align: center; }
+  .about-text .lead { margin-inline: auto; }
   .about h2 { font-size: clamp(38px, 4.6vw, 66px); margin: 12px 0 20px; }
-  .about blockquote { margin: 28px 0 32px; padding-left: 22px; border-left: 2px solid var(--red); font: italic 500 clamp(24px, 2.4vw, 34px)/1.25 var(--display); }
+  .about blockquote { margin: 24px auto 28px; padding: 18px 0 0; border-top: 1px solid var(--red); max-width: 34ch; font: italic 500 clamp(24px, 2.4vw, 34px)/1.25 var(--display); }
   .new { background: var(--char); }
 
   .contact-home .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; }

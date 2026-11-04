@@ -112,7 +112,7 @@ const facts = [
 
   {sim ? <Simulator p={p} /> : (
     <section class="ask" id="presupuesto">
-      <div class="wrap ask-box">
+      <div class="wrap"><div class="ask-box">
         <div>
           <div class="eyebrow">Presupuesto a medida</div>
           <h2>{d?.blocks.length ? 'Te preparamos el presupuesto' : 'Consúltanos este programa'}</h2>
@@ -122,7 +122,7 @@ const facts = [
           <a class="btn" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
           <a class="btn outline" href={`mailto:${contact.email}?subject=${encodeURIComponent(`Presupuesto: ${p.title} (${p.countryName})`)}`}>Pedir por email</a>
         </div>
-      </div>
+      </div></div>
     </section>
   )}
 
