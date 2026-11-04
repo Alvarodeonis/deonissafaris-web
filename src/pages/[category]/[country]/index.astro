@@ -30,6 +30,11 @@ const { cat, c } = Astro.props;
 <style>
   .head { padding-block: var(--page-top) 0; }
   .head h1 { font-size: clamp(44px, 5vw, 76px); }
+  @media (min-width: 961px) {
+    .head { padding-top: 104px; }
+    .head .crumbs, .head h1, .count { text-align: center; justify-content: center; }
+    .head h1 { margin: 10px 0 0; }
+  }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
   .list { padding-top: 32px; }
   @media (max-width: 760px) { .head { padding-top: 120px; } }

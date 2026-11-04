@@ -30,12 +30,6 @@ const principles = [
     </div>
   </section>
 
-  <section class="figures-sec">
-    <div class="wrap figures">
-      {figures.map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
-    </div>
-  </section>
-
   <section class="team-sec">
     <div class="wrap">
       <div class="sec-head"><div><div class="eyebrow">El equipo</div><h2>Las personas detrás de cada cacería</h2></div></div>
@@ -50,6 +44,12 @@ const principles = [
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="figures-sec">
+    <div class="wrap figures">
+      {figures.map(([n, t]) => <div><b>{n}</b><span>{t}</span></div>)}
     </div>
   </section>
 
@@ -93,7 +93,7 @@ const principles = [
   .ab-head h1 { font-size: clamp(42px, 5vw, 78px); line-height: 1.02; margin: 12px 0 0; font-weight: 500; }
   @media (max-width: 960px) { .ab-row { grid-template-columns: 1fr; } }
   .intro { max-width: 60ch; padding-bottom: 8px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: var(--stone); margin: 0; }
-  .figures-sec { padding-block: 10px 10px; }
+  .figures-sec { padding-block: 20px 10px; }
   .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
   .figures div { padding: 34px 24px; border-left: 1px solid var(--line); }
   .figures div:first-child { border-left: 0; padding-left: 0; }
@@ -113,7 +113,7 @@ const principles = [
   .people h3 { font-size: 26px; margin: 0; }
   .people p { margin: 6px 0 8px; color: var(--stone); font-size: 15px; }
   .langs { font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
-  .contact { font-size: 14px; margin-top: 10px; line-height: 1.6; }
+  .contact { font-size: 14px; margin-top: 10px; line-height: 1.6; overflow-wrap: anywhere; }
   .contact a { color: var(--bone); }
   .offices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .offices div { padding: 26px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; }

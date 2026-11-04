@@ -49,10 +49,9 @@ const hunted = new Set(pins.map((p) => GEO[p.slug][0]));
     <g class="pins">
       {pins.map((p) => (
         <a href={p.href} aria-label={p.name}>
-          <title>{`${p.name} · ${p.n} ${p.n === 1 ? 'programa' : 'programas'}${p.arco ? ' · también con arco' : ''}`}</title>
           <circle class="halo" cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="9" />
           <circle class="dot" cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="3.6" />
-          <text x={(p.x + 7).toFixed(1)} y={(p.y + 3.5).toFixed(1)}>{p.name}</text>
+          <text x={p.x.toFixed(1)} y={(p.y - 14).toFixed(1)} text-anchor="middle" style={`transform-origin:${p.x.toFixed(1)}px ${p.y.toFixed(1)}px`}><tspan class="nm">{p.name}</tspan><tspan class="np" x={p.x.toFixed(1)} dy="13">{`${p.n} ${p.n === 1 ? 'programa' : 'programas'}`}</tspan></text>
         </a>
       ))}
     </g>
@@ -61,15 +60,19 @@ const hunted = new Set(pins.map((p) => GEO[p.slug][0]));
 </div>
 
 <style>
-  .wmap svg { width: 100%; max-width: 1040px; margin: 0 auto; height: auto; display: block; }
+  .wmap svg { width: 100%; height: auto; display: block; overflow: visible; }
   .land path { fill: rgba(255,255,255,.09); stroke: #0d0e0d; stroke-width: .6; }
   .land path.on { fill: rgba(191, 18, 29, .78); }
   .land { pointer-events: none; }
   .pins a { cursor: pointer; }
-  .pins .dot { fill: #fff; stroke: #0d0e0d; stroke-width: 1; }
+  .pins .dot { fill: #fff; stroke: #0d0e0d; stroke-width: 1; transition: r .2s, fill .2s; }
+  .pins a:hover .dot, .pins a:focus .dot { r: 5.5; fill: var(--red); stroke: #fff; }
   .pins .halo { fill: #fff; opacity: 0; transition: opacity .2s; }
-  .pins text { font: 500 11px var(--body, sans-serif); fill: #fff; opacity: 0; pointer-events: none; paint-order: stroke; stroke: #0d0e0d; stroke-width: 3px; transition: opacity .2s; }
+  .pins text { font: 500 11px var(--body, sans-serif); transform: scale(.6); transition: opacity .2s, transform .25s; fill: #fff; opacity: 0; pointer-events: none; paint-order: stroke; stroke: #0d0e0d; stroke-width: 3px; }
   .pins a:hover .halo, .pins a:focus .halo { opacity: .25; }
-  .pins a:hover text, .pins a:focus text { opacity: 1; }
+  .pins a:hover text, .pins a:focus text { opacity: 1; transform: scale(1); }
+  .pins .nm { font: 500 20px var(--display); }
+  .pins .np { font: 500 9px var(--label); letter-spacing: .14em; text-transform: uppercase; }
+  .pins a:hover { position: relative; z-index: 2; }
   .wmap-note { margin: 14px 0 0; text-align: center; color: var(--stone); font-size: 14px; }
 </style>

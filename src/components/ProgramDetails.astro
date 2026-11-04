@@ -42,8 +42,8 @@ const { d, title } = Astro.props;
   .block li::marker { color: var(--red-hi); }
   dl { margin: 0; }
   dl div { display: flex; justify-content: space-between; gap: 20px; padding: 9px 0; border-bottom: 1px solid var(--line); }
-  dt { color: var(--bone); }
-  dd { margin: 0; white-space: nowrap; font-weight: 500; text-align: right; }
+  dt { color: var(--bone); flex: 1 1 auto; min-width: 6.5em; }
+  dd { margin: 0; font-weight: 500; text-align: right; flex: 0 1 auto; min-width: 0; max-width: 78%; overflow-wrap: anywhere; }
   .tscroll { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 15px; }
   th { text-align: left; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }

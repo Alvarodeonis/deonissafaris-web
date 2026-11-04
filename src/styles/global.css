@@ -31,7 +31,7 @@ section.dark { background: var(--black); color: var(--bone); }
 
 *, *::before, *::after { box-sizing: border-box; font-feature-settings: 'lnum' 1; }
 html { scroll-behavior: smooth; }
-body {
+body { overflow-wrap: break-word;
   margin: 0;
   background: var(--black);
   color: var(--bone);
