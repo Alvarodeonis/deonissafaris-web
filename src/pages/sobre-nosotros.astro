@@ -23,8 +23,10 @@ const principles = [
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Sobre nosotros</div>
       <div class="eyebrow">de Onís Safaris · desde hace más de tres décadas</div>
+      <div class="ab-row">
       <h1>Caza internacional, organizada por cazadores</h1>
       <p class="intro">de Onís Safaris es una casa española dedicada exclusivamente a la caza internacional. Diseñamos cada cacería a la medida de quien la va a vivir, con el rigor y la discreción que exige un viaje de este tipo.</p>
+      </div>
     </div>
   </section>
 
@@ -87,8 +89,10 @@ const principles = [
 <style>
   .ab-head { padding-top: var(--page-top); padding-bottom: 20px; }
   .ab-head .crumbs { margin-bottom: 26px; }
-  .ab-head h1 { font-size: clamp(42px, 5.4vw, 84px); line-height: 1.02; margin: 12px 0 24px; max-width: 16ch; font-weight: 500; }
-  .intro { max-width: 60ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: var(--stone); margin: 0; }
+  .ab-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; }
+  .ab-head h1 { font-size: clamp(42px, 5vw, 78px); line-height: 1.02; margin: 12px 0 0; font-weight: 500; }
+  @media (max-width: 960px) { .ab-row { grid-template-columns: 1fr; } }
+  .intro { max-width: 60ch; padding-bottom: 8px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; color: var(--stone); margin: 0; }
   .figures-sec { padding-block: 10px 10px; }
   .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
   .figures div { padding: 34px 24px; border-left: 1px solid var(--line); }

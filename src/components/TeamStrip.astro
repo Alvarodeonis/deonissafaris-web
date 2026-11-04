@@ -1,0 +1,35 @@
+---
+// Franja del equipo al final de cada programa.
+import { team } from '../data/site.js';
+import { u } from '../lib/url.js';
+---
+<section class="team-strip">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Detrás de cada cacería</div><h2>Un equipo de cazadores a su lado</h2></div>
+      <p class="lead">Le acompañamos personalmente desde la primera conversación hasta que el trofeo llega a casa. <a href={u('sobre-nosotros')}>Conozca al equipo →</a></p>
+    </div>
+    <div class="ts-grid">
+      {team.map((t) => (
+        <a class="ts" href={u('sobre-nosotros')}>
+          <img src={t.photo} alt={t.name} loading="lazy" />
+          <b>{t.name}</b>
+          <small>{t.role}</small>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-strip { border-top: 1px solid var(--line); }
+  .team-strip .lead a { color: var(--red); white-space: nowrap; }
+  .ts-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 18px; }
+  .ts { display: block; text-decoration: none; color: var(--bone); }
+  .ts img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%; filter: grayscale(1); transition: filter .4s; background: var(--char); display: block; }
+  .ts:hover img { filter: none; }
+  .ts b { display: block; margin-top: 10px; font: 500 19px/1.15 var(--display); }
+  .ts small { display: block; margin-top: 4px; font-size: 13px; color: var(--stone); line-height: 1.35; }
+  @media (max-width: 1000px) { .ts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .ts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
