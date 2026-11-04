@@ -65,17 +65,17 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   </section>
 
   <section class="map-sec dark">
-    <div class="wrap map-grid">
+    <div class="wrap map-head">
       <div class="map-txt">
         <div class="eyebrow">Dónde cazamos</div>
         <h2>{nHunt} países en cinco continentes</h2>
         <p>Solo enviamos a un cliente donde alguien de nuestro equipo ha cazado antes.</p>
+      </div>
         <ul class="map-conts">
           {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <li><a href={u(c.slug)}><span>{c.name}</span><b>{catCount(c.slug)}</b></a></li>)}
         </ul>
-      </div>
-      <WorldMap />
     </div>
+    <div class="map-full"><WorldMap /></div>
   </section>
 
   <section class="featured">
@@ -258,14 +258,14 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   .faces span { font-size: 14px; color: rgba(242,239,232,.8); }
 
   .map-sec { background: #0d0e0d; }
-  .map-grid { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: 36px; max-width: 1500px; align-items: center; }
+  .map-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 48px; flex-wrap: wrap; }
+  .map-full { max-width: 1680px; margin: 10px auto 0; padding-inline: 12px; }
   .map-txt h2 { font-size: clamp(32px, 3vw, 44px); margin: 12px 0 14px; line-height: 1.08; }
-  .map-txt p { color: var(--stone); margin: 0 0 22px; }
-  .map-conts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-  .map-conts a { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); text-decoration: none; font: 500 12px var(--label); letter-spacing: .16em; text-transform: uppercase; transition: color .2s, padding .2s; }
+  .map-txt p { color: var(--stone); margin: 0; }
+  .map-conts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 26px; }
+  .map-conts a { display: flex; gap: 8px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid transparent; text-decoration: none; font: 500 12px var(--label); letter-spacing: .16em; text-transform: uppercase; transition: color .2s, padding .2s; }
   .map-conts b { font: 500 22px var(--display); letter-spacing: 0; color: var(--red); }
-  .map-conts a:hover { color: var(--red); padding-left: 6px; }
-  @media (max-width: 960px) { .map-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .map-conts a:hover { color: var(--red); border-color: var(--red); }
 </style>
 
 <script>
