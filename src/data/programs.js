@@ -424,12 +424,25 @@ const parsePrice = (v) => {
   if (!m || (!m[1] && !m[3])) return null;
   return { amount: Number(m[2].replace(/\./g, '')), currency: m[1] ? (m[1].startsWith('£') ? 'GBP' : 'USD') : 'EUR' };
 };
+// Programas cuyo precio real es la suma de varias partidas (días + permisos + tasa de abate obligatoria).
+const FROM_OVERRIDE = {
+  'namibia-guepardo': { amount: 12000, currency: 'EUR' }, // 1.800 + 1.000 + 1.500 + 7.700
+  'namibia-leopardo': { amount: 22000, currency: 'EUR' }, // 3.000 + 1.200 + 1.000 + 16.800
+  'espana-macho-montes-gredos-finca-privada': { amount: 7900, currency: 'EUR' }, // 1.000 + macho 6.900
+};
+
 export const fromPrice = (p) => {
   if (!isCurrent(p)) return null;
   const s = p.simulator;
   if (!s) {
-    const b = p.details?.blocks.find((x) => x.rows && /paquete|precio|tarifa|programa/i.test(x.title) && !/pieza|trofeo|abate/i.test(x.title));
-    const ps = (b?.rows || []).filter((r) => !/tasa|acompa|licencia|dip|total|día adicional|día extra|segundo|tercer|adicional|extra|transporte|ch[aá]rter|gst|herido|alquiler|reserva|depósito|helic|solo después|opcional|cites|turismo|pesca/i.test(r[0])).map((r) => parsePrice(r[1] || '')).filter((x) => x && x.amount >= 500);
+    if (FROM_OVERRIDE[p.slug]) return FROM_OVERRIDE[p.slug];
+    // Bloque del paquete o precio de la cacería (nunca tarifas diarias, suplementos ni trofeos).
+    const bs = (p.details?.blocks || []).filter((x) => x.rows && (/paquete/i.test(x.title) || (/precio|tarifa|programa/i.test(x.title) && !/pieza|trofeo|abate|diari|por día|suplement|extra|adicional/i.test(x.title))));
+    const b = bs.find((x) => /paquete/i.test(x.title)) ?? bs[0];
+    const ps = (b?.rows || [])
+      .filter((r) => !/tasa|acompa|licencia|dip|total|día adicional|día extra|segundo|tercer|adicional|extra|transporte|ch[aá]rter|gst|herido|alquiler|reserva|depósito|helic|solo después|opcional|cites|turismo|pesca|suplement|por día|preparaci|permiso|cebado/i.test(r[0]))
+      .filter((r) => !/\/\s?día|por día|por noche|\/\s?noche/i.test(r[1] || ''))
+      .map((r) => parsePrice(r[1] || '')).filter((x) => x && x.amount >= 500);
     return ps.length ? ps.reduce((a, c) => (c.amount < a.amount ? c : a)) : null;
   }
   const prices = s.packages.flatMap((k) => (k.tiers ? k.tiers.map((t) => t.price) : [k.price]));
