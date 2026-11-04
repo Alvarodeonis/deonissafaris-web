@@ -393,14 +393,24 @@ export const CURRENT_FROM = 2025;
 export const isCurrent = (p) => programYear(p) >= CURRENT_FROM;
 export const byUpdate = (a, b) => programYear(b) - programYear(a);
 
+// Orden destacado de países por continente (el resto va después, por orden alfabético).
+const COUNTRY_ORDER = {
+  'caza-en-africa': ['namibia', 'sudafrica', 'mozambique', 'tanzania', 'mauritania'],
+};
+// Programas que van primero dentro de su país.
+const PINNED = ['namibia-paquete-windhoek'];
+
 export const countries = (category) => {
   const map = new Map();
   for (const p of programs.filter((p) => p.category === category)) {
     if (!map.has(p.country)) map.set(p.country, { slug: p.country, name: p.countryName, hero: p.hero, programs: [] });
     map.get(p.country).programs.push(p);
   }
-  const list = [...map.values()].sort(byName);
-  list.forEach((c) => c.programs.sort(byUpdate));
+  const order = COUNTRY_ORDER[category] ?? [];
+  const rank = (c) => { const i = order.indexOf(c.slug); return i < 0 ? order.length : i; };
+  const list = [...map.values()].sort((a, b) => rank(a) - rank(b) || byName(a, b));
+  const pin = (p) => { const i = PINNED.indexOf(p.slug); return i < 0 ? PINNED.length : i; };
+  list.forEach((c) => c.programs.sort((a, b) => pin(a) - pin(b) || byUpdate(a, b)));
   return list;
 };
 
