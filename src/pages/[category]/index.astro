@@ -22,7 +22,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
       <h1>{cat.title}</h1>
       <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
       <nav class="jump" aria-label="Países">
-        {list.map((c) => <a href={`#${c.slug}`}><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></a>)}
+        {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)}><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></a>)}
       </nav>
     </div>
   </section>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContinentIcon from '../components/ContinentIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
 import { reportajes } from '../data/media.js';
 import { galleries } from '../data/galleries.js';
@@ -32,7 +33,7 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
       <p class="lead">{total} fotos de nuestras cacerías en {albums.length} países. Abra un país para recorrer su álbum a pantalla completa.</p>
       <nav class="cfilter" aria-label="Filtrar por continente">
         <button type="button" class="on" data-f="all">Todos</button>
-        {conts.map((c) => <button type="button" data-f={c.slug}><span aria-hidden="true">{c.emoji}</span> {c.name}</button>)}
+        {conts.map((c) => <button type="button" data-f={c.slug}><ContinentIcon slug={c.slug} class="fico" />{c.name}</button>)}
       </nav>
     </div>
   </section>
@@ -69,8 +70,9 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
   .head { padding-block: var(--page-top) 10px; }
   .head h1 { font-size: clamp(44px, 5vw, 72px); margin: 18px 0 12px; }
   .cfilter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-  .cfilter button { background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: .2s; }
+  .cfilter button { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--line); color: var(--bone); padding: 9px 16px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: .2s; }
   .cfilter button:hover, .cfilter button.on { background: var(--red); border-color: var(--red); color: #fff; }
+  .cfilter :global(.fico) { width: 18px; height: 18px; }
   .albums { padding-top: 24px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 22px; }
   .album[hidden] { display: none; }

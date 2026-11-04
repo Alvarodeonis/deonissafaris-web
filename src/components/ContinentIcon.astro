@@ -1,0 +1,16 @@
+---
+import { silhouettes, ICON_SIZE } from '../lib/continents.js';
+const { slug, class: cls } = Astro.props;
+const d = silhouettes[slug];
+---
+{d ? (
+  <svg class:list={['cicon', cls]} viewBox={`0 0 ${ICON_SIZE} ${ICON_SIZE}`} aria-hidden="true"><path d={d} /></svg>
+) : (
+  <svg class:list={['cicon', 'bow', cls]} viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 6c22 6 30 30 22 52" stroke-width="4" />
+    <path d="M18 6 40 58" stroke-width="1.5" />
+    <path d="M6 44 54 14" stroke-width="2.5" />
+    <path d="M54 14l-9 1 4 4 1 4z" fill="currentColor" stroke-width="1.5" />
+    <path d="M6 44l2-6M6 44l6-2M10 42l2-6M10 42l6-2" stroke-width="1.5" />
+  </svg>
+)}

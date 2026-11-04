@@ -1,4 +1,5 @@
 ---
+import ContinentIcon from '../components/ContinentIcon.astro';
 import '../styles/global.css';
 import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
@@ -41,7 +42,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           <button type="button" aria-haspopup="true">Caza con rifle</button>
           <div class="dropdown-menu">
             {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => (
-              <a href={u(c.slug)}><span class="cemo" aria-hidden="true">{c.emoji}</span>{c.title}<small>{c.tagline}</small></a>
+              <a href={u(c.slug)}><ContinentIcon slug={c.slug} class="cemo" /><span class="ctx">{c.title}<small>{c.tagline}</small></span></a>
             ))}
           </div>
         </div>

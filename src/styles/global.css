@@ -194,5 +194,9 @@ section { padding-block: clamp(40px, 5vw, 76px); scroll-margin-top: 70px; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
-.cemo { display: inline-block; margin-right: 10px; font-size: 1.25em; letter-spacing: 0; vertical-align: -0.1em; }
+.cicon { display: inline-block; flex: none; fill: currentColor; }
+.dropdown-menu a:has(.cemo) { display: flex; align-items: center; gap: 16px; }
+.cemo { width: 42px; height: 42px; color: var(--red); opacity: .9; transition: opacity .2s, transform .2s; }
+a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 @media (max-width: 960px) { :root { --page-top: 150px; } }
+@media (max-width: 1180px) { .cemo { display: none; } }
