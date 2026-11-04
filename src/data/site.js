@@ -31,7 +31,7 @@ export const team = [
 
 // El primero es el vídeo de fondo de la portada.
 export const videos = [
-  { id: 'zX_mf9Fz-7M', title: 'Lances de caza · de Onís Safaris' },
+  { id: 'zX_mf9Fz-7M', title: 'Lances de caza · de Onís Safaris', start: 15 },
   { id: 'Jk2uAbcHA9Q', title: 'Búfalos en Mozambique', start: 20 },
   { id: 'aQntnYT1gco', title: 'Caza con arco en África' },
   { id: '6xCcJP1rqlA', title: 'Caribús en Groenlandia' },
