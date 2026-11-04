@@ -30,12 +30,12 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
     </div>
     <div class="hero-shade"></div>
     <div class="wrap hero-content">
-      <h1>Tu caza de los <span>Big Five</span> diseñada a la medida de tus necesidades</h1>
-      <p>Contáctanos y te propondremos el safari que mejor se adapta a tus requerimientos.</p>
+      <h1>Tu caza de los BIG&nbsp;FIVE diseñada a la medida de tus necesidades</h1>
+      <p>Contáctanos y te propondremos el safari que mejor se adapta a tus requerimientos</p>
       <nav class="hero-cats" aria-label="Destinos">
-        {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <a href={u(c.slug)}>{c.name}</a>)}
-        <a class="arco" href={u('caza-con-arco')}>Caza con arco</a>
+        {['caza-en-africa', 'caza-en-america', 'caza-en-asia', 'caza-en-europa', 'caza-en-oceania'].map((k) => categories.find((c) => c.slug === k)).map((c) => <a href={u(c.slug)}>{c.name}</a>)}
       </nav>
+      <nav class="hero-cats" aria-label="Caza con arco"><a href={u('caza-con-arco')}>Caza con arco</a></nav>
     </div>
     <button type="button" class="sound" id="sound" aria-pressed="false">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path id="sound-x" d="M16 9l5 6M21 9l-5 6" /></svg>
@@ -178,24 +178,23 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   .hero-media iframe {
     position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none;
     width: 100vw; height: 56.25vw; min-height: 100%; min-width: 177.78vh;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.22);
     opacity: 0; transition: opacity 1.2s;
   }
   .hero-media iframe.on { opacity: 1; }
   .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 35%, rgba(0,0,0,.4) 60%, rgba(13,14,13,.95) 100%); }
   .hero-content { position: relative; z-index: 1; width: 100%; padding-bottom: 0; text-align: center; display: flex; flex-direction: column; align-items: center; padding-top: 80px; }
-  .hero h1 { font-size: clamp(38px, 4.6vw, 74px); font-weight: 500; line-height: 1.04; margin: 0 0 20px; max-width: 28ch; margin-inline: auto; text-wrap: balance; text-shadow: 0 4px 30px rgba(0,0,0,.35); }
-  .hero h1 span { font-style: italic; }
-  .hero-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .hero-cats a { font: 500 13px var(--label); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; padding: 15px 30px; background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.4); transition: .2s; }
-  .hero-cats a:hover, .hero-cats a.arco { background: var(--red); border-color: var(--red); }
-  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .hero-cats a { padding: 14px 8px; } }
-  .hero-cats a.arco:hover { background: var(--red-hi); border-color: var(--red-hi); }
+  .hero h1 { font: 400 clamp(30px, 3.7vw, 68px)/1.15 'Montserrat', sans-serif; margin: 0 auto 26px; max-width: none; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
+  .hero-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .hero-cats + .hero-cats { margin-top: 10px; }
+  .hero-cats a { font: 400 clamp(15px, 1.25vw, 20px) Arial, Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; padding: 15px clamp(24px, 3.2vw, 60px); border: 1px solid #fff; border-radius: 3px; background: rgba(0,0,0,.25); color: #fff; transition: .2s; }
+  .hero-cats a:hover { background: #fff; color: #111; }
+  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .hero-cats a { padding: 14px 8px; } .hero-cats + .hero-cats { grid-template-columns: 1fr; } }
   .hero-arco { font: 500 12px var(--label); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; padding: 12px 34px; background: var(--red); border: 1px solid var(--red); transition: .2s; }
   .hero-arco:hover { background: var(--red-hi); border-color: var(--red-hi); }
   .hero-videos { display: inline-flex; align-items: center; gap: 10px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
   .hero-videos svg { width: 30px; height: 30px; padding: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); fill: #fff; }
-  .hero p { font-size: clamp(17px, 1.6vw, 21px); max-width: 64ch; text-wrap: balance; color: rgba(242,239,232,.9); margin: 0 auto 32px; }
+  .hero p { font: 400 clamp(17px, 1.6vw, 24px)/1.4 'Roboto Slab', serif; color: #fff; max-width: none; margin: 0 auto 40px; text-shadow: 0 2px 14px rgba(0,0,0,.4); }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
   .sound { position: absolute; z-index: 2; right: var(--gutter); bottom: clamp(64px, 11vh, 120px); display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 10px 16px; cursor: pointer; font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; backdrop-filter: blur(6px); }
   .sound svg { width: 20px; height: 20px; fill: #fff; stroke: #fff; stroke-width: 2; }
@@ -271,7 +270,17 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
 <script>
   const iframe = document.getElementById('hero-video') as HTMLIFrameElement;
   // Dejamos ver la miniatura mientras YouTube arranca y luego fundimos el vídeo.
-  iframe.addEventListener('load', () => setTimeout(() => iframe.classList.add('on'), 1800));
+  // Solo se muestra cuando ya está reproduciendo, para que no se vea la interfaz de YouTube.
+  const listen = () => iframe.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id: 'hero' }), '*');
+  iframe.addEventListener('load', () => { listen(); setTimeout(listen, 800); });
+  window.addEventListener('message', (e) => {
+    if (!/youtube/.test(e.origin)) return;
+    try {
+      const d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+      const st = d.event === 'onStateChange' ? d.info : d.info?.playerState;
+      if (st === 1) setTimeout(() => iframe.classList.add('on'), 400);
+    } catch {}
+  });
   const btn = document.getElementById('sound')!;
   const cmd = (func: string) => iframe.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args: [] }), '*');
   document.getElementById('home-form')!.addEventListener('submit', (e) => {
