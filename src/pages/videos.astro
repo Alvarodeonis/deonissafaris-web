@@ -77,7 +77,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .rec { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px; background: none; border: 1px solid transparent; text-align: left; color: var(--bone); cursor: pointer; transition: .2s; }
   .rec:hover, .rec.on { background: var(--char); border-color: var(--line); }
   .rec.on { box-shadow: inset 3px 0 0 var(--red); }
-  .rth { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char-2); }
+  .rth { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char-2); }
   .rth img, .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .rtx { font: 500 17px/1.2 var(--display); }
   .rtx small { display: block; margin-bottom: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
@@ -95,6 +95,8 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .fcard { border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
+  .th :global(iframe.prev), .rth :global(iframe.prev) { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; border: 0; pointer-events: none; transform: translate(-50%, -50%) scale(1.35); opacity: 0; transition: opacity .5s; }
+  .th :global(iframe.prev.on), .rth :global(iframe.prev.on) { opacity: 1; }
   .fcard:hover .pl { background: var(--red); border-color: var(--red); opacity: 0; }
   .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
   .ftl { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
@@ -117,19 +119,35 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   };
   document.querySelectorAll<HTMLElement>('[data-play]').forEach((b) => b.addEventListener('click', () => play(b)));
 
-  // Al pasar el ratón, la miniatura recorre varios fotogramas del vídeo.
+  // Al pasar el ratón se reproduce un avance del vídeo, sin sonido, dentro de la miniatura.
+  // Mientras YouTube arranca, la miniatura recorre varios fotogramas.
+  const canHover = matchMedia('(hover: hover)').matches;
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
     const img = el.querySelector('img')!;
     const orig = img.src;
     const id = el.dataset.hover;
     const frames = [1, 2, 3].map((n) => `https://i.ytimg.com/vi/${id}/hq${n}.jpg`);
-    let t: number | undefined, i = 0;
+    let t: number | undefined, d: number | undefined, i = 0, ifr: HTMLIFrameElement | null = null;
     el.addEventListener('mouseenter', () => {
       frames.forEach((f) => { new Image().src = f; });
       i = 0;
       t = window.setInterval(() => { img.src = frames[i++ % frames.length]; }, 700);
+      if (!canHover) return;
+      d = window.setTimeout(() => {
+        ifr = document.createElement('iframe');
+        ifr.className = 'prev';
+        ifr.title = '';
+        ifr.tabIndex = -1;
+        ifr.allow = 'autoplay; encrypted-media';
+        ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&start=40&loop=1&playlist=${id}`;
+        ifr.addEventListener('load', () => setTimeout(() => ifr?.classList.add('on'), 900));
+        el.appendChild(ifr);
+      }, 350);
     });
-    el.addEventListener('mouseleave', () => { clearInterval(t); img.src = orig; });
+    el.addEventListener('mouseleave', () => {
+      clearInterval(t); clearTimeout(d); img.src = orig;
+      ifr?.remove(); ifr = null;
+    });
   });
 
   const btns = document.querySelectorAll<HTMLElement>('.ffilter button');
