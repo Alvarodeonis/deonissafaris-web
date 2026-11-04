@@ -32,11 +32,9 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
       <h1>Tu caza de los <span>Big Five</span> diseñada a la medida de tus necesidades</h1>
       <p>Contáctanos y te propondremos el safari que mejor se adapta a tus requerimientos.</p>
       <nav class="hero-cats" aria-label="Destinos">
-        {categories.map((c) => <a href={u(c.slug)}>{c.slug === 'caza-con-arco' ? 'Caza con arco' : c.name}</a>)}
+        {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <a href={u(c.slug)}>{c.name}</a>)}
       </nav>
-      <a class="hero-videos" href={u('videos')}>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>Ver vídeos de caza
-      </a>
+      <a class="hero-arco" href={u('caza-con-arco')}>Caza con arco</a>
     </div>
     <button type="button" class="sound" id="sound" aria-pressed="false">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path id="sound-x" d="M16 9l5 6M21 9l-5 6" /></svg>
@@ -186,6 +184,8 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
   .hero-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 22px; }
   .hero-cats a { font: 500 12px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 10px 18px; border: 1px solid rgba(255,255,255,.4); transition: .2s; }
   .hero-cats a:hover { background: var(--red); border-color: var(--red); }
+  .hero-arco { font: 500 12px var(--label); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; padding: 12px 34px; background: var(--red); border: 1px solid var(--red); transition: .2s; }
+  .hero-arco:hover { background: var(--red-hi); border-color: var(--red-hi); }
   .hero-videos { display: inline-flex; align-items: center; gap: 10px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
   .hero-videos svg { width: 30px; height: 30px; padding: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); fill: #fff; }
   .hero p { font-size: clamp(17px, 1.6vw, 21px); max-width: 46ch; color: rgba(242,239,232,.9); margin: 0 auto 32px; }
@@ -264,11 +264,23 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
     const body = [...f.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
     location.href = `mailto:info@deonissafaris.com?subject=${encodeURIComponent('Solicitud de safari')}&body=${encodeURIComponent(body)}`;
   });
-  btn.addEventListener('click', () => {
-    const on = btn.getAttribute('aria-pressed') !== 'true';
+  const setSound = (on: boolean) => {
     cmd(on ? 'unMute' : 'mute');
     if (on) cmd('playVideo');
     btn.setAttribute('aria-pressed', String(on));
     btn.querySelector('span')!.textContent = on ? 'Silenciar' : 'Activar sonido';
+  };
+  let userChose = false;
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    userChose = true;
+    setSound(btn.getAttribute('aria-pressed') !== 'true');
   });
+  // Los navegadores no dejan arrancar un vídeo con sonido sin una acción del visitante:
+  // lo activamos en cuanto toca, pulsa o teclea algo en la página (mientras el vídeo está a la vista).
+  const firstTouch = () => {
+    ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.removeEventListener(ev, firstTouch));
+    if (!userChose && window.scrollY < window.innerHeight) setSound(true);
+  };
+  ['pointerdown', 'keydown', 'touchstart'].forEach((ev) => window.addEventListener(ev, firstTouch, { passive: true }));
 </script>
