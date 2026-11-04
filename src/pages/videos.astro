@@ -122,6 +122,15 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   // Al pasar el ratón se reproduce un avance del vídeo, sin sonido, dentro de la miniatura.
   // Mientras YouTube arranca, la miniatura recorre varios fotogramas.
   const canHover = matchMedia('(hover: hover)').matches;
+  // Muestra el avance en cuanto YouTube avisa de que está reproduciendo.
+  window.addEventListener('message', (e) => {
+    if (!/youtube/.test(e.origin)) return;
+    try {
+      const d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+      const st = d.event === 'onStateChange' ? d.info : d.info?.playerState;
+      if (st === 1) document.querySelectorAll<HTMLIFrameElement>('iframe.prev').forEach((f) => { if (f.contentWindow === e.source) f.classList.add('on'); });
+    } catch {}
+  });
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
     const img = el.querySelector('img')!;
     const orig = img.src;
@@ -139,8 +148,10 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
         ifr.title = '';
         ifr.tabIndex = -1;
         ifr.allow = 'autoplay; encrypted-media';
-        ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&start=40&loop=1&playlist=${id}`;
-        ifr.addEventListener('load', () => setTimeout(() => ifr?.classList.add('on'), 900));
+        ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&start=40&loop=1&playlist=${id}&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
+        const me = ifr;
+        me.addEventListener('load', () => { me.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id }), '*'); });
+        setTimeout(() => me.classList.add('on'), 2500);
         el.appendChild(ifr);
       }, 350);
     });
