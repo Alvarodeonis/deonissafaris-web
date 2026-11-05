@@ -1,0 +1,30 @@
+---
+import { speciesUrl, speciesCover, countriesOfSpecies } from '../data/species.js';
+import { u } from '../lib/url.js';
+const { list, big = false } = Astro.props;
+---
+<div class:list={['st', { big }]}>
+  {list.map((s) => {
+    const n = countriesOfSpecies(s);
+    return (
+      <a href={u(speciesUrl(s))}>
+        <img src={speciesCover(s)} alt="" loading="lazy" />
+        <span><b>{s.name}</b><small>{n} {n === 1 ? 'país' : 'países'} · {s.programs.length} {s.programs.length === 1 ? 'programa' : 'programas'}</small></span>
+      </a>
+    );
+  })}
+</div>
+
+<style>
+  .st { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .st.big { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .st a { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #111; text-decoration: none; }
+  .st img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .6s, opacity .3s; opacity: .88; }
+  .st a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.8)); transition: background .3s; }
+  .st span { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1; color: #fff; }
+  .st b { display: block; font: 500 26px/1.05 var(--display); }
+  .st small { display: block; margin-top: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.82); }
+  .st a:hover img { transform: scale(1.06); opacity: 1; }
+  .st a:hover::after { background: linear-gradient(180deg, rgba(191,18,29,0) 30%, rgba(191,18,29,.85)); }
+  @media (max-width: 600px) { .st, .st.big { grid-template-columns: 1fr 1fr; } .st b { font-size: 21px; } }
+</style>

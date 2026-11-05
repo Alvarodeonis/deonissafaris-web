@@ -1,4 +1,5 @@
 ---
+import { speciesOf, speciesUrl } from '../../../data/species.js';
 import { filmGroups } from '../../../data/films.js';
 import Layout from '../../../layouts/Layout.astro';
 import Simulator from '../../../components/Simulator.astro';
@@ -39,6 +40,7 @@ const facts = [
   ['Zona', p.area],
   ['Alojamiento', p.lodging],
 ].filter(([, v]) => v);
+const spTags = speciesOf(p);
 ---
 <Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader>
   <div class="page-hero program-hero">
@@ -84,6 +86,9 @@ const facts = [
       <dl class="facts">
         {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
       </dl>
+      {spTags.length > 0 && (
+        <div class="sp-tags"><span>Especies</span>{spTags.map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}</div>
+      )}
     </div>
   </section>
 
@@ -218,6 +223,10 @@ const facts = [
 </script>
 
 <style>
+  .sp-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
+  .sp-tags span { margin-right: 6px; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+  .sp-tags a { padding: 7px 14px; border: 1px solid var(--line); font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: .2s; }
+  .sp-tags a:hover { background: var(--red); border-color: var(--red); color: #fff; }
   .ask-box { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 40px; align-items: center; border: 1px solid var(--line); border-left: 2px solid var(--red); background: var(--char); padding: clamp(24px, 3vw, 44px); }
   .ask h2 { font-size: clamp(30px, 3vw, 42px); margin: 10px 0 12px; }
   .ask p { margin: 0; color: var(--stone); max-width: 60ch; }

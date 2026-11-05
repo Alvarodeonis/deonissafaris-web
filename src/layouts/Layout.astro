@@ -1,10 +1,15 @@
 ---
 import ContinentIcon from '../components/ContinentIcon.astro';
+import Search from '../components/Search.astro';
+import { groups, subgroups, speciesIn, speciesUrl, groupUrl } from '../data/species.js';
 import '../styles/global.css';
 import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
 import { countries as countriesOf } from '../data/programs.js';
 const arcoCountries = countriesOf('caza-con-arco');
+const sg = (slug) => groups.find((g) => g.slug === slug);
+const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
+const lupa = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>';
 
 const { title, description = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false } = Astro.props;
 const links = [
@@ -38,6 +43,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
   <header class:list={['site-header', { always: !transparentHeader }]} id="header">
     <div class="wrap">
       <a class="logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris · Born wild, free forever" width="150" height="166" /></a>
+      <button class="sx-open sx-mob" type="button" data-sx-open aria-label="Buscar" set:html={lupa} />
       <button class="menu-toggle" type="button" id="menu-open" aria-controls="nav" aria-expanded="false">Menú</button>
       <nav class="main-nav" id="nav" aria-label="Principal">
         <button class="menu-toggle menu-close" type="button" id="menu-close">Cerrar</button>
@@ -50,11 +56,34 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           </div>
         </div>
         <a href={u('caza-con-arco')}>Caza con arco</a>
+        <div class="dropdown sp-dd">
+          <button type="button" aria-haspopup="true">Por especie</button>
+          <div class="dropdown-menu mega">
+            <div class="mcol">
+              <a class="mh" href={u(groupUrl('big-five'))}>Big Five</a>
+              {speciesIn('big-five').map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}
+              <a class="mh" href={u(groupUrl('caza-menor'))}>Caza menor</a>
+              {speciesIn('caza-menor').map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}
+            </div>
+            {mayorSubs.map((x) => (
+              <div class="mcol">
+                <a class="mh" href={u(groupUrl('caza-mayor'))}>Caza mayor<small>{x}</small></a>
+                {speciesIn('caza-mayor', x).map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}
+              </div>
+            ))}
+            <a class="mall" href={u('especies')}>Ver todas las especies →</a>
+          </div>
+          <div class="dropdown-menu mob">
+            {groups.filter((g) => speciesIn(g.slug).length).map((g) => <a href={u(groupUrl(g))}>{g.name}</a>)}
+            <a href={u('especies')}>Todas las especies</a>
+          </div>
+        </div>
         <a href={u('fotos')}>Fotos</a>
         <a href={u('videos')}>Películas</a>
         <a href={u('articulos-revistas')}>Artículos / revistas</a>
         <a href={u('sobre-nosotros')}>Sobre nosotros</a>
         <a class="nav-cta" href={u('contacto')}>Contacto</a>
+        <button class="sx-open sx-desk" type="button" data-sx-open aria-label="Buscar (tecla /)" set:html={lupa} />
       </nav>
     </div>
   </header>
@@ -75,7 +104,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
         </div>
       </div>
       <nav class="f-nav" aria-label="Secciones">
-        <a href={u('caza-en-africa')}>Caza con rifle</a><a href={u('caza-con-arco')}>Caza con arco</a><a href={u('fotos')}>Fotos</a><a href={u('videos')}>Películas</a><a href={u('articulos-revistas')}>Artículos / revistas</a><a href={u('sobre-nosotros')}>Sobre nosotros</a><a href={u('contacto')}>Contacto</a>
+        <a href={u('caza-en-africa')}>Caza con rifle</a><a href={u('caza-con-arco')}>Caza con arco</a><a href={u('especies')}>Por especie</a><a href={u('fotos')}>Fotos</a><a href={u('videos')}>Películas</a><a href={u('articulos-revistas')}>Artículos / revistas</a><a href={u('sobre-nosotros')}>Sobre nosotros</a><a href={u('contacto')}>Contacto</a>
       </nav>
       <div class="cols">
         <div>
@@ -111,6 +140,8 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
       </div>
     </div>
   </footer>
+
+  <Search />
 
   <a class="wa-float" href={wa} target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>

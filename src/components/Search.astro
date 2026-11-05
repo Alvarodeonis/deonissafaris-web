@@ -1,0 +1,161 @@
+---
+import { u } from '../lib/url.js';
+const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Namibia', 'Groenlandia', 'Arco'];
+---
+<div class="sx" id="sx" hidden data-base={u()} data-index={u('search.json')}>
+  <div class="sx-top">
+    <div class="sx-bar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
+      <input id="sx-q" type="search" placeholder="Especie, país o programa…" autocomplete="off" spellcheck="false" aria-label="Buscar en la web" />
+      <button type="button" class="sx-close" id="sx-close" aria-label="Cerrar buscador">Cerrar <kbd>Esc</kbd></button>
+    </div>
+  </div>
+  <div class="sx-body">
+    <div class="sx-empty" id="sx-empty">
+      <p class="sx-hint">Búsquedas frecuentes</p>
+      <div class="sx-chips">{chips.map((c) => <button type="button" data-q={c}>{c}</button>)}</div>
+    </div>
+    <div id="sx-res" aria-live="polite"></div>
+  </div>
+</div>
+
+<style is:global>
+  .sx-open { display: inline-flex !important; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0 !important; background: none; border: 1px solid transparent; border-radius: 50%; cursor: pointer; color: inherit; transition: border-color .2s, color .2s; }
+  .sx-open svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .sx-open:hover { border-color: currentColor; color: var(--red-hi); }
+  .sx { position: fixed; inset: 0; z-index: 200; background: rgba(12,10,8,.96); backdrop-filter: blur(8px); color: #f3ede3; overflow-y: auto; opacity: 0; transition: opacity .25s; }
+  .sx.on { opacity: 1; }
+  .sx[hidden] { display: none; }
+  html.sx-lock { overflow: hidden; }
+  .sx-top { position: sticky; top: 0; z-index: 1; background: linear-gradient(rgba(12,10,8,1) 75%, rgba(12,10,8,0)); padding: clamp(28px, 6vh, 70px) var(--gutter) 18px; }
+  .sx-bar { max-width: 980px; margin: 0 auto; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.35); padding-bottom: 12px; transform: translateY(-14px); transition: transform .35s; }
+  .sx.on .sx-bar { transform: none; }
+  .sx-bar:focus-within { border-color: var(--red); }
+  .sx-bar > svg { flex: none; width: 30px; height: 30px; fill: none; stroke: var(--red); stroke-width: 1.8; }
+  .sx-bar input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: #fff; font: 500 clamp(28px, 4vw, 52px)/1.1 var(--display); }
+  .sx-bar input::placeholder { color: rgba(255,255,255,.38); }
+  .sx-bar input::-webkit-search-cancel-button { display: none; }
+  .sx-close { flex: none; background: none; border: 0; color: rgba(255,255,255,.75); font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  .sx-close:hover { color: #fff; }
+  .sx-close kbd { border: 1px solid rgba(255,255,255,.3); padding: 2px 6px; font: inherit; letter-spacing: .08em; }
+  .sx-body { max-width: 980px; margin: 0 auto; padding: 6px var(--gutter) 60px; box-sizing: content-box; }
+  .sx-hint { margin: 0 0 12px; font: 500 11px var(--label); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .sx-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sx-chips button { padding: 9px 16px; background: none; border: 1px solid rgba(255,255,255,.25); color: #fff; font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+  .sx-chips button:hover { border-color: var(--red); background: var(--red); }
+  .sx-grp { margin-top: 22px; }
+  .sx-grp h4 { margin: 0 0 8px; font: 500 11px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--red-hi); }
+  .sx-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+  .sx-tiles a { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #222; color: #fff; text-decoration: none; }
+  .sx-tiles img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .8; transition: transform .5s, opacity .3s; }
+  .sx-tiles a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 35%, rgba(0,0,0,.8)); }
+  .sx-tiles span { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 1; }
+  .sx-tiles b { display: block; font: 500 22px/1.05 var(--display); }
+  .sx-tiles small { display: block; margin-top: 3px; font: 500 9px var(--label); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.8); }
+  .sx-tiles a:hover img, .sx-tiles a.sel img { transform: scale(1.06); opacity: 1; }
+  .sx-tiles a.sel { outline: 2px solid var(--red); }
+  .sx-list a { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; align-items: center; padding: 8px; margin: 0 -8px; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .sx-list img { width: 76px; height: 52px; object-fit: cover; background: #222; }
+  .sx-list b { display: block; font: 500 21px/1.2 var(--display); }
+  .sx-list small { display: block; margin-top: 2px; font-size: 13px; color: rgba(255,255,255,.6); }
+  .sx-list a:hover, .sx-list a.sel { background: rgba(255,255,255,.07); }
+  .sx-list a:hover b, .sx-list a.sel b { color: #ff6b6b; }
+  .sx-list a.noimg { grid-template-columns: minmax(0, 1fr); }
+  .sx mark { background: none; color: #ff6b6b; }
+  .sx-none { margin-top: 26px; font: 500 22px/1.4 var(--display); color: rgba(255,255,255,.8); }
+  .sx-none a { color: #ff6b6b; }
+  @media (max-width: 600px) { .sx-tiles { grid-template-columns: 1fr 1fr; } .sx-close span, .sx-close kbd { display: none; } .sx-list a { grid-template-columns: 60px minmax(0, 1fr); } .sx-list img { width: 60px; height: 44px; } }
+</style>
+
+<script>
+  const box = document.getElementById('sx');
+  const q = document.getElementById('sx-q');
+  const res = document.getElementById('sx-res');
+  const empty = document.getElementById('sx-empty');
+  const base = box.dataset.base;
+  let data = null, loading = null, sel = -1;
+  const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const load = () => loading ??= fetch(box.dataset.index).then((r) => r.json()).then((d) => { data = d.map((x) => ({ ...x, _n: norm(x.n), _k: norm(x.k + ' ' + x.s) })); });
+
+  const mark = (text, words) => {
+    let out = esc(text);
+    const nt = norm(text);
+    // Resalta la primera aparición de cada palabra respetando tildes del texto original.
+    const ranges = [];
+    for (const w of words) { const i = nt.indexOf(w); if (i >= 0) ranges.push([i, i + w.length]); }
+    if (!ranges.length) return out;
+    ranges.sort((a, b) => b[0] - a[0]);
+    let s = text;
+    for (const [a, b] of ranges) s = s.slice(0, a) + '\u0001' + s.slice(a, b) + '\u0002' + s.slice(b);
+    return esc(s).replace(/\u0001/g, '<mark>').replace(/\u0002/g, '</mark>');
+  };
+
+  const score = (x, words) => {
+    let sc = 0;
+    for (const w of words) {
+      if (x._n.startsWith(w)) sc += 10;
+      else if (new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(x._n)) sc += 7;
+      else if (x._n.includes(w)) sc += 5;
+      else if (x._k.includes(w)) sc += 2;
+      else return 0;
+    }
+    return sc - (x.o || 0) * 1.5;
+  };
+
+  const LABEL = { e: 'Especies', c: 'Continentes', p: 'Países', g: 'Programas', w: 'Páginas' };
+  const MAX = { e: 8, c: 3, p: 10, g: 14, w: 4 };
+  const render = () => {
+    const words = norm(q.value).trim().split(/\s+/).filter((w) => w.length > 0);
+    empty.hidden = words.length > 0;
+    sel = -1;
+    if (!words.length) { res.innerHTML = ''; return; }
+    if (!data) { res.innerHTML = '<p class="sx-none">Buscando…</p>'; load().then(render); return; }
+    const hits = data.map((x) => [x, score(x, words)]).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1]);
+    if (!hits.length) { res.innerHTML = `<p class="sx-none">No encontramos «${esc(q.value)}». <a href="${base}contacto">Cuéntenos qué quiere cazar</a> y se lo organizamos.</p>`; return; }
+    let html = '';
+    for (const t of ['e', 'p', 'g', 'c', 'w']) {
+      const g = hits.filter(([x]) => x.t === t).slice(0, MAX[t]).map(([x]) => x);
+      if (!g.length) continue;
+      const tiles = t === 'e' || t === 'c' || t === 'p';
+      html += `<div class="sx-grp"><h4>${LABEL[t]}</h4><div class="${tiles ? 'sx-tiles' : 'sx-list'}">` + g.map((x) => tiles
+        ? `<a href="${base}${x.h}"><img src="${x.i}" alt="" loading="lazy"><span><b>${mark(x.n, words)}</b><small>${esc(x.s)}</small></span></a>`
+        : `<a href="${base}${x.h}" class="${x.i ? '' : 'noimg'}">${x.i ? `<img src="${x.i}" alt="" loading="lazy">` : ''}<span><b>${mark(x.n, words)}</b><small>${esc(x.s)}</small></span></a>`).join('') + '</div></div>';
+    }
+    res.innerHTML = html;
+  };
+
+  const open = () => {
+    load();
+    box.hidden = false;
+    document.documentElement.classList.add('sx-lock');
+    document.getElementById('nav')?.classList.remove('open');
+    requestAnimationFrame(() => { box.classList.add('on'); q.focus(); q.select(); });
+  };
+  const close = () => { box.classList.remove('on'); document.documentElement.classList.remove('sx-lock'); setTimeout(() => { box.hidden = true; }, 250); };
+
+  document.querySelectorAll('[data-sx-open]').forEach((b) => b.addEventListener('click', open));
+  document.getElementById('sx-close').addEventListener('click', close);
+  box.addEventListener('click', (e) => { if (e.target === box || e.target.classList.contains('sx-body')) close(); });
+  box.querySelectorAll('[data-q]').forEach((b) => b.addEventListener('click', () => { q.value = b.dataset.q; render(); q.focus(); }));
+  q.addEventListener('input', render);
+  document.addEventListener('keydown', (e) => {
+    if (box.hidden) {
+      if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName)) { e.preventDefault(); open(); }
+      return;
+    }
+    if (e.key === 'Escape') { close(); return; }
+    const links = [...res.querySelectorAll('a[href]')].filter((a) => !a.closest('.sx-none'));
+    if (!links.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      links[sel]?.classList.remove('sel');
+      sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
+      links[sel].classList.add('sel');
+      links[sel].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter' && document.activeElement === q) {
+      e.preventDefault();
+      location.href = (links[sel] ?? links[0]).href;
+    }
+  });
+</script>

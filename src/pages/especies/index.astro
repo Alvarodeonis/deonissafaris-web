@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SpeciesTiles from '../../components/SpeciesTiles.astro';
+import { groups, speciesIn, groupUrl } from '../../data/species.js';
+import { u } from '../../lib/url.js';
+const list = groups.filter((g) => speciesIn(g.slug).length);
+---
+<Layout title="Caza por especie" description="Busque la especie que quiere cazar: Big Five, caza mayor y caza menor, con los países y programas donde la organizamos.">
+  <section class="head">
+    <div class="wrap">
+      <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>Por especie</span></div>
+      <h1>Caza por especie</h1>
+      <p class="lead">Elija la especie que quiere cazar y le mostramos en qué países la organizamos y con qué programas.</p>
+    </div>
+  </section>
+  {list.map((g) => (
+    <section class="grp">
+      <div class="wrap">
+        <div class="gh"><h2><a href={u(groupUrl(g))}>{g.name}</a></h2><a class="all" href={u(groupUrl(g))}>Ver {g.name.toLowerCase()} →</a></div>
+        <SpeciesTiles list={speciesIn(g.slug)} />
+      </div>
+    </section>
+  ))}
+</Layout>
+<style>
+  .head { padding-block: var(--page-top) 4px; text-align: center; }
+  @media (min-width: 961px) { .head { padding-top: 104px; } }
+  @media (max-width: 760px) { .head { padding-top: 120px; } }
+  .head .crumbs { justify-content: center; }
+  .head h1 { font-size: clamp(44px, 5vw, 76px); margin: 0; }
+  .lead { max-width: 680px; margin: 10px auto 0; font: 500 21px/1.4 var(--display); color: var(--stone); }
+  .grp { padding-block: 18px; }
+  .gh { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+  .gh h2 { margin: 0; font-size: clamp(30px, 2.8vw, 42px); }
+  .gh h2 a { text-decoration: none; }
+  .all { font: 500 11px var(--label); letter-spacing: .18em; text-transform: uppercase; color: var(--red-hi); text-decoration: none; white-space: nowrap; }
+</style>

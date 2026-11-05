@@ -1,4 +1,6 @@
 ---
+import SpeciesTiles from '../components/SpeciesTiles.astro';
+import { activeSpecies } from '../data/species.js';
 import Layout from '../layouts/Layout.astro';
 import ProgramCard from '../components/ProgramCard.astro';
 import VideoGrid from '../components/VideoGrid.astro';
@@ -16,6 +18,7 @@ const nHunt = new Set(programs.map((p) => p.country)).size;
 const catImage = (slug) => programs.find((p) => p.category === slug)?.hero;
 const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).map((p) => p.country)).size;
 const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
+const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilopes', 'corzo', 'ciervo', 'alce-caribu-muskox'].map((k) => activeSpecies.find((s) => s.slug === k)).filter(Boolean);
 ---
 <Layout transparentHeader image={`https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg`}>
   <section class="hero dark" id="hero">
@@ -62,6 +65,16 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="expert">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Caza por especie</div><h2>Somos expertos en…</h2></div>
+        <p class="lead">Jabalíes, búfalos, leopardos, osos, íbex, rebecos… Elija la especie y le mostramos dónde la cazamos y con qué programas. <a href={u('especies')}>Ver todas las especies →</a></p>
+      </div>
+      <SpeciesTiles list={expert} />
     </div>
   </section>
 
@@ -174,6 +187,7 @@ const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
 </Layout>
 
 <style>
+  .expert .lead a { color: var(--red-hi); white-space: nowrap; }
   .hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; padding: 0; overflow: hidden; display: flex; align-items: center; }
   .hero-media { position: absolute; inset: 0; background: var(--black) center / cover no-repeat; }
   .hero-media iframe {

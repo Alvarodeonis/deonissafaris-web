@@ -200,3 +200,23 @@ section { padding-block: clamp(24px, 2.6vw, 40px); scroll-margin-top: 70px; }
 a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 @media (max-width: 960px) { :root { --page-top: 150px; } }
 @media (max-width: 1180px) { .cemo { display: none; } }
+
+/* Menú "Por especie" */
+.sp-dd .mega { left: 50%; transform: translate(-50%, 6px); display: grid; grid-template-columns: repeat(5, auto); gap: 0 6px; padding: 18px 10px 8px; min-width: 0; }
+.dropdown.sp-dd:hover .mega, .dropdown.sp-dd:focus-within .mega { transform: translate(-50%, 0); }
+.sp-dd .mega a { padding: 6px 14px; font-size: 11px; }
+.sp-dd .mega a.mh { color: var(--red-hi); font-weight: 500; letter-spacing: .2em; padding-bottom: 8px; }
+.sp-dd .mega a.mh:not(:first-child) { margin-top: 14px; }
+.sp-dd .mega a.mh small { margin-top: 3px; font-size: 12px; }
+.sp-dd .mega .mall { grid-column: 1 / -1; margin-top: 10px; padding: 12px 14px 6px; border-top: 1px solid var(--line); color: var(--stone); text-align: center; }
+.sp-dd .mega .mall:hover { color: var(--red-hi); }
+.sp-dd .mob { display: none !important; }
+.sx-mob { display: none !important; }
+@media (max-width: 1180px) {
+  .sp-dd .mega { display: none !important; }
+  .sp-dd .mob { display: grid !important; }
+  .sx-desk { display: none !important; }
+  .sx-mob { display: inline-flex !important; margin-left: auto; margin-right: -8px; color: var(--bone); }
+}
+.sp-dd .mcol { display: flex; flex-direction: column; }
+.sp-dd .mega { z-index: 3; }

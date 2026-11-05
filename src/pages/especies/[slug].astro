@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CountryPrograms from '../../components/CountryPrograms.astro';
+import SpeciesTiles from '../../components/SpeciesTiles.astro';
+import { groups, subgroups, activeSpecies, speciesIn, groupOf, groupUrl, speciesUrl, speciesCover, byCountry, countriesOfSpecies } from '../../data/species.js';
+import { u } from '../../lib/url.js';
+
+export function getStaticPaths() {
+  return [
+    ...groups.filter((g) => speciesIn(g.slug).length).map((g) => ({ params: { slug: g.slug }, props: { group: g } })),
+    ...activeSpecies.map((s) => ({ params: { slug: s.slug }, props: { sp: s } })),
+  ];
+}
+const { group, sp } = Astro.props;
+const g = group ?? groupOf(sp);
+const members = speciesIn(g.slug);
+const others = sp ? members.filter((s) => s !== sp) : [];
+const hero = sp ? speciesCover(sp) : speciesCover(members[0]);
+const title = sp ? `Caza de ${sp.name.toLowerCase()}` : g.title;
+const lead = sp ? sp.intro : g.lead;
+const subs = subgroups[g.slug];
+---
+<Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader>
+  <section class="sp-hero">
+    <img src={hero} alt="" aria-hidden="true" />
+    <div class="wrap">
+      <div class="crumbs">
+        <a href={u()}>Inicio</a><span>/</span><a href={u('especies')}>Por especie</a>
+        {sp && <><span>/</span><a href={u(groupUrl(g))}>{g.name}</a></>}
+      </div>
+      <h1>{sp ? sp.name : g.title}</h1>
+      <p class="lead">{lead}</p>
+      {sp && <p class="count">{countriesOfSpecies(sp)} {countriesOfSpecies(sp) === 1 ? 'país' : 'países'} · {sp.programs.length} {sp.programs.length === 1 ? 'programa' : 'programas'}</p>}
+    </div>
+  </section>
+
+  {sp && (
+    <section class="sec">
+      <div class="wrap"><CountryPrograms list={byCountry(sp.programs)} /></div>
+    </section>
+  )}
+
+  {!sp && g.slug === 'big-five' && (
+    <>
+      <div class="wrap"><nav class="pills" aria-label="Especies">{members.map((s) => <a href={`#${s.slug}`}>{s.name}</a>)}</nav></div>
+      {members.map((s) => (
+        <section class="sec five" id={s.slug}>
+          <div class="wrap">
+            <div class="divider"><span>{s.name}</span></div>
+            <p class="intro">{s.intro} <a href={u(speciesUrl(s))}>Ver página de {s.name.toLowerCase()}</a></p>
+            <CountryPrograms list={byCountry(s.programs)} />
+          </div>
+        </section>
+      ))}
+    </>
+  )}
+
+  {!sp && g.slug !== 'big-five' && (
+    <section class="sec">
+      <div class="wrap">
+        {subs ? subs.filter((x) => speciesIn(g.slug, x).length).map((x) => (
+          <div class="sub">
+            <div class="divider"><span>{x}</span></div>
+            <SpeciesTiles list={speciesIn(g.slug, x)} />
+          </div>
+        )) : <SpeciesTiles list={members} big />}
+      </div>
+    </section>
+  )}
+
+  {sp && others.length > 0 && (
+    <section class="sec more">
+      <div class="wrap">
+        <div class="divider"><span>Más especies · {g.name}</span></div>
+        <SpeciesTiles list={others} />
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .sp-hero { position: relative; min-height: 440px; display: flex; align-items: flex-end; padding: 130px 0 40px; background: #0d0b09; color: #fff; overflow: hidden; }
+  .sp-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; opacity: .62; }
+  .sp-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0) 35%, rgba(0,0,0,.75)); }
+  .sp-hero .wrap { position: relative; z-index: 1; width: 100%; text-align: center; }
+  .sp-hero .crumbs { justify-content: center; color: rgba(255,255,255,.75); }
+  .sp-hero .crumbs a:hover { color: #fff; }
+  .sp-hero h1 { font-size: clamp(44px, 5.4vw, 82px); margin: 0; color: #fff; }
+  .sp-hero .lead { max-width: 760px; margin: 12px auto 0; font: 500 clamp(19px, 1.6vw, 23px)/1.4 var(--display); color: rgba(255,255,255,.92); }
+  .count { margin: 14px 0 0; font: 500 11px var(--label); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.8); }
+  .sec { padding-block: clamp(24px, 2.6vw, 40px); }
+  .five { padding-block: 8px 24px; }
+  .sub + .sub { margin-top: 8px; }
+  .intro { max-width: 760px; margin: 0 auto 22px; text-align: center; font: 500 20px/1.45 var(--display); }
+  .intro a { font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red-hi); white-space: nowrap; }
+  .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 28px 0 0; }
+  .pills a { padding: 10px 18px; border: 1px solid var(--line); font: 500 11px var(--label); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; }
+  .pills a:hover { border-color: var(--red); color: var(--red-hi); }
+  .five { scroll-margin-top: 80px; }
+  .divider { display: flex; align-items: center; gap: 22px; margin: 24px 0 20px; font: 500 11px var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--red); }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .divider span { display: flex; align-items: center; gap: 14px; }
+  .divider span::before, .divider span::after { content: ''; width: 6px; height: 6px; background: var(--red); transform: rotate(45deg); }
+  .sub:first-child .divider, .more .divider { margin-top: 4px; }
+  @media (max-width: 760px) { .sp-hero { min-height: 380px; padding-top: 120px; } }
+</style>

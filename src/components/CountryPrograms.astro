@@ -1,0 +1,52 @@
+---
+import { programUrl, fromPrice, money, programYear, isCurrent } from '../data/programs.js';
+import { u } from '../lib/url.js';
+const { list } = Astro.props;
+const cover = (c) => c.programs.find((p) => isCurrent(p) && p.gallery?.length)?.hero ?? c.programs[0].hero;
+---
+<div class="cp">
+  {list.map((c) => (
+    <article class="country">
+      <a class="pic" href={u(`${c.category}/${c.slug}`)} aria-label={`Ver ${c.name}`}>
+        <img src={cover(c)} alt={c.name} loading="lazy" />
+      </a>
+      <div class="body">
+        <div class="eyebrow">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</div>
+        <h3><a href={u(`${c.category}/${c.slug}`)}>{c.name}</a></h3>
+        <ul>
+          {c.programs.map((p) => {
+            const from = fromPrice(p);
+            return (
+              <li>
+                <a href={u(programUrl(p))}>
+                  <span class="t">{p.title}{p.category === 'caza-con-arco' && <em> · con arco</em>}</span>
+                  <span class="m">{[isCurrent(p) ? `Tarifas ${programYear(p)}` : 'Temporadas anteriores', p.duration].filter(Boolean).join(' · ')}</span>
+                  <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : 'Consultar'}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .cp { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 36px 28px; }
+  .country { display: flex; flex-direction: column; }
+  .pic { display: block; aspect-ratio: 16 / 9; background: var(--char); overflow: hidden; }
+  .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .6s; }
+  .pic:hover img { transform: scale(1.03); }
+  .body { padding-top: 16px; }
+  .body h3 { font-size: clamp(26px, 2.2vw, 34px); margin: 4px 0 6px; }
+  .body h3 a { text-decoration: none; }
+  .body h3 a:hover { color: var(--red-hi); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+  .t { font: 500 19px/1.25 var(--display); color: var(--bone); transition: color .2s; }
+  .t em { font-style: italic; color: var(--stone); }
+  .m { grid-column: 1; font-size: 13px; color: var(--stone); }
+  .pr { grid-column: 2; grid-row: 1 / span 2; align-self: center; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--red-hi); white-space: nowrap; }
+  li a:hover .t { color: var(--red-hi); }
+</style>
