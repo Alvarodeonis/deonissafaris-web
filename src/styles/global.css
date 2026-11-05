@@ -220,3 +220,11 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 }
 .sp-dd .mcol { display: flex; flex-direction: column; }
 .sp-dd .mega { z-index: 3; }
+/* Desplegables centrados: el de especies sobre la página, el de rifle bajo su botón. */
+@media (min-width: 1181px) {
+  .dropdown.sp-dd { position: static; }
+  .sp-dd .mega { top: 100%; }
+  .dropdown:not(.sp-dd) > .dropdown-menu { z-index: 3; left: 50%; width: 440px; transform: translate(-50%, 6px); }
+  .dropdown:not(.sp-dd) > .dropdown-menu small { white-space: normal; line-height: 1.4; }
+  .dropdown:not(.sp-dd):hover > .dropdown-menu, .dropdown:not(.sp-dd):focus-within > .dropdown-menu { transform: translate(-50%, 0); }
+}

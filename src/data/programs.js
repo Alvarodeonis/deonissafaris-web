@@ -399,6 +399,7 @@ const COUNTRY_ORDER = {
   'caza-en-africa': ['namibia', 'sudafrica', 'mozambique', 'tanzania', 'mauritania'],
   'caza-en-asia': ['turquia', 'kazakhstan'],
   'caza-en-europa': ['groenlandia', 'macedonia', 'rumania', 'polonia', 'hungria'],
+  'caza-con-arco': ['namibia', 'groenlandia', 'sudafrica', 'turquia'],
 };
 // Programas que van primero dentro de su país.
 const PINNED = ['namibia-paquete-windhoek'];
