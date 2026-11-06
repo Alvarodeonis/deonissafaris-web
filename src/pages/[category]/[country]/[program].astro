@@ -197,7 +197,10 @@ const trip = {
   if (gal && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let paused = false; let pos = 0;
     const stop = () => { paused = true; }; const go = () => { paused = false; pos = gal.scrollLeft; };
-    gal.addEventListener('mouseenter', stop); gal.addEventListener('mouseleave', go);
+    // Se detiene al pasar el ratón por las fotos o por las flechas, para que las flechas no peleen con el avance automático.
+    const wrap = gal.closest<HTMLElement>('.gal-wrap') ?? gal;
+    wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', go);
+    gal.addEventListener('scroll', () => { if (paused) pos = gal.scrollLeft; }, { passive: true });
     gal.addEventListener('touchstart', stop, { passive: true }); gal.addEventListener('touchend', () => setTimeout(go, 2500));
     const step = () => {
       if (!paused) {
@@ -226,7 +229,14 @@ const trip = {
     gal.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
     gal.addEventListener('dragstart', (e) => e.preventDefault());
     document.querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => {
-      gal.scrollBy({ left: Number(b.dataset.gal) * gal.clientWidth * 0.8, behavior: 'smooth' });
+      // Salta de foto en foto: busca la siguiente (o anterior) que no se ve entera.
+      const dir = Number(b.dataset.gal);
+      const g0 = gal.getBoundingClientRect().left - gal.scrollLeft;
+      const items = ([...gal.children] as HTMLElement[]).map((it) => { const r = it.getBoundingClientRect(); return { l: r.left - g0, r: r.right - g0 }; });
+      const left = gal.scrollLeft, right = left + gal.clientWidth;
+      const target = dir > 0 ? items.find((it) => it.r > right + 2) : [...items].reverse().find((it) => it.l < left - 2);
+      const to = target ? (dir > 0 ? target.l : target.r - gal.clientWidth) : (dir > 0 ? 0 : gal.scrollWidth);
+      gal.scrollTo({ left: to, behavior: 'smooth' });
     }));
   }
 </script>

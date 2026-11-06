@@ -10,6 +10,8 @@ import { categories, videos, team } from '../data/site.js';
 import { u } from '../lib/url.js';
 
 const hero = videos[0];
+// Foto de portada mientras carga el vídeo (y si el móvil no lo reproduce).
+const heroPoster = u('media/images/proyectos_85_dsc01123.jpg');
 const bySlug = (slug) => programs.find((p) => p.slug.startsWith(slug));
 // Mismo orden que la web actual.
 const bestSellers = ['mozambique', 'kazakhstan', 'namibia-paquete', 'sudafrica', 'turquia'].map(bySlug);
@@ -20,9 +22,9 @@ const catCount = (slug) => new Set(programs.filter((p) => p.category === slug).m
 const simProgram = programs.find((p) => p.slug === 'namibia-paquete-windhoek');
 const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilopes', 'corzo', 'ciervo', 'alce-caribu-muskox'].map((k) => activeSpecies.find((s) => s.slug === k)).filter(Boolean);
 ---
-<Layout transparentHeader image={`https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg`}>
+<Layout transparentHeader image={heroPoster}>
   <section class="hero dark" id="hero">
-    <div class="hero-media" style={`background-image:url(https://i.ytimg.com/vi/${hero.id}/maxresdefault.jpg)`}>
+    <div class="hero-media" style={`background-image:url(${heroPoster})`}>
       <iframe
         id="hero-video"
         data-start={hero.start ?? 0}
