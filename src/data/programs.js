@@ -401,8 +401,13 @@ const COUNTRY_ORDER = {
   'caza-en-europa': ['groenlandia', 'macedonia', 'rumania', 'polonia', 'hungria'],
   'caza-con-arco': ['namibia', 'groenlandia', 'sudafrica', 'turquia'],
 };
-// Programas que van primero dentro de su país.
-const PINNED = ['namibia-paquete-windhoek'];
+// Programas recomendados: van primero dentro de su país (en este orden) con la etiqueta «Recomendado».
+const PINNED = [
+  'namibia-paquete-windhoek',
+  'sudafrica-limpopo-paquetes-en-lodge-de-lujo',
+  'turquia-batidas-jabali-caza-en-reservas', 'turquia-jabali-caza-mixta', 'turquia-jabali-vip-caza-nocturna',
+];
+for (const p of programs) if (PINNED.includes(p.slug)) p.recommended = true;
 
 export const countries = (category) => {
   const map = new Map();

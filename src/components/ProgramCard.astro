@@ -1,14 +1,14 @@
 ---
 import { programUrl, fromPrice, money, programYear, isCurrent } from '../data/programs.js';
 import { u } from '../lib/url.js';
-const { p } = Astro.props;
+const { p, showRec = false } = Astro.props;
 const from = fromPrice(p);
 const year = programYear(p);
 const cur = isCurrent(p);
 ---
 <a class="photo-card" href={u(programUrl(p))}>
   <img src={p.hero} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
-  {p.tag && <span class="tag">{p.tag}</span>}
+  {showRec && p.recommended ? <span class="rec-badge">★ Recomendado</span> : p.tag && <span class="tag">{p.tag}</span>}
   <div class="info">
     <div class="eyebrow">{p.countryName}{cur ? ` · Tarifas ${year}` : ''}</div>
     <h3>{p.title}</h3>
@@ -16,3 +16,7 @@ const cur = isCurrent(p);
     {from ? <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div> : <div class="price">{cur ? 'Precio a consultar' : 'Consultar disponibilidad y precio'}</div>}
   </div>
 </a>
+
+<style>
+  .rec-badge { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 7px 12px; background: var(--red); color: #fff; font: 500 10px var(--label); letter-spacing: .2em; text-transform: uppercase; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+</style>
