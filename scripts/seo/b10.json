@@ -1,0 +1,58 @@
+{
+"caza-en-africa/mozambique": {
+ "intro": "Mozambique es uno de nuestros destinos de búfalo favoritos. Cazamos en la Coutada 10 de Marromeu, en el delta del Zambeze, una de las zonas clásicas de África, y en la Coutada Nairoto, en Cabo Delgado, con profesionales de más de treinta años de experiencia.",
+ "heading": "Caza en Mozambique",
+ "sections": [
+  {"h": "Búfalo en Marromeu", "p": ["El delta del Zambeze tiene una de las mayores densidades de [búfalo](especies/bufalo) de África. El programa más corto son cinco días 1×1 con un búfalo incluido, por 13.000 dólares. El pack de siete días cuesta 15.250 dólares y el de diez, 17.500, también con un búfalo.", "En los programas de diez días se pueden añadir sable, nyala, eland, hipopótamo, cebra de Selous, waterbuck y muchos otros trofeos, pagando su tasa de abate."]},
+  {"h": "Leopardo y plains game", "p": ["Para el [leopardo](especies/leopardo) hay un programa de catorce días con plains game por 18.000 dólares. Se caza en espera sobre cebos, en zonas con una población muy sana. El plains game 1×1 se puede hacer también por días, a 700 dólares diarios."]},
+  {"h": "Temporada y campamentos", "p": ["La temporada va del 1 de mayo al 30 de noviembre. Se duerme en dos campamentos de cabañas de madera nuevos, con todas las comodidades. El acompañante paga de 350 a 420 dólares al día según el programa. Si le gusta la pesca, se puede terminar el viaje en la costa a por marlín."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar un búfalo en Mozambique?", "a": "Desde 13.000 dólares por cinco días 1×1 con un búfalo incluido."},
+  {"q": "¿Cuál es la temporada?", "a": "Del 1 de mayo al 30 de noviembre."},
+  {"q": "¿Se puede cazar leopardo?", "a": "Sí, en un programa de catorce días junto con plains game."}
+ ]
+},
+"caza-en-america/canada": {
+ "intro": "Canadá es el país de los grandes trofeos de Norteamérica. Cazamos alce, carnero de Dall y grizzly en el Yukón, alce, wapití, caribú, cabra de las Rocosas y borrego de Stone en British Columbia, felinos en invierno y oso negro en Quebec.",
+ "heading": "Caza en Canadá",
+ "sections": [
+  {"h": "Yukón", "p": ["En Devilhole, al suroeste del Yukón, hay 4.200 km² de montañas, lagos, prados alpinos y glaciares. Se caza 1×1 con avioneta, guías y caballos. El programa base de diez días con un carnero de Dall, o de once con un [alce](especies/alce-caribu-muskox) de Alaska-Yukón, cuesta 24.500 dólares, y se puede añadir un grizzly u otro alce."]},
+  {"h": "British Columbia", "p": ["Desde Fort St. John cazamos alce, wapití, caribú y cabra de las Rocosas en paquetes de cinco, siete o diez días, desde 10.500 dólares con una especie incluida. El borrego de Stone se caza en programas de catorce días. En invierno, de noviembre a febrero, se cazan puma, lince y gato montés con perros, una caza dura y emocionante."]},
+  {"h": "Oso negro en Quebec", "p": ["Para empezar en Canadá, el [oso negro](especies/oso) de Quebec es la opción más asequible: cinco días de caza en mayo desde puestos elevados, por 3.500 € con un oso incluido. Un guía español le acompaña desde Barajas hasta la vuelta."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar un alce en Canadá?", "a": "En British Columbia, desde 10.500 dólares por cinco días con la especie incluida. En el Yukón, 24.500 dólares por once días."},
+  {"q": "¿Cuándo se caza el oso negro en Quebec?", "a": "En mayo, sobre todo la semana del 15 al 22."},
+  {"q": "¿Qué felinos se cazan en British Columbia?", "a": "Puma, lince y gato montés, de noviembre a febrero."}
+ ]
+},
+"caza-en-asia/rusia": {
+ "intro": "Rusia es el gran país del oso. Cazamos el oso pardo siberiano en la osera, en espera, en rececho y desde un barco en el lago Baikal, el grizzly negro de Manchuria, el oso negro del Himalaya y el tur del Cáucaso.",
+ "heading": "Caza en Rusia",
+ "sections": [
+  {"h": "El oso pardo siberiano", "p": ["Hay tres maneras de cazarlo. En primavera, del 20 de abril al 15 de junio, en espera y rececho en el Altái, por 8.300 € con el oso. En junio, a bordo de un barco que recorre la costa del lago Baikal, con recechos a pie. Y en invierno, de diciembre a febrero, en la osera, llegando en moto de nieve: cinco días con un oso incluido por 6.900 €."]},
+  {"h": "Osos de Extremo Oriente", "p": ["Cerca de Jabárovsk vive el grizzly negro, una variedad exclusiva de los bosques de Manchuria, donde también hay tigres. Se caza en mayo y de septiembre a octubre. En la misma región, en invierno, se caza el oso negro del Himalaya durante la hibernación, una cacería rápida y exigente."]},
+  {"h": "El tur del Cáucaso", "p": ["En Daguestán y Kubán se caza el tur a rececho, de agosto a noviembre, en grupos de uno a cuatro cazadores. Cuesta desde 3.400 € por cazador más el trofeo."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar un oso en Rusia?", "a": "Desde 6.900 € en la osera, con el oso incluido, o 8.300 € en espera y rececho en primavera."},
+  {"q": "¿Qué es el grizzly negro?", "a": "Una variedad de oso pardo de capa totalmente negra que vive en los bosques de Manchuria."},
+  {"q": "¿Cuándo se caza el tur?", "a": "De agosto a noviembre."}
+ ]
+},
+"caza-en-asia/tayikistan": {
+ "intro": "Tayikistán es el mejor destino del mundo para el Marco Polo, con un cien por cien de éxito en los últimos doce años. También cazamos íbex en las montañas de Girgatol y grandes jabalíes en Sari Khosor.",
+ "heading": "Caza en Tayikistán",
+ "sections": [
+  {"h": "Marco Polo en el Pamir", "p": ["El argalí Marco Polo se caza en el Pamir, a seis horas en coche de Jorog, desde un campamento base de madera a entre 3.600 y 4.000 metros. Los trofeos medios están entre 55 y 56 pulgadas, y cada temporada salen machos de 60 a 62.", "La temporada va del 1 de septiembre al 15 de diciembre, y en febrero y marzo. Se vuela a Dusambé vía Estambul, con recogida VIP, y de allí a Jorog en un vuelo de 45 minutos."]},
+  {"h": "Íbex", "p": ["En las montañas de Girgatol, a 250 km de Dusambé, se caza el [íbex](especies/ibex) de Asia central, con trofeos de un metro a 135 cm. Son diez días, siete de caza, en montañas muy abruptas de 2.000 a 2.500 metros, de mediados de agosto a mediados de diciembre. Después del íbex se pueden cazar jabalí y lobo."]},
+  {"h": "Grandes jabalíes", "p": ["En Sari Khosor los grandes [jabalíes](especies/jabali) conviven con uriales y markhores. Se cazan a rececho todo el año, mejor de diciembre a marzo con nieve, y en espera con luna llena en junio, julio y septiembre. El programa de cinco días cuesta 1.400 €."]}
+ ],
+ "faq": [
+  {"q": "¿Qué éxito tiene la caza del Marco Polo en Tayikistán?", "a": "Un cien por cien en los últimos doce años."},
+  {"q": "¿A qué altura se caza?", "a": "El campamento está a entre 3.600 y 4.000 metros."},
+  {"q": "¿Se puede cazar jabalí en Tayikistán?", "a": "Sí, en Sari Khosor, desde 1.400 € por cinco días de caza."}
+ ]
+}
+}

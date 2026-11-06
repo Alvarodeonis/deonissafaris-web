@@ -1,0 +1,58 @@
+{
+"caza-en-africa/tanzania": {
+ "intro": "Tanzania es uno de los grandes destinos clásicos del safari de caza. Nuestro programa estrella son dos búfalos por cazador en la Mlele Game Reserve, en un campamento de tiendas VIP.",
+ "heading": "Caza en Tanzania",
+ "sections": [
+  {"h": "Especial búfalos en Mlele", "p": ["Mlele es una reserva enorme y muy poco presionada, con grandes manadas de [búfalo](especies/bufalo). El programa son siete días de caza en régimen 2×1 con dos búfalos por cazador, por 28.000 dólares.", "La temporada va del 1 de julio al 31 de diciembre. Septiembre y octubre son los mejores meses: el monte está seco y abierto y los búfalos se concentran cerca del agua."]},
+  {"h": "Qué incluye", "p": ["Están incluidos la licencia y las tasas del gobierno, el permiso de un rifle, el alojamiento y las comidas, el transporte al campamento, el cazador profesional con su todoterreno y la preparación, documentación y embalaje de los trofeos.", "Se pueden añadir facóquero e impala por 1.150 dólares cada uno, cebra por 2.200 y hartebeest por 3.000. El acompañante paga 300 dólares al día."]},
+  {"h": "Otros programas", "p": ["Tanzania tiene también leopardo, león, sable y una gran variedad de [antílopes](especies/antilopes). Si busca algo distinto del búfalo, pregúntenos y le preparamos una cacería a medida."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar búfalo en Tanzania?", "a": "28.000 dólares por cazador por siete días en 2×1, con dos búfalos incluidos."},
+  {"q": "¿Cuál es la mejor época?", "a": "Septiembre y octubre."},
+  {"q": "¿Cómo es el campamento?", "a": "Un campamento de tiendas VIP con comedor independiente."}
+ ]
+},
+"caza-en-europa/macedonia": {
+ "intro": "Macedonia del Norte es un destino pequeño con caza muy variada: batidas de lobo y jabalí con perros, lobo en espera y rececho del rebeco balcánico en el coto alpino de Karadzitza, todo a menos de una hora de Skopie.",
+ "heading": "Caza en Macedonia",
+ "sections": [
+  {"h": "Lobo", "p": ["El [lobo](especies/lobo) se caza de dos formas. En batida, con perros y ojeadores, en una finca privada de montaña del centro del país, de noviembre a enero. Y en espera, en las llanuras del sur, del 15 de octubre al 31 de marzo.", "El programa de espera son tres días de caza y cuatro noches por 1.900 €, con un guía profesional 1:1. El lobo cuesta 2.900 € y el CITES, 500 €."]},
+  {"h": "Rebeco balcánico", "p": ["En Karadzitza, a 50 km de Skopie, se reccha el [rebeco](especies/rebeco) balcánico en terreno alpino, del 1 de agosto al 31 de diciembre. Son dos días de caza y tres noches, con un rebeco sin límite de puntos, por 4.190 €. Se puede añadir un ciervo, que se paga por kilos."]},
+  {"h": "Un viaje cómodo", "p": ["En todos los programas le recogemos en el aeropuerto de Skopie, hay intérprete durante toda la estancia y se aloja en pensión completa, ya sea en hotel o en una casa forestal muy cómoda."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar un lobo en Macedonia?", "a": "El programa de espera cuesta 1.900 € y el lobo, 2.900 €, más el CITES."},
+  {"q": "¿Cuándo se caza el rebeco balcánico?", "a": "Del 1 de agosto al 31 de diciembre."},
+  {"q": "¿Hay intérprete?", "a": "Sí, en todos los programas."}
+ ]
+},
+"caza-en-europa/bulgaria": {
+ "intro": "Bulgaria es uno de los países de Europa con más variedad de caza y mejores precios. Tenemos batidas de jabalí, becadas, urogallo en celo, rebeco balcánico y un programa general de ciervo, gamo, muflón y jabalí.",
+ "heading": "Caza en Bulgaria",
+ "sections": [
+  {"h": "Jabalí y becada en Strandja", "p": ["En la montaña de Strandja, entre el mar Negro y la frontera turca, se dan batidas de [jabalí](especies/jabali) con perros y batidores de octubre a enero. Son tres días de batida por 2.450 € con todos los jabalíes incluidos.", "En la misma zona se caza la [becada](especies/becada) con perros de muestra, del 15 de noviembre al 15 de febrero, sin límite de piezas. Cuesta desde 1.700 € por cazador en grupos de cuatro."]},
+  {"h": "Urogallo y rebeco en los Ródopes", "p": ["El [urogallo](especies/urogallo) se caza en celo, a rececho por la mañana, del 15 de abril al 15 de mayo. Desde el 1 de mayo se puede combinar con corzo y jabalí por la tarde. La estancia cuesta 1.900 € y el urogallo, 2.800 €.", "El [rebeco](especies/rebeco) balcánico se caza entre 1.500 y 2.000 metros, en abril y mayo o en diciembre y enero, desde 1.490 € por la estancia."]},
+  {"h": "Pravetz", "p": ["A una hora de Sofía, el coto de Pravetz tiene 8.000 hectáreas de montaña y robledal con [ciervo](especies/ciervo), gamo, [muflón](especies/muflon-y-gamo) y jabalí. Tres días de caza cuestan 1.690 € y los trofeos se pagan según su tamaño."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el urogallo en Bulgaria?", "a": "Del 15 de abril al 15 de mayo, en celo. Lo mejor es hasta el 5 de mayo."},
+  {"q": "¿Cuánto cuesta una batida de jabalí en Bulgaria?", "a": "2.450 € por cazador por tres días de batida, con todos los jabalíes incluidos."},
+  {"q": "¿Hay límite de becadas?", "a": "No, en el programa de Strandja las becadas son sin límite."}
+ ]
+},
+"caza-en-europa/groenlandia": {
+ "intro": "Groenlandia es caza ártica de verdad. Cazamos el buey almizclero en verano y en primavera en Kangerlussuaq, y el caribú en Narsarsuaq, con guías locales que conocen este terreno extremo.",
+ "heading": "Caza en Groenlandia",
+ "sections": [
+  {"h": "Buey almizclero en verano", "p": ["De julio a septiembre se caza el [buey almizclero](especies/alce-caribu-muskox) en los alrededores de Kangerlussuaq, con helicóptero incluido para llegar a zonas alejadas. El paquete de tres o cuatro días con un macho cuesta 6.000 €."]},
+  {"h": "Buey almizclero en primavera", "p": ["Del 15 de febrero al 15 de abril la caza cambia por completo. Se va en ATV sobre lagos helados, con ropa para frío extremo, y las aproximaciones finales se hacen a pie. Cuesta 8.500 dólares por cazador. Es una cacería dura y una experiencia única, con el pelo del animal en su mejor momento."]},
+  {"h": "Caribú en Narsarsuaq", "p": ["El caribú se caza de agosto a septiembre, sobre todo del 24 de agosto al 30 de septiembre, desde un campamento de cabañas en pensión completa en Narsarsuaq. Se puede combinar con buey almizclero. El programa cuesta desde 11.900 €."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el buey almizclero?", "a": "En verano, de julio a septiembre, y en primavera, del 15 de febrero al 15 de abril."},
+  {"q": "¿Cuánto cuesta?", "a": "Desde 6.000 € en verano y 8.500 dólares en primavera."},
+  {"q": "¿Se puede cazar caribú?", "a": "Sí, en Narsarsuaq de agosto a septiembre, o como trofeo adicional en Kangerlussuaq."}
+ ]
+}
+}

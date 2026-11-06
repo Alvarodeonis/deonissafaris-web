@@ -1,0 +1,100 @@
+{
+"caza-con-arco/groenlandia": {
+ "intro": "Cazar un buey almizclero con arco en Groenlandia es una de esas cacerías que se recuerdan siempre. Salimos desde Kangerlussuaq y usamos helicóptero para llegar a zonas donde no caza nadie de la zona.",
+ "heading": "Caza con arco en Groenlandia",
+ "sections": [
+  {"h": "El buey almizclero", "p": ["El [buey almizclero](especies/alce-caribu-muskox) es un animal de otra época, robusto y desconfiado, que vive en la tundra abierta. Con arco hay que aprovechar cada repliegue del terreno para acercarse, y cuando la manada se agrupa a la defensiva el tiro exige sangre fría.", "Se caza en julio, agosto y septiembre, con días muy largos y temperaturas suaves para lo que es el Ártico."]},
+  {"h": "El programa", "p": ["El primer día se llega a Kangerlussuaq, se va en coche hasta el barco y se remonta el río unas dos horas y media. Se puede cazar ese mismo día. Después quedan tres días más de caza.", "El paquete de tres o cuatro días con un macho cuesta 6.000 € e incluye campamento en pensión completa, profesional, barca, coche, helicóptero, licencia y primera preparación del trofeo. Un segundo buey cuesta 2.900 €; también se puede intentar el caribú, aunque con arco es muy complicado."]},
+  {"h": "Lo que debe saber", "p": ["Los vuelos llegan por Copenhague. Conviene llevar ropa por capas y buen calzado impermeable: la tundra es húmeda incluso en verano. El acompañante paga 3.500 €."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el buey almizclero con arco?", "a": "En julio, agosto y septiembre, durante el verano ártico."},
+  {"q": "¿Está incluido el helicóptero?", "a": "Sí. Se usa para llegar a zonas alejadas de la caza local, donde los animales están más tranquilos."},
+  {"q": "¿Se puede cazar caribú?", "a": "Sí, como trofeo adicional por 2.900 €, aunque con arco es una caza muy difícil."}
+ ]
+},
+"caza-con-arco/mauritania": {
+ "intro": "Mauritania es el destino perfecto para estrenarse con el arco en África sin gastar mucho. Cazamos facocheros a rececho en 200.000 hectáreas del sur del país, junto a Senegal, en una zona segura y sin malaria.",
+ "heading": "Caza con arco en Mauritania",
+ "sections": [
+  {"h": "Facocheros a rececho", "p": ["El [facochero](especies/facochero) se caza por la mañana y por la tarde, acercándose a pie mientras come. Es una caza muy dinámica: se ven muchos animales cada día y hay que medir bien el viento y los pasos para llegar a la distancia buena.", "La temporada va de noviembre a marzo, con temperaturas agradables y sin lluvias."]},
+  {"h": "Precios", "p": ["El paquete de tres días y medio de caza y cuatro de estancia, con cinco facocheros incluidos, cuesta 2.080 €. Cada facochero extra cuesta 210 € y el acompañante, 500 €.", "Aparte van los vuelos (unos 750 €), el visado (100 €) y el certificado sanitario de los trofeos. Se duerme en bungalows y haimas dobles en el propio campamento."]},
+  {"h": "Por qué nos gusta", "p": ["Está a pocas horas de España, no hay cambio horario relevante y se puede disparar muchas flechas en pocos días. Es el viaje que solemos recomendar a quien quiere probar el arco en África antes de ir a por especies más grandes."]}
+ ],
+ "faq": [
+  {"q": "¿Es seguro cazar en Mauritania?", "a": "La zona de caza, en el sur junto a Senegal, es segura y además está libre de malaria."},
+  {"q": "¿Cuántos facocheros puedo cazar?", "a": "El paquete incluye cinco. Puede añadir más a 210 € cada uno."},
+  {"q": "¿Cuál es la mejor época?", "a": "De noviembre a marzo, cuando el clima es suave y seco."}
+ ]
+},
+"caza-con-arco/nueva-zelanda": {
+ "intro": "La Isla Sur de Nueva Zelanda tiene los ciervos más grandes del mundo, y además tahr y rebeco. Con arco se caza con guías profesionales en zonas con mucha densidad de animales y trofeos de oro CIC o más.",
+ "heading": "Caza con arco en Nueva Zelanda",
+ "sections": [
+  {"h": "La berrea", "p": ["El [ciervo](especies/ciervo) neozelandés es famoso por sus cuernas enormes. La temporada va de enero a agosto, pero la berrea, en marzo y abril, es el gran momento: los machos responden a la llamada y se pueden atraer a distancia de arco.", "Las tasas van por puntos SCI: 3.500 dólares un ciervo de 290 a 320 puntos, 9.000 uno de 361 a 399 y hasta 25.000 uno de más de 500."]},
+  {"h": "Tahr, rebeco y más", "p": ["En las montañas de los Alpes del Sur se cazan [tahr y rebeco](especies/cabras-y-carneros), a 5.500 dólares cada uno. Para llegar a las zonas altas se usa helicóptero, que cuesta entre 2.000 y 2.500 dólares por animal. También hay gamo, wapití, carnero Arapawa, cabra asilvestrada y jabalí."]},
+  {"h": "Cómo es el viaje", "p": ["La tarifa diaria es de 640 dólares por cazador y 300 por acompañante, durmiendo en los lodges de los guías. Es un viaje largo, así que recomendamos un mínimo de seis o siete días de caza y combinarlo con algo de turismo por la isla."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es la berrea en Nueva Zelanda?", "a": "En marzo y abril, que en el hemisferio sur es otoño."},
+  {"q": "¿Cuánto cuesta un ciervo con arco en Nueva Zelanda?", "a": "Depende de los puntos SCI: desde 3.500 dólares hasta 25.000 para los más grandes, más la tarifa diaria."},
+  {"q": "¿Hace falta helicóptero?", "a": "Para el tahr y el rebeco sí suele usarse, porque viven en zonas muy altas."}
+ ]
+},
+"caza-con-arco/turquia": {
+ "intro": "Si lo que busca con el arco es acción, Turquía es su sitio. Cazamos jabalíes de noche en zonas de paso cerca de la costa, con muchísimas oportunidades cada noche para machos, hembras y pequeños.",
+ "heading": "Caza con arco en Turquía",
+ "sections": [
+  {"h": "Esperas y rececho nocturnos", "p": ["El [jabalí](especies/jabali) turco sale por la noche a los cultivos cercanos a las ciudades de la costa. Se caza en espera en las querencias y a rececho por los pasos, con tiros de entre 10 y 50 metros.", "Hace falta linterna roja o verde, visor térmico o nocturno con medidor de distancia y un visor de pines con luz. Si no tiene parte del equipo, le orientamos sobre qué llevar."]},
+  {"h": "Precios", "p": ["El programa son cuatro noches de caza, de mayo a octubre. Cuesta 3.495 € para un cazador solo, 2.850 € por cazador en pareja, 2.550 € en grupos de tres y 2.250 € a partir de cuatro.", "Incluye un macho de 18 cm o más y hasta 30 hembras y pequeños. A partir de ahí, cada hembra o pequeño cuesta 50 € y cada macho adicional, 900 €. El alojamiento lo elige usted, desde una pensión sencilla hasta un hotel de cinco estrellas en la costa."]},
+  {"h": "Ideal para grupos", "p": ["Es un viaje estupendo para ir con amigos: el precio baja mucho en grupo, por la noche se caza y de día se puede disfrutar de la costa turca."]}
+ ],
+ "faq": [
+  {"q": "¿Cuántos jabalíes se pueden cazar con arco en Turquía?", "a": "El paquete incluye un macho y hasta 30 hembras y pequeños. Hay muchas oportunidades cada noche."},
+  {"q": "¿Qué equipo necesito?", "a": "Linterna roja o verde, visor térmico o nocturno con medidor de distancia y visor de pines con luz."},
+  {"q": "¿Cuál es la temporada?", "a": "De mayo a octubre."}
+ ]
+},
+"pesca/islandia": {
+ "intro": "Islandia es uno de los grandes destinos del mundo para la pesca a mosca del salmón atlántico. Pescamos en los ríos de la zona de Rangá, con salmones de 4 a 6 kg de media y algunos de hasta 10 kg.",
+ "heading": "Pesca en Islandia",
+ "sections": [
+  {"h": "Salmón y grandes truchas", "p": ["Los ríos de Rangá son de referencia para la cola de rata. Además del salmón atlántico hay truchas de buen tamaño, así que los días dan para mucho.", "La temporada buena es julio y agosto, con muchísimas horas de luz: en pleno verano casi no anochece y se puede pescar hasta muy tarde."]},
+  {"h": "El viaje", "p": ["Son de tres a cinco días de pesca, alojándose en un lodge junto al río con pensión completa. Con guía, traslados y licencias, el precio suele rondar los 1.800 € por persona y día.", "Los precios cambian mucho según la demanda y las licencias de cada río, por eso le damos presupuesto para sus fechas concretas."]},
+  {"h": "Consejo", "p": ["Las mejores semanas se reservan con mucha antelación. Si tiene claro que quiere ir, conviene hablarlo con nosotros a finales del año anterior."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se pesca el salmón en Islandia?", "a": "La mejor época es julio y agosto."},
+  {"q": "¿Cuánto cuesta pescar salmón en Islandia?", "a": "Alrededor de 1.800 € por persona y día con todo incluido, aunque depende mucho de las fechas y del río."},
+  {"q": "¿De qué tamaño son los salmones?", "a": "Normalmente de 4 a 6 kg, y cada temporada salen algunos de hasta 10 kg."}
+ ]
+},
+"pesca/eslovenia": {
+ "intro": "Eslovenia tiene algunos de los ríos más bonitos de Europa para pescar a mosca. Recorremos el Unica, el Krka, el Sava Bohinjka, el Radovna y el Soča detrás de la trucha marmorata, el hucho y el grayling.",
+ "heading": "Pesca en Eslovenia",
+ "sections": [
+  {"h": "Las especies", "p": ["La estrella es la trucha marmorata del Soča: suele medir unos 40 cm, cada año sale alguna de hasta un metro y el récord está en 25 kg. También se pesca el hucho o salmón del Danubio, el grayling, la trucha común y la arcoíris.", "La temporada de trucha va de marzo a diciembre y la de grayling de junio a diciembre. Los mejores meses son junio, julio, septiembre y octubre."]},
+  {"h": "Dos programas", "p": ["El viaje largo son ocho días y siete de pesca, por 2.900 € por pescador, cambiando de río casi cada día. El corto son cinco días y cuatro de pesca, por 1.900 €.", "Se llega a Liubliana y en una hora se está en el Unica. Se duerme en hoteles y campamentos junto a los ríos."]},
+  {"h": "Un viaje para disfrutar", "p": ["Eslovenia es pequeña, tranquila y muy verde. Los ríos de aguas color esmeralda son un espectáculo incluso para quien no pesca."]}
+ ],
+ "faq": [
+  {"q": "¿Qué es la trucha marmorata?", "a": "Una trucha autóctona del Adriático que vive en el Soča y que puede superar el metro de longitud."},
+  {"q": "¿Cuál es la mejor época para pescar en Eslovenia?", "a": "Junio, julio, septiembre y octubre."},
+  {"q": "¿Cuánto cuesta el viaje?", "a": "1.900 € por cuatro días de pesca o 2.900 € por siete días."}
+ ]
+},
+"pesca/mauritania": {
+ "intro": "En el Parque Nacional del Banco de Arguin, en Mauritania, se pesca desde la costa y desde barcos de vela latina en una de las zonas más ricas del Atlántico. Corvinas, palometones, pargos, tiburones y peces guitarra a pocas horas de España.",
+ "heading": "Pesca en Mauritania",
+ "sections": [
+  {"h": "Un parque único", "p": ["El Banco de Arguin tiene 11.000 km² de aguas poco profundas, donde los pescadores locales solo pueden faenar a vela. Eso mantiene unas poblaciones de peces que ya no se ven en casi ningún sitio."]},
+  {"h": "Qué se pesca y cuándo", "p": ["De febrero a abril, corvina blanca y negra. De marzo a julio, roncadores, king mackerel y palometones. De mayo a julio, peces guitarra y tiburones. De julio a octubre, caballas, atuncillos, anchovas y agujas. Y todo el año, meros, sargos, pargos, bailas y muchas especies más."]},
+  {"h": "Precios", "p": ["Se duerme en un campamento en la costa con pensión completa. Tres días de pesca cuestan de 700 € a 900 € por pescador según el tamaño del grupo, y seis días, de 1.000 € a 1.300 €. Es de los viajes de pesca más asequibles que organizamos."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es mejor ir a pescar a Mauritania?", "a": "Depende de la especie. Para corvina, de febrero a abril; para palometón, de marzo a julio."},
+  {"q": "¿Cuánto cuesta?", "a": "Desde 700 € por pescador por tres días en grupos de cinco o seis personas."},
+  {"q": "¿Cómo se pesca?", "a": "Desde la costa y desde barcos tradicionales de vela latina."}
+ ]
+}
+}

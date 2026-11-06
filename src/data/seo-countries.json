@@ -59,141 +59,357 @@
   ]
  },
  "caza-en-africa/mozambique": {
-  "intro": "En Mozambique cazamos en la Coutada 10 de Marromeu, en el delta del Zambeze, y en Nairoto. Es África salvaje, sin vallas, con búfalos en manadas grandes, leopardo y profesionales que llevan más de treinta años en la zona.",
+  "intro": "Mozambique es uno de nuestros destinos de búfalo favoritos. Cazamos en la Coutada 10 de Marromeu, en el delta del Zambeze, una de las zonas clásicas de África, y en la Coutada Nairoto, en Cabo Delgado, con profesionales de más de treinta años de experiencia.",
   "heading": "Caza en Mozambique",
   "sections": [
    {
-    "h": "El búfalo del Zambeze",
+    "h": "Búfalo en Marromeu",
     "p": [
-     "Marromeu es una de las zonas clásicas del [búfalo](especies/bufalo). En los humedales del delta hay muchísimos, y se cazan a pie, siguiendo a la manada. Tenemos un programa de cinco días con un búfalo incluido, y otro más largo para combinar búfalo, [leopardo](especies/leopardo) y plains game.",
-     "La temporada va del 1 de mayo al 30 de noviembre."
+     "El delta del Zambeze tiene una de las mayores densidades de [búfalo](especies/bufalo) de África. El programa más corto son cinco días 1×1 con un búfalo incluido, por 13.000 dólares. El pack de siete días cuesta 15.250 dólares y el de diez, 17.500, también con un búfalo.",
+     "En los programas de diez días se pueden añadir sable, nyala, eland, hipopótamo, cebra de Selous, waterbuck y muchos otros trofeos, pagando su tasa de abate."
+    ]
+   },
+   {
+    "h": "Leopardo y plains game",
+    "p": [
+     "Para el [leopardo](especies/leopardo) hay un programa de catorce días con plains game por 18.000 dólares. Se caza en espera sobre cebos, en zonas con una población muy sana. El plains game 1×1 se puede hacer también por días, a 700 dólares diarios."
+    ]
+   },
+   {
+    "h": "Temporada y campamentos",
+    "p": [
+     "La temporada va del 1 de mayo al 30 de noviembre. Se duerme en dos campamentos de cabañas de madera nuevos, con todas las comodidades. El acompañante paga de 350 a 420 dólares al día según el programa. Si le gusta la pesca, se puede terminar el viaje en la costa a por marlín."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuántos días hacen falta para un búfalo en Mozambique?",
-    "a": "Con cinco días suele ser suficiente. Si quiere añadir leopardo, mejor un programa más largo."
+    "q": "¿Cuánto cuesta cazar un búfalo en Mozambique?",
+    "a": "Desde 13.000 dólares por cinco días 1×1 con un búfalo incluido."
+   },
+   {
+    "q": "¿Cuál es la temporada?",
+    "a": "Del 1 de mayo al 30 de noviembre."
+   },
+   {
+    "q": "¿Se puede cazar leopardo?",
+    "a": "Sí, en un programa de catorce días junto con plains game."
    }
   ]
  },
  "caza-en-africa/tanzania": {
-  "intro": "Tanzania es el destino clásico del safari africano. Allí cazamos el búfalo en la Mlele Game Reserve, dos por cazador, desde un campamento de tiendas VIP.",
+  "intro": "Tanzania es uno de los grandes destinos clásicos del safari de caza. Nuestro programa estrella son dos búfalos por cazador en la Mlele Game Reserve, en un campamento de tiendas VIP.",
   "heading": "Caza en Tanzania",
   "sections": [
    {
-    "h": "Búfalos en Mlele",
+    "h": "Especial búfalos en Mlele",
     "p": [
-     "El programa especial de [búfalo](especies/bufalo) es 2×1, con dos búfalos por cazador. La temporada va de julio a diciembre, y septiembre y octubre son los mejores meses. Es caza en zona salvaje, de las que se recuerdan toda la vida.",
-     "También organizamos programas generales en Tanzania. Pregúntenos por especies y fechas."
+     "Mlele es una reserva enorme y muy poco presionada, con grandes manadas de [búfalo](especies/bufalo). El programa son siete días de caza en régimen 2×1 con dos búfalos por cazador, por 28.000 dólares.",
+     "La temporada va del 1 de julio al 31 de diciembre. Septiembre y octubre son los mejores meses: el monte está seco y abierto y los búfalos se concentran cerca del agua."
+    ]
+   },
+   {
+    "h": "Qué incluye",
+    "p": [
+     "Están incluidos la licencia y las tasas del gobierno, el permiso de un rifle, el alojamiento y las comidas, el transporte al campamento, el cazador profesional con su todoterreno y la preparación, documentación y embalaje de los trofeos.",
+     "Se pueden añadir facóquero e impala por 1.150 dólares cada uno, cebra por 2.200 y hartebeest por 3.000. El acompañante paga 300 dólares al día."
+    ]
+   },
+   {
+    "h": "Otros programas",
+    "p": [
+     "Tanzania tiene también leopardo, león, sable y una gran variedad de [antílopes](especies/antilopes). Si busca algo distinto del búfalo, pregúntenos y le preparamos una cacería a medida."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuál es la mejor época para cazar en Tanzania?",
-    "a": "Septiembre y octubre, al final de la temporada seca."
+    "q": "¿Cuánto cuesta cazar búfalo en Tanzania?",
+    "a": "28.000 dólares por cazador por siete días en 2×1, con dos búfalos incluidos."
+   },
+   {
+    "q": "¿Cuál es la mejor época?",
+    "a": "Septiembre y octubre."
+   },
+   {
+    "q": "¿Cómo es el campamento?",
+    "a": "Un campamento de tiendas VIP con comedor independiente."
    }
   ]
  },
  "caza-en-africa/zambia": {
-  "intro": "En Zambia cazamos búfalo, hipopótamo y cocodrilo en sus grandes ríos, y también sable y lechwe. Es una caza 1×1, en zonas muy poco tocadas.",
+  "intro": "Zambia es caza africana en estado puro: grandes ríos, búfalos, hipopótamos y cocodrilos. Organizamos programas 1×1 de cinco y siete días y también cacerías a medida de sable, lechwe y otros trofeos.",
   "heading": "Caza en Zambia",
   "sections": [
    {
-    "h": "Búfalo, hipo y cocodrilo",
+    "h": "Búfalo, hipopótamo y cocodrilo",
     "p": [
-     "Nuestro programa más pedido son siete días a por [búfalo](especies/bufalo), hipopótamo y cocodrilo. Si ya tiene el búfalo, hay otro de cinco días solo de hipo y cocodrilo. Según cupo y zona se pueden añadir otros trofeos."
+     "El programa estrella son siete días 1×1 a por [búfalo](especies/bufalo), hipopótamo y cocodrilo. Cuesta 10.150 dólares, más 2.000 de preparación y envío (dip, pack y crate) y 1.650 de licencias y permiso de arma.",
+     "Las tasas de abate son de 5.450 dólares el búfalo y 4.000 el hipopótamo y el cocodrilo. Según el cupo y la zona se pueden añadir bushbuck, potamóquero, duikers y otros animales."
     ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-africa/zimbabwe": {
-  "intro": "Zimbabwe es uno de los grandes países del búfalo cafre. Lo cazamos con profesionales de confianza en zonas de caza libre.",
-  "heading": "Caza en Zimbabwe",
-  "sections": [
+   },
    {
-    "h": "Especial búfalos",
+    "h": "Otros programas",
     "p": [
-     "Si busca un [búfalo](especies/bufalo) en África salvaje a un precio razonable, Zimbabwe es una opción muy seria. Trabajamos con profesionales de confianza en zonas de caza libre.",
-     "Las ofertas cambian cada temporada. Pregúntenos fechas y le pasamos las condiciones actualizadas."
+     "Para quien tiene menos días hay un programa de cinco días centrado en hipopótamo y cocodrilo en los ríos. Y si busca sable, lechwe u otros antílopes, le preparamos una cacería a medida."
     ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-africa/botswana": {
-  "intro": "Botswana es tierra de elefantes. Organizamos cacerías de elefante de diez días y programas generales con profesionales de confianza.",
-  "heading": "Caza en Botswana",
-  "sections": [
+   },
    {
-    "h": "El elefante",
+    "h": "Temporada",
     "p": [
-     "Para muchos cazadores el [elefante](especies/elefante) es la cacería de su vida, y Botswana es uno de los mejores sitios para hacerla. Nuestro programa es de diez días de caza.",
-     "Los cupos son muy limitados y cambian cada año, así que conviene hablarlo con tiempo. También organizamos programas generales en el país."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-africa/mauritania": {
-  "intro": "Mauritania está a un salto de Canarias y es perfecta para una escapada corta. Cazamos facocheros en el sur, cerca de la costa, con un campamento de lujo y cinco facocheros por cazador incluidos.",
-  "heading": "Caza en Mauritania",
-  "sections": [
-   {
-    "h": "Facocheros",
-    "p": [
-     "El campamento está a 110 kilómetros de Nuakchot y a 20 de la costa. La temporada va de noviembre a marzo, y es una zona sin malaria. Con arco también se puede: tenemos un programa en 200.000 hectáreas junto a Senegal, en Caza con arco."
+     "Se caza en la época seca, de mayo a octubre. Los últimos meses son los mejores para el búfalo, cuando los animales bajan a beber a los ríos."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuántos facocheros se cazan?",
-    "a": "El programa incluye cinco por cazador."
+    "q": "¿Cuánto cuesta una cacería de búfalo en Zambia?",
+    "a": "El programa de siete días con búfalo, hipopótamo y cocodrilo cuesta 13.800 dólares con licencias, más las tasas de abate."
+   },
+   {
+    "q": "¿Puede venir un acompañante?",
+    "a": "Sí, por 400 dólares al día."
+   },
+   {
+    "q": "¿Qué otros animales se pueden cazar?",
+    "a": "Sable, lechwe, bushbuck, potamóquero y duikers, según el cupo de cada zona."
+   }
+  ]
+ },
+ "caza-en-africa/zimbabwe": {
+  "intro": "Zimbabwe es uno de los grandes países del búfalo cafre. Lo cazamos con profesionales de confianza en zonas de concesión abiertas, a la huella y con la emoción de la caza africana de siempre.",
+  "heading": "Caza en Zimbabwe",
+  "sections": [
+   {
+    "h": "Búfalo a la huella",
+    "p": [
+     "El [búfalo](especies/bufalo) de Zimbabwe se caza a pie, siguiendo el rastro de las manadas o de los viejos machos solitarios, los famosos dagga boys. Es una caza física, de muchas horas andando, en la que el rastreador marca el ritmo.",
+     "Las zonas que trabajamos están en el norte y el oeste del país, cerca del Zambeze y de los grandes parques, con mucha fauna alrededor."
+    ]
+   },
+   {
+    "h": "Temporada",
+    "p": [
+     "Se caza en la época seca, de abril a octubre. Al principio la vegetación está alta; a partir de julio y agosto el monte se abre, el agua escasea y los búfalos se concentran cerca de los ríos."
+    ]
+   },
+   {
+    "h": "Ofertas",
+    "p": [
+     "En Zimbabwe salen a menudo ofertas especiales de búfalo con buenas condiciones. Como cambian de una temporada a otra, pregúntenos y le contamos las que hay en este momento."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuándo es la mejor época para cazar búfalo en Zimbabwe?",
+    "a": "De julio a octubre, cuando el monte está más abierto y los animales se concentran cerca del agua."
+   },
+   {
+    "q": "¿Cómo se caza?",
+    "a": "A la huella, a pie, con rastreadores y un cazador profesional."
+   },
+   {
+    "q": "¿Cuánto cuesta?",
+    "a": "Depende de la zona y de la oferta del momento. Escríbanos y se la mandamos."
+   }
+  ]
+ },
+ "caza-en-africa/botswana": {
+  "intro": "Botswana es uno de los grandes destinos del mundo para el elefante. Organizamos cacerías de diez días con profesionales de confianza en un país con enormes poblaciones de elefantes y fauna en libertad.",
+  "heading": "Caza en Botswana",
+  "sections": [
+   {
+    "h": "Elefante",
+    "p": [
+     "Botswana tiene la mayor población de [elefantes](especies/elefante) de África. Se cazan a pie, siguiendo el rastro de los machos viejos por el monte, en una caza larga y exigente que pide buena forma física y un rifle de calibre adecuado.",
+     "La cacería es de diez días, lo justo para tener tiempo de buscar un buen trofeo sin prisas."
+    ]
+   },
+   {
+    "h": "Otras especies",
+    "p": [
+     "Además del elefante se pueden cazar búfalo, kudu, eland, sable y otros antílopes, según la zona y los cupos de cada temporada."
+    ]
+   },
+   {
+    "h": "Temporada y condiciones",
+    "p": [
+     "Se caza en la época seca, de abril a septiembre. Las licencias de elefante son limitadas y se asignan cada año, así que las condiciones cambian. Escríbanos y le contamos las ofertas que hay en este momento."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuántos días dura la cacería de elefante en Botswana?",
+    "a": "Diez días de caza."
+   },
+   {
+    "q": "¿Cuándo se caza?",
+    "a": "En la época seca, de abril a septiembre."
+   },
+   {
+    "q": "¿Se pueden cazar otros animales?",
+    "a": "Sí, búfalo, kudu, eland, sable y otros, según el cupo de la zona."
+   }
+  ]
+ },
+ "caza-en-africa/mauritania": {
+  "intro": "Mauritania es el safari más cercano a España. Cazamos facocheros en el sur del país, a 110 km de Nuakchot y a 20 de la costa, desde un campamento de lujo y con cinco facocheros por cazador incluidos.",
+  "heading": "Caza en Mauritania",
+  "sections": [
+   {
+    "h": "Especial facocheros",
+    "p": [
+     "El [facochero](especies/facochero) mauritano es abundante y da muchas oportunidades de tiro. Se caza de noviembre a marzo, con un clima seco y agradable, en una zona segura del sur del país.",
+     "El paquete son cuatro días de caza para un mínimo de cuatro cazadores, con cinco facocheros incluidos por cazador y todo incluido, por 3.295 €. El acompañante paga 490 €."
+    ]
+   },
+   {
+    "h": "Extras",
+    "p": [
+     "Cada facochero adicional cuesta 250 €, igual que cada día extra de caza. El trámite de importación de armas son 150 € y la preparación de los colmillos, 25 € por animal. Si prefiere cazar 1×1 con su propio guía, el suplemento es de 450 €."
+    ]
+   },
+   {
+    "h": "Por qué Mauritania",
+    "p": [
+     "Son menos de tres horas de vuelo desde Madrid, casi sin diferencia horaria. Es el plan perfecto para un grupo de amigos que quiere un safari africano corto, divertido y con mucha caza."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuántos facocheros incluye el paquete?",
+    "a": "Cinco por cazador. Los adicionales cuestan 250 € cada uno."
+   },
+   {
+    "q": "¿Cuál es la temporada?",
+    "a": "De noviembre a marzo."
+   },
+   {
+    "q": "¿Hay un mínimo de cazadores?",
+    "a": "Sí, el paquete es para un mínimo de cuatro cazadores."
    }
   ]
  },
  "caza-en-africa/tunez": {
-  "intro": "En Túnez organizamos batidas de jabalí en bosques de alcornoques, robles y madroños, entre el Atlas y el Sahara, en más de 100.000 hectáreas.",
+  "intro": "Túnez es el destino de batidas de jabalí más cercano a España fuera de Europa. Cazamos en más de 100.000 hectáreas de bosque de alcornoques, robles y madroños, entre las estribaciones del Atlas y los aledaños del Sahara.",
   "heading": "Caza en Túnez",
   "sections": [
    {
-    "h": "Batidas de jabalí",
+    "h": "Batidas para grupos",
     "p": [
-     "Es una caza muy parecida a nuestras monterías, a unas dos horas de vuelo de Madrid. La temporada va del 1 de octubre al 31 de enero. Si le gusta el [jabalí](especies/jabali), es un viaje muy agradecido."
+     "Las [batidas de jabalí](especies/jabali) se organizan para grupos a partir de cuatro cazadores. Hay dos programas: tres días de estancia y dos de batida, o cuatro días y tres de batida. La temporada va del 1 de octubre al 31 de enero.",
+     "El monte es espeso y el jabalí abundante, con muchas ocasiones de tiro en cada gancho. Es una caza muy parecida a la montería española, en un ambiente distinto."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "El precio baja cuanto más grande es el grupo. Con cuatro cazadores, dos días de batida cuestan 1.020 € por cazador; con seis, 875 €; con siete, 820 €. Cada día adicional va de 270 € a 360 €.",
+     "Se duerme en hoteles de montaña en Ain Draham, un pueblo con mucho encanto en pleno bosque."
+    ]
+   },
+   {
+    "h": "Un viaje corto",
+    "p": [
+     "Túnez está a menos de dos horas de vuelo desde Madrid y Barcelona. Es una escapada perfecta para una cuadrilla de amigos que quiere cazar mucho jabalí en pocos días."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuántos cazadores hacen falta?",
+    "a": "Un mínimo de cuatro para organizar las batidas."
+   },
+   {
+    "q": "¿Cuánto cuesta una batida de jabalí en Túnez?",
+    "a": "Desde unos 820 € por cazador en grupos de siete por dos días de batida."
+   },
+   {
+    "q": "¿Cuál es la temporada?",
+    "a": "Del 1 de octubre al 31 de enero."
+   }
+  ]
  },
  "caza-en-africa/camerun": {
-  "intro": "Camerún es la caza de selva y sabana del África occidental, para el cazador que ya conoce el sur del continente y busca otras especies.",
+  "intro": "Camerún es el país de las grandes cacerías de selva de África occidental. Es el destino al que va el cazador que ya conoce la sabana del sur y busca algo distinto: el bongo en la selva del este o el eland de Derby en la sabana del norte.",
   "heading": "Caza en Camerún",
   "sections": [
    {
     "h": "Selva y sabana",
     "p": [
-     "Trabajamos con profesionales de confianza. Las especies, las temporadas y los precios cambian cada año, así que lo mejor es que nos pregunte y le preparamos un programa a medida."
+     "En el norte, la sabana arbolada guarda el eland gigante de Lord Derby, el mayor [antílope](especies/antilopes) del mundo, además de búfalo del oeste, roan, hartebeest y kob. En el sureste, la selva es territorio del bongo, el sitatunga y los duikers de selva.",
+     "Son dos cacerías muy distintas. La de sabana se hace a la huella, con mucho caminar detrás de las manadas. La de selva es húmeda y lenta, con rastreadores pigmeos y perros en algunos casos."
+    ]
+   },
+   {
+    "h": "Cuándo ir",
+    "p": [
+     "La temporada coincide con la época seca, que en el norte va aproximadamente de diciembre a mayo y en la selva es más corta. Cada año las fechas y los cupos cambian, por eso le damos la información al día cuando nos consulta."
+    ]
+   },
+   {
+    "h": "Cómo trabajamos aquí",
+    "p": [
+     "En Camerún trabajamos solo con profesionales que conocemos bien, porque es un destino que exige organización y experiencia. Antes de reservar le explicamos con detalle la logística, los vuelos internos y lo que hay que esperar de cada zona."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué se caza en Camerún?",
+    "a": "Eland de Derby, búfalo del oeste, roan y otros antílopes en la sabana del norte, y bongo, sitatunga y duikers en la selva del este."
+   },
+   {
+    "q": "¿Cuándo es la temporada?",
+    "a": "En la época seca, aproximadamente de diciembre a mayo. Las fechas exactas dependen de la zona."
+   },
+   {
+    "q": "¿Hay precios publicados?",
+    "a": "Las tarifas cambian cada temporada. Escríbanos y le enviamos la oferta actualizada."
+   }
+  ]
  },
  "caza-en-africa/benin": {
-  "intro": "Benín es uno de los destinos de sabana del África occidental. Organizamos cacerías con profesionales de confianza.",
+  "intro": "Benín es uno de los destinos de caza menos conocidos de África occidental, y por eso mismo de los más auténticos. Se caza en la sabana del norte, en zonas cercanas a los parques de Pendjari y W, con muy poca presión de caza.",
   "heading": "Caza en Benín",
   "sections": [
    {
-    "h": "Un programa a medida",
+    "h": "Qué se caza",
     "p": [
-     "Benín es sabana del África occidental, con especies que no se cazan en el sur del continente. Es un destino para el cazador que ya conoce Namibia o Sudáfrica y quiere algo distinto.",
-     "Las especies, la temporada y los precios cambian cada año. Pregúntenos y le preparamos la propuesta."
+     "Las especies estrella son el búfalo del oeste, más pequeño y rojizo que el cafre, el antílope ruano y el hartebeest occidental. También hay kob de Buffon, waterbuck, oribi y duikers, ideales para completar una colección de [antílopes](especies/antilopes) africanos.",
+     "Es caza a pie en sabana arbolada, siguiendo huellas y aprovechando los puntos de agua en la época seca."
+    ]
+   },
+   {
+    "h": "Temporada",
+    "p": [
+     "La temporada coincide con la época seca, más o menos de diciembre a mayo. Los mejores meses son marzo y abril, cuando el agua escasea y los animales se concentran."
+    ]
+   },
+   {
+    "h": "Para quién es",
+    "p": [
+     "Benín es para el cazador que ya conoce el sur de África y quiere especies distintas, en un entorno salvaje y con poca gente. Las condiciones cambian cada año, así que pídanos la información actualizada antes de decidir."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué búfalo se caza en Benín?",
+    "a": "El búfalo del oeste, de menor tamaño y color más rojizo que el búfalo cafre."
+   },
+   {
+    "q": "¿Cuándo es la temporada?",
+    "a": "En la época seca, más o menos de diciembre a mayo. Los mejores meses son marzo y abril."
+   },
+   {
+    "q": "¿Hay precios publicados?",
+    "a": "Cambian cada temporada. Escríbanos y le enviamos las tarifas actualizadas."
+   }
+  ]
  },
  "caza-en-asia/turquia": {
   "intro": "Turquía es nuestro país del jabalí. Cazamos en siete reservas, seis en exclusiva, con batidas de día y esperas de noche, y además tenemos íbex bezoar, ciervo de Anatolia y un programa que combina jabalí y pesca de atunes.",
@@ -225,120 +441,278 @@
   ]
  },
  "caza-en-asia/kazakhstan": {
-  "intro": "En Kazajistán cazamos el íbice siberiano y el maral en Dzhungarian Alatau, Kegen y Narynkol, a caballo y a pie, desde campamentos y casas de caza.",
+  "intro": "Kazajistán es uno de los mejores destinos del mundo para el íbice siberiano y el maral. Cazamos en las montañas de Dzungarian Alatau, Narynkol y Kegen, a pie, a caballo y desde campamentos volantes.",
   "heading": "Caza en Kazajistán",
   "sections": [
    {
-    "h": "Íbex y maral",
+    "h": "Íbice siberiano",
     "p": [
-     "El [íbex](especies/ibex) se caza en nueve días, en grupos de 1 a 6 cazadores, con campamentos volantes cuando hace falta ir más arriba. El maral, el gran ciervo de Asia Central, se caza en celo, del 10 de septiembre al 5 de octubre, en diez días de caza."
+     "El [íbice](especies/ibex) siberiano de Kazajistán tiene cuernos que superan los 130 cm. Se caza del 1 de agosto al 15 de noviembre en programas de nueve días, siete de ellos de caza, en grupos de uno a seis cazadores.",
+     "El programa cuesta desde 3.600 € y el trofeo se paga según la longitud de los cuernos. Se pueden añadir corzo siberiano, jabalí y lobo."
+    ]
+   },
+   {
+    "h": "Maral",
+    "p": [
+     "El maral es el gran ciervo de Asia central. Se caza del 10 de septiembre al 5 de octubre, en plena berrea, con diez días de caza y doce de viaje. El programa 2×2 cuesta 5.400 dólares desde Almaty y el trofeo va de 4.500 dólares hasta 12 kg a 11.500 dólares a partir de 17 kg."
+    ]
+   },
+   {
+    "h": "El viaje",
+    "p": [
+     "Se llega a Almaty y desde allí hay de seis a diez horas de coche hasta la zona de caza. Se duerme en yurtas, caravanas, casas de caza y campamentos volantes. Es una aventura de verdad, en montañas inmensas y con muy poca gente."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuándo se caza el maral?",
-    "a": "Del 10 de septiembre al 5 de octubre, en plena berrea."
+    "q": "¿Cuándo se caza el íbice en Kazajistán?",
+    "a": "Del 1 de agosto al 15 de noviembre."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un maral?",
+    "a": "El programa son 5.400 dólares y el trofeo, de 4.500 a 11.500 dólares según el peso."
+   },
+   {
+    "q": "¿Cómo se llega a la zona de caza?",
+    "a": "En avión a Almaty y después en coche, entre seis y diez horas."
    }
   ]
  },
  "caza-en-asia/tayikistan": {
-  "intro": "Tayikistán es el sitio del Marco Polo. En el Pamir nuestro organizador lleva doce años con el cien por cien de éxito, y además tiene íbex de más de un metro y grandes jabalíes de montaña.",
+  "intro": "Tayikistán es el mejor destino del mundo para el Marco Polo, con un cien por cien de éxito en los últimos doce años. También cazamos íbex en las montañas de Girgatol y grandes jabalíes en Sari Khosor.",
   "heading": "Caza en Tayikistán",
   "sections": [
    {
-    "h": "Marco Polo e íbex",
+    "h": "Marco Polo en el Pamir",
     "p": [
-     "Los trofeos de [Marco Polo](especies/cabras-y-carneros) rondan las 55-56 pulgadas de media y cada temporada sale algún macho de 60 o 62. Se caza de septiembre a mediados de diciembre y también en febrero y marzo. Se puede completar con [íbex](especies/ibex) y [lobo](especies/lobo).",
-     "El íbex de Asia Central lo cazamos en las montañas de Girgatol, a 250 km de Dusambé, con trofeos de 1 metro a 135 cm."
+     "El argalí Marco Polo se caza en el Pamir, a seis horas en coche de Jorog, desde un campamento base de madera a entre 3.600 y 4.000 metros. Los trofeos medios están entre 55 y 56 pulgadas, y cada temporada salen machos de 60 a 62.",
+     "La temporada va del 1 de septiembre al 15 de diciembre, y en febrero y marzo. Se vuela a Dusambé vía Estambul, con recogida VIP, y de allí a Jorog en un vuelo de 45 minutos."
     ]
    },
    {
-    "h": "Jabalí de montaña",
+    "h": "Íbex",
     "p": [
-     "En Sari Khosor se rececha el [jabalí](especies/jabali) en alta montaña y se espera de noche. Los grandes machos viven allí con uriales y markhores. Caza cien por cien natural."
+     "En las montañas de Girgatol, a 250 km de Dusambé, se caza el [íbex](especies/ibex) de Asia central, con trofeos de un metro a 135 cm. Son diez días, siete de caza, en montañas muy abruptas de 2.000 a 2.500 metros, de mediados de agosto a mediados de diciembre. Después del íbex se pueden cazar jabalí y lobo."
+    ]
+   },
+   {
+    "h": "Grandes jabalíes",
+    "p": [
+     "En Sari Khosor los grandes [jabalíes](especies/jabali) conviven con uriales y markhores. Se cazan a rececho todo el año, mejor de diciembre a marzo con nieve, y en espera con luna llena en junio, julio y septiembre. El programa de cinco días cuesta 1.400 €."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Qué éxito tiene el Marco Polo en Tayikistán?",
-    "a": "En los últimos doce años, del cien por cien con nuestro organizador."
+    "q": "¿Qué éxito tiene la caza del Marco Polo en Tayikistán?",
+    "a": "Un cien por cien en los últimos doce años."
+   },
+   {
+    "q": "¿A qué altura se caza?",
+    "a": "El campamento está a entre 3.600 y 4.000 metros."
+   },
+   {
+    "q": "¿Se puede cazar jabalí en Tayikistán?",
+    "a": "Sí, en Sari Khosor, desde 1.400 € por cinco días de caza."
    }
   ]
  },
  "caza-en-asia/kirguizia": {
-  "intro": "En Kirguizia cazamos el Marco Polo en el Tian Shan y el íbex en las montañas de Chu, a caballo y con guías que conocen cada ladera.",
+  "intro": "Kirguizia es tierra de montaña y de grandes trofeos. Cazamos el íbex entre 3.500 y 3.700 metros y el carnero Marco Polo en el Tian Shan, a pie y a caballo, durmiendo en casas, tiendas y yurtas.",
   "heading": "Caza en Kirguizia",
   "sections": [
    {
-    "h": "Montaña de verdad",
+    "h": "Íbex",
     "p": [
-     "El [Marco Polo](especies/cabras-y-carneros) se caza entre 3.000 y 3.500 metros, durmiendo en yurtas o cabañas. La mejor época va del 15 de octubre al 30 de noviembre. El [íbex](especies/ibex) se busca un poco más arriba, entre 3.500 y 3.700 metros, y lo mejor es de septiembre a diciembre."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-asia/mongolia": {
-  "intro": "Mongolia es estepa, montaña y campamentos de yurtas. Cazamos el íbex del Altái y del Gobi, el gran corzo siberiano y hacemos batidas de lobo con un lobo incluido en el precio.",
-  "heading": "Caza en Mongolia",
-  "sections": [
-   {
-    "h": "Lo que cazamos",
-    "p": [
-     "Las batidas de [lobo](especies/lobo) se hacen a unos 450 km de Ulán Bator, en siete días de viaje y cinco de caza. El [íbex](especies/ibex) se caza en el Altái o en el desierto del Gobi, y se puede combinar con la gacela de cola negra. El [corzo](especies/corzo) siberiano es enorme y el viaje se puede combinar con pesca."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-asia/iran": {
-  "intro": "Irán está considerado por muchos el mejor sitio del mundo para un gran jabalí. Organizamos batidas para grupos de 4 a 10 cazadores y caza de montaña de íbex, carneros y uriales.",
-  "heading": "Caza en Irán",
-  "sections": [
-   {
-    "h": "Jabalí y montaña",
-    "p": [
-     "La temporada de [jabalí](especies/jabali) va de junio a mediados de marzo, pero lo mejor es de noviembre a febrero. Para la montaña, el [íbex](especies/ibex) y los uriales, trabajamos con profesionales que llevan más de treinta años organizando cacerías."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-asia/rusia": {
-  "intro": "En Rusia cazamos osos de todas las formas posibles: en espera en el Altái, desde un barco en el lago Baikal, en la osera en pleno invierno y el grizzly negro de Manchuria. También el tur del Cáucaso.",
-  "heading": "Caza en Rusia",
-  "sections": [
-   {
-    "h": "Osos",
-    "p": [
-     "El [oso](especies/oso) pardo siberiano se espera en primavera en el Altái, de abril a junio, o se caza en junio desde el barco Admiralteece recorriendo el Baikal. En invierno se llega a la osera en moto de nieve, y en la costa del Pacífico se caza el oso negro del Himalaya, una cacería que pide un disparo rápido.",
-     "Cerca de Jabárovsk está el grizzly negro de Manchuria, que se puede combinar con jabalí y wapití."
+     "El [íbex](especies/ibex) de Asia central tiene unos cuernos impresionantes. Se caza en las regiones de Chui y Narym, en grupos de uno a cuatro cazadores, a caballo hasta donde se puede llegar y después a pie.",
+     "La temporada va del 15 de agosto al 1 de marzo; los mejores meses son de septiembre a diciembre. El viaje dura nueve días, siete de ellos de caza."
     ]
    },
    {
-    "h": "Tur del Cáucaso",
+    "h": "Marco Polo",
     "p": [
-     "En Daguestán y Kubán se rececha el tur, a pie o a caballo, de agosto a noviembre, en grupos de 1 a 4 cazadores."
+     "El Marco Polo es el carnero más grande del mundo y uno de los trofeos más deseados de la [caza de montaña](especies/cabras-y-carneros). Se caza en el Tian Shan, a entre 400 y 450 km de Bishkek, a caballo y entre 3.000 y 3.500 metros.",
+     "El mejor momento es del 15 de octubre al 30 de noviembre. El campamento está a 3.000 metros y tiene electricidad. Hay que ir preparado para el frío: en diciembre se llega a 25 grados bajo cero por la noche."
+    ]
+   },
+   {
+    "h": "Preparación",
+    "p": [
+     "Son cacerías exigentes por la altura. El segundo día se dedica a aclimatarse y a probar los rifles. Le recomendamos llegar en buena forma física y le asesoramos sobre la ropa y el equipo."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿A qué altura se caza el Marco Polo?",
+    "a": "Entre 3.000 y 3.500 metros, en las montañas del Tian Shan."
+   },
+   {
+    "q": "¿Cuándo es la mejor época?",
+    "a": "Para el íbex, de septiembre a diciembre. Para el Marco Polo, del 15 de octubre al 30 de noviembre."
+   },
+   {
+    "q": "¿Cuántos días dura la cacería?",
+    "a": "Siete días de caza, con un viaje total de nueve a doce días."
+   }
+  ]
+ },
+ "caza-en-asia/mongolia": {
+  "intro": "Mongolia es estepa, montaña y desierto, y caza para todos los gustos: batidas de lobo, el gran corzo siberiano y el íbex del Altái y del Gobi, siempre desde campamentos de yurtas.",
+  "heading": "Caza en Mongolia",
+  "sections": [
+   {
+    "h": "Lobo y corzo siberiano",
+    "p": [
+     "Las batidas de [lobo](especies/lobo) se hacen del 1 de abril al 1 de noviembre, a 450 km de Ulán Bator. Son siete días de viaje y cinco de caza, con un lobo incluido: 4.300 dólares en 1×1 y 3.850 en 2×1.",
+     "El corzo siberiano es mucho más grande que el europeo. El programa cuesta 5.000 dólares en 1×1 con un corzo incluido, y se puede combinar con pesca."
+    ]
+   },
+   {
+    "h": "Íbex del Altái y del Gobi",
+    "p": [
+     "El [íbex](especies/ibex) se caza del 1 de junio al 1 de noviembre, en las montañas del Altái o en el desierto del Gobi. El del Altái cuesta 6.950 dólares en 1×1 y se puede combinar con gacela de cola negra; el del Gobi, 6.600 dólares."
+    ]
+   },
+   {
+    "h": "La vida en las yurtas",
+    "p": [
+     "Se duerme en campamentos de yurtas con pensión completa, rodeado de la cultura nómada mongola. El vuelo interior, los guías locales y el intérprete están incluidos."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta cazar un lobo en Mongolia?",
+    "a": "Desde 3.850 dólares por cazador en 2×1, con un lobo incluido."
+   },
+   {
+    "q": "¿Qué íbex se caza en Mongolia?",
+    "a": "El íbex del Altái, en las montañas, y el del Gobi, en el desierto."
+   },
+   {
+    "q": "¿Dónde se duerme?",
+    "a": "En campamentos de yurtas con pensión completa."
+   }
+  ]
+ },
+ "caza-en-asia/iran": {
+  "intro": "Irán está considerado por muchos el mejor sitio del mundo para un gran jabalí. Organizamos batidas para grupos de 4 a 10 cazadores en las mejores zonas del país, y caza de montaña de íbex, carneros y uriales.",
+  "heading": "Caza en Irán",
+  "sections": [
+   {
+    "h": "Batidas de jabalí",
+    "p": [
+     "El [jabalí](especies/jabali) iraní alcanza tamaños que en Europa casi no se ven, con colmillos de más de 20 cm. La temporada va del 1 de junio al 15 de marzo, pero lo mejor es de noviembre a febrero, con frío y los machos en celo.",
+     "El programa son cinco días de caza. Cuesta 2.200 € por cazador en grupos de dos o tres, 2.100 € en grupos de cuatro o cinco y 2.000 € a partir de seis. Los machos se pagan según el colmillo: 590 € hasta 17,9 cm, 990 € entre 18 y 20 cm y 1.290 € por encima. Las hembras y los pequeños están prohibidos."
+    ]
+   },
+   {
+    "h": "Caza de montaña",
+    "p": [
+     "En las montañas de Irán se cazan el [íbex](especies/ibex) persa, el carnero y el urial, con profesionales que llevan más de treinta años organizando cacerías. Es caza a rececho en terreno duro, para cazadores en buena forma.",
+     "Las tarifas y las condiciones están en el programa en PDF. Las fechas dependen de la especie y de la zona, así que lo mejor es que nos pregunte."
+    ]
+   },
+   {
+    "h": "Cómo es el viaje",
+    "p": [
+     "Nos ocupamos de los permisos de armas, del visado y del transporte por carretera hasta las zonas de caza. El alojamiento durante los días de caza está incluido."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuándo es la mejor época para cazar jabalí en Irán?",
+    "a": "De noviembre a febrero, aunque la temporada abre en junio y cierra el 15 de marzo."
+   },
+   {
+    "q": "¿Cuánto cuesta una batida de jabalí en Irán?",
+    "a": "Desde 2.000 € por cazador por cinco días de caza, más las tasas de los machos abatidos."
+   },
+   {
+    "q": "¿Qué especies de montaña hay?",
+    "a": "Íbex persa, carneros y uriales."
+   }
+  ]
+ },
+ "caza-en-asia/rusia": {
+  "intro": "Rusia es el gran país del oso. Cazamos el oso pardo siberiano en la osera, en espera, en rececho y desde un barco en el lago Baikal, el grizzly negro de Manchuria, el oso negro del Himalaya y el tur del Cáucaso.",
+  "heading": "Caza en Rusia",
+  "sections": [
+   {
+    "h": "El oso pardo siberiano",
+    "p": [
+     "Hay tres maneras de cazarlo. En primavera, del 20 de abril al 15 de junio, en espera y rececho en el Altái, por 8.300 € con el oso. En junio, a bordo de un barco que recorre la costa del lago Baikal, con recechos a pie. Y en invierno, de diciembre a febrero, en la osera, llegando en moto de nieve: cinco días con un oso incluido por 6.900 €."
+    ]
+   },
+   {
+    "h": "Osos de Extremo Oriente",
+    "p": [
+     "Cerca de Jabárovsk vive el grizzly negro, una variedad exclusiva de los bosques de Manchuria, donde también hay tigres. Se caza en mayo y de septiembre a octubre. En la misma región, en invierno, se caza el oso negro del Himalaya durante la hibernación, una cacería rápida y exigente."
+    ]
+   },
+   {
+    "h": "El tur del Cáucaso",
+    "p": [
+     "En Daguestán y Kubán se caza el tur a rececho, de agosto a noviembre, en grupos de uno a cuatro cazadores. Cuesta desde 3.400 € por cazador más el trofeo."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta cazar un oso en Rusia?",
+    "a": "Desde 6.900 € en la osera, con el oso incluido, o 8.300 € en espera y rececho en primavera."
+   },
+   {
+    "q": "¿Qué es el grizzly negro?",
+    "a": "Una variedad de oso pardo de capa totalmente negra que vive en los bosques de Manchuria."
+   },
+   {
+    "q": "¿Cuándo se caza el tur?",
+    "a": "De agosto a noviembre."
+   }
+  ]
  },
  "caza-en-asia/azerbaiyan": {
-  "intro": "En Azerbaiyán cazamos el tur del Cáucaso, a pie o a caballo, con guías experimentados y grupos pequeños de 1 a 4 cazadores.",
+  "intro": "El tur del Cáucaso es uno de los grandes trofeos de montaña del mundo. Lo cazamos a rececho, a pie o a caballo, con grupos de uno a cuatro cazadores en Azerbaiyán, Osetia del Norte y Rusia.",
   "heading": "Caza en Azerbaiyán",
   "sections": [
    {
-    "h": "Tur del Cáucaso",
+    "h": "Tres destinos para el tur",
     "p": [
-     "El tur del Cáucaso se rececha a pie o a caballo, de junio a noviembre según el destino, en grupos de 1 a 4 cazadores con guías con mucha experiencia en la zona.",
-     "Es una caza de montaña dura y muy bonita. Le recomendamos llegar en buena forma. Si prefiere el Cáucaso ruso, también lo organizamos en Daguestán y Kubán."
+     "En Azerbaiyán se caza del 1 de junio al 30 de noviembre, con cinco días de caza y siete de viaje. En Osetia del Norte, del 1 de agosto al 20 de noviembre, con seis días de caza. En Rusia, del 1 de agosto al 10 de noviembre, con cinco días de caza.",
+     "Es caza de [montaña](especies/cabras-y-carneros) seria, con mucho desnivel, y se duerme en lodges de caza y tiendas."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "Las tarifas son las mismas en los tres destinos: 4.000 € para un cazador solo, 3.800 € por cazador en pareja, 3.600 € en grupos de tres y 3.400 € en grupos de cuatro. Los trofeos se pagan aparte."
+    ]
+   },
+   {
+    "h": "Nuestro consejo",
+    "p": [
+     "Para el tur hay que llegar en forma y con el rifle bien probado a distancias medias y largas. Antes del viaje le ayudamos a elegir el destino que mejor encaja con sus fechas y su forma física."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Dónde se caza el tur del Cáucaso?",
+    "a": "En Azerbaiyán, Osetia del Norte y Rusia."
+   },
+   {
+    "q": "¿Cuánto cuesta?",
+    "a": "Desde 3.400 € por cazador en grupos de cuatro, más el trofeo."
+   },
+   {
+    "q": "¿Es una cacería dura?",
+    "a": "Sí, es caza de alta montaña con mucho desnivel."
+   }
+  ]
  },
  "caza-en-europa/rumania": {
   "intro": "Rumanía es probablemente el país de Europa donde más variedad cazamos: oso, rebeco carpático, ciervo en berrea, corzo, gamo y jabalí. Tiene la mayor población de osos pardos del continente, unos 8.000.",
@@ -369,588 +743,1616 @@
   ]
  },
  "caza-en-europa/macedonia": {
-  "intro": "En Macedonia cazamos el lobo en espera, el rebeco balcánico en Karadzitza y batidas de lobo y jabalí con perros en una finca de montaña.",
+  "intro": "Macedonia del Norte es un destino pequeño con caza muy variada: batidas de lobo y jabalí con perros, lobo en espera y rececho del rebeco balcánico en el coto alpino de Karadzitza, todo a menos de una hora de Skopie.",
   "heading": "Caza en Macedonia",
   "sections": [
    {
-    "h": "Lobo y rebeco",
+    "h": "Lobo",
     "p": [
-     "El [lobo](especies/lobo) en espera se caza del 15 de octubre al 31 de marzo en el sur del país, a 80 km de Skopie, con guía 1:1. El [rebeco](especies/rebeco) balcánico se caza de agosto a diciembre en el coto alpino de Karadzitza, durmiendo en una casa forestal, y se puede añadir un ciervo."
+     "El [lobo](especies/lobo) se caza de dos formas. En batida, con perros y ojeadores, en una finca privada de montaña del centro del país, de noviembre a enero. Y en espera, en las llanuras del sur, del 15 de octubre al 31 de marzo.",
+     "El programa de espera son tres días de caza y cuatro noches por 1.900 €, con un guía profesional 1:1. El lobo cuesta 2.900 € y el CITES, 500 €."
+    ]
+   },
+   {
+    "h": "Rebeco balcánico",
+    "p": [
+     "En Karadzitza, a 50 km de Skopie, se rececha el [rebeco](especies/rebeco) balcánico en terreno alpino, del 1 de agosto al 31 de diciembre. Son dos días de caza y tres noches, con un rebeco sin límite de puntos, por 4.190 €. Se puede añadir un ciervo, que se paga por kilos."
+    ]
+   },
+   {
+    "h": "Un viaje cómodo",
+    "p": [
+     "En todos los programas le recogemos en el aeropuerto de Skopie, hay intérprete durante toda la estancia y se aloja en pensión completa, ya sea en hotel o en una casa forestal muy cómoda."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Dónde cazar un lobo en Europa?",
-    "a": "Macedonia es nuestro destino recomendado, en espera y con guía 1:1."
+    "q": "¿Cuánto cuesta cazar un lobo en Macedonia?",
+    "a": "El programa de espera cuesta 1.900 € y el lobo, 2.900 €, más el CITES."
+   },
+   {
+    "q": "¿Cuándo se caza el rebeco balcánico?",
+    "a": "Del 1 de agosto al 31 de diciembre."
+   },
+   {
+    "q": "¿Hay intérprete?",
+    "a": "Sí, en todos los programas."
    }
   ]
  },
  "caza-en-europa/groenlandia": {
-  "intro": "Groenlandia es la caza más ártica que hacemos. Muskox en verano con helicóptero o en pleno invierno sobre el hielo, y caribú en Narsarsuaq.",
+  "intro": "Groenlandia es caza ártica de verdad. Cazamos el buey almizclero en verano y en primavera en Kangerlussuaq, y el caribú en Narsarsuaq, con guías locales que conocen este terreno extremo.",
   "heading": "Caza en Groenlandia",
   "sections": [
    {
-    "h": "Muskox y caribú",
+    "h": "Buey almizclero en verano",
     "p": [
-     "El buey almizclero ([muskox](especies/alce-caribu-muskox)) se caza en verano, de julio a septiembre, alrededor de Kangerlussuaq, con helicóptero para llegar a zonas lejanas. En primavera, de febrero a abril, se caza con guías groenlandeses en un paisaje helado que impresiona. El caribú, en Narsarsuaq, desde un campamento de cabañas y combinable con muskox.",
-     "También se puede cazar el muskox con arco."
+     "De julio a septiembre se caza el [buey almizclero](especies/alce-caribu-muskox) en los alrededores de Kangerlussuaq, con helicóptero incluido para llegar a zonas alejadas. El paquete de tres o cuatro días con un macho cuesta 6.000 €."
+    ]
+   },
+   {
+    "h": "Buey almizclero en primavera",
+    "p": [
+     "Del 15 de febrero al 15 de abril la caza cambia por completo. Se va en ATV sobre lagos helados, con ropa para frío extremo, y las aproximaciones finales se hacen a pie. Cuesta 8.500 dólares por cazador. Es una cacería dura y una experiencia única, con el pelo del animal en su mejor momento."
+    ]
+   },
+   {
+    "h": "Caribú en Narsarsuaq",
+    "p": [
+     "El caribú se caza de agosto a septiembre, sobre todo del 24 de agosto al 30 de septiembre, desde un campamento de cabañas en pensión completa en Narsarsuaq. Se puede combinar con buey almizclero. El programa cuesta desde 11.900 €."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuándo se caza el muskox?",
-    "a": "En verano (julio a septiembre) o en primavera ártica (febrero a abril)."
+    "q": "¿Cuándo se caza el buey almizclero?",
+    "a": "En verano, de julio a septiembre, y en primavera, del 15 de febrero al 15 de abril."
+   },
+   {
+    "q": "¿Cuánto cuesta?",
+    "a": "Desde 6.000 € en verano y 8.500 dólares en primavera."
+   },
+   {
+    "q": "¿Se puede cazar caribú?",
+    "a": "Sí, en Narsarsuaq de agosto a septiembre, o como trofeo adicional en Kangerlussuaq."
    }
   ]
  },
  "caza-en-europa/hungria": {
-  "intro": "En Hungría cazamos corzos a peso en la gran llanura del este, donde están los mejores del país. Profesionales serios y precios muy competitivos.",
+  "intro": "Hungría es uno de los mejores países del mundo para el corzo. Cazamos en la gran llanura del este y noreste, a entre 100 y 260 km de Budapest, donde se concentran los corzos de más peso del país.",
   "heading": "Caza en Hungría",
   "sections": [
    {
     "h": "Corzos a peso",
     "p": [
-     "Se paga según el peso del trofeo, así que sabe de antemano lo que le cuesta cada [corzo](especies/corzo). La temporada va del 15 de abril al 30 de septiembre."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-europa/polonia": {
-  "intro": "Polonia es uno de nuestros países de corzo. Cazamos en los mejores cotos, como Przedborz, desde el 11 de mayo.",
-  "heading": "Caza en Polonia",
-  "sections": [
-   {
-    "h": "Corzos",
-    "p": [
-     "Es caza de [corzo](especies/corzo) a peso: se paga según lo que pese el trofeo, así que sabe de antemano lo que le va a costar. Cazamos en Przedborz y en otras zonas de corzos grandes, desde el 11 de mayo, con profesionales de toda la vida.",
-     "Es una escapada perfecta de primavera, de pocos días, y muy buena para quien empieza con el corzo fuera de España."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-europa/bulgaria": {
-  "intro": "Bulgaria da para mucho: rebeco balcánico en los Ródopes, urogallo en celo, becadas en Strandja, batidas de jabalí y gamo, ciervo y muflón en Pravetz, a una hora de Sofía.",
-  "heading": "Caza en Bulgaria",
-  "sections": [
-   {
-    "h": "Montaña y caza menor",
-    "p": [
-     "El [rebeco](especies/rebeco) se caza entre 1.500 y 2.000 metros, en abril y mayo o en diciembre y enero. El [urogallo](especies/urogallo) en celo, de mediados de abril a mediados de mayo. Las [becadas](especies/becada), con perros de muestra en los robledales de Strandja, de noviembre a febrero y sin límite.",
-     "En Gramaticovo hacemos batidas de [jabalí](especies/jabali) con perros y batidores, con todos los jabalíes incluidos."
-    ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-europa/espana": {
-  "intro": "En España organizamos macho montés en Gredos, rebeco cantábrico y pirenaico, boc balear en Mallorca y grandes venados, muflones y corzos en una de las mejores fincas del país, a una hora de Madrid.",
-  "heading": "Caza en España",
-  "sections": [
-   {
-    "h": "Montaña",
-    "p": [
-     "El [macho montés](especies/macho-montes) se caza en una finca privada de Gredos, con caballerías y guía, de septiembre a marzo. El [rebeco](especies/rebeco) pirenaico, en Benasque y el Pirineo catalán hasta el 15 de junio, y el cantábrico en la cordillera. El boc balear se caza todo el año en Mallorca."
+     "El programa es de [corzo](especies/corzo) a peso: paga la estancia y después cada trofeo según lo que pese el cráneo. Así sabe antes de disparar lo que le va a costar cada animal, y no hay sorpresas al final.",
+     "La temporada va del 15 de abril al 30 de septiembre. Mayo es el mes clásico, con la hierba aún baja; a finales de julio el celo hace que los machos se muevan y se dejen ver."
     ]
    },
    {
-    "h": "Grandes trofeos cerca de Madrid",
+    "h": "Precios y grupos",
     "p": [
-     "En Guadalajara cazamos venado en berrea, a finales de septiembre, muflón en celo y grandes corzos, siempre buscando la medalla de oro. Muchas de estas cacerías se pueden hacer también con arco."
+     "Son tres días de caza y cuatro de estancia, con alojamiento y pensión completa en el propio coto. El precio baja cuanto más grande es el grupo: 2.400 € para un cazador solo, 1.850 € por cazador en grupos de dos o tres y 1.700 € a partir de cuatro.",
+     "El acompañante paga 750 €. Si quiere alargar, el día extra va de 340 € a 485 € según el tamaño del grupo."
     ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-america/canada": {
-  "intro": "En Canadá organizamos el Yukón (alce, carnero de Dall y grizzly), British Columbia (alce, wapití, caribú, cabra de las Rocosas y los felinos con perros) y el oso negro de Quebec, con un guía español desde Barajas.",
-  "heading": "Caza en Canadá",
-  "sections": [
+   },
    {
-    "h": "Del Yukón a Quebec",
+    "h": "Por qué vamos a Hungría",
     "p": [
-     "En el Yukón se caza en Devilhole con avioneta y caballos, de agosto a octubre. En British Columbia, desde Fort St. John, de mediados de agosto a octubre, y los pumas y linces de noviembre a febrero, rastreando en la nieve.",
-     "El [oso](especies/oso) negro de Quebec se caza en mayo desde puestos elevados en Gaspé y New Brunswick. Es corto, cómodo y con muy buen éxito."
+     "Los profesionales con los que trabajamos son serios, conocen cada corzo de su zona y respetan los pesos que se pactan. Es un viaje corto, cómodo y con muchas posibilidades de traer un gran trofeo a casa."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuál es la mejor caza para empezar en Canadá?",
-    "a": "El oso negro de Quebec, en mayo, acompañado por un guía español."
+    "q": "¿Cuándo es la mejor época para el corzo en Hungría?",
+    "a": "Mayo, antes de que crezca la hierba, y finales de julio, con el celo. La temporada abre el 15 de abril y cierra el 30 de septiembre."
+   },
+   {
+    "q": "¿Cuánto cuesta un corzo en Hungría?",
+    "a": "La estancia sale desde 1.700 € por cazador en grupo de cuatro o más. Cada corzo se paga aparte según el peso del trofeo."
+   },
+   {
+    "q": "¿Dónde nos alojamos?",
+    "a": "En el propio territorio de caza, en pensión completa. Así se aprovechan mejor las salidas al amanecer y al atardecer."
+   }
+  ]
+ },
+ "caza-en-europa/polonia": {
+  "intro": "Polonia es uno de los países con más y mejores corzos de Europa. Cazamos desde el 11 de mayo en los mejores cotos, con profesionales serios y precios muy ajustados.",
+  "heading": "Caza en Polonia",
+  "sections": [
+   {
+    "h": "Corzos a peso",
+    "p": [
+     "El [corzo](especies/corzo) se paga según el peso del trofeo, así que cada cazador sabe lo que le va a costar. Hay dos opciones de zona: Przedborz, con corzos de hasta 350 g por 390 € y de más de 350 g por 490 €, y las zonas de corzos grandes, donde un animal de más de 500 g cuesta 690 €.",
+     "El día de caza cuesta 290 € e incluye dos salidas, una noche de hotel con desayuno, comida y cena."
+    ]
+   },
+   {
+    "h": "Cuándo ir",
+    "p": [
+     "La temporada abre el 11 de mayo. Las primeras semanas son las mejores: los machos marcan territorio y la vegetación todavía está baja."
+    ]
+   },
+   {
+    "h": "Polonia, cerca y fácil",
+    "p": [
+     "Hay vuelos directos desde España y el país está muy bien comunicado. Es un viaje corto, cómodo y muy asequible para un cazador de corzo."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuándo se caza el corzo en Polonia?",
+    "a": "Desde el 11 de mayo."
+   },
+   {
+    "q": "¿Cuánto cuesta un corzo en Polonia?",
+    "a": "Entre 390 € y 690 € según el peso y la zona, más 290 € por día de caza."
+   },
+   {
+    "q": "¿Qué incluye el día de caza?",
+    "a": "Dos salidas, una noche de hotel con desayuno, comida y cena."
+   }
+  ]
+ },
+ "caza-en-europa/bulgaria": {
+  "intro": "Bulgaria es uno de los países de Europa con más variedad de caza y mejores precios. Tenemos batidas de jabalí, becadas, urogallo en celo, rebeco balcánico y un programa general de ciervo, gamo, muflón y jabalí.",
+  "heading": "Caza en Bulgaria",
+  "sections": [
+   {
+    "h": "Jabalí y becada en Strandja",
+    "p": [
+     "En la montaña de Strandja, entre el mar Negro y la frontera turca, se dan batidas de [jabalí](especies/jabali) con perros y batidores de octubre a enero. Son tres días de batida por 2.450 € con todos los jabalíes incluidos.",
+     "En la misma zona se caza la [becada](especies/becada) con perros de muestra, del 15 de noviembre al 15 de febrero, sin límite de piezas. Cuesta desde 1.700 € por cazador en grupos de cuatro."
+    ]
+   },
+   {
+    "h": "Urogallo y rebeco en los Ródopes",
+    "p": [
+     "El [urogallo](especies/urogallo) se caza en celo, a rececho por la mañana, del 15 de abril al 15 de mayo. Desde el 1 de mayo se puede combinar con corzo y jabalí por la tarde. La estancia cuesta 1.900 € y el urogallo, 2.800 €.",
+     "El [rebeco](especies/rebeco) balcánico se caza entre 1.500 y 2.000 metros, en abril y mayo o en diciembre y enero, desde 1.490 € por la estancia."
+    ]
+   },
+   {
+    "h": "Pravetz",
+    "p": [
+     "A una hora de Sofía, el coto de Pravetz tiene 8.000 hectáreas de montaña y robledal con [ciervo](especies/ciervo), gamo, [muflón](especies/muflon-y-gamo) y jabalí. Tres días de caza cuestan 1.690 € y los trofeos se pagan según su tamaño."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuándo se caza el urogallo en Bulgaria?",
+    "a": "Del 15 de abril al 15 de mayo, en celo. Lo mejor es hasta el 5 de mayo."
+   },
+   {
+    "q": "¿Cuánto cuesta una batida de jabalí en Bulgaria?",
+    "a": "2.450 € por cazador por tres días de batida, con todos los jabalíes incluidos."
+   },
+   {
+    "q": "¿Hay límite de becadas?",
+    "a": "No, en el programa de Strandja las becadas son sin límite."
+   }
+  ]
+ },
+ "caza-en-europa/espana": {
+  "intro": "Somos españoles y la caza en España es la que mejor conocemos. Organizamos macho montés en Gredos, rebeco en el Pirineo, boc balear en Mallorca y grandes corzos, venados y muflones en fincas privadas a una hora de Madrid.",
+  "heading": "Caza en España",
+  "sections": [
+   {
+    "h": "Caza de montaña",
+    "p": [
+     "El [macho montés](especies/macho-montes) de Gredos es uno de los grandes trofeos de montaña del mundo. Lo cazamos en una finca privada, de septiembre a marzo, con guía y caballerías: 6.900 € hasta 79 cm y 9.400 € por encima, más 1.000 € por los días de caza.",
+     "El [rebeco](especies/rebeco) pirenaico se caza en Benasque y en terrenos privados del Pirineo catalán, de mayo al 15 de junio, por 3.600 € sin límite de puntos. Y en Mallorca, el boc balear, la cabra salvaje de la isla, se caza todo el año, mejor en noviembre, marzo y abril."
+    ]
+   },
+   {
+    "h": "Grandes trofeos en finca privada",
+    "p": [
+     "En una de las mejores fincas de España, en Guadalajara, buscamos el corzo, el venado y el [muflón](especies/muflon-y-gamo) de medalla de oro. El [corzo](especies/corzo) se caza del 1 de abril al 30 de octubre, el venado en berrea a finales de septiembre y en espera el resto de la temporada, y el muflón a rececho en celo, en octubre y noviembre.",
+     "El día de caza con alojamiento, guarda, vehículo y pensión completa cuesta de 150 € a 450 € según el programa, y los trofeos se pagan por puntos."
+    ]
+   },
+   {
+    "h": "Para cazadores extranjeros",
+    "p": [
+     "Si viene de fuera de España, le recogemos en el aeropuerto, tramitamos la licencia y el permiso de armas y le acompañamos en todo momento."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Dónde se caza el macho montés?",
+    "a": "En una finca privada de la Sierra de Gredos, de septiembre a marzo."
+   },
+   {
+    "q": "¿Qué es el boc balear?",
+    "a": "La cabra salvaje de Mallorca, un trofeo exclusivo de las Baleares."
+   },
+   {
+    "q": "¿Puedo cazar en España si soy extranjero?",
+    "a": "Sí. Tramitamos la licencia y los permisos y le recogemos en el aeropuerto."
+   }
+  ]
+ },
+ "caza-en-america/canada": {
+  "intro": "Canadá es el país de los grandes trofeos de Norteamérica. Cazamos alce, carnero de Dall y grizzly en el Yukón, alce, wapití, caribú, cabra de las Rocosas y borrego de Stone en British Columbia, felinos en invierno y oso negro en Quebec.",
+  "heading": "Caza en Canadá",
+  "sections": [
+   {
+    "h": "Yukón",
+    "p": [
+     "En Devilhole, al suroeste del Yukón, hay 4.200 km² de montañas, lagos, prados alpinos y glaciares. Se caza 1×1 con avioneta, guías y caballos. El programa base de diez días con un carnero de Dall, o de once con un [alce](especies/alce-caribu-muskox) de Alaska-Yukón, cuesta 24.500 dólares, y se puede añadir un grizzly u otro alce."
+    ]
+   },
+   {
+    "h": "British Columbia",
+    "p": [
+     "Desde Fort St. John cazamos alce, wapití, caribú y cabra de las Rocosas en paquetes de cinco, siete o diez días, desde 10.500 dólares con una especie incluida. El borrego de Stone se caza en programas de catorce días. En invierno, de noviembre a febrero, se cazan puma, lince y gato montés con perros, una caza dura y emocionante."
+    ]
+   },
+   {
+    "h": "Oso negro en Quebec",
+    "p": [
+     "Para empezar en Canadá, el [oso negro](especies/oso) de Quebec es la opción más asequible: cinco días de caza en mayo desde puestos elevados, por 3.500 € con un oso incluido. Un guía español le acompaña desde Barajas hasta la vuelta."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta cazar un alce en Canadá?",
+    "a": "En British Columbia, desde 10.500 dólares por cinco días con la especie incluida. En el Yukón, 24.500 dólares por once días."
+   },
+   {
+    "q": "¿Cuándo se caza el oso negro en Quebec?",
+    "a": "En mayo, sobre todo la semana del 15 al 22."
+   },
+   {
+    "q": "¿Qué felinos se cazan en British Columbia?",
+    "a": "Puma, lince y gato montés, de noviembre a febrero."
    }
   ]
  },
  "caza-en-america/argentina": {
-  "intro": "Argentina es caza abundante, buen clima y mejor asado. Cazamos ciervo colorado en La Pampa y en los Andes, chanchos, antílope negro y ciervo axis en Buenos Aires.",
+  "intro": "Argentina tiene caza para todos los bolsillos. Cazamos ciervo colorado en berrea en La Pampa y en los Andes, grandes jabalíes, búfalo, antílope negro, ciervo axis y puma, en estancias con casa de cazadores.",
   "heading": "Caza en Argentina",
   "sections": [
    {
-    "h": "Ciervo y jabalí",
+    "h": "Ciervo colorado",
     "p": [
-     "En La Pampa tenemos dos fincas de más de 22.000 hectáreas con [ciervo](especies/ciervo) y [jabalí](especies/jabali). Cerca de Esquel, en los Andes, una finca de 4.500 hectáreas con ciervos de más de 195 puntos CIC de media; la berrea es del 15 de marzo al 15 de abril.",
-     "En la provincia de Buenos Aires, de abril a julio, se cazan chanchos, [antílope negro](especies/antilope-negro), ciervo axis y carneros."
+     "La berrea argentina es en marzo y abril, cuando en España no hay ciervos en celo. En La Pampa el [ciervo](especies/ciervo) colorado se paga desde 1.950 € hasta 180 puntos CIC, con días de caza a 300 €.",
+     "En los Andes, cerca de Esquel, cazamos en una finca de 4.500 hectáreas donde la media de los trofeos supera los 195 puntos CIC. Se duerme en una casa restaurada de los primeros emigrantes galeses. La temporada va del 15 de marzo al 15 de abril."
+    ]
+   },
+   {
+    "h": "Jabalí, antílope y más",
+    "p": [
+     "En La Pampa hay un paquete cerrado de [jabalí](especies/jabali): cinco días, cuatro de caza, con tres machos de más de 15 cm y cuatro hembras o jóvenes, por 2.900 €. En la provincia de Buenos Aires, a 250 km de la capital, se cazan chanchos, [antílope negro](especies/antilope-negro), ciervo axis y carneros, con días de caza a 200 €."
+    ]
+   },
+   {
+    "h": "Por qué Argentina",
+    "p": [
+     "Se habla español, los precios son muy razonables y las estancias tienen un encanto especial. Además, la temporada complementa la española: se puede cazar la berrea dos veces en el mismo año."
     ]
    }
   ],
   "faq": [
    {
     "q": "¿Cuándo es la berrea en Argentina?",
-    "a": "Del 15 de marzo al 15 de abril."
+    "a": "En marzo y abril."
+   },
+   {
+    "q": "¿Cuánto cuesta un ciervo colorado en Argentina?",
+    "a": "En La Pampa, desde 1.950 € hasta 180 puntos CIC, más los días de caza."
+   },
+   {
+    "q": "¿Se pueden alquilar armas?",
+    "a": "Sí, en varios programas hay alquiler de armas por unos 100 € al día."
    }
   ]
  },
  "caza-en-america/eeuu": {
-  "intro": "En Alaska cazamos el oso Kodiak desde un yate en la isla de Kodiak, en primavera u otoño, y lo combinamos con pesca de fletán y salmón.",
-  "heading": "Caza en Estados Unidos (Alaska)",
+  "intro": "En Alaska cazamos el oso Kodiak desde un yate, en la isla Kodiak. Son doce días de caza navegando entre fiordos, con opción de pescar fletán gigante y salmón y de cazar zorro, perdiz nival y patos de mar.",
+  "heading": "Caza en Estados Unidos",
   "sections": [
    {
-    "h": "Kodiak desde el barco",
+    "h": "El oso Kodiak",
     "p": [
-     "Se vive a bordo y se baja a tierra a buscar el [oso](especies/oso). En los ratos libres se pesca fletán gigante y salmón, y se pueden cazar zorros, perdiz nival y patos de mar."
+     "El [oso](especies/oso) Kodiak es el oso pardo más grande del mundo. Se caza en primavera, en abril y mayo, cuando sale de la osera, y en otoño, de finales de octubre a noviembre.",
+     "Se navega por la costa buscando osos en las laderas y las playas, y después se hace la aproximación a pie."
     ]
-   }
-  ],
-  "faq": []
- },
- "caza-en-oceania/nueva-zelanda": {
-  "intro": "Nueva Zelanda tiene los ciervos más grandes del mundo. En la Isla Sur cazamos ciervo, wapití, gamo, rebeco y tahr, con guías profesionales y lodges muy acogedores.",
-  "heading": "Caza en Nueva Zelanda",
-  "sections": [
+   },
    {
-    "h": "Berrea y alta montaña",
+    "h": "La vida a bordo",
     "p": [
-     "La berrea del [ciervo](especies/ciervo) es en marzo y abril, y los trofeos son espectaculares. El tahr y el [rebeco](especies/rebeco) se cazan en alta montaña. Se caza de enero a agosto. También se puede ir con arco."
+     "El barco tiene 65 pies de eslora, dos capitanes con mucha experiencia, tres camarotes dobles con agua caliente y climatización, y una cocina excelente. Caben seis personas."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "La cacería cuesta 18.950 dólares por cazador y 3.500 por acompañante. Las licencias van aparte: 300 dólares la general, 650 la del oso pardo y 200 la del venado de Sitka, que también se puede cazar."
     ]
    }
   ],
   "faq": [
    {
-    "q": "¿Cuándo ir a Nueva Zelanda?",
-    "a": "En marzo y abril, para la berrea. El resto de especies, de enero a agosto."
+    "q": "¿Cuándo se caza el oso Kodiak?",
+    "a": "En primavera, de abril a mayo, y en otoño, de finales de octubre a noviembre."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un oso Kodiak?",
+    "a": "18.950 dólares por cazador más las licencias."
+   },
+   {
+    "q": "¿Se puede pescar durante la cacería?",
+    "a": "Sí, fletán gigante y salmón, desde el propio barco."
+   }
+  ]
+ },
+ "caza-en-oceania/nueva-zelanda": {
+  "intro": "La Isla Sur de Nueva Zelanda tiene algunos de los ciervos más grandes del mundo, además de wapití, gamo, rebeco y tahr. Se llega por Queenstown y se caza desde lodges de lujo y casas de guías profesionales.",
+  "heading": "Caza en Nueva Zelanda",
+  "sections": [
+   {
+    "h": "El ciervo colorado",
+    "p": [
+     "El [ciervo](especies/ciervo) neozelandés, el famoso red stag, alcanza puntuaciones que en Europa son impensables. La temporada va de enero a agosto, y la berrea, en marzo y abril, es el momento estrella.",
+     "Hay paquetes de cuatro días para uno o dos trofeos y de seis días para tres o más. El precio va según los puntos SCI del ciervo: 13.000 dólares entre 400 y 450 puntos, 25.500 entre 501 y 550, y de ahí hacia arriba."
+    ]
+   },
+   {
+    "h": "Tahr y rebeco",
+    "p": [
+     "En los Alpes del Sur viven el tahr del Himalaya y el [rebeco](especies/rebeco), traídos hace más de un siglo y hoy perfectamente adaptados. Se cazan en alta montaña, normalmente con ayuda de helicóptero para llegar a las zonas buenas.",
+     "El tahr tiene su mejor pelo en invierno, de mayo a julio."
+    ]
+   },
+   {
+    "h": "Cómo es el viaje",
+    "p": [
+     "Es un viaje largo, así que lo normal es combinar varias especies y unos días de turismo por la isla. Le preparamos el itinerario completo, desde los vuelos hasta los lodges."
+    ]
+   }
+  ],
+  "faq": [
+   {
+    "q": "¿Cuándo es la berrea en Nueva Zelanda?",
+    "a": "En marzo y abril, en el otoño austral."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un ciervo en Nueva Zelanda?",
+    "a": "Desde 13.000 dólares por un paquete de cuatro días con un ciervo de 400 a 450 puntos SCI."
+   },
+   {
+    "q": "¿Qué otras especies hay?",
+    "a": "Wapití, gamo, rebeco y tahr."
    }
   ]
  },
  "caza-en-oceania/australia": {
-  "intro": "En Australia cazamos el búfalo de agua y el banteng en la Tierra de Arnhem, en el norte del país, desde campamentos de tiendas.",
+  "intro": "En la Tierra de Arnhem, en el norte de Australia, cazamos búfalo de agua y banteng desde campamentos de tiendas. Son cacerías remotas, en una de las zonas más salvajes del país.",
   "heading": "Caza en Australia",
   "sections": [
    {
-    "h": "Búfalo de agua y banteng",
+    "h": "Búfalo de agua",
     "p": [
-     "Son dos cacerías remotas en la Tierra de Arnhem, en el norte del país: el búfalo de agua en cinco días y el banteng en cuatro, desde campamentos de tiendas.",
-     "Es una caza muy distinta a la africana: paisaje tropical, poca gente y animales grandes. Se puede hacer una sola especie o las dos seguidas."
+     "El búfalo de agua llegó a Australia en el siglo XIX y hoy vive en libertad en los humedales del norte. Es un animal enorme, de cuernos espectaculares, y se caza a pie entre la vegetación.",
+     "La cacería de búfalo dura cinco días. Se pueden añadir un segundo búfalo, un búfalo de gestión, un toro dugga o un toro salvaje."
+    ]
+   },
+   {
+    "h": "Banteng",
+    "p": [
+     "El banteng es un bóvido salvaje de origen asiático que en Australia tiene una de sus mejores poblaciones. Es un trofeo raro y muy valorado por los coleccionistas. La cacería es de cuatro días y se puede añadir un segundo toro."
+    ]
+   },
+   {
+    "h": "Cuándo ir",
+    "p": [
+     "La temporada va de junio a agosto, en la estación seca del norte de Australia. Se pueden combinar las dos especies en un viaje de siete días."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Dónde se caza el búfalo de agua en Australia?",
+    "a": "En la Tierra de Arnhem, en el norte del país."
+   },
+   {
+    "q": "¿Cuándo es la temporada?",
+    "a": "De junio a agosto."
+   },
+   {
+    "q": "¿Se pueden cazar banteng y búfalo en el mismo viaje?",
+    "a": "Sí, en un programa combinado de unos siete días."
+   }
+  ]
  },
  "caza-en-europa/bielorrusia": {
-  "intro": "Bielorrusia guarda dos de las cacerías más especiales de Europa: el alce en celo y el bisonte europeo. Y grandes ciervos en berrea en un coto del Estado.",
+  "intro": "Bielorrusia guarda algunos de los bosques más salvajes de Europa. Cazamos alce en celo, ciervos de gran trofeo en berrea y el bisonte europeo, una de las cacerías más especiales del continente.",
   "heading": "Caza en Bielorrusia",
   "sections": [
    {
-    "h": "Alce, bisonte y ciervo",
+    "h": "Alce y ciervo en celo",
     "p": [
-     "El [alce](especies/alce-caribu-muskox) se caza en plena época de celo, del 8 al 20 de septiembre y en noviembre, en grupos de 2 a 4 cazadores. El bisonte, en la primera quincena de septiembre o en noviembre, en bosques pantanosos enormes. Y el [ciervo](especies/ciervo), en septiembre, con trofeos de 12 a 14 kg."
+     "El [alce](especies/alce-caribu-muskox) europeo se caza del 8 al 20 de septiembre, en plena época de celo, y en noviembre. Son cinco días y cuatro de caza por 1.800 € por persona en grupos de tres o cuatro. El trofeo se paga por peso: 2.300 € hasta 6,99 kg y 3.900 € a partir de 9 kg.",
+     "Los [ciervos](especies/ciervo) se cazan en septiembre, en berrea, en un coto que depende del Ministerio. Son animales de 12 a 14 kg de cuerna. El programa cuesta desde 1.500 € por cazador en grupos de cuatro y el ciervo, de 2.000 € a 4.500 € según el peso."
+    ]
+   },
+   {
+    "h": "Bisonte europeo",
+    "p": [
+     "El bisonte es el rey de los bosques pantanosos de Bielorrusia. Se caza en la primera quincena de septiembre o en noviembre, con cinco días de caza, porque con mal tiempo o viento los animales están muy desconfiados.",
+     "El programa cuesta de 1.700 € a 2.000 € por cazador según el grupo. El trofeo va de 8.500 € sin medalla a 15.000 € de oro."
+    ]
+   },
+   {
+    "h": "El viaje",
+    "p": [
+     "Se vuela a Minsk, donde se tramitan las armas, y desde allí hay de tres a cuatro horas de coche hasta el cazadero. Alojamiento, comidas y transportes durante la caza están incluidos."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se caza el alce en Bielorrusia?",
+    "a": "Del 8 al 20 de septiembre, en celo, y en noviembre."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un bisonte europeo?",
+    "a": "El programa, desde 1.700 € por cazador, y el bisonte de 8.500 € a 15.000 € según la medalla."
+   },
+   {
+    "q": "¿Cómo se llega?",
+    "a": "En avión a Minsk y después por carretera hasta el cazadero."
+   }
+  ]
  },
  "caza-en-europa/croacia": {
-  "intro": "En Croacia cazamos el oso pardo en espera, casi siempre de medalla, y el rebeco balcánico en Biokovo, con alojamiento en la costa de Makarska.",
+  "intro": "En Croacia tenemos dos cacerías muy distintas: oso pardo en espera en los bosques del centro del país y rebeco balcánico en el Parque Regional de Biokovo, con alojamiento junto al mar.",
   "heading": "Caza en Croacia",
   "sections": [
    {
-    "h": "Oso y rebeco",
+    "h": "Oso pardo",
     "p": [
-     "El [oso](especies/oso) se espera desde torretas sobre cebaderos en los bosques del centro del país, de febrero a mayo y de septiembre a diciembre. El [rebeco](especies/rebeco) de Biokovo es caza de pura ley con mucho éxito, y como se duerme junto al mar es un viaje estupendo para ir en familia. Se puede añadir muflón."
+     "La población de [oso](especies/oso) ha crecido mucho en la última década y la mayoría de los abatidos son de medalla. Se caza en espera, de tarde y noche, desde torretas sobre cebaderos preparados semanas antes y con luna llena.",
+     "Un guarda local le acompaña y le ayuda a valorar el oso con el sistema CIC. Hay dos temporadas: del 16 de febrero al 15 de mayo y del 15 de septiembre al 15 de diciembre. La cacería son siete días, seis de caza, y termina cuando se abate el oso."
+    ]
+   },
+   {
+    "h": "Rebeco balcánico en Biokovo",
+    "p": [
+     "Biokovo es una meseta de entre 1.000 y 1.300 metros, con carretera hasta arriba y un recorrido fácil. Se caza el [rebeco](especies/rebeco) a rececho de pura ley y con una tasa de éxito muy alta.",
+     "Por el clima mediterráneo y los cupos bajos, aquí salen más rebecos de medalla que en ninguna otra zona. Se caza del 1 de septiembre al 31 de enero, también cuando el resto de zonas ha cerrado. El programa de tres días 1×1 y cuatro noches, con un rebeco de hasta 100 puntos, cuesta 3.990 €."
+    ]
+   },
+   {
+    "h": "Para ir en familia",
+    "p": [
+     "En el programa de rebeco se duerme en hoteles de tres y cuatro estrellas en Makarska, en plena costa dálmata. Es un plan perfecto para que la familia disfrute del mar mientras usted caza."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta cazar un oso en Croacia?",
+    "a": "La cacería con guía cuesta 1.900 € y el oso se paga según los puntos CIC, desde 4.900 € en bronce o plata."
+   },
+   {
+    "q": "¿Es dura la caza del rebeco en Biokovo?",
+    "a": "No. La meseta es de fácil recorrido y hay carretera hasta la cima, así que es apta para casi cualquier cazador."
+   },
+   {
+    "q": "¿Se puede cazar también muflón?",
+    "a": "Sí, hay muflón en la zona de Biokovo. Pregúntenos el precio y lo añadimos al programa."
+   }
+  ]
  },
  "caza-en-europa/eslovenia": {
-  "intro": "En los Alpes eslovenos cazamos el rebeco alpino con guía 1×1 y 4×4, con trofeos medios de 90 a 100 puntos CIC.",
+  "intro": "En los Alpes eslovenos cazamos rebeco alpino, macho o hembra, con guía 1×1 y 4×4. Es una cacería de montaña muy cuidada, con trofeos medios de 90 a 100 puntos CIC.",
   "heading": "Caza en Eslovenia",
   "sections": [
    {
     "h": "Rebeco alpino",
     "p": [
-     "La temporada va del 1 de agosto al 31 de diciembre, y los mejores meses son agosto y noviembre. Se puede cazar macho o hembra. Es un país precioso y está muy cerca. Más [rebeco](especies/rebeco) en Rumanía, Macedonia, Italia y España."
+     "El [rebeco](especies/rebeco) esloveno es de los más fuertes de Europa. Los guardas conocen bien a sus animales y le llevarán hacia un trofeo que merezca la pena, sin forzar disparos largos.",
+     "La temporada va del 1 de agosto al 31 de diciembre. Los mejores momentos son agosto, con buen tiempo y animales altos, y noviembre, con el celo y el pelo de invierno."
+    ]
+   },
+   {
+    "h": "El programa",
+    "p": [
+     "Son tres días de caza y cuatro noches por 1.790 €, en hotel con habitación individual y pensión completa. Le recogemos en Liubliana o en Zagreb y hay intérprete durante toda la estancia.",
+     "El rebeco se paga según los puntos CIC: 1.400 € hasta 85 puntos, 2.100 € entre 90 y 95, 2.600 € entre 95 y 100, y a partir de ahí sube por tramos. El día de caza adicional cuesta 420 €."
+    ]
+   },
+   {
+    "h": "Buena opción para combinar",
+    "p": [
+     "Eslovenia está a un paso de Croacia y de Austria. Si quiere encadenar dos cacerías de montaña en el mismo viaje, se lo organizamos sin problema."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué trofeo de rebeco puedo esperar?",
+    "a": "La media está entre 90 y 100 puntos CIC. Con suerte y paciencia salen animales de más de 105."
+   },
+   {
+    "q": "¿Es una cacería dura?",
+    "a": "Es montaña, así que hay que estar en forma, pero los guardas adaptan los recorridos al cazador y se llega en 4×4 hasta muy arriba."
+   },
+   {
+    "q": "¿Puede venir un acompañante?",
+    "a": "Sí, por 175 € al día. Eslovenia es un país precioso y tranquilo para quien no caza."
+   }
+  ]
  },
  "caza-en-europa/austria": {
-  "intro": "En la Baja Austria, a 70 km de Viena, cazamos venado, rebeco, íbex alpino, gamo, muflón y jabalí, con cuatro días de estancia y tres de caza.",
+  "intro": "En la Baja Austria, a solo 70 km al suroeste de Viena, cazamos venado, rebeco, íbex alpino, gamo, muflón y jabalí. Son cuatro días de estancia y tres de caza, con una variedad de especies difícil de encontrar en otro sitio.",
   "heading": "Caza en Austria",
   "sections": [
    {
-    "h": "Programa general",
+    "h": "Muchas especies en un solo viaje",
     "p": [
-     "Cazamos en la Baja Austria, a 70 km al suroeste de Viena: venado, rebeco, íbex alpino, gamo, muflón y jabalí. El programa son cuatro días de estancia y tres de caza.",
-     "Viena está muy cerca, y muchos clientes aprovechan para quedarse un par de días de turismo con la familia."
+     "Austria es un país con una enorme tradición de caza y una gestión muy rigurosa. En la misma zona puede recechar [ciervo](especies/ciervo), [rebeco](especies/rebeco), [íbex](especies/ibex), [gamo y muflón](especies/muflon-y-gamo) y [jabalí](especies/jabali).",
+     "El ciervo en berrea, en septiembre, es la cacería más buscada. Para el rebeco y el íbex conviene ir en otoño."
+    ]
+   },
+   {
+    "h": "Cómo se paga",
+    "p": [
+     "El programa de cuatro días y tres de caza cuesta 900 €, y el acompañante va gratis. Los trofeos se pagan aparte según su tamaño. En el venado, por ejemplo, la tarifa va por peso de la cuerna: 2.100 € hasta 6 kg, y sube por tramos con un pequeño suplemento por cada 10 gramos.",
+     "Se aloja en hoteles confortables de la zona, cerca de los cotos."
+    ]
+   },
+   {
+    "h": "Un viaje fácil",
+    "p": [
+     "Viena tiene vuelos directos desde España y la zona de caza está a menos de una hora del aeropuerto. Es un destino muy cómodo para combinar caza y unos días de turismo."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué especies se cazan en Austria?",
+    "a": "Venado, rebeco, íbex alpino, gamo, muflón y jabalí, todo en la Baja Austria."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un venado en Austria?",
+    "a": "El programa son 900 € y el venado se paga según el peso de la cuerna, desde 2.100 € hasta 6 kg."
+   },
+   {
+    "q": "¿El acompañante paga?",
+    "a": "No, en este programa el acompañante va gratis."
+   }
+  ]
  },
  "caza-en-europa/italia": {
-  "intro": "En los Alpes italianos, en Moncenisio (Turín), cazamos el rebeco con profesionales de mucha experiencia.",
+  "intro": "En los Alpes italianos cazamos rebeco en Moncenisio, en la provincia de Turín, con profesionales de mucha experiencia. Es una cacería corta, de dos días, muy fácil de encajar en un fin de semana largo.",
   "heading": "Caza en Italia",
   "sections": [
    {
-    "h": "Rebeco en los Alpes",
+    "h": "Rebeco en Moncenisio",
     "p": [
-     "Cazamos en Moncenisio, en la provincia de Turín, con profesionales de mucha experiencia. La temporada va de septiembre a finales de noviembre y lo mejor es finales de octubre, cuando el [rebeco](especies/rebeco) tiene ya buen pelo.",
-     "Si le gusta el rebeco, también lo tenemos en Eslovenia, Rumanía, Macedonia, Bulgaria, Croacia y España, y cada uno es distinto."
+     "Moncenisio es una zona alta y abierta, junto a la frontera con Francia, con buena densidad de [rebeco](especies/rebeco). La temporada va de septiembre a finales de noviembre; finales de octubre suele ser el mejor momento.",
+     "Se caza a rececho con guía. Si hace falta llegar a zonas muy inaccesibles, hay opción de helicóptero por 350 €."
+    ]
+   },
+   {
+    "h": "Precio cerrado, sin límite de puntos",
+    "p": [
+     "Lo que más gusta de este programa es que el precio está cerrado y sin límite de puntos: 3.000 € por dos días de caza con un rebeco, 5.500 € con dos y 7.700 € con tres.",
+     "Están incluidos la asistencia en el aeropuerto, los traslados a la zona y dentro de ella y el cazador profesional. La licencia cuesta 100 €, el alquiler de rifle y munición 120 € y el acompañante 250 €."
+    ]
+   },
+   {
+    "h": "Cómo llegar",
+    "p": [
+     "Turín está a dos horas de avión desde Madrid y Barcelona. Desde el aeropuerto le llevamos hasta la zona de caza."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta un rebeco en Italia?",
+    "a": "3.000 € por dos días de caza con un rebeco incluido, sin importar los puntos. Con dos rebecos, 5.500 €."
+   },
+   {
+    "q": "¿Cuándo es mejor ir?",
+    "a": "A finales de octubre, cuando el rebeco ya tiene buen pelo y el tiempo todavía acompaña."
+   },
+   {
+    "q": "¿Puedo alquilar un rifle?",
+    "a": "Sí, el alquiler de rifle y munición cuesta 120 €. Así evita viajar con su arma."
+   }
+  ]
  },
  "caza-en-europa/francia": {
-  "intro": "En Francia organizamos recechos de corzo, ciervo, muflón y rebeco de los Alpes y del Pirineo, con guía y coche 1x1 y alojamiento en media pensión.",
+  "intro": "Francia tiene más caza de la que muchos españoles imaginan. Cazamos a rececho corzo, ciervo, muflón y rebeco, tanto en los Alpes como en el Pirineo francés, con guía y coche para cada cazador.",
   "heading": "Caza en Francia",
   "sections": [
    {
-    "h": "Rececho",
+    "h": "Qué se caza y dónde",
     "p": [
-     "Francia está aquí al lado y tiene muy buena caza de montaña y de bosque. Pregúntenos especie y fechas y le preparamos el viaje."
+     "El programa es de rececho 1×1. En el Pirineo y en los Alpes el animal estrella es el [rebeco](especies/rebeco), que en Francia se caza con densidades muy sanas. En zonas más bajas se recechan [corzo](especies/corzo), [ciervo](especies/ciervo) y [muflón](especies/muflon-y-gamo).",
+     "Nos gusta Francia para quien quiere una cacería de montaña seria sin irse lejos: se llega en coche desde el norte de España y no hace falta ningún trámite de importación de armas fuera de la Unión Europea."
+    ]
+   },
+   {
+    "h": "Cómo funciona y cuánto cuesta",
+    "p": [
+     "Se paga por día de caza (300 € con guía y coche) y después la tasa de abate de cada animal. El alojamiento es en media pensión en habitación doble. El acompañante paga 80 € al día.",
+     "A eso se suman la licencia francesa de nueve días (90 €), el seguro anual (30 €) y 40 € de gastos administrativos. Son cifras pequeñas, pero conviene tenerlas en cuenta al hacer las cuentas."
+    ]
+   },
+   {
+    "h": "Nuestro consejo",
+    "p": [
+     "Para el rebeco, octubre y noviembre suelen dar los mejores días: el animal está con el pelo de invierno y se mueve más. Si quiere combinar especies, díganos cuáles y le buscamos la zona que mejor encaje."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Necesito licencia de caza francesa?",
+    "a": "Sí. Nosotros la tramitamos: cuesta 90 € y vale para nueve días. También hace falta un seguro anual de 30 €."
+   },
+   {
+    "q": "¿Puedo ir en coche con mi rifle?",
+    "a": "Sí. Al ser un viaje dentro de la Unión Europea basta con la Tarjeta Europea de Armas de Fuego con el rifle anotado."
+   },
+   {
+    "q": "¿Qué rebeco se caza en Francia?",
+    "a": "El rebeco alpino en los Alpes y el sarrio en el Pirineo. Le explicamos las diferencias de trofeo y de terreno antes de elegir."
+   }
+  ]
  },
  "caza-en-europa/inglaterra": {
-  "intro": "En West Norfolk, a un par de horas de Stansted, cazamos corzos, muntjac y ciervo acuático chino, y organizamos jornadas de acuáticas y faisanes.",
+  "intro": "En West Norfolk, a una o dos horas del aeropuerto de Stansted, cazamos corzo, muntjac, ciervo chino de agua (CWD) y también acuáticas y faisanes. Tres programas distintos en fincas privadas con guía local para cada cazador.",
   "heading": "Caza en Inglaterra",
   "sections": [
    {
     "h": "Corzo, muntjac y CWD",
     "p": [
-     "El [corzo](especies/corzo) se caza de abril a octubre. El [muntjac](especies/muntjac) todo el año y el ciervo acuático chino de noviembre a marzo, dos trofeos que no hay en el resto de Europa. Rifle y balas incluidos.",
-     "Para la escopeta, [acuáticas y faisanes](especies/acuaticas-y-faisanes) de septiembre a enero, con guía por cazador, escopetas y cartuchos."
+     "El [corzo](especies/corzo) se caza del 1 de abril al 31 de octubre, a rececho y en espera desde torretas, en sesiones de unas tres horas. En tres días lo normal es tener ocasión de entre cuatro y ocho corzos.",
+     "El [muntjac](especies/muntjac) se caza todo el año y el CWD de noviembre a marzo. Son dos especies raras, muy buscadas por los coleccionistas, y en Inglaterra viven en libertad. También hay opción de [antílope negro](especies/antilope-negro)."
+    ]
+   },
+   {
+    "h": "Acuáticas y faisanes",
+    "p": [
+     "De septiembre a enero organizamos jornadas de [acuáticas](especies/acuaticas-y-faisanes) y, a partir de octubre, de faisán, perdiz y becada. El ánade real, el silbón, la cerceta y los gansos están garantizados. Escopetas y cartuchos van incluidos."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "El día de caza cuesta 250 libras en acuáticas y 300 libras en corzo y muntjac, y el acompañante va gratis. Las piezas se pagan aparte: 20 libras cada acuática, de 650 a 950 libras el corzo según el peso y hasta 1.000 libras un muntjac o un CWD de medalla.",
+     "Recomendamos no llevar arma propia: el rifle y las balas se incluyen y se evita el papeleo de entrada al Reino Unido."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué es el CWD?",
+    "a": "Es el ciervo chino de agua, un pequeño cérvido sin cuernas y con colmillos. En Inglaterra se caza de noviembre a marzo."
+   },
+   {
+    "q": "¿Cuántos días mínimo?",
+    "a": "Dos días en acuáticas y tres en corzo, muntjac y CWD."
+   },
+   {
+    "q": "¿Dónde nos alojamos?",
+    "a": "En las acuáticas, en un bungalow de la finca. En los programas de rececho, en hoteles de la zona que se pagan directamente."
+   }
+  ]
  },
  "caza-en-europa/escocia": {
-  "intro": "En Peterhead, en el noreste de Escocia, cazamos corzos y ciervos con pensión completa, guía y rifle incluidos.",
+  "intro": "Cazamos corzos y ciervos en la zona de Peterhead, en el noreste de Escocia. Es una cacería cómoda, con pensión completa, guía, rifle y preparación del trofeo incluidos.",
   "heading": "Caza en Escocia",
   "sections": [
    {
     "h": "Corzo y ciervo",
     "p": [
-     "El [corzo](especies/corzo) macho se caza del 1 de abril al 20 de octubre, y el [ciervo](especies/ciervo) del 1 de julio al 20 de octubre, en la zona de Peterhead.",
-     "El programa incluye pensión completa, guía, rifle y preparación del trofeo, así que se puede viajar sin arma. Muy cómodo para una escapada."
+     "El [corzo](especies/corzo) escocés tiene fama por su buena cuerna y por lo bonito del rececho entre bosques y campos de cultivo. Los machos se cazan del 1 de abril al 20 de octubre; las hembras, del 21 de octubre al 31 de marzo.",
+     "El [ciervo](especies/ciervo) macho se caza del 1 de julio al 20 de octubre. Septiembre y octubre, con la berrea, son los meses más emocionantes."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "Se paga una cuota diaria de 500 libras por cazador. El acompañante paga 150 libras por noche en habitación doble. El corzo macho va de 400 a 1.000 libras según el peso del cráneo, y el ciervo macho cuesta 1.000 libras.",
+     "Está incluido el permiso de caza escocés, la pensión completa, los traslados dentro de la zona, el guía y el rifle. No hace falta llevar arma propia, lo que simplifica mucho el viaje."
+    ]
+   },
+   {
+    "h": "Cuándo ir",
+    "p": [
+     "Para el corzo, mayo y finales de julio. Para combinar corzo y ciervo en el mismo viaje, septiembre es el mes ideal."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Tengo que llevar mi rifle a Escocia?",
+    "a": "No. El rifle está incluido, así que se ahorra los permisos de importación al Reino Unido."
+   },
+   {
+    "q": "¿Cuánto dura la cacería?",
+    "a": "Es a medida. Lo normal son tres o cuatro días, pero se puede ajustar a lo que usted quiera."
+   },
+   {
+    "q": "¿Se pueden cazar hembras?",
+    "a": "Sí. Hembra de corzo del 21 de octubre al 31 de marzo y de ciervo del 21 de octubre al 15 de febrero, a precios muy asequibles."
+   }
+  ]
  },
  "caza-con-arco/namibia": {
-  "intro": "Namibia es el primer destino que recomendamos a un arquero: dos fincas dedicadas solo al arco, lodge, profesional y vehículo, y seis días para cazar facóquero y dos animales más.",
+  "intro": "En Namibia cazamos con arco en dos fincas privadas dedicadas solo al arco. Son seis días con lodge, cazador profesional y vehículo, y se puede combinar con unos días de turismo por el país.",
   "heading": "Caza con arco en Namibia",
   "sections": [
    {
-    "h": "Arco en Namibia",
+    "h": "Especies",
     "p": [
-     "Los puestos están bien hechos y los animales entran. Se caza de mayo a octubre, y septiembre es el mejor mes. Se puede combinar con turismo."
+     "Namibia es el sitio ideal para empezar con el arco en África. Se caza kudu, eland, waterbuck, ñu negro y azul, hartebeest rojo, impala, órix y facóquero, casi siempre en espera desde puestos junto a los bebederos.",
+     "Al estar las fincas reservadas para el arco, los animales no están presionados por el rifle y entran a beber con confianza. Eso se nota mucho en las oportunidades de tiro."
+    ]
+   },
+   {
+    "h": "Cuándo ir",
+    "p": [
+     "La temporada va de mayo a octubre. Septiembre es el mejor mes: hace calor, el agua escasea y los [antílopes](especies/antilopes) dependen de los bebederos."
+    ]
+   },
+   {
+    "h": "Un viaje para disfrutar",
+    "p": [
+     "Namibia es un país seguro, con buenas carreteras y paisajes espectaculares. Muchos clientes aprovechan para visitar Etosha, el desierto de Sossusvlei o la costa de Swakopmund antes o después de cazar."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Por qué es bueno Namibia para el arco?",
+    "a": "Porque las fincas son solo de arco, los animales entran a los bebederos sin miedo y la temporada seca concentra la caza."
+   },
+   {
+    "q": "¿Cuál es el mejor mes?",
+    "a": "Septiembre, cuando el calor y la falta de agua hacen que los animales acudan más a los puestos."
+   },
+   {
+    "q": "¿Puede venir alguien que no caza?",
+    "a": "Sí. Namibia es un destino estupendo para acompañantes, con muchas opciones de turismo."
+   }
+  ]
  },
  "caza-con-arco/sudafrica": {
-  "intro": "En Limpopo, junto al Kruger, tenemos paquetes de arco en lodge de lujo y dos cacerías que pocos ofrecen: búfalo y león a la huella con rastreadores nativos.",
+  "intro": "Sudáfrica es el país con más opciones para cazar con arco en África. Cazamos en Limpopo, en fincas privadas de 60.000 a 88.000 hectáreas que lindan con el Parque Kruger, desde paquetes de antílopes hasta búfalo y león a la huella.",
   "heading": "Caza con arco en Sudáfrica",
   "sections": [
    {
-    "h": "Arco en Limpopo",
+    "h": "Paquetes de antílopes en lodge de lujo",
     "p": [
-     "En 88.000 hectáreas hay 34 especies y trofeos excelentes. El [búfalo](especies/bufalo) y el [león](especies/leon) a la huella se cazan en 60.000 hectáreas, siguiendo el rastro a pie. El especial de facóqueros está en pausa por la sequía hasta que la especie se recupere."
+     "En 88.000 hectáreas con 34 especies se caza desde lodge de lujo, con paquetes cerrados de cuatro días de caza: blesbok, impala, facóquero y duiker gris por 3.500 €, o ñu azul, impala y blesbok por 3.700 €. Hay también un paquete de búfalo de caza dura por 9.900 €.",
+     "Los gastos diarios van de 380 € (dos cazadores con un profesional) a 700 € si se caza con un profesional de Big Five."
+    ]
+   },
+   {
+    "h": "Búfalo y león a la huella",
+    "p": [
+     "Para quien busca emoción de verdad, en 60.000 hectáreas junto al Kruger se caza a la huella con rastreadores nativos. El [león](especies/leon) macho cuesta 10.900 €, y hay combinaciones como león y búfalo sin límite de pulgadas por 19.900 €. Son cinco días de caza y siete de estancia, en pensión completa."
+    ]
+   },
+   {
+    "h": "Facóqueros",
+    "p": [
+     "Teníamos un programa especial de cuatro días con cinco [facóqueros](especies/facochero) por 2.700 €. Por la sequía está en pausa hasta que la población se recupere. Si le interesa, pregúntenos cómo está."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuánto cuesta un paquete de arco en Sudáfrica?",
+    "a": "Desde 3.500 € por cuatro especies en cuatro días de caza, más los gastos diarios."
+   },
+   {
+    "q": "¿Qué significa cazar a la huella?",
+    "a": "Seguir el rastro del animal a pie con rastreadores nativos hasta tenerlo a tiro. Es la caza más exigente y emocionante."
+   },
+   {
+    "q": "¿Las fincas están valladas?",
+    "a": "Son fincas privadas muy grandes, de 60.000 a 88.000 hectáreas, que lindan con el Kruger. Los animales viven en condiciones totalmente salvajes."
+   }
+  ]
  },
  "caza-con-arco/mozambique": {
-  "intro": "En el delta del Zambeze cazamos el búfalo con arco. Hay muchísimos y los pajonales permiten acercarse a la distancia buena.",
+  "intro": "Cazar un búfalo con arco es de lo más serio que se puede hacer en África. En los humedales del delta del Zambeze, en la Coutada 10 de Marromeu, hay tantos búfalos y tanto pajonal que se puede llegar a la distancia buena con garantías.",
   "heading": "Caza con arco en Mozambique",
   "sections": [
    {
-    "h": "Búfalo con arco",
+    "h": "Por qué el delta del Zambeze",
     "p": [
-     "Es caza en abierto, en pleno corazón de África, y una de las experiencias más fuertes que puede vivir un arquero. Le asesoramos sobre el equipo mínimo que se exige."
+     "Marromeu es una de las zonas clásicas de [búfalo](especies/bufalo) de toda África. Las manadas son grandes y la hierba alta y las islas de vegetación permiten aproximarse a pie, que es lo que el arco necesita. Es caza en abierto, sin vallas, en pleno corazón del continente.",
+     "Se caza del 1 de mayo al 30 de noviembre. Al principio el pasto está alto y cuesta más ver; a partir de agosto la zona se abre y las aproximaciones son más claras."
+    ]
+   },
+   {
+    "h": "Paquetes",
+    "p": [
+     "Hay tres opciones, siempre 1×1: cinco días con un búfalo por 11.950 dólares, siete días con dos búfalos por 19.260 y diez días con dos búfalos por 20.960. El acompañante paga 350 dólares al día.",
+     "Están incluidos la licencia, el permiso del arco y las tasas comunitarias. Se duerme en uno de los dos campamentos de cabañas de madera, nuevos y bien equipados. Otros animales, como sable, nyala o facóquero, se pueden añadir pagando su tasa de abate."
+    ]
+   },
+   {
+    "h": "Lo que le aconsejamos",
+    "p": [
+     "Para el búfalo con arco hace falta un equipo con mucho peso de flecha y una punta de calidad. Antes de viajar le asesoramos sobre el arco, las flechas y la distancia a la que conviene tirar. En nuestro equipo cazamos con arco, así que hablamos por experiencia."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué arco necesito para un búfalo?",
+    "a": "Un arco potente y flechas pesadas, con buena energía cinética. Le ayudamos a revisar su equipo antes del viaje."
+   },
+   {
+    "q": "¿Cuánto cuesta cazar un búfalo con arco en Mozambique?",
+    "a": "Desde 11.950 dólares por cinco días con un búfalo incluido, en régimen 1×1."
+   },
+   {
+    "q": "¿Se pueden cazar otros animales?",
+    "a": "Sí. Se pagan por tasa de abate y algunos exigen un mínimo de días en el campamento."
+   }
+  ]
  },
  "caza-con-arco/mauritania": {
-  "intro": "En el sur de Mauritania, junto a Senegal, cazamos facocheros con arco a rececho, mañana y tarde, en 200.000 hectáreas sin malaria.",
+  "intro": "Mauritania es el destino perfecto para estrenarse con el arco en África sin gastar mucho. Cazamos facocheros a rececho en 200.000 hectáreas del sur del país, junto a Senegal, en una zona segura y sin malaria.",
   "heading": "Caza con arco en Mauritania",
   "sections": [
    {
-    "h": "Facocheros",
+    "h": "Facocheros a rececho",
     "p": [
-     "Se caza de noviembre a marzo, a rececho por la mañana y por la tarde, acercándose a los facocheros mientras comen. Son 200.000 hectáreas en el sur del país, junto a Senegal, en una zona segura y sin malaria.",
-     "Desde Canarias está muy cerca, así que es un viaje corto y muy entretenido para practicar el rececho con arco."
+     "El [facochero](especies/facochero) se caza por la mañana y por la tarde, acercándose a pie mientras come. Es una caza muy dinámica: se ven muchos animales cada día y hay que medir bien el viento y los pasos para llegar a la distancia buena.",
+     "La temporada va de noviembre a marzo, con temperaturas agradables y sin lluvias."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "El paquete de tres días y medio de caza y cuatro de estancia, con cinco facocheros incluidos, cuesta 2.080 €. Cada facochero extra cuesta 210 € y el acompañante, 500 €.",
+     "Aparte van los vuelos (unos 750 €), el visado (100 €) y el certificado sanitario de los trofeos. Se duerme en bungalows y haimas dobles en el propio campamento."
+    ]
+   },
+   {
+    "h": "Por qué nos gusta",
+    "p": [
+     "Está a pocas horas de España, no hay cambio horario relevante y se puede disparar muchas flechas en pocos días. Es el viaje que solemos recomendar a quien quiere probar el arco en África antes de ir a por especies más grandes."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Es seguro cazar en Mauritania?",
+    "a": "La zona de caza, en el sur junto a Senegal, es segura y además está libre de malaria."
+   },
+   {
+    "q": "¿Cuántos facocheros puedo cazar?",
+    "a": "El paquete incluye cinco. Puede añadir más a 210 € cada uno."
+   },
+   {
+    "q": "¿Cuál es la mejor época?",
+    "a": "De noviembre a marzo, cuando el clima es suave y seco."
+   }
+  ]
  },
  "caza-con-arco/groenlandia": {
-  "intro": "En Groenlandia se caza el buey almizclero con arco alrededor de Kangerlussuaq, con helicóptero incluido para llegar lejos.",
+  "intro": "Cazar un buey almizclero con arco en Groenlandia es una de esas cacerías que se recuerdan siempre. Salimos desde Kangerlussuaq y usamos helicóptero para llegar a zonas donde no caza nadie de la zona.",
   "heading": "Caza con arco en Groenlandia",
   "sections": [
    {
-    "h": "Muskox con arco",
+    "h": "El buey almizclero",
     "p": [
-     "De julio a septiembre, alrededor de Kangerlussuaq. El helicóptero le lleva a zonas a las que no llegan los cazadores locales, donde los bueyes están más tranquilos y es más fácil entrarles a distancia de arco.",
-     "Es un trofeo ártico que pocos arqueros tienen. Si además le interesa el caribú, en Groenlandia también lo organizamos."
+     "El [buey almizclero](especies/alce-caribu-muskox) es un animal de otra época, robusto y desconfiado, que vive en la tundra abierta. Con arco hay que aprovechar cada repliegue del terreno para acercarse, y cuando la manada se agrupa a la defensiva el tiro exige sangre fría.",
+     "Se caza en julio, agosto y septiembre, con días muy largos y temperaturas suaves para lo que es el Ártico."
+    ]
+   },
+   {
+    "h": "El programa",
+    "p": [
+     "El primer día se llega a Kangerlussuaq, se va en coche hasta el barco y se remonta el río unas dos horas y media. Se puede cazar ese mismo día. Después quedan tres días más de caza.",
+     "El paquete de tres o cuatro días con un macho cuesta 6.000 € e incluye campamento en pensión completa, profesional, barca, coche, helicóptero, licencia y primera preparación del trofeo. Un segundo buey cuesta 2.900 €; también se puede intentar el caribú, aunque con arco es muy complicado."
+    ]
+   },
+   {
+    "h": "Lo que debe saber",
+    "p": [
+     "Los vuelos llegan por Copenhague. Conviene llevar ropa por capas y buen calzado impermeable: la tundra es húmeda incluso en verano. El acompañante paga 3.500 €."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se caza el buey almizclero con arco?",
+    "a": "En julio, agosto y septiembre, durante el verano ártico."
+   },
+   {
+    "q": "¿Está incluido el helicóptero?",
+    "a": "Sí. Se usa para llegar a zonas alejadas de la caza local, donde los animales están más tranquilos."
+   },
+   {
+    "q": "¿Se puede cazar caribú?",
+    "a": "Sí, como trofeo adicional por 2.900 €, aunque con arco es una caza muy difícil."
+   }
+  ]
  },
  "caza-con-arco/canada": {
-  "intro": "En Canadá cazamos con arco el oso negro de Quebec desde puestos elevados y el alce del Yukón a rececho, el trofeo más codiciado de Norteamérica.",
+  "intro": "En Canadá tenemos dos cacerías con arco: oso negro en Quebec y New Brunswick en primavera, y alce a rececho en el Yukón en septiembre. Dos experiencias muy distintas en el mismo país.",
   "heading": "Caza con arco en Canadá",
   "sections": [
    {
-    "h": "Oso y alce",
+    "h": "Oso negro en Quebec",
     "p": [
-     "El [oso](especies/oso) negro se caza del 20 de mayo al 20 de junio, con opción de uno, dos o tres osos, y un guía español le acompaña desde Barajas. El [alce](especies/alce-caribu-muskox) del Yukón, en septiembre junto al río Nisling."
+     "Se caza el [oso negro](especies/oso) desde puestos elevados, por la tarde y alguna mañana, entre el 20 de mayo y el 20 de junio. La zona está entre Mont Joli y Matapedia, en Gaspé y New Brunswick.",
+     "Son cinco días de caza con un oso por 3.500 €. El segundo oso cuesta 1.250 € y el tercero, si hay licencias, 1.000 €. Un guía español le acompaña desde Barajas hasta la vuelta, así que es un viaje muy cómodo para quien va por primera vez."
+    ]
+   },
+   {
+    "h": "Alce en el Yukón",
+    "p": [
+     "El [alce](especies/alce-caribu-muskox) del Yukón es el más grande del mundo y el trofeo más codiciado de Norteamérica. Se caza a rececho en septiembre, en la zona del río Nisling, durmiendo en campamentos de cabañas o tiendas.",
+     "La cacería son diez días con un alce por 28.500 dólares. Se llega por Vancouver y Whitehorse y, desde allí, en hidroavión hasta el campamento."
+    ]
+   },
+   {
+    "h": "Cuál elegir",
+    "p": [
+     "Si busca una primera cacería con arco fuera de España, el oso negro es una apuesta segura y asequible. El alce del Yukón es una aventura mayor, para cazadores en buena forma que buscan un trofeo de su vida."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se caza el oso negro en Quebec?",
+    "a": "En primavera, del 20 de mayo al 20 de junio, desde puestos elevados."
+   },
+   {
+    "q": "¿Va alguien de De Onís en el viaje del oso?",
+    "a": "Sí, un guía español acompaña al grupo desde Barajas hasta el regreso."
+   },
+   {
+    "q": "¿Cuánto cuesta el alce con arco en el Yukón?",
+    "a": "28.500 dólares por diez días con un alce. Aparte van la licencia, la tasa del gobierno, el chárter y el transporte de trofeos."
+   }
+  ]
  },
  "caza-con-arco/nueva-zelanda": {
-  "intro": "En la Isla Sur de Nueva Zelanda cazamos con arco ciervo en berrea, tahr y rebeco, con mucha densidad de animales y trofeos de oro.",
+  "intro": "La Isla Sur de Nueva Zelanda tiene los ciervos más grandes del mundo, y además tahr y rebeco. Con arco se caza con guías profesionales en zonas con mucha densidad de animales y trofeos de oro CIC o más.",
   "heading": "Caza con arco en Nueva Zelanda",
   "sections": [
    {
-    "h": "Ciervo, tahr y rebeco",
+    "h": "La berrea",
     "p": [
-     "La temporada va de enero a agosto y la berrea es en marzo y abril. Hay mucha densidad de animales y trofeos de medalla de oro CIC o mejores.",
-     "Los guías están acostumbrados a trabajar con arqueros y saben acercarle. Además del ciervo se pueden cazar el tahr y el rebeco en el mismo viaje."
+     "El [ciervo](especies/ciervo) neozelandés es famoso por sus cuernas enormes. La temporada va de enero a agosto, pero la berrea, en marzo y abril, es el gran momento: los machos responden a la llamada y se pueden atraer a distancia de arco.",
+     "Las tasas van por puntos SCI: 3.500 dólares un ciervo de 290 a 320 puntos, 9.000 uno de 361 a 399 y hasta 25.000 uno de más de 500."
+    ]
+   },
+   {
+    "h": "Tahr, rebeco y más",
+    "p": [
+     "En las montañas de los Alpes del Sur se cazan [tahr y rebeco](especies/cabras-y-carneros), a 5.500 dólares cada uno. Para llegar a las zonas altas se usa helicóptero, que cuesta entre 2.000 y 2.500 dólares por animal. También hay gamo, wapití, carnero Arapawa, cabra asilvestrada y jabalí."
+    ]
+   },
+   {
+    "h": "Cómo es el viaje",
+    "p": [
+     "La tarifa diaria es de 640 dólares por cazador y 300 por acompañante, durmiendo en los lodges de los guías. Es un viaje largo, así que recomendamos un mínimo de seis o siete días de caza y combinarlo con algo de turismo por la isla."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo es la berrea en Nueva Zelanda?",
+    "a": "En marzo y abril, que en el hemisferio sur es otoño."
+   },
+   {
+    "q": "¿Cuánto cuesta un ciervo con arco en Nueva Zelanda?",
+    "a": "Depende de los puntos SCI: desde 3.500 dólares hasta 25.000 para los más grandes, más la tarifa diaria."
+   },
+   {
+    "q": "¿Hace falta helicóptero?",
+    "a": "Para el tahr y el rebeco sí suele usarse, porque viven en zonas muy altas."
+   }
+  ]
  },
  "caza-con-arco/turquia": {
-  "intro": "En Turquía cazamos el jabalí con arco de noche, en zonas de paso cerca de la costa, con muchísimas oportunidades cada salida.",
+  "intro": "Si lo que busca con el arco es acción, Turquía es su sitio. Cazamos jabalíes de noche en zonas de paso cerca de la costa, con muchísimas oportunidades cada noche para machos, hembras y pequeños.",
   "heading": "Caza con arco en Turquía",
   "sections": [
    {
-    "h": "Jabalí de noche",
+    "h": "Esperas y rececho nocturnos",
     "p": [
-     "Se caza de noche en zonas de paso cerca de las ciudades de la costa, donde los jabalíes bajan a comer. Hay oportunidades casi cada salida, con machos, hembras y rayones, así que es ideal si busca acción y quiere tirar mucho.",
-     "Turquía es además nuestro país de jabalí con rifle, con siete reservas y batidas de día, por si viaja con alguien que no caza con arco."
+     "El [jabalí](especies/jabali) turco sale por la noche a los cultivos cercanos a las ciudades de la costa. Se caza en espera en las querencias y a rececho por los pasos, con tiros de entre 10 y 50 metros.",
+     "Hace falta linterna roja o verde, visor térmico o nocturno con medidor de distancia y un visor de pines con luz. Si no tiene parte del equipo, le orientamos sobre qué llevar."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "El programa son cuatro noches de caza, de mayo a octubre. Cuesta 3.495 € para un cazador solo, 2.850 € por cazador en pareja, 2.550 € en grupos de tres y 2.250 € a partir de cuatro.",
+     "Incluye un macho de 18 cm o más y hasta 30 hembras y pequeños. A partir de ahí, cada hembra o pequeño cuesta 50 € y cada macho adicional, 900 €. El alojamiento lo elige usted, desde una pensión sencilla hasta un hotel de cinco estrellas en la costa."
+    ]
+   },
+   {
+    "h": "Ideal para grupos",
+    "p": [
+     "Es un viaje estupendo para ir con amigos: el precio baja mucho en grupo, por la noche se caza y de día se puede disfrutar de la costa turca."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuántos jabalíes se pueden cazar con arco en Turquía?",
+    "a": "El paquete incluye un macho y hasta 30 hembras y pequeños. Hay muchas oportunidades cada noche."
+   },
+   {
+    "q": "¿Qué equipo necesito?",
+    "a": "Linterna roja o verde, visor térmico o nocturno con medidor de distancia y visor de pines con luz."
+   },
+   {
+    "q": "¿Cuál es la temporada?",
+    "a": "De mayo a octubre."
+   }
+  ]
  },
  "caza-con-arco/espana": {
-  "intro": "En España cazamos con arco el macho montés en Gredos, y ciervo, muflón y grandes jabalíes en fincas a una hora de Madrid.",
+  "intro": "Somos cazadores españoles y el arco en España lo conocemos de primera mano. Cazamos ciervo, muflón y grandes jabalíes en fincas a una hora de Madrid, y macho montés en una finca privada de la Sierra de Gredos.",
   "heading": "Caza con arco en España",
   "sections": [
    {
-    "h": "Arco en casa",
+    "h": "Ciervo, muflón y jabalí cerca de Madrid",
     "p": [
-     "El [macho montés](especies/macho-montes) se caza con caballerías y guía de septiembre a marzo. En las fincas de Madrid y Guadalajara los puestos están a 30 o 50 metros de los cebaderos: ciervo en berrea o en espera, muflón en celo y [jabalí](especies/jabali) todo el año."
+     "Trabajamos con una de las mejores fincas de España para el arco, con puestos a 30 o 50 metros de los cebaderos. El [ciervo](especies/ciervo) se caza en berrea a finales de septiembre y en espera el resto del año. El [muflón](especies/muflon-y-gamo), a rececho en octubre y noviembre y en espera el resto. El [jabalí](especies/jabali), en espera durante todo el año.",
+     "El día de caza con guarda, pensión completa y vehículo cuesta 150 €, o 250 € si duerme en la finca. Los animales se pagan según su categoría: un venado de bronce, 2.000 €; un muflón de bronce, 2.000 €; un jabalí de más de 5 cm, 1.000 €."
+    ]
+   },
+   {
+    "h": "Macho montés en Gredos",
+    "p": [
+     "El [macho montés](especies/macho-montes) con arco es un reto como pocos. Se caza en una finca privada de Gredos, de septiembre a marzo, con guía y caballerías. La cacería dura dos o tres días y termina al abatir el macho.",
+     "Los días de caza cuestan 1.000 € y el macho, 6.900 € hasta 79 cm o 8.900 € por encima. Una vez cazado el macho se puede añadir hembra, ciervo o jabalí."
+    ]
+   },
+   {
+    "h": "Para cazadores de fuera",
+    "p": [
+     "Si viene del extranjero, le recogemos en el aeropuerto y nos ocupamos de la licencia española, que para no residentes cuesta 100 €."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Dónde se caza con arco cerca de Madrid?",
+    "a": "En fincas a una hora u hora y media de Madrid, con puestos preparados para el arco a 30-50 metros."
+   },
+   {
+    "q": "¿Cuánto cuesta un macho montés con arco?",
+    "a": "6.900 € hasta 79 cm y 8.900 € a partir de ahí, más 1.000 € por los días de caza."
+   },
+   {
+    "q": "¿Se puede dormir en la finca?",
+    "a": "Sí. El día de caza con pernocta cuesta 250 € con pensión completa."
+   }
+  ]
  },
  "pesca/mozambique": {
-  "intro": "En Mozambique se pesca al curricán el marlín azul, el negro y el rayado, en aguas casi sin explotar, de enero a principios de abril.",
+  "intro": "La costa de Mozambique es uno de los mejores sitios del mundo para pescar marlín al curricán. Salimos ocho horas al día en aguas casi vírgenes a por marlín azul, negro y rayado, pez vela, atún de aleta amarilla y dorado.",
   "heading": "Pesca en Mozambique",
   "sections": [
    {
-    "h": "Marlín",
+    "h": "Big game en el Índico",
     "p": [
-     "Se sale ocho horas al día y los marlines azules y negros suelen pesar entre 100 y 200 kilos; cada año sale alguno de 300 o 400. También hay pez vela, dorado y atún de aleta amarilla."
+     "La temporada buena va de enero a principios de abril, cuando el agua está más caliente y entran los grandes picudos. Además del marlín se pescan pez vela, marlín de pico corto, dorado, atún de aleta amarilla, serra fish y barracuda.",
+     "Se llega por Johannesburgo y Maputo. El mínimo son tres días de pesca, aunque recomendamos cinco para tener más opciones de un gran marlín."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "El precio incluye la estancia y ocho horas diarias de barco, y baja mucho cuantas más personas comparten la embarcación. Tres días cuestan 10.350 dólares para un pescador solo, 5.950 por persona si van dos y 2.700 por persona si van cuatro."
+    ]
+   },
+   {
+    "h": "Para combinar",
+    "p": [
+     "Mozambique es también uno de nuestros grandes destinos de caza de búfalo. Si quiere juntar unos días de caza en el delta del Zambeze con unos días de pesca en la costa, se lo organizamos en el mismo viaje."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se pesca el marlín en Mozambique?",
+    "a": "De enero a principios de abril."
+   },
+   {
+    "q": "¿Cuánto cuesta un viaje de pesca de marlín?",
+    "a": "Depende de cuántos compartan barco. Con cuatro pescadores, tres días salen por 2.700 dólares por persona."
+   },
+   {
+    "q": "¿Cuántos días mínimo?",
+    "a": "Tres días de pesca."
+   }
+  ]
  },
  "pesca/cabo-verde": {
-  "intro": "Cabo Verde es uno de los mejores sitios del Atlántico para el marlín azul. Pescamos en Sal y en São Nicolau con el barco en exclusiva.",
+  "intro": "Cabo Verde es uno de los grandes destinos del Atlántico para el marlín azul. Pescamos en la isla de Sal y en São Nicolau con barco en exclusiva, a curricán, vertical, deriva o fondo.",
   "heading": "Pesca en Cabo Verde",
   "sections": [
    {
-    "h": "Sal y São Nicolau",
+    "h": "Marlín azul y mucho más",
     "p": [
-     "El marlín se pesca en mayo, y el resto (atún, serviola, wahoo, pez vela, meros) en julio y agosto. En Sal se puede salir medio día o casi todo el día; en São Nicolau son cinco días de barco con hotel incluido."
+     "Mayo es el mes del marlín azul. En verano, de junio a agosto, se pescan atún, serviola, wahoo, dorado, pez vela, meros y tiburones.",
+     "Las islas tienen aguas profundas muy cerca de la costa, así que se llega en poco tiempo a las zonas de pesca."
+    ]
+   },
+   {
+    "h": "Isla de Sal",
+    "p": [
+     "En Sal el barco es en exclusiva para un máximo de cuatro pescadores, en salidas de cuatro o seis horas, de dos a siete días. Con cuatro personas, un día de cuatro horas sale por 138 € por persona. El hotel va aparte, unos 50 € al día."
+    ]
+   },
+   {
+    "h": "São Nicolau",
+    "p": [
+     "Para quien va en serio a por el marlín, en São Nicolau hacemos cinco días de pesca y ocho horas diarias de barco en exclusiva, con hotel incluido. Con cuatro pescadores cuesta 1.950 € por persona."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo es la temporada de marlín azul en Cabo Verde?",
+    "a": "En mayo."
+   },
+   {
+    "q": "¿Cuántas personas caben en el barco?",
+    "a": "Hasta cuatro pescadores, con el barco en exclusiva."
+   },
+   {
+    "q": "¿Cómo se llega?",
+    "a": "En vuelo a la isla de Sal, y desde allí a São Nicolau si elige ese programa."
+   }
+  ]
  },
  "pesca/espana": {
-  "intro": "En Cádiz salimos desde Barbate, El Puerto de Santa María y La Línea a por atún rojo, túnidos y marlín, o a fondo y jigging todo el año.",
+  "intro": "En Cádiz pescamos todo el año desde barco con patrón y guía, en Barbate, El Puerto de Santa María y La Línea. Fondo, jigging, curricán y, de junio a octubre, big game de atún rojo y marlín en el Estrecho.",
   "heading": "Pesca en España",
   "sections": [
    {
-    "h": "Pesca en Cádiz",
+    "h": "Modalidades",
     "p": [
-     "Se alquila el barco con patrón y guía, en jornadas de 5 o 10 horas. El big game de atún rojo va de mediados de junio a octubre. Un plan muy bueno para ir con amigos."
+     "A fondo se pescan tiburón, corvina, pargo, hurta, mero, serviola, sargo y dorada durante todo el año. Con jigging y popping, las mismas especies y la llampuga. Con curricán, de julio a noviembre, marlín, bonito, alistado, dorado y albacora.",
+     "La joya es el big game del atún rojo en el Estrecho, de mediados de junio a octubre. Es una pesca dura, con peces enormes y una lucha que puede durar horas."
+    ]
+   },
+   {
+    "h": "Precios por barco",
+    "p": [
+     "Se alquila el barco completo, con patrón y guía, en jornadas de cinco o diez horas. La pesca a fondo cuesta 400 € la media jornada y 600 € la jornada completa; el jigging, 450 € y 700 €; el curricán, 500 € y 900 €.",
+     "El alojamiento queda libre, así que puede elegir el hotel que prefiera en la zona."
+    ]
+   },
+   {
+    "h": "Cerca de casa",
+    "p": [
+     "Es la opción perfecta para un fin de semana de pesca sin coger aviones, o para un grupo de amigos que quiere repartir el barco."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se pesca el atún rojo en Cádiz?",
+    "a": "De mediados de junio a octubre, en la modalidad de big game."
+   },
+   {
+    "q": "¿Cuánto cuesta alquilar un barco de pesca en Cádiz?",
+    "a": "Desde 400 € por cinco horas de pesca a fondo, con patrón y guía."
+   },
+   {
+    "q": "¿Desde qué puertos se sale?",
+    "a": "Barbate, El Puerto de Santa María y La Línea, según la modalidad."
+   }
+  ]
  },
  "pesca/islandia": {
-  "intro": "Islandia es el país del salmón atlántico. Pescamos a mosca en los ríos de la zona de Rangá en julio y agosto.",
+  "intro": "Islandia es uno de los grandes destinos del mundo para la pesca a mosca del salmón atlántico. Pescamos en los ríos de la zona de Rangá, con salmones de 4 a 6 kg de media y algunos de hasta 10 kg.",
   "heading": "Pesca en Islandia",
   "sections": [
    {
-    "h": "Salmón a mosca",
+    "h": "Salmón y grandes truchas",
     "p": [
-     "Los salmones suelen pesar de 4 a 6 kilos y alguno llega a 10. Los precios dependen mucho de la demanda y las licencias, así que conviene reservar con tiempo."
+     "Los ríos de Rangá son de referencia para la cola de rata. Además del salmón atlántico hay truchas de buen tamaño, así que los días dan para mucho.",
+     "La temporada buena es julio y agosto, con muchísimas horas de luz: en pleno verano casi no anochece y se puede pescar hasta muy tarde."
+    ]
+   },
+   {
+    "h": "El viaje",
+    "p": [
+     "Son de tres a cinco días de pesca, alojándose en un lodge junto al río con pensión completa. Con guía, traslados y licencias, el precio suele rondar los 1.800 € por persona y día.",
+     "Los precios cambian mucho según la demanda y las licencias de cada río, por eso le damos presupuesto para sus fechas concretas."
+    ]
+   },
+   {
+    "h": "Consejo",
+    "p": [
+     "Las mejores semanas se reservan con mucha antelación. Si tiene claro que quiere ir, conviene hablarlo con nosotros a finales del año anterior."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se pesca el salmón en Islandia?",
+    "a": "La mejor época es julio y agosto."
+   },
+   {
+    "q": "¿Cuánto cuesta pescar salmón en Islandia?",
+    "a": "Alrededor de 1.800 € por persona y día con todo incluido, aunque depende mucho de las fechas y del río."
+   },
+   {
+    "q": "¿De qué tamaño son los salmones?",
+    "a": "Normalmente de 4 a 6 kg, y cada temporada salen algunos de hasta 10 kg."
+   }
+  ]
  },
  "pesca/finlandia": {
-  "intro": "En la Laponia finlandesa pescamos truchas de hasta 6 kilos en ríos y lagos, con cabañas junto al agua. Ideal para grupos de amigos.",
+  "intro": "En Laponia pescamos grandes truchas, de hasta 6 kg, en ríos y lagos rodeados de bosque. Es un viaje perfecto para grupos de cuatro a seis pescadores, en cabañas de montaña junto al agua.",
   "heading": "Pesca en Finlandia",
   "sections": [
    {
-    "h": "Truchas",
+    "h": "Truchas en Laponia",
     "p": [
-     "Los mejores meses son junio, julio y agosto. Se vuela a Rovaniemi o Kuusamo y se duerme en cabañas de montaña junto a los ríos y lagos, con opción premium.",
-     "Los grupos ideales son de 4 a 6 pescadores, y se puede combinar con turismo por Laponia."
+     "La temporada va de junio a agosto, con días larguísimos en los que casi no se hace de noche. Se pesca en ríos y lagos de la zona de Rovaniemi y Kuusamo, con muy poca gente alrededor."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "Cinco noches y cuatro días de pesca cuestan 2.950 € por pescador, y seis noches con cinco días, 3.450 €. Incluye traslados desde el aeropuerto, pensión completa, licencias y permisos. Hay un suplemento de 490 € por persona para la cabaña premium.",
+     "Los vuelos a Rovaniemi o Kuusamo rondan los 500 €. Si quiere que le acompañe un guía desde España, se puede organizar."
+    ]
+   },
+   {
+    "h": "Para quién es",
+    "p": [
+     "Es un viaje tranquilo, ideal para ir con la familia o con amigos y combinar la pesca con la naturaleza del norte de Europa."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo se pesca en Finlandia?",
+    "a": "De junio a agosto."
+   },
+   {
+    "q": "¿De qué tamaño son las truchas?",
+    "a": "Se sacan truchas de hasta 6 kg."
+   },
+   {
+    "q": "¿Tengo que llevar mi equipo?",
+    "a": "Sí, las cañas, los aparejos y los señuelos no están incluidos."
+   }
+  ]
  },
  "pesca/eslovenia": {
-  "intro": "Eslovenia es un paraíso para la mosca. Pescamos la trucha marmorata en el Soča, además de grayling, hucho y truchas en el Unica, el Krka y el Sava.",
+  "intro": "Eslovenia tiene algunos de los ríos más bonitos de Europa para pescar a mosca. Recorremos el Unica, el Krka, el Sava Bohinjka, el Radovna y el Soča detrás de la trucha marmorata, el hucho y el grayling.",
   "heading": "Pesca en Eslovenia",
   "sections": [
    {
-    "h": "Mosca",
+    "h": "Las especies",
     "p": [
-     "La temporada va de marzo a diciembre, y los mejores meses son junio, julio, septiembre y octubre. El programa de siete días recorre los mejores ríos del país."
+     "La estrella es la trucha marmorata del Soča: suele medir unos 40 cm, cada año sale alguna de hasta un metro y el récord está en 25 kg. También se pesca el hucho o salmón del Danubio, el grayling, la trucha común y la arcoíris.",
+     "La temporada de trucha va de marzo a diciembre y la de grayling de junio a diciembre. Los mejores meses son junio, julio, septiembre y octubre."
+    ]
+   },
+   {
+    "h": "Dos programas",
+    "p": [
+     "El viaje largo son ocho días y siete de pesca, por 2.900 € por pescador, cambiando de río casi cada día. El corto son cinco días y cuatro de pesca, por 1.900 €.",
+     "Se llega a Liubliana y en una hora se está en el Unica. Se duerme en hoteles y campamentos junto a los ríos."
+    ]
+   },
+   {
+    "h": "Un viaje para disfrutar",
+    "p": [
+     "Eslovenia es pequeña, tranquila y muy verde. Los ríos de aguas color esmeralda son un espectáculo incluso para quien no pesca."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué es la trucha marmorata?",
+    "a": "Una trucha autóctona del Adriático que vive en el Soča y que puede superar el metro de longitud."
+   },
+   {
+    "q": "¿Cuál es la mejor época para pescar en Eslovenia?",
+    "a": "Junio, julio, septiembre y octubre."
+   },
+   {
+    "q": "¿Cuánto cuesta el viaje?",
+    "a": "1.900 € por cuatro días de pesca o 2.900 € por siete días."
+   }
+  ]
  },
  "pesca/groenlandia": {
-  "intro": "En Groenlandia pescamos arctic char en lagos de alta montaña y bacalao en el mar, desde un campamento privado con sauna a tres horas en barco de Narsarsuaq.",
+  "intro": "En el sur de Groenlandia pescamos arctic char en lagos de alta montaña y bacalao en el mar, desde un campamento privado con sauna a tres horas en barco de Narsarsuaq.",
   "heading": "Pesca en Groenlandia",
   "sections": [
    {
     "h": "Arctic char y bacalao",
     "p": [
-     "Del 15 de julio al 15 de septiembre. El campamento tiene cabañas dobles, calefacción y sauna, y el equipo, las barcas y los guías van incluidos, así que basta con llevar la ropa.",
-     "A los lagos se llega en barca y luego andando unos veinte minutos. En el mar se busca el bacalao con sonda cerca del campamento."
+     "Para llegar a los lagos se va en barco unos 20 o 30 minutos y después se camina otros 20. Allí se pesca el arctic char a mosca, a cola de rata o con cucharilla. En el mar, desde la embarcación y con ayuda de la sonda, se busca el bacalao.",
+     "La temporada va del 15 de julio al 15 de septiembre, con buen tiempo y mucha luz."
+    ]
+   },
+   {
+    "h": "El campamento",
+    "p": [
+     "Se duerme en cabañas dobles con calefacción y hay sauna para el final del día. Son cinco días de viaje y tres y medio de pesca. No hace falta llevar equipo, aunque conviene llevar un chaleco propio."
+    ]
+   },
+   {
+    "h": "Precio",
+    "p": [
+     "El viaje cuesta 3.600 € por pescador y 1.770 € por acompañante. Groenlandia es también uno de nuestros destinos de caza del buey almizclero y del caribú, por si quiere combinar."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué es el arctic char?",
+    "a": "Un salmónido de aguas frías, muy colorido, que vive en los lagos del Ártico."
+   },
+   {
+    "q": "¿Cuándo se pesca en Groenlandia?",
+    "a": "Del 15 de julio al 15 de septiembre."
+   },
+   {
+    "q": "¿Tengo que llevar equipo?",
+    "a": "No es necesario, aunque recomendamos llevar chaleco propio."
+   }
+  ]
  },
  "pesca/mauritania": {
-  "intro": "En el Banco de Arguin, en Mauritania, pescamos desde la costa y en barcos de vela latina: corvinas, palometones, pargos, tiburones y peces guitarra.",
+  "intro": "En el Parque Nacional del Banco de Arguin, en Mauritania, se pesca desde la costa y desde barcos de vela latina en una de las zonas más ricas del Atlántico. Corvinas, palometones, pargos, tiburones y peces guitarra a pocas horas de España.",
   "heading": "Pesca en Mauritania",
   "sections": [
    {
-    "h": "Banco de Arguin",
+    "h": "Un parque único",
     "p": [
-     "Es uno de los sitios con más pesca de la costa africana y casi no se pesca deportivamente. Se puede ir casi todo el año; cada especie tiene su época."
+     "El Banco de Arguin tiene 11.000 km² de aguas poco profundas, donde los pescadores locales solo pueden faenar a vela. Eso mantiene unas poblaciones de peces que ya no se ven en casi ningún sitio."
+    ]
+   },
+   {
+    "h": "Qué se pesca y cuándo",
+    "p": [
+     "De febrero a abril, corvina blanca y negra. De marzo a julio, roncadores, king mackerel y palometones. De mayo a julio, peces guitarra y tiburones. De julio a octubre, caballas, atuncillos, anchovas y agujas. Y todo el año, meros, sargos, pargos, bailas y muchas especies más."
+    ]
+   },
+   {
+    "h": "Precios",
+    "p": [
+     "Se duerme en un campamento en la costa con pensión completa. Tres días de pesca cuestan de 700 € a 900 € por pescador según el tamaño del grupo, y seis días, de 1.000 € a 1.300 €. Es de los viajes de pesca más asequibles que organizamos."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo es mejor ir a pescar a Mauritania?",
+    "a": "Depende de la especie. Para corvina, de febrero a abril; para palometón, de marzo a julio."
+   },
+   {
+    "q": "¿Cuánto cuesta?",
+    "a": "Desde 700 € por pescador por tres días en grupos de cinco o seis personas."
+   },
+   {
+    "q": "¿Cómo se pesca?",
+    "a": "Desde la costa y desde barcos tradicionales de vela latina."
+   }
+  ]
  },
  "pesca/bolivia": {
-  "intro": "En la Amazonía boliviana pescamos tucunaré, payara y dorado en una reserva privada con más de cien ríos vírgenes.",
+  "intro": "En la Amazonía boliviana pescamos en una reserva privada de más de un millón de hectáreas, con más de cien ríos vírgenes. Tucunaré, payara, surubí y dorado, a mosca o con equipo tradicional.",
   "heading": "Pesca en Bolivia",
   "sections": [
    {
-    "h": "Pesca en la selva",
+    "h": "Ríos vírgenes del Amazonas",
     "p": [
-     "Se vuela a Santa Cruz y de ahí al campamento en avioneta, unas dos horas y media. Se pesca de julio a octubre, en paquetes de 3, 4 o 7 días.",
-     "Para la mosca conviene llevar el equipo propio desde España. Y quien quiera puede combinarlo con 3 días de caza de perdices y palomas en otro campamento."
+     "La temporada va de julio a octubre, con el agua más baja y clara. Además del tucunaré, la payara y el dorado se pescan surubí, corvina, piraña, blanquillo, paiche y pacú. Muchos de estos ríos casi no han visto un anzuelo."
+    ]
+   },
+   {
+    "h": "Paquetes",
+    "p": [
+     "Hay tres programas: tres días de pesca por 3.295 dólares, cuatro días por 4.195 y siete días por 5.595. Se duerme en un campamento de pesca dentro de la reserva."
+    ]
+   },
+   {
+    "h": "Pesca y caza",
+    "p": [
+     "Existe un programa combinado de tres días de pesca y tres de caza de [perdices y palomas](especies/palomas-y-perdices), también por 5.595 dólares. La caza se hace de abril a septiembre en un campamento distinto, con traslado incluido."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Qué se pesca en la Amazonía boliviana?",
+    "a": "Tucunaré, payara, surubí, dorado, paiche y muchas otras especies."
+   },
+   {
+    "q": "¿Cuándo es la temporada?",
+    "a": "De julio a octubre."
+   },
+   {
+    "q": "¿Se puede combinar con caza?",
+    "a": "Sí, con tres días de caza de perdices y palomas."
+   }
+  ]
  },
  "safaris-fotograficos/namibia": {
-  "intro": "Desierto, costa y Etosha. En Namibia le organizamos un safari fotográfico a su aire, con los alojamientos y las etapas que mejor le encajen.",
+  "intro": "Desierto, costa y Etosha. En Namibia le organizamos un safari fotográfico a su aire, con las etapas y los alojamientos que mejor le encajen, en uno de los países más seguros y fotogénicos de África.",
   "heading": "Safari fotográfico en Namibia",
   "sections": [
    {
     "h": "Un viaje por carretera",
     "p": [
-     "Namibia se presta como pocos países a recorrerla en coche: las dunas rojas de Sossusvlei, la costa de Swakopmund y los elefantes y rinocerontes de Etosha. Las distancias son largas, así que preparamos las etapas para que nadie se pase el día al volante.",
-     "Es el país al que más cazadores llevamos, y muchas familias aprovechan para hacer el safari fotográfico mientras el cazador está en Windhoek."
+     "Namibia se presta como pocos países a recorrerla en coche. Las dunas rojas de Sossusvlei, de las más altas del mundo, el valle muerto de Deadvlei, la costa de Swakopmund y los elefantes y rinocerontes de Etosha forman un circuito inolvidable.",
+     "Las distancias son largas, así que preparamos las etapas para que nadie se pase el día al volante. También se puede hacer con conductor o con vuelos en avioneta entre zonas."
+    ]
+   },
+   {
+    "h": "Etosha",
+    "p": [
+     "En la temporada seca, de mayo a octubre, los animales se concentran en los bebederos de Etosha y se ven elefantes, leones, rinocerontes y jirafas desde el propio coche. Algunos campamentos tienen bebederos iluminados para verlos de noche."
+    ]
+   },
+   {
+    "h": "Para la familia del cazador",
+    "p": [
+     "Namibia es el país al que más cazadores llevamos. Muchas familias aprovechan para hacer el safari fotográfico mientras el cazador está en Windhoek, y después se juntan para terminar el viaje."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuál es la mejor época para viajar a Namibia?",
+    "a": "De mayo a octubre, en la temporada seca."
+   },
+   {
+    "q": "¿Se puede ir en coche de alquiler?",
+    "a": "Sí, con 4×4. Le preparamos las etapas y las reservas, o le ponemos conductor si lo prefiere."
+   },
+   {
+    "q": "¿Cuántos días hacen falta?",
+    "a": "Para el circuito clásico de Sossusvlei, Swakopmund y Etosha, entre diez y catorce días."
+   }
+  ]
  },
  "safaris-fotograficos/sudafrica": {
-  "intro": "Sudáfrica es la forma más cómoda de ver fauna africana: el Kruger, buenos lodges y la opción de terminar el viaje en Ciudad del Cabo.",
+  "intro": "Sudáfrica es la forma más cómoda de ver fauna africana: el Parque Kruger, muy buenos lodges, carreteras excelentes y la opción de terminar el viaje en Ciudad del Cabo.",
   "heading": "Safari fotográfico en Sudáfrica",
   "sections": [
    {
-    "h": "Kruger y algo más",
+    "h": "El Kruger y las reservas privadas",
     "p": [
-     "El clásico es el Parque Kruger, con muchas posibilidades de ver los Big Five en pocos días. Desde ahí se puede seguir a Ciudad del Cabo, a la Ruta Jardín o a los viñedos de Stellenbosch.",
-     "Nuestras fincas de caza en Limpopo están pegadas al Kruger, así que es muy fácil combinar las dos cosas en un mismo viaje."
+     "El Parque Kruger tiene casi dos millones de hectáreas y muchísimas posibilidades de ver los Big Five en pocos días. Las reservas privadas que lindan con él, como Sabi Sands, permiten salir del camino con los vehículos y acercarse mucho a los animales, con guías de primer nivel."
+    ]
+   },
+   {
+    "h": "Ciudad del Cabo y la Ruta Jardín",
+    "p": [
+     "Desde el Kruger se vuela en dos horas a Ciudad del Cabo. Allí se pueden ver la Montaña de la Mesa, el cabo de Buena Esperanza y los pingüinos de Boulders, y seguir por la Ruta Jardín o por los viñedos de Stellenbosch."
+    ]
+   },
+   {
+    "h": "Safari y caza en el mismo viaje",
+    "p": [
+     "Nuestras fincas de caza en Limpopo están pegadas al Kruger, así que es muy fácil combinar las dos cosas: el cazador caza unos días y la familia hace el safari fotográfico, y después todos juntos siguen el viaje."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuál es la mejor época para un safari en Sudáfrica?",
+    "a": "De mayo a octubre, en la temporada seca, cuando la vegetación es más baja y los animales se concentran en el agua."
+   },
+   {
+    "q": "¿Es seguro viajar a Sudáfrica?",
+    "a": "Sí, en los circuitos que organizamos, con traslados privados y alojamientos de confianza."
+   },
+   {
+    "q": "¿Se puede combinar con caza?",
+    "a": "Sí, nuestras zonas de Limpopo están junto al Kruger."
+   }
+  ]
  },
  "safaris-fotograficos/mozambique": {
-  "intro": "Mozambique es para quien busca algo menos conocido: naturaleza salvaje y unos días de playa en el Índico para terminar.",
+  "intro": "Mozambique es para quien busca algo menos conocido: naturaleza salvaje, muy pocos turistas y unos días de playa en el Índico para terminar. Le organizamos el viaje a medida, con amigos o en familia.",
   "heading": "Safari fotográfico en Mozambique",
   "sections": [
    {
-    "h": "Fauna y playa",
+    "h": "Fauna",
     "p": [
-     "El norte del país y el delta del Zambeze guardan una África muy poco visitada. Y la costa, con islas como las del archipiélago de Bazaruto, es el mejor final para un viaje largo.",
-     "Pregúntenos fechas: la temporada seca, de mayo a noviembre, es la más cómoda."
+     "El interior del país y el delta del Zambeze guardan una África muy poco visitada, con búfalos, hipopótamos, cocodrilos, antílopes y una enorme variedad de aves. El Parque Nacional de Gorongosa, recuperado en los últimos años, es una de las grandes sorpresas del continente."
+    ]
+   },
+   {
+    "h": "Playa",
+    "p": [
+     "La costa de Mozambique es de las más bonitas de África. El archipiélago de Bazaruto, con aguas turquesa, dugongos y arrecifes, es el mejor final para un viaje largo, y también se puede bucear o pescar."
+    ]
+   },
+   {
+    "h": "Cómo lo organizamos",
+    "p": [
+     "Díganos cuántos días quiere viajar, qué le gustaría ver y en qué fechas, y le preparamos una propuesta con alojamientos, guías y traslados. La temporada seca, de mayo a noviembre, es la más cómoda para ver fauna. Conocemos bien el país porque llevamos años cazando en el delta del Zambeze."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuál es la mejor época para un safari en Mozambique?",
+    "a": "La temporada seca, de mayo a noviembre."
+   },
+   {
+    "q": "¿Se puede combinar safari y playa?",
+    "a": "Sí, es lo más habitual: unos días de fauna en el interior y otros en Bazaruto o en la costa."
+   },
+   {
+    "q": "¿Es un viaje para familias?",
+    "a": "Sí. Ajustamos el ritmo, los alojamientos y las actividades a quienes viajan."
+   }
+  ]
  },
  "safaris-fotograficos/tanzania": {
-  "intro": "Si piensa en un safari de película, piensa en Tanzania. Le organizamos el viaje a medida, del Serengeti a las playas de Zanzíbar.",
+  "intro": "Si piensa en un safari de película, piensa en Tanzania. Le organizamos el viaje a medida, del Serengeti y el Ngorongoro a las playas de Zanzíbar, con los alojamientos y el ritmo que usted quiera.",
   "heading": "Safari fotográfico en Tanzania",
   "sections": [
    {
-    "h": "Serengeti, Ngorongoro y Zanzíbar",
+    "h": "Serengeti y la gran migración",
     "p": [
-     "Tanzania es el país de la gran migración del Serengeti y del cráter del Ngorongoro, dos de los mejores sitios del mundo para ver fauna. La mayoría de la gente termina con unos días en Zanzíbar.",
-     "Le ayudamos a elegir la época según lo que quiera ver, porque la migración se mueve a lo largo del año."
+     "Tanzania es el país de la gran migración: más de un millón de ñus y cebras que recorren el Serengeti a lo largo del año, seguidos por leones, guepardos y cocodrilos. Según el mes conviene estar en una zona u otra del parque, y eso es lo primero que le ayudamos a decidir."
+    ]
+   },
+   {
+    "h": "Ngorongoro, Tarangire y Manyara",
+    "p": [
+     "El cráter del Ngorongoro es uno de los mejores sitios del mundo para ver los Big Five en un solo día. Tarangire, con sus baobabs y sus manadas de elefantes, y el lago Manyara completan el circuito clásico del norte."
+    ]
+   },
+   {
+    "h": "Zanzíbar",
+    "p": [
+     "La mayoría de los viajeros termina con unos días en Zanzíbar: playas de arena blanca, el casco antiguo de Stone Town y un mar perfecto para bucear. Es el descanso ideal después de varios días de safari."
     ]
    }
   ],
-  "faq": []
+  "faq": [
+   {
+    "q": "¿Cuándo es la mejor época para ver la migración?",
+    "a": "Depende de lo que quiera ver. Los cruces del río Mara son de julio a octubre, y los partos en el sur del Serengeti, de enero a marzo."
+   },
+   {
+    "q": "¿Cuántos días hacen falta?",
+    "a": "Recomendamos entre siete y diez días de safari, más unos días en Zanzíbar si quiere playa."
+   },
+   {
+    "q": "¿Se puede ir con niños?",
+    "a": "Sí. Elegimos alojamientos y recorridos adecuados para familias."
+   }
+  ]
  }
 }

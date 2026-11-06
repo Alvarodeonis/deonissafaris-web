@@ -1,0 +1,100 @@
+{
+"safaris-fotograficos/mozambique": {
+ "intro": "Mozambique es para quien busca algo menos conocido: naturaleza salvaje, muy pocos turistas y unos días de playa en el Índico para terminar. Le organizamos el viaje a medida, con amigos o en familia.",
+ "heading": "Safari fotográfico en Mozambique",
+ "sections": [
+  {"h": "Fauna", "p": ["El interior del país y el delta del Zambeze guardan una África muy poco visitada, con búfalos, hipopótamos, cocodrilos, antílopes y una enorme variedad de aves. El Parque Nacional de Gorongosa, recuperado en los últimos años, es una de las grandes sorpresas del continente."]},
+  {"h": "Playa", "p": ["La costa de Mozambique es de las más bonitas de África. El archipiélago de Bazaruto, con aguas turquesa, dugongos y arrecifes, es el mejor final para un viaje largo, y también se puede bucear o pescar."]},
+  {"h": "Cómo lo organizamos", "p": ["Díganos cuántos días quiere viajar, qué le gustaría ver y en qué fechas, y le preparamos una propuesta con alojamientos, guías y traslados. La temporada seca, de mayo a noviembre, es la más cómoda para ver fauna. Conocemos bien el país porque llevamos años cazando en el delta del Zambeze."]}
+ ],
+ "faq": [
+  {"q": "¿Cuál es la mejor época para un safari en Mozambique?", "a": "La temporada seca, de mayo a noviembre."},
+  {"q": "¿Se puede combinar safari y playa?", "a": "Sí, es lo más habitual: unos días de fauna en el interior y otros en Bazaruto o en la costa."},
+  {"q": "¿Es un viaje para familias?", "a": "Sí. Ajustamos el ritmo, los alojamientos y las actividades a quienes viajan."}
+ ]
+},
+"safaris-fotograficos/tanzania": {
+ "intro": "Si piensa en un safari de película, piensa en Tanzania. Le organizamos el viaje a medida, del Serengeti y el Ngorongoro a las playas de Zanzíbar, con los alojamientos y el ritmo que usted quiera.",
+ "heading": "Safari fotográfico en Tanzania",
+ "sections": [
+  {"h": "Serengeti y la gran migración", "p": ["Tanzania es el país de la gran migración: más de un millón de ñus y cebras que recorren el Serengeti a lo largo del año, seguidos por leones, guepardos y cocodrilos. Según el mes conviene estar en una zona u otra del parque, y eso es lo primero que le ayudamos a decidir."]},
+  {"h": "Ngorongoro, Tarangire y Manyara", "p": ["El cráter del Ngorongoro es uno de los mejores sitios del mundo para ver los Big Five en un solo día. Tarangire, con sus baobabs y sus manadas de elefantes, y el lago Manyara completan el circuito clásico del norte."]},
+  {"h": "Zanzíbar", "p": ["La mayoría de los viajeros termina con unos días en Zanzíbar: playas de arena blanca, el casco antiguo de Stone Town y un mar perfecto para bucear. Es el descanso ideal después de varios días de safari."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es la mejor época para ver la migración?", "a": "Depende de lo que quiera ver. Los cruces del río Mara son de julio a octubre, y los partos en el sur del Serengeti, de enero a marzo."},
+  {"q": "¿Cuántos días hacen falta?", "a": "Recomendamos entre siete y diez días de safari, más unos días en Zanzíbar si quiere playa."},
+  {"q": "¿Se puede ir con niños?", "a": "Sí. Elegimos alojamientos y recorridos adecuados para familias."}
+ ]
+},
+"safaris-fotograficos/sudafrica": {
+ "intro": "Sudáfrica es la forma más cómoda de ver fauna africana: el Parque Kruger, muy buenos lodges, carreteras excelentes y la opción de terminar el viaje en Ciudad del Cabo.",
+ "heading": "Safari fotográfico en Sudáfrica",
+ "sections": [
+  {"h": "El Kruger y las reservas privadas", "p": ["El Parque Kruger tiene casi dos millones de hectáreas y muchísimas posibilidades de ver los Big Five en pocos días. Las reservas privadas que lindan con él, como Sabi Sands, permiten salir del camino con los vehículos y acercarse mucho a los animales, con guías de primer nivel."]},
+  {"h": "Ciudad del Cabo y la Ruta Jardín", "p": ["Desde el Kruger se vuela en dos horas a Ciudad del Cabo. Allí se pueden ver la Montaña de la Mesa, el cabo de Buena Esperanza y los pingüinos de Boulders, y seguir por la Ruta Jardín o por los viñedos de Stellenbosch."]},
+  {"h": "Safari y caza en el mismo viaje", "p": ["Nuestras fincas de caza en Limpopo están pegadas al Kruger, así que es muy fácil combinar las dos cosas: el cazador caza unos días y la familia hace el safari fotográfico, y después todos juntos siguen el viaje."]}
+ ],
+ "faq": [
+  {"q": "¿Cuál es la mejor época para un safari en Sudáfrica?", "a": "De mayo a octubre, en la temporada seca, cuando la vegetación es más baja y los animales se concentran en el agua."},
+  {"q": "¿Es seguro viajar a Sudáfrica?", "a": "Sí, en los circuitos que organizamos, con traslados privados y alojamientos de confianza."},
+  {"q": "¿Se puede combinar con caza?", "a": "Sí, nuestras zonas de Limpopo están junto al Kruger."}
+ ]
+},
+"safaris-fotograficos/namibia": {
+ "intro": "Desierto, costa y Etosha. En Namibia le organizamos un safari fotográfico a su aire, con las etapas y los alojamientos que mejor le encajen, en uno de los países más seguros y fotogénicos de África.",
+ "heading": "Safari fotográfico en Namibia",
+ "sections": [
+  {"h": "Un viaje por carretera", "p": ["Namibia se presta como pocos países a recorrerla en coche. Las dunas rojas de Sossusvlei, de las más altas del mundo, el valle muerto de Deadvlei, la costa de Swakopmund y los elefantes y rinocerontes de Etosha forman un circuito inolvidable.", "Las distancias son largas, así que preparamos las etapas para que nadie se pase el día al volante. También se puede hacer con conductor o con vuelos en avioneta entre zonas."]},
+  {"h": "Etosha", "p": ["En la temporada seca, de mayo a octubre, los animales se concentran en los bebederos de Etosha y se ven elefantes, leones, rinocerontes y jirafas desde el propio coche. Algunos campamentos tienen bebederos iluminados para verlos de noche."]},
+  {"h": "Para la familia del cazador", "p": ["Namibia es el país al que más cazadores llevamos. Muchas familias aprovechan para hacer el safari fotográfico mientras el cazador está en Windhoek, y después se juntan para terminar el viaje."]}
+ ],
+ "faq": [
+  {"q": "¿Cuál es la mejor época para viajar a Namibia?", "a": "De mayo a octubre, en la temporada seca."},
+  {"q": "¿Se puede ir en coche de alquiler?", "a": "Sí, con 4×4. Le preparamos las etapas y las reservas, o le ponemos conductor si lo prefiere."},
+  {"q": "¿Cuántos días hacen falta?", "a": "Para el circuito clásico de Sossusvlei, Swakopmund y Etosha, entre diez y catorce días."}
+ ]
+},
+"caza-en-africa/mauritania": {
+ "intro": "Mauritania es el safari más cercano a España. Cazamos facocheros en el sur del país, a 110 km de Nuakchot y a 20 de la costa, desde un campamento de lujo y con cinco facocheros por cazador incluidos.",
+ "heading": "Caza en Mauritania",
+ "sections": [
+  {"h": "Especial facocheros", "p": ["El [facochero](especies/facochero) mauritano es abundante y da muchas oportunidades de tiro. Se caza de noviembre a marzo, con un clima seco y agradable, en una zona segura del sur del país.", "El paquete son cuatro días de caza para un mínimo de cuatro cazadores, con cinco facocheros incluidos por cazador y todo incluido, por 3.295 €. El acompañante paga 490 €."]},
+  {"h": "Extras", "p": ["Cada facochero adicional cuesta 250 €, igual que cada día extra de caza. El trámite de importación de armas son 150 € y la preparación de los colmillos, 25 € por animal. Si prefiere cazar 1×1 con su propio guía, el suplemento es de 450 €."]},
+  {"h": "Por qué Mauritania", "p": ["Son menos de tres horas de vuelo desde Madrid, casi sin diferencia horaria. Es el plan perfecto para un grupo de amigos que quiere un safari africano corto, divertido y con mucha caza."]}
+ ],
+ "faq": [
+  {"q": "¿Cuántos facocheros incluye el paquete?", "a": "Cinco por cazador. Los adicionales cuestan 250 € cada uno."},
+  {"q": "¿Cuál es la temporada?", "a": "De noviembre a marzo."},
+  {"q": "¿Hay un mínimo de cazadores?", "a": "Sí, el paquete es para un mínimo de cuatro cazadores."}
+ ]
+},
+"caza-en-asia/kazakhstan": {
+ "intro": "Kazajistán es uno de los mejores destinos del mundo para el íbice siberiano y el maral. Cazamos en las montañas de Dzungarian Alatau, Narynkol y Kegen, a pie, a caballo y desde campamentos volantes.",
+ "heading": "Caza en Kazajistán",
+ "sections": [
+  {"h": "Íbice siberiano", "p": ["El [íbice](especies/ibex) siberiano de Kazajistán tiene cuernos que superan los 130 cm. Se caza del 1 de agosto al 15 de noviembre en programas de nueve días, siete de ellos de caza, en grupos de uno a seis cazadores.", "El programa cuesta desde 3.600 € y el trofeo se paga según la longitud de los cuernos. Se pueden añadir corzo siberiano, jabalí y lobo."]},
+  {"h": "Maral", "p": ["El maral es el gran ciervo de Asia central. Se caza del 10 de septiembre al 5 de octubre, en plena berrea, con diez días de caza y doce de viaje. El programa 2×2 cuesta 5.400 dólares desde Almaty y el trofeo va de 4.500 dólares hasta 12 kg a 11.500 dólares a partir de 17 kg."]},
+  {"h": "El viaje", "p": ["Se llega a Almaty y desde allí hay de seis a diez horas de coche hasta la zona de caza. Se duerme en yurtas, caravanas, casas de caza y campamentos volantes. Es una aventura de verdad, en montañas inmensas y con muy poca gente."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el íbice en Kazajistán?", "a": "Del 1 de agosto al 15 de noviembre."},
+  {"q": "¿Cuánto cuesta cazar un maral?", "a": "El programa son 5.400 dólares y el trofeo, de 4.500 a 11.500 dólares según el peso."},
+  {"q": "¿Cómo se llega a la zona de caza?", "a": "En avión a Almaty y después en coche, entre seis y diez horas."}
+ ]
+},
+"caza-en-asia/mongolia": {
+ "intro": "Mongolia es estepa, montaña y desierto, y caza para todos los gustos: batidas de lobo, el gran corzo siberiano y el íbex del Altái y del Gobi, siempre desde campamentos de yurtas.",
+ "heading": "Caza en Mongolia",
+ "sections": [
+  {"h": "Lobo y corzo siberiano", "p": ["Las batidas de [lobo](especies/lobo) se hacen del 1 de abril al 1 de noviembre, a 450 km de Ulán Bator. Son siete días de viaje y cinco de caza, con un lobo incluido: 4.300 dólares en 1×1 y 3.850 en 2×1.", "El corzo siberiano es mucho más grande que el europeo. El programa cuesta 5.000 dólares en 1×1 con un corzo incluido, y se puede combinar con pesca."]},
+  {"h": "Íbex del Altái y del Gobi", "p": ["El [íbex](especies/ibex) se caza del 1 de junio al 1 de noviembre, en las montañas del Altái o en el desierto del Gobi. El del Altái cuesta 6.950 dólares en 1×1 y se puede combinar con gacela de cola negra; el del Gobi, 6.600 dólares."]},
+  {"h": "La vida en las yurtas", "p": ["Se duerme en campamentos de yurtas con pensión completa, rodeado de la cultura nómada mongola. El vuelo interior, los guías locales y el intérprete están incluidos."]}
+ ],
+ "faq": [
+  {"q": "¿Cuánto cuesta cazar un lobo en Mongolia?", "a": "Desde 3.850 dólares por cazador en 2×1, con un lobo incluido."},
+  {"q": "¿Qué íbex se caza en Mongolia?", "a": "El íbex del Altái, en las montañas, y el del Gobi, en el desierto."},
+  {"q": "¿Dónde se duerme?", "a": "En campamentos de yurtas con pensión completa."}
+ ]
+}
+}

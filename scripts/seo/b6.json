@@ -1,0 +1,86 @@
+{
+"caza-en-asia/iran": {
+ "intro": "Irán está considerado por muchos el mejor sitio del mundo para un gran jabalí. Organizamos batidas para grupos de 4 a 10 cazadores en las mejores zonas del país, y caza de montaña de íbex, carneros y uriales.",
+ "heading": "Caza en Irán",
+ "sections": [
+  {"h": "Batidas de jabalí", "p": ["El [jabalí](especies/jabali) iraní alcanza tamaños que en Europa casi no se ven, con colmillos de más de 20 cm. La temporada va del 1 de junio al 15 de marzo, pero lo mejor es de noviembre a febrero, con frío y los machos en celo.", "El programa son cinco días de caza. Cuesta 2.200 € por cazador en grupos de dos o tres, 2.100 € en grupos de cuatro o cinco y 2.000 € a partir de seis. Los machos se pagan según el colmillo: 590 € hasta 17,9 cm, 990 € entre 18 y 20 cm y 1.290 € por encima. Las hembras y los pequeños están prohibidos."]},
+  {"h": "Caza de montaña", "p": ["En las montañas de Irán se cazan el [íbex](especies/ibex) persa, el carnero y el urial, con profesionales que llevan más de treinta años organizando cacerías. Es caza a rececho en terreno duro, para cazadores en buena forma.", "Las tarifas y las condiciones están en el programa en PDF. Las fechas dependen de la especie y de la zona, así que lo mejor es que nos pregunte."]},
+  {"h": "Cómo es el viaje", "p": ["Nos ocupamos de los permisos de armas, del visado y del transporte por carretera hasta las zonas de caza. El alojamiento durante los días de caza está incluido."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es la mejor época para cazar jabalí en Irán?", "a": "De noviembre a febrero, aunque la temporada abre en junio y cierra el 15 de marzo."},
+  {"q": "¿Cuánto cuesta una batida de jabalí en Irán?", "a": "Desde 2.000 € por cazador por cinco días de caza, más las tasas de los machos abatidos."},
+  {"q": "¿Qué especies de montaña hay?", "a": "Íbex persa, carneros y uriales."}
+ ]
+},
+"caza-en-asia/kirguizia": {
+ "intro": "Kirguizia es tierra de montaña y de grandes trofeos. Cazamos el íbex entre 3.500 y 3.700 metros y el carnero Marco Polo en el Tian Shan, a pie y a caballo, durmiendo en casas, tiendas y yurtas.",
+ "heading": "Caza en Kirguizia",
+ "sections": [
+  {"h": "Íbex", "p": ["El [íbex](especies/ibex) de Asia central tiene unos cuernos impresionantes. Se caza en las regiones de Chui y Narym, en grupos de uno a cuatro cazadores, a caballo hasta donde se puede llegar y después a pie.", "La temporada va del 15 de agosto al 1 de marzo; los mejores meses son de septiembre a diciembre. El viaje dura nueve días, siete de ellos de caza."]},
+  {"h": "Marco Polo", "p": ["El Marco Polo es el carnero más grande del mundo y uno de los trofeos más deseados de la [caza de montaña](especies/cabras-y-carneros). Se caza en el Tian Shan, a entre 400 y 450 km de Bishkek, a caballo y entre 3.000 y 3.500 metros.", "El mejor momento es del 15 de octubre al 30 de noviembre. El campamento está a 3.000 metros y tiene electricidad. Hay que ir preparado para el frío: en diciembre se llega a 25 grados bajo cero por la noche."]},
+  {"h": "Preparación", "p": ["Son cacerías exigentes por la altura. El segundo día se dedica a aclimatarse y a probar los rifles. Le recomendamos llegar en buena forma física y le asesoramos sobre la ropa y el equipo."]}
+ ],
+ "faq": [
+  {"q": "¿A qué altura se caza el Marco Polo?", "a": "Entre 3.000 y 3.500 metros, en las montañas del Tian Shan."},
+  {"q": "¿Cuándo es la mejor época?", "a": "Para el íbex, de septiembre a diciembre. Para el Marco Polo, del 15 de octubre al 30 de noviembre."},
+  {"q": "¿Cuántos días dura la cacería?", "a": "Siete días de caza, con un viaje total de nueve a doce días."}
+ ]
+},
+"caza-en-europa/bielorrusia": {
+ "intro": "Bielorrusia guarda algunos de los bosques más salvajes de Europa. Cazamos alce en celo, ciervos de gran trofeo en berrea y el bisonte europeo, una de las cacerías más especiales del continente.",
+ "heading": "Caza en Bielorrusia",
+ "sections": [
+  {"h": "Alce y ciervo en celo", "p": ["El [alce](especies/alce-caribu-muskox) europeo se caza del 8 al 20 de septiembre, en plena época de celo, y en noviembre. Son cinco días y cuatro de caza por 1.800 € por persona en grupos de tres o cuatro. El trofeo se paga por peso: 2.300 € hasta 6,99 kg y 3.900 € a partir de 9 kg.", "Los [ciervos](especies/ciervo) se cazan en septiembre, en berrea, en un coto que depende del Ministerio. Son animales de 12 a 14 kg de cuerna. El programa cuesta desde 1.500 € por cazador en grupos de cuatro y el ciervo, de 2.000 € a 4.500 € según el peso."]},
+  {"h": "Bisonte europeo", "p": ["El bisonte es el rey de los bosques pantanosos de Bielorrusia. Se caza en la primera quincena de septiembre o en noviembre, con cinco días de caza, porque con mal tiempo o viento los animales están muy desconfiados.", "El programa cuesta de 1.700 € a 2.000 € por cazador según el grupo. El trofeo va de 8.500 € sin medalla a 15.000 € de oro."]},
+  {"h": "El viaje", "p": ["Se vuela a Minsk, donde se tramitan las armas, y desde allí hay de tres a cuatro horas de coche hasta el cazadero. Alojamiento, comidas y transportes durante la caza están incluidos."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el alce en Bielorrusia?", "a": "Del 8 al 20 de septiembre, en celo, y en noviembre."},
+  {"q": "¿Cuánto cuesta cazar un bisonte europeo?", "a": "El programa, desde 1.700 € por cazador, y el bisonte de 8.500 € a 15.000 € según la medalla."},
+  {"q": "¿Cómo se llega?", "a": "En avión a Minsk y después por carretera hasta el cazadero."}
+ ]
+},
+"caza-en-oceania/australia": {
+ "intro": "En la Tierra de Arnhem, en el norte de Australia, cazamos búfalo de agua y banteng desde campamentos de tiendas. Son cacerías remotas, en una de las zonas más salvajes del país.",
+ "heading": "Caza en Australia",
+ "sections": [
+  {"h": "Búfalo de agua", "p": ["El búfalo de agua llegó a Australia en el siglo XIX y hoy vive en libertad en los humedales del norte. Es un animal enorme, de cuernos espectaculares, y se caza a pie entre la vegetación.", "La cacería de búfalo dura cinco días. Se pueden añadir un segundo búfalo, un búfalo de gestión, un toro dugga o un toro salvaje."]},
+  {"h": "Banteng", "p": ["El banteng es un bóvido salvaje de origen asiático que en Australia tiene una de sus mejores poblaciones. Es un trofeo raro y muy valorado por los coleccionistas. La cacería es de cuatro días y se puede añadir un segundo toro."]},
+  {"h": "Cuándo ir", "p": ["La temporada va de junio a agosto, en la estación seca del norte de Australia. Se pueden combinar las dos especies en un viaje de siete días."]}
+ ],
+ "faq": [
+  {"q": "¿Dónde se caza el búfalo de agua en Australia?", "a": "En la Tierra de Arnhem, en el norte del país."},
+  {"q": "¿Cuándo es la temporada?", "a": "De junio a agosto."},
+  {"q": "¿Se pueden cazar banteng y búfalo en el mismo viaje?", "a": "Sí, en un programa combinado de unos siete días."}
+ ]
+},
+"caza-en-asia/azerbaiyan": {
+ "intro": "El tur del Cáucaso es uno de los grandes trofeos de montaña del mundo. Lo cazamos a rececho, a pie o a caballo, con grupos de uno a cuatro cazadores en Azerbaiyán, Osetia del Norte y Rusia.",
+ "heading": "Caza en Azerbaiyán",
+ "sections": [
+  {"h": "Tres destinos para el tur", "p": ["En Azerbaiyán se caza del 1 de junio al 30 de noviembre, con cinco días de caza y siete de viaje. En Osetia del Norte, del 1 de agosto al 20 de noviembre, con seis días de caza. En Rusia, del 1 de agosto al 10 de noviembre, con cinco días de caza.", "Es caza de [montaña](especies/cabras-y-carneros) seria, con mucho desnivel, y se duerme en lodges de caza y tiendas."]},
+  {"h": "Precios", "p": ["Las tarifas son las mismas en los tres destinos: 4.000 € para un cazador solo, 3.800 € por cazador en pareja, 3.600 € en grupos de tres y 3.400 € en grupos de cuatro. Los trofeos se pagan aparte."]},
+  {"h": "Nuestro consejo", "p": ["Para el tur hay que llegar en forma y con el rifle bien probado a distancias medias y largas. Antes del viaje le ayudamos a elegir el destino que mejor encaja con sus fechas y su forma física."]}
+ ],
+ "faq": [
+  {"q": "¿Dónde se caza el tur del Cáucaso?", "a": "En Azerbaiyán, Osetia del Norte y Rusia."},
+  {"q": "¿Cuánto cuesta?", "a": "Desde 3.400 € por cazador en grupos de cuatro, más el trofeo."},
+  {"q": "¿Es una cacería dura?", "a": "Sí, es caza de alta montaña con mucho desnivel."}
+ ]
+},
+"caza-en-europa/polonia": {
+ "intro": "Polonia es uno de los países con más y mejores corzos de Europa. Cazamos desde el 11 de mayo en los mejores cotos, con profesionales serios y precios muy ajustados.",
+ "heading": "Caza en Polonia",
+ "sections": [
+  {"h": "Corzos a peso", "p": ["El [corzo](especies/corzo) se paga según el peso del trofeo, así que cada cazador sabe lo que le va a costar. Hay dos opciones de zona: Przedborz, con corzos de hasta 350 g por 390 € y de más de 350 g por 490 €, y las zonas de corzos grandes, donde un animal de más de 500 g cuesta 690 €.", "El día de caza cuesta 290 € e incluye dos salidas, una noche de hotel con desayuno, comida y cena."]},
+  {"h": "Cuándo ir", "p": ["La temporada abre el 11 de mayo. Las primeras semanas son las mejores: los machos marcan territorio y la vegetación todavía está baja."]},
+  {"h": "Polonia, cerca y fácil", "p": ["Hay vuelos directos desde España y el país está muy bien comunicado. Es un viaje corto, cómodo y muy asequible para un cazador de corzo."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo se caza el corzo en Polonia?", "a": "Desde el 11 de mayo."},
+  {"q": "¿Cuánto cuesta un corzo en Polonia?", "a": "Entre 390 € y 690 € según el peso y la zona, más 290 € por día de caza."},
+  {"q": "¿Qué incluye el día de caza?", "a": "Dos salidas, una noche de hotel con desayuno, comida y cena."}
+ ]
+}
+}

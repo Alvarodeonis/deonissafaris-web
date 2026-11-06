@@ -1,0 +1,44 @@
+{
+"caza-en-oceania/nueva-zelanda": {
+ "intro": "La Isla Sur de Nueva Zelanda tiene algunos de los ciervos más grandes del mundo, además de wapití, gamo, rebeco y tahr. Se llega por Queenstown y se caza desde lodges de lujo y casas de guías profesionales.",
+ "heading": "Caza en Nueva Zelanda",
+ "sections": [
+  {"h": "El ciervo colorado", "p": ["El [ciervo](especies/ciervo) neozelandés, el famoso red stag, alcanza puntuaciones que en Europa son impensables. La temporada va de enero a agosto, y la berrea, en marzo y abril, es el momento estrella.", "Hay paquetes de cuatro días para uno o dos trofeos y de seis días para tres o más. El precio va según los puntos SCI del ciervo: 13.000 dólares entre 400 y 450 puntos, 25.500 entre 501 y 550, y de ahí hacia arriba."]},
+  {"h": "Tahr y rebeco", "p": ["En los Alpes del Sur viven el tahr del Himalaya y el [rebeco](especies/rebeco), traídos hace más de un siglo y hoy perfectamente adaptados. Se cazan en alta montaña, normalmente con ayuda de helicóptero para llegar a las zonas buenas.", "El tahr tiene su mejor pelo en invierno, de mayo a julio."]},
+  {"h": "Cómo es el viaje", "p": ["Es un viaje largo, así que lo normal es combinar varias especies y unos días de turismo por la isla. Le preparamos el itinerario completo, desde los vuelos hasta los lodges."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es la berrea en Nueva Zelanda?", "a": "En marzo y abril, en el otoño austral."},
+  {"q": "¿Cuánto cuesta cazar un ciervo en Nueva Zelanda?", "a": "Desde 13.000 dólares por un paquete de cuatro días con un ciervo de 400 a 450 puntos SCI."},
+  {"q": "¿Qué otras especies hay?", "a": "Wapití, gamo, rebeco y tahr."}
+ ]
+},
+"caza-en-america/argentina": {
+ "intro": "Argentina tiene caza para todos los bolsillos. Cazamos ciervo colorado en berrea en La Pampa y en los Andes, grandes jabalíes, búfalo, antílope negro, ciervo axis y puma, en estancias con casa de cazadores.",
+ "heading": "Caza en Argentina",
+ "sections": [
+  {"h": "Ciervo colorado", "p": ["La berrea argentina es en marzo y abril, cuando en España no hay ciervos en celo. En La Pampa el [ciervo](especies/ciervo) colorado se paga desde 1.950 € hasta 180 puntos CIC, con días de caza a 300 €.", "En los Andes, cerca de Esquel, cazamos en una finca de 4.500 hectáreas donde la media de los trofeos supera los 195 puntos CIC. Se duerme en una casa restaurada de los primeros emigrantes galeses. La temporada va del 15 de marzo al 15 de abril."]},
+  {"h": "Jabalí, antílope y más", "p": ["En La Pampa hay un paquete cerrado de [jabalí](especies/jabali): cinco días, cuatro de caza, con tres machos de más de 15 cm y cuatro hembras o jóvenes, por 2.900 €. En la provincia de Buenos Aires, a 250 km de la capital, se cazan chanchos, [antílope negro](especies/antilope-negro), ciervo axis y carneros, con días de caza a 200 €."]},
+  {"h": "Por qué Argentina", "p": ["Se habla español, los precios son muy razonables y las estancias tienen un encanto especial. Además, la temporada complementa la española: se puede cazar la berrea dos veces en el mismo año."]}
+ ],
+ "faq": [
+  {"q": "¿Cuándo es la berrea en Argentina?", "a": "En marzo y abril."},
+  {"q": "¿Cuánto cuesta un ciervo colorado en Argentina?", "a": "En La Pampa, desde 1.950 € hasta 180 puntos CIC, más los días de caza."},
+  {"q": "¿Se pueden alquilar armas?", "a": "Sí, en varios programas hay alquiler de armas por unos 100 € al día."}
+ ]
+},
+"caza-en-europa/espana": {
+ "intro": "Somos españoles y la caza en España es la que mejor conocemos. Organizamos macho montés en Gredos, rebeco en el Pirineo, boc balear en Mallorca y grandes corzos, venados y muflones en fincas privadas a una hora de Madrid.",
+ "heading": "Caza en España",
+ "sections": [
+  {"h": "Caza de montaña", "p": ["El [macho montés](especies/macho-montes) de Gredos es uno de los grandes trofeos de montaña del mundo. Lo cazamos en una finca privada, de septiembre a marzo, con guía y caballerías: 6.900 € hasta 79 cm y 9.400 € por encima, más 1.000 € por los días de caza.", "El [rebeco](especies/rebeco) pirenaico se caza en Benasque y en terrenos privados del Pirineo catalán, de mayo al 15 de junio, por 3.600 € sin límite de puntos. Y en Mallorca, el boc balear, la cabra salvaje de la isla, se caza todo el año, mejor en noviembre, marzo y abril."]},
+  {"h": "Grandes trofeos en finca privada", "p": ["En una de las mejores fincas de España, en Guadalajara, buscamos el corzo, el venado y el [muflón](especies/muflon-y-gamo) de medalla de oro. El [corzo](especies/corzo) se caza del 1 de abril al 30 de octubre, el venado en berrea a finales de septiembre y en espera el resto de la temporada, y el muflón a rececho en celo, en octubre y noviembre.", "El día de caza con alojamiento, guarda, vehículo y pensión completa cuesta de 150 € a 450 € según el programa, y los trofeos se pagan por puntos."]},
+  {"h": "Para cazadores extranjeros", "p": ["Si viene de fuera de España, le recogemos en el aeropuerto, tramitamos la licencia y el permiso de armas y le acompañamos en todo momento."]}
+ ],
+ "faq": [
+  {"q": "¿Dónde se caza el macho montés?", "a": "En una finca privada de la Sierra de Gredos, de septiembre a marzo."},
+  {"q": "¿Qué es el boc balear?", "a": "La cabra salvaje de Mallorca, un trofeo exclusivo de las Baleares."},
+  {"q": "¿Puedo cazar en España si soy extranjero?", "a": "Sí. Tramitamos la licencia y los permisos y le recogemos en el aeropuerto."}
+ ]
+}
+}
