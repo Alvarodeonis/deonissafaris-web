@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { contact } from '../data/site.js';
 import { u } from '../lib/url.js';
 import { filmGroups, allFilms, featuredFilms } from '../data/films.js';
+import frames from '../data/frames.json';
 
 const first = featuredFilms[0];
 const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
@@ -30,7 +31,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
           <div class="eyebrow">Recomendadas</div>
           {featuredFilms.map((f, i) => (
             <button type="button" class:list={['rec', { on: i === 0 }]} data-play={f.id} data-title={f.title} data-group={f.groupName}>
-              <span class="rth" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /></span>
+              <span class="rth" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /></span>
               <span class="rtx"><small>{f.groupName}</small>{f.title}</span>
             </button>
           ))}
@@ -52,7 +53,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
           <div class="flist">
             {g.films.map((f) => (
               <button type="button" class="fcard" data-play={f.id} data-title={f.title} data-group={g.name}>
-                <span class="th" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
+                <span class="th" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
                 <span class="ftl">{f.title}</span>
               </button>
             ))}
@@ -117,12 +118,10 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
   /* Avance al pasar el ratón: fotogramas del vídeo que se funden con un zoom lento. */
-  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
-  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; }
-  .th img, .rth img { transition: transform 4s ease-out; }
-  .fcard:hover .th img, .rec:hover .rth img { transform: scale(1.12); }
+  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; opacity: 0; transform: scale(1); transition: opacity .8s ease, transform 3.2s linear; }
+  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; transform: scale(1.08); }
   .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
-  .fcard:hover .bar { width: 100%; transition: width 4.2s linear; }
+  .fcard:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
   .fcard:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
   .pl { z-index: 2; }
   .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
@@ -199,20 +198,28 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     if (e.key === 'ArrowLeft') step(-1);
   });
 
-  // Avance al pasar el ratón: los fotogramas del propio vídeo se funden uno tras otro.
+  // Avance al pasar el ratón: fotogramas reales de la película (sin la intro), unos 2,5 s cada uno.
+  const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  const HOLD = 2500;
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
     const id = el.dataset.hover!;
+    const n = Number(el.dataset.frames || 0);
+    const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/hq${k}.jpg`);
+    el.style.setProperty('--len', `${(srcs.length * HOLD) / 1000}s`);
     let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
+    const load = () => { if (!layers.length) layers = srcs.map((src) => {
+      const im = document.createElement('img');
+      im.className = 'fr'; im.alt = ''; im.decoding = 'async'; im.src = src;
+      el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
+      return im;
+    }); };
     el.addEventListener('mouseenter', () => {
-      if (!layers.length) layers = [1, 2, 3].map((n) => {
-        const im = document.createElement('img');
-        im.className = 'fr'; im.alt = ''; im.src = `https://i.ytimg.com/vi/${id}/hq${n}.jpg`;
-        el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
-        return im;
-      });
+      load();
       i = 0;
-      const next = () => { layers.forEach((l, k) => l.classList.toggle('on', k === i % layers.length)); i++; };
-      t = window.setTimeout(function tick() { next(); t = window.setTimeout(tick, 1300); }, 250);
+      const show = () => { layers.forEach((l, k) => l.classList.toggle('on', k === i % layers.length)); i++; t = window.setTimeout(show, HOLD); };
+      // Empieza en cuanto el primer fotograma está listo, para no ver un hueco.
+      const first = layers[0];
+      if (first.complete) show(); else { first.addEventListener('load', show, { once: true }); first.addEventListener('error', show, { once: true }); }
     });
     el.addEventListener('mouseleave', () => { clearTimeout(t); layers.forEach((l) => l.classList.remove('on')); });
   });
