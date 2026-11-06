@@ -1,8 +1,9 @@
 ---
 import { u } from '../lib/url.js';
 const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Namibia', 'Groenlandia', 'Arco'];
+const BUILD = Date.now().toString(36);
 ---
-<div class="sx" id="sx" hidden data-base={u()} data-index={u('search.json')}>
+<div class="sx" id="sx" hidden data-base={u()} data-index={`${u('search.json')}?v=${BUILD}`}>
   <div class="sx-top">
     <div class="sx-bar">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
@@ -101,7 +102,8 @@ const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Nami
       else return 0;
     }
     // Recomendados (r: 2) y destacados (r: 1) siempre por delante.
-    return sc - (x.o || 0) * 1.5 + (x.r || 0) * 20;
+    // Pesca y fotográficos, detrás de la caza.
+    return sc - (x.o || 0) * 1.5 + (x.r || 0) * 20 - (x.x || 0) * 9;
   };
 
   const LABEL = { e: 'Especies', c: 'Continentes', p: 'Países', g: 'Programas', w: 'Páginas' };
@@ -115,8 +117,11 @@ const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Nami
     const hits = data.map((x) => [x, score(x, words)]).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1]);
     if (!hits.length) { res.innerHTML = `<p class="sx-none">No encontramos «${esc(q.value)}». <a href="${base}contacto">Cuéntenos qué quiere cazar</a> y se lo organizamos.</p>`; return; }
     let html = '';
+    // Los programas recomendados que coinciden van arriba del todo.
+    const top = hits.filter(([x]) => x.t === 'g' && x.r === 2).slice(0, 3).map(([x]) => x);
+    if (top.length) html += '<div class="sx-grp"><h4>Recomendado</h4><div class="sx-list">' + top.map((x) => `<a href="${base}${x.h}"><img src="${x.i}" alt="" loading="lazy"><span><b>${mark(x.n, words)}</b><small>${esc(x.s)}</small></span></a>`).join('') + '</div></div>';
     for (const t of ['e', 'p', 'g', 'c', 'w']) {
-      const g = hits.filter(([x]) => x.t === t).slice(0, MAX[t]).map(([x]) => x);
+      const g = hits.filter(([x]) => x.t === t && !top.includes(x)).slice(0, MAX[t]).map(([x]) => x);
       if (!g.length) continue;
       const tiles = t === 'e' || t === 'c' || t === 'p';
       html += `<div class="sx-grp"><h4>${LABEL[t]}</h4><div class="${tiles ? 'sx-tiles' : 'sx-list'}">` + g.map((x) => tiles

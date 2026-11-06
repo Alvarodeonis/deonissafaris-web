@@ -1,5 +1,5 @@
 import { programs, programUrl, countries, isCurrent, fromPrice, money } from '../data/programs.js';
-import { allCategories as categories } from '../data/site.js';
+import { allCategories as categories, isHunting } from '../data/site.js';
 import { activeSpecies, groups, speciesIn, speciesUrl, groupUrl, speciesCover, countriesOfSpecies } from '../data/species.js';
 
 // Palabras clave de un programa: país, resumen, especies que incluye o se pueden cazar (simulador y tablas), con sinónimos.
@@ -18,12 +18,12 @@ export function GET() {
   for (const c of categories) {
     const list = countries(c.slug);
     if (!list.length) continue;
-    items.push({ t: 'c', n: c.title, s: `${list.length} países`, h: c.slug, i: list[0].programs[0].hero, k: '' });
-    for (const k of list) items.push({ t: 'p', n: k.name, s: `${c.title} · ${k.programs.length} programas`, h: `${c.slug}/${k.slug}`, i: (k.programs.find((p) => p.gallery?.length) ?? k.programs[0]).hero, k: k.programs.map((p) => p.title).join(' ') });
+    items.push({ t: 'c', n: c.title, s: `${list.length} países`, h: c.slug, i: list[0].programs[0].hero, k: '', ...(isHunting(c.slug) ? {} : { x: 1 }) });
+    for (const k of list) items.push({ t: 'p', n: k.name, s: `${c.title} · ${k.programs.length} programas`, h: `${c.slug}/${k.slug}`, i: (k.programs.find((p) => p.gallery?.length) ?? k.programs[0]).hero, k: k.programs.map((p) => p.title).join(' '), ...(isHunting(c.slug) ? {} : { x: 1 }) });
   }
   for (const p of programs) {
     const from = fromPrice(p);
-    items.push({ t: 'g', n: p.title, s: [p.recommended ? '★ Recomendado' : '', p.countryName, p.category === 'caza-con-arco' ? 'con arco' : '', from ? `desde ${money(from.amount, from.currency)}` : ''].filter(Boolean).join(' · '), h: programUrl(p), i: p.hero, k: progKeys(p), o: isCurrent(p) ? 0 : 1, ...(p.recommended ? { r: 2 } : p.featured ? { r: 1 } : {}) });
+    items.push({ t: 'g', n: p.title, s: [p.recommended ? '★ Recomendado' : '', p.countryName, p.category === 'caza-con-arco' ? 'con arco' : '', from ? `desde ${money(from.amount, from.currency)}` : ''].filter(Boolean).join(' · '), h: programUrl(p), i: p.hero, k: progKeys(p), o: isCurrent(p) ? 0 : 1, ...(p.recommended ? { r: 2 } : p.featured ? { r: 1 } : {}), ...(isHunting(p.category) ? {} : { x: 1 }) });
   }
   for (const [n, h, k] of [['Fotos', 'fotos', 'galería imágenes trofeos'], ['Películas', 'videos', 'vídeos youtube'], ['Artículos y revistas', 'articulos-revistas', 'prensa'], ['Sobre nosotros', 'sobre-nosotros', 'equipo quiénes somos'], ['Contacto', 'contacto', 'teléfono email whatsapp oficina']])
     items.push({ t: 'w', n, s: 'Página', h, k });
