@@ -1,0 +1,461 @@
+{
+ "big-five": {
+  "heading": "Cazar los Big Five con nosotros",
+  "sections": [
+   {"h": "Dónde cazamos cada uno", "p": [
+    "El [búfalo](especies/bufalo) es el que más organizamos: Mozambique, Tanzania, Sudáfrica, Zambia y Zimbabwe. El [leopardo](especies/leopardo) lo cazamos en Namibia y Mozambique, siempre con cebado previo. El [león](especies/leon) va a la huella en el Kalahari y en Limpopo.",
+    "El [elefante](especies/elefante) se caza en Botswana y Sudáfrica, y el [rinoceronte](especies/rinoceronte) se añade como trofeo en Limpopo, previa consulta."
+   ]},
+   {"h": "Cómo empezar", "p": [
+    "Si nunca ha cazado un animal peligroso, el búfalo es la puerta de entrada lógica. En la Coutada 10 de Marromeu hay un programa de cinco días con un búfalo incluido.",
+    "Los programas largos de Mozambique, de diez o catorce días, permiten juntar búfalo, leopardo y plains game en un mismo viaje."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Se pueden cazar los cinco en un solo viaje?", "a": "En la práctica, no. Lo normal es combinar dos o tres, por ejemplo búfalo y leopardo en Mozambique."},
+   {"q": "¿Qué Big Five se puede cazar con arco?", "a": "Búfalo en Mozambique y Sudáfrica, y león a la huella en Limpopo. Lo tiene en [caza con arco](caza-con-arco)."}
+  ]
+ },
+ "caza-mayor": {
+  "heading": "Caza mayor fuera de España",
+  "sections": [
+   {"h": "Europa, cerca y con buenos trofeos", "p": [
+    "Para un viaje corto, Europa del Este es difícil de batir: [corzo](especies/corzo) a peso en Hungría y Polonia, [ciervo](especies/ciervo) en berrea en Rumanía y Bielorrusia, [rebeco](especies/rebeco) en los Cárpatos y los Balcanes, y [oso](especies/oso) en Rumanía y Croacia.",
+    "Casi todos son programas de tres días de caza, fáciles de encajar en una semana."
+   ]},
+   {"h": "Montaña, África y Norteamérica", "p": [
+    "Si busca algo más lejos, en Asia Central están el [íbex](especies/ibex) y el Marco Polo. En África, los [antílopes](especies/antilopes) de Namibia y Sudáfrica. En Canadá y Groenlandia, [alce, caribú y muskox](especies/alce-caribu-muskox).",
+    "Cada especie tiene su página con los países y los programas en los que la organizamos."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Qué especie recomiendan para un primer viaje de caza?", "a": "Los antílopes en Namibia o el corzo en Hungría. Son viajes cómodos, cortos y con mucho éxito."},
+   {"q": "¿Gestionan ustedes la importación del trofeo a España?", "a": "Le asesoramos en cada paso, aunque los permisos españoles corren por cuenta del cazador. Se explica en cada programa."}
+  ]
+ },
+ "caza-menor": {
+  "heading": "Caza menor en Europa",
+  "sections": [
+   {"h": "Nuestros destinos", "p": [
+    "La [becada](especies/becada) la cazamos en la montaña de Strandja, en Bulgaria, con perros de muestra y sin límite de piezas. El [urogallo](especies/urogallo), en celo en los Ródopes, también en Bulgaria.",
+    "Para tirar a [acuáticas y faisanes](especies/acuaticas-y-faisanes), West Norfolk, en Inglaterra, a una hora de Stansted."
+   ]},
+   {"h": "Viajes cortos", "p": [
+    "Son programas de tres días de caza, fáciles de cuadrar con un fin de semana largo.",
+    "En Inglaterra las escopetas y los cartuchos van incluidos, así que no tiene que viajar con arma."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la mejor época para la becada en Bulgaria?", "a": "Del 15 de noviembre al 15 de febrero."},
+   {"q": "¿Se puede combinar el urogallo con otra especie?", "a": "Sí. Desde el 1 de mayo se puede añadir corzo y jabalí en los Ródopes."}
+  ]
+ },
+ "elefante": {
+  "heading": "Caza del elefante",
+  "sections": [
+   {"h": "Botswana", "p": [
+    "Botswana es uno de los grandes destinos de marfil de África. El [programa de Botswana](caza-en-africa/botswana/botswana-elefante-10-dias) es de diez días de caza, el tiempo que pide un elefante de calidad.",
+    "Las condiciones cambian de un año a otro, así que conviene preguntarnos por las ofertas vigentes."
+   ]},
+   {"h": "Sudáfrica", "p": [
+    "En Limpopo cazamos el elefante desde un [lodge de lujo](caza-en-africa/sudafrica/sudafrica-elefantes), en fincas privadas junto al Parque Kruger.",
+    "Desde allí se puede seguir con [búfalo](especies/bufalo) o con antílopes, en el mismo viaje."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuántos días hacen falta para un elefante?", "a": "En Botswana planteamos diez días de caza."},
+   {"q": "¿Se puede importar el trofeo a España?", "a": "Necesita permisos CITES. Le explicamos el trámite antes de reservar."}
+  ]
+ },
+ "bufalo": {
+  "heading": "Caza del búfalo cafre",
+  "sections": [
+   {"h": "Mozambique, Tanzania y Sudáfrica", "p": [
+    "Son los tres países que más recomendamos. En Mozambique cazamos en la Coutada 10 de Marromeu, en el delta del Zambeze, con [paquetes de 5](caza-en-africa/mozambique/mozambique-bufalo-en-5-dias), [7 o 10 días](caza-en-africa/mozambique/mozambique-bufalos-pack-7-y-10-dias).",
+    "En Tanzania, el [especial búfalos](caza-en-africa/tanzania/tanzania-especial-bufalos) de la Mlele Game Reserve incluye dos búfalos por cazador. En Sudáfrica hay búfalo de boss duro en Limpopo y búfalo a la huella en el Kalahari."
+   ]},
+   {"h": "Zambia, Zimbabwe y con arco", "p": [
+    "En Zambia el búfalo se combina con hipopótamo y cocodrilo en siete días. Zimbabwe tiene también su especial búfalos.",
+    "Con arco, el búfalo se caza en los pajonales del Zambeze y a la huella en Limpopo."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la mejor época para el búfalo?", "a": "En Mozambique, de mayo a noviembre. En Tanzania, septiembre y octubre."},
+   {"q": "¿Cuántos días hacen falta?", "a": "Con cinco días suele bastar para un búfalo. Si quiere añadir leopardo o plains game, mejor siete o diez."}
+  ]
+ },
+ "leon": {
+  "heading": "Caza del león a la huella",
+  "sections": [
+   {"h": "Kalahari", "p": [
+    "En el Kalahari los leones viven en libertad en una finca de 20.000 hectáreas. Se sigue el rastro con rastreadores nativos hasta dar con ellos.",
+    "El [programa del Kalahari](caza-en-africa/sudafrica/sudafrica-leones-y-bufalo-kalahari) permite añadir búfalo a la huella."
+   ]},
+   {"h": "Con arco en Limpopo", "p": [
+    "Para el arquero, [leones a la huella](caza-con-arco/sudafrica/sudafrica-arco-leones) en 60.000 hectáreas junto al Kruger, con leones y leonas.",
+    "Son cinco días de caza y siete de estancia. Es una caza muy intensa."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Los leones son de cercado?", "a": "No. Los cazamos a la huella, en fincas grandes donde viven en libertad."},
+   {"q": "¿Cuánto dura el programa?", "a": "De cuatro a cinco días de caza, y de seis a siete de estancia."}
+  ]
+ },
+ "leopardo": {
+  "heading": "Caza del leopardo",
+  "sections": [
+   {"h": "Namibia", "p": [
+    "El [leopardo en Namibia](caza-en-africa/namibia/namibia-leopardo) se caza con cebado previo y un mínimo de diez días.",
+    "El lodge está a 40 km del aeropuerto de Windhoek, y se puede combinar con [antílopes](especies/antilopes) del programa general."
+   ]},
+   {"h": "Mozambique", "p": [
+    "En la Coutada 10 de Marromeu y en Nairoto el leopardo forma parte del [programa general](caza-en-africa/mozambique/mozambique-programa-general), de 7, 10 o 14 días.",
+    "Allí lo normal es juntarlo con [búfalo](especies/bufalo)."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Por qué hacen falta tantos días?", "a": "Porque primero hay que cebar y después esperar a que el leopardo entre. Diez días dan margen."},
+   {"q": "¿Cuál es la temporada en Mozambique?", "a": "Del 1 de mayo al 30 de noviembre."}
+  ]
+ },
+ "rinoceronte": {
+  "heading": "Rinoceronte en Sudáfrica",
+  "sections": [
+   {"h": "Como trofeo adicional", "p": [
+    "El rinoceronte no tiene programa propio. Se añade a una cacería en Limpopo, en fincas privadas junto al Parque Kruger.",
+    "Lo más habitual es sumarlo al [programa general de Limpopo](caza-en-africa/sudafrica/sudafrica-limpopo-programa-general) o al [búfalo en lodge de lujo](caza-en-africa/sudafrica/sudafrica-bufalo-lodge-de-lujo)."
+   ]},
+   {"h": "Consulta previa", "p": [
+    "La disponibilidad y las condiciones cambian. Pregúntenos antes de cerrar el viaje.",
+    "También es posible con arco, dentro de los paquetes en lodge de lujo."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Dónde se caza el rinoceronte?", "a": "En Limpopo, Sudáfrica."},
+   {"q": "¿Hay plazas cada temporada?", "a": "Depende del año. Le confirmamos la disponibilidad cuando nos escriba."}
+  ]
+ },
+ "antilopes": {
+  "heading": "Caza de antílopes en África",
+  "sections": [
+   {"h": "Namibia, nuestro favorito", "p": [
+    "Para antílopes recomendamos Namibia. Hay 80.000 hectáreas de fincas abiertas a 40 km de Windhoek, y se caza a rececho de verdad.",
+    "El [paquete económico](caza-en-africa/namibia/namibia-paquete-economico) incluye órix, dos springbok, babuino y chacal en cuatro días. El [paquete Windhoek](caza-en-africa/namibia/namibia-paquete-windhoek) es de seis días 1×1."
+   ]},
+   {"h": "Sudáfrica, Mozambique y Zambia", "p": [
+    "En Limpopo hay unas 34 especies posibles y un lodge de lujo, también para arqueros.",
+    "En Mozambique los antílopes se suman al búfalo. En Zambia destacan el sable y el lechwe."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Es buen destino para ir con la familia?", "a": "Namibia sí: el lodge está cerca del aeropuerto y los acompañantes pueden hacer turismo."},
+   {"q": "¿Cuál es la temporada en Namibia?", "a": "De febrero a noviembre."}
+  ]
+ },
+ "facochero": {
+  "heading": "Caza del facochero",
+  "sections": [
+   {"h": "Mauritania", "p": [
+    "En el sur de Mauritania, a 110 km de Nuakchot, el [especial facocheros](caza-en-africa/mauritania/mauritania-especial-facocheros) incluye cinco por cazador en cuatro días.",
+    "El campamento es de lujo y la zona es segura y sin malaria."
+   ]},
+   {"h": "Con arco", "p": [
+    "En Mauritania los [facocheros con arco](caza-con-arco/mauritania/mauritania-arco-facochero) se cazan a rececho, mañana y tarde, acercándose mientras comen.",
+    "En Sudáfrica tenemos un especial para arqueros, ahora en pausa por la sequía."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo se caza en Mauritania?", "a": "De noviembre a marzo."},
+   {"q": "¿Cuántos facocheros incluye?", "a": "Cinco por cazador en el programa a rifle."}
+  ]
+ },
+ "felinos": {
+  "heading": "Guepardo, puma y lince",
+  "sections": [
+   {"h": "Guepardo en Namibia", "p": [
+    "Son pocos los países donde se puede cazar el guepardo. En [Namibia](caza-en-africa/namibia/namibia-guepardo) pedimos un mínimo de seis días.",
+    "El lodge está a 40 km del aeropuerto, y se pueden añadir antílopes."
+   ]},
+   {"h": "Canadá y Argentina", "p": [
+    "En British Columbia cazamos [puma, lince y gato montés](caza-en-america/canada/canada-british-columbia-puma-lince-gato-montes) con perros, rastreando en 4x4 y moto de nieve. Pide estar en forma.",
+    "En La Pampa, el puma entra en el [programa general de Argentina](caza-en-america/argentina/argentina-programa-general)."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la temporada en British Columbia?", "a": "Del 15 de noviembre al 15 de febrero."},
+   {"q": "¿Cuántos días hacen falta para el guepardo?", "a": "Seis como mínimo."}
+  ]
+ },
+ "ibex": {
+  "heading": "Caza del íbex",
+  "sections": [
+   {"h": "Kazajistán y Turquía", "p": [
+    "Son los dos destinos que recomendamos. En Kazajistán el [íbice siberiano](caza-en-asia/kazakhstan/kazakhstan-ibex-zonas-premium) se caza en Dzungarian Alatau, Narynkol y Kegen, a pie y a caballo.",
+    "En Turquía, el [íbex bezoar](caza-en-asia/turquia/turquia-ibex-bezoar) tiene trofeos de 100 a 110 cm. Lo mejor es noviembre y diciembre."
+   ]},
+   {"h": "Más destinos", "p": [
+    "En Tayikistán el íbex llega a 135 cm, y en Kirguizia se caza entre 3.500 y 3.700 metros. En Mongolia, en el Altái o en el Gobi.",
+    "Hay también íbex en Irán, y el íbex alpino en Austria."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Hace falta buena forma física?", "a": "Sí. Es caza de alta montaña, y en Kirguizia se pasa de los 3.500 metros."},
+   {"q": "¿Se puede combinar con otras especies?", "a": "En Tayikistán, con jabalí y lobo. En Mongolia, con gacela de cola negra."}
+  ]
+ },
+ "rebeco": {
+  "heading": "Caza del rebeco",
+  "sections": [
+   {"h": "Balcánico y carpático", "p": [
+    "En Macedonia, el [rebeco balcánico](caza-en-europa/macedonia/macedonia-caza-de-rebecos) se caza en el coto alpino de Karadzitza, sin límite de puntos.",
+    "En Rumanía, el [rebeco carpático](caza-en-europa/rumania/rumania-rebeco-carpatico) es el más grande del mundo en cuerpo y trofeo. Se caza entre 1.500 y 2.400 metros."
+   ]},
+   {"h": "Alpes, Pirineo y Nueva Zelanda", "p": [
+    "Rebeco alpino en Eslovenia, Italia, Austria y Francia, y balcánico también en Bulgaria y Croacia.",
+    "En España, pirenaico y cantábrico. Y en Nueva Zelanda, junto al tahr en la Isla Sur."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo es la mejor época?", "a": "En casi toda Europa, de septiembre a noviembre. El pirenaico, en mayo y junio."},
+   {"q": "¿Cuántos días hacen falta?", "a": "Dos o tres días de caza."}
+  ]
+ },
+ "macho-montes": {
+  "heading": "Caza del macho montés",
+  "sections": [
+   {"h": "Gredos", "p": [
+    "Cazamos el macho montés en una [finca privada de Gredos](caza-en-europa/espana/espana-macho-montes-gredos-finca-privada), con caballerías, guía y recogida en el aeropuerto.",
+    "La temporada va de septiembre a marzo."
+   ]},
+   {"h": "Con arco", "p": [
+    "Es uno de los grandes retos del arco en España. El [programa con arco](caza-con-arco/espana/espana-arco-macho-montes) es en la misma finca.",
+    "Son dos o tres días."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Dónde se caza?", "a": "En una finca privada de la Sierra de Gredos."},
+   {"q": "¿Cuánto dura?", "a": "Dos o tres días."}
+  ]
+ },
+ "cabras-y-carneros": {
+  "heading": "Cabras y carneros de montaña",
+  "sections": [
+   {"h": "Marco Polo y tahr", "p": [
+    "En Tayikistán, el [Marco Polo](caza-en-asia/tayikistan/tayikistan-marco-polo) lleva un 100 % de éxito en los últimos 12 años, con trofeos medios de 55-56 pulgadas.",
+    "En Nueva Zelanda, el tahr del Himalaya se caza en los Alpes neozelandeses dentro del [programa general](caza-en-oceania/nueva-zelanda/nueva-zelanda-programa-general)."
+   ]},
+   {"h": "Tur, Dall y boc balear", "p": [
+    "El tur del Cáucaso se caza en Azerbaiyán y Rusia, a pie o a caballo. El carnero de Dall, en el Yukón.",
+    "Y sin salir de España, el [boc balear](caza-en-europa/espana/espana-boc-balear) en Mallorca, todo el año."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la mejor época para el Marco Polo?", "a": "De septiembre a mediados de diciembre, y también en febrero y marzo."},
+   {"q": "¿Y para el boc balear?", "a": "Se caza todo el año. Lo mejor es noviembre, marzo y abril."}
+  ]
+ },
+ "jabali": {
+  "heading": "Caza del jabalí",
+  "sections": [
+   {"h": "Turquía", "p": [
+    "Es nuestro destino número uno para el jabalí. Hay [batidas en reservas](caza-en-asia/turquia/turquia-batidas-jabali-caza-en-reservas) para grupos de 8 a 14 cazadores y [caza mixta](caza-en-asia/turquia/turquia-jabali-caza-mixta) de batida y rececho nocturno.",
+    "En el programa [VIP nocturno](caza-en-asia/turquia/turquia-jabali-vip-caza-nocturna) la media de colmillo pasa de 23 cm."
+   ]},
+   {"h": "Irán, Europa y Argentina", "p": [
+    "Para grandes navajeros, Irán y Tayikistán. Esperas y batidas en Rumanía, Bulgaria y Macedonia, y batidas en Túnez.",
+    "En Argentina se cazan muchísimos chanchos. Con arco, esperas a una hora de Madrid y de noche en Turquía."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la temporada de batidas en Turquía?", "a": "Del 15 de octubre al 15 de febrero. La caza nocturna, todo el año."},
+   {"q": "¿Cuántos jabalíes se cazan en una batida en Turquía?", "a": "Un buen resultado es un jabalí por cazador y día."}
+  ]
+ },
+ "ciervo": {
+  "heading": "Caza del ciervo",
+  "sections": [
+   {"h": "Berrea en Europa", "p": [
+    "La berrea de septiembre la cazamos en [Rumanía](caza-en-europa/rumania/rumania-caza-de-ciervo), en Bielorrusia con ciervos de 12 a 14 kg, en Bulgaria y en Austria.",
+    "En España, [grandes venados](caza-en-europa/espana/espana-grandes-venados) a una hora de Madrid, con el venado medalla de oro como objetivo."
+   ]},
+   {"h": "Nueva Zelanda y Argentina", "p": [
+    "Los ciervos más grandes del mundo están en [Nueva Zelanda](caza-en-oceania/nueva-zelanda/nueva-zelanda-programa-general). Allí la berrea es en marzo y abril.",
+    "En Argentina, ciervo colorado en los Andes, junto a Esquel, y en La Pampa. También el maral en Kazajistán."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo es la berrea en Nueva Zelanda?", "a": "En marzo y abril, al revés que en Europa."},
+   {"q": "¿Se puede cazar el ciervo con arco?", "a": "Sí, en España y en Nueva Zelanda."}
+  ]
+ },
+ "corzo": {
+  "heading": "Caza del corzo",
+  "sections": [
+   {"h": "Corzos a peso", "p": [
+    "En [Hungría](caza-en-europa/hungria/hungria-corzos-a-peso) cazamos en la gran llanura, donde están los mejores corzos del país. En [Polonia](caza-en-europa/polonia/polonia-caza-de-corzos-a-peso), desde el 11 de mayo.",
+    "En los dos se paga el trofeo por peso, y en Rumanía hay corzo de llanura y de montaña baja."
+   ]},
+   {"h": "Inglaterra, Escocia y España", "p": [
+    "En Inglaterra el corzo se combina con muntjac. En Escocia, con ciervo.",
+    "En España tenemos [grandes corzos](caza-en-europa/espana/espana-grandes-corzos) a una hora de Madrid. Y en Mongolia, el corzo siberiano."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo empieza la temporada en Hungría?", "a": "El 15 de abril, y dura hasta el 30 de septiembre."},
+   {"q": "¿Cómo se pesa el trofeo?", "a": "Con cráneo entero, 24 horas después de hervirlo."}
+  ]
+ },
+ "muflon-y-gamo": {
+  "heading": "Caza del muflón y el gamo",
+  "sections": [
+   {"h": "Gamo", "p": [
+    "El [gamo en Rumanía](caza-en-europa/rumania/rumania-rececho-de-gamo) se caza en los parajes donde se filmó «Fallow Buck Paradise». En 2023 salió allí un nuevo récord del país.",
+    "La ronca va del 25 de septiembre al 15 de noviembre. Hay gamo también en Bulgaria, Austria y Nueva Zelanda."
+   ]},
+   {"h": "Muflón", "p": [
+    "En España, [grandes muflones](caza-en-europa/espana/espana-grandes-muflones) a una hora de Madrid, a rececho en celo o en espera.",
+    "En Croacia, el muflón se suma al rebeco de Biokovo. Con arco, en espera o a rececho en España."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo está el muflón en celo?", "a": "En octubre y noviembre."},
+   {"q": "¿Se puede cazar el muflón todo el año?", "a": "En Bulgaria sí. En España, en espera fuera del celo."}
+  ]
+ },
+ "muntjac": {
+  "heading": "Muntjac y ciervo acuático chino",
+  "sections": [
+   {"h": "Dos trofeos curiosos", "p": [
+    "Los dos se cazan en Inglaterra, en fincas de West Norfolk. El muntjac, todo el año. El CWD, de noviembre a marzo.",
+    "En el [programa de muntjac y CWD](caza-en-europa/inglaterra/inglaterra-caza-de-muntjac-y-cwd) van incluidos el guía, el rifle y las balas."
+   ]},
+   {"h": "Con corzo", "p": [
+    "Entre abril y octubre, el muntjac se puede sumar a los [corzos de Inglaterra](caza-en-europa/inglaterra/inglaterra-caza-de-corzos).",
+    "Recomendamos no llevar arma propia, porque los trámites de entrada son lentos."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuántos días son?", "a": "Tres como mínimo."},
+   {"q": "¿Qué aeropuerto queda más cerca?", "a": "Stansted."}
+  ]
+ },
+ "antilope-negro": {
+  "heading": "Antílope negro en Argentina",
+  "sections": [
+   {"h": "Provincia de Buenos Aires", "p": [
+    "El antílope negro se caza en bañados y sembrados de la provincia de Buenos Aires, junto a chanchos, ciervo axis y carneros.",
+    "Lo tiene en [chanchos y antílopes](caza-en-america/argentina/argentina-chanchos-y-antilopes), de abril a julio."
+   ]},
+   {"h": "La Pampa", "p": [
+    "En La Pampa, el [programa general](caza-en-america/argentina/argentina-programa-general) incluye antílope negro con ciervo colorado, jabalí, búfalo y puma.",
+    "Se aloja en casa de estancia."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la temporada?", "a": "De mediados de abril a finales de julio."},
+   {"q": "¿Cuántos días son?", "a": "El programa general de La Pampa pide un mínimo de cinco días."}
+  ]
+ },
+ "oso": {
+  "heading": "Caza del oso",
+  "sections": [
+   {"h": "Oso pardo en Europa", "p": [
+    "Rumanía tiene la mayor población de osos pardos de Europa, unos 8.000. Lo cazamos [en espera](caza-en-europa/rumania/rumania-osos-en-espera) y [en batida](caza-en-europa/rumania/rumania-caza-de-oso-en-batida) en los Cárpatos.",
+    "En Croacia, desde torretas sobre cebaderos. La mayoría de los osos abatidos allí son de medalla."
+   ]},
+   {"h": "Norteamérica y Rusia", "p": [
+    "Oso negro en Quebec, con un guía español desde Barajas. Grizzly en el Yukón y Kodiak desde un barco en Alaska.",
+    "En Rusia, oso pardo siberiano en el Baikal y el Altái, y el grizzly negro de Manchuria."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo se caza el oso en Rumanía?", "a": "En primavera, del 15 de marzo al 14 de mayo, y en otoño, del 1 de octubre al 31 de diciembre."},
+   {"q": "¿Se puede cazar el oso con arco?", "a": "Sí, el oso negro en Quebec."}
+  ]
+ },
+ "lobo": {
+  "heading": "Caza del lobo",
+  "sections": [
+   {"h": "Macedonia", "p": [
+    "Es nuestro destino recomendado. Hay [lobo en espera](caza-en-europa/macedonia/macedonia-lobo-en-espera) en las llanuras del sur, a 80 km de Skopje, con guía 1:1.",
+    "También [batidas de lobo y jabalí](caza-en-europa/macedonia/macedonia-lobo-y-jabali-en-batida) con perros en el centro del país."
+   ]},
+   {"h": "Mongolia y Canadá", "p": [
+    "En Mongolia, [batidas de lobos](caza-en-asia/mongolia/mongolia-batidas-de-lobos) en la estepa, con un lobo incluido.",
+    "En British Columbia el lobo se puede sumar al programa general."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuándo se caza el lobo en espera en Macedonia?", "a": "Del 15 de octubre al 31 de marzo."},
+   {"q": "¿Se puede exportar el trofeo?", "a": "Sí, con permiso CITES, que tiene su propia tasa en el programa."}
+  ]
+ },
+ "alce-caribu-muskox": {
+  "heading": "Alce, caribú y muskox",
+  "sections": [
+   {"h": "Groenlandia", "p": [
+    "Allí cazamos el muskox [en primavera](caza-en-europa/groenlandia/groenlandia-muskox-en-primavera), sobre lagos helados, y [en verano](caza-en-europa/groenlandia/groenlandia-muskox-en-verano) con helicóptero.",
+    "El [caribú de Narsarsuaq](caza-en-europa/groenlandia/groenlandia-caribous) se caza en agosto y septiembre."
+   ]},
+   {"h": "Alce y bisonte", "p": [
+    "Alce europeo en celo en Bielorrusia, y alce en el Yukón, donde están los más grandes del mundo, también con arco.",
+    "En Bielorrusia está además el bisonte europeo, una de las cacerías más especiales de Europa."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Se puede cazar el muskox con arco?", "a": "Sí, en verano en Kangerlussuaq."},
+   {"q": "¿Cuándo es el celo del alce en Bielorrusia?", "a": "Del 8 al 20 de septiembre."}
+  ]
+ },
+ "becada": {
+  "heading": "Caza de la becada en Bulgaria",
+  "sections": [
+   {"h": "Strandja", "p": [
+    "Cazamos la becada en los robledales de la montaña de Strandja, en el sudeste de Bulgaria, con perros de muestra.",
+    "El [programa de becadas](caza-en-europa/bulgaria/bulgaria-becadas) no tiene límite de piezas."
+   ]},
+   {"h": "Grupos pequeños", "p": [
+    "Son cuatro noches con tres días de caza, con guías profesionales.",
+    "Muy fácil de organizar para un grupo de amigos."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la temporada?", "a": "Del 15 de noviembre al 15 de febrero."},
+   {"q": "¿Hay cupo de becadas?", "a": "No, se cazan sin límite."}
+  ]
+ },
+ "urogallo": {
+  "heading": "Urogallo en celo",
+  "sections": [
+   {"h": "Los Ródopes", "p": [
+    "El [urogallo](caza-en-europa/bulgaria/bulgaria-urogallo) se caza en celo en los Ródopes búlgaros, en bosques de coníferas entre 1.200 y 2.200 metros.",
+    "Es caza de primavera, con el gallo en celo."
+   ]},
+   {"h": "Combinarlo", "p": [
+    "Desde el 1 de mayo se puede añadir corzo y jabalí.",
+    "En Rusia, el urogallo y el gallo lira son una opción dentro de otros programas."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la mejor época?", "a": "Del 15 de abril al 5 de mayo."},
+   {"q": "¿Cuánto dura el viaje?", "a": "Cuatro noches y tres días de caza."}
+  ]
+ },
+ "acuaticas-y-faisanes": {
+  "heading": "Acuáticas y faisanes en Inglaterra",
+  "sections": [
+   {"h": "West Norfolk", "p": [
+    "Las [jornadas de acuáticas](caza-en-europa/inglaterra/inglaterra-caza-de-acuaticas) son en fincas de West Norfolk, a una hora de Stansted, con guía local por cazador.",
+    "Ánade real, silbón, cerceta, ganso común y ganso canadiense están garantizados."
+   ]},
+   {"h": "Sin llevar escopeta", "p": [
+    "Las escopetas y los cartuchos van incluidos.",
+    "Se puede combinar con muntjac y CWD."
+   ]}
+  ],
+  "faq": [
+   {"q": "¿Cuál es la mejor época?", "a": "Acuáticas en octubre y noviembre; faisanes de noviembre a enero."},
+   {"q": "¿Cuántos días hay que contratar?", "a": "Dos como mínimo."}
+  ]
+ }
+}

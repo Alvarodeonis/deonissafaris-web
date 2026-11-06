@@ -23,7 +23,7 @@ export const species = [
   { slug: 'rinoceronte', group: 'big-five', name: 'Rinoceronte', re: /rinoceronte/i, add: ['sudafrica-limpopo-programa-general', 'sudafrica-bufalo-lodge-de-lujo', 'sudafrica-arco-lodge-de-lujo'], intro: 'Rinoceronte en Sudáfrica, como trofeo adicional en Limpopo. Consúltenos disponibilidad y condiciones.' },
 
   // Caza mayor · África
-  { slug: 'antilopes', group: 'caza-mayor', sub: 'África', name: 'Antílopes', re: /antílope|antilope|plains game|sable|roan|kudu|órix|orix|oryx|gemsbok|impala|springb|nyala|eland|ñu\b|hartebeest|blesb|waterbuck|duiker|dik.?dik|steenb|klipspring|sitatunga/i,
+  { slug: 'antilopes', cover: 'https://www.deonissafaris.com/media/images/proyectos_52_img-20160623-wa0012.jpg', group: 'caza-mayor', sub: 'África', name: 'Antílopes', re: /antílope|antilope|plains game|sable|roan|kudu|órix|orix|oryx|gemsbok|impala|springb|nyala|eland|ñu\b|hartebeest|blesb|waterbuck|duiker|dik.?dik|steenb|klipspring|sitatunga/i,
     add: ['namibia-paquete-windhoek', 'namibia-programa-general-windhoek', 'sudafrica-limpopo-paquetes-en-lodge-de-lujo', 'sudafrica-arco-lodge-de-lujo', 'sudafrica-limpopo-programa-general'],
     skip: ['argentina-chanchos-y-antilopes', 'argentina-programa-general', 'nueva-zelanda-programa-general', 'nueva-zelanda-arco-ciervos'],
     recommended: ['namibia'], intro: 'Kudu, órix, sable, roan, impala, springbok y los cuatro pequeños (dik-dik de Damara, steenbok, duiker y klipspringer) en Namibia, Sudáfrica, Mozambique, Tanzania, Zambia y Zimbabwe.' },
@@ -78,7 +78,7 @@ export const speciesIn = (g, sub) => activeSpecies.filter((s) => s.group === g &
 export const countriesOfSpecies = (s) => new Set(s.programs.map((p) => p.country)).size;
 
 // Foto de portada: la de un programa vigente cuyo título nombra la especie.
-export const speciesCover = (s) => (s.programs.find((p) => isCurrent(p) && s.re.test(p.title)) ?? s.programs.find((p) => s.re.test(p.title)) ?? s.programs[0])?.hero;
+export const speciesCover = (s) => s.cover ?? (s.programs.find((p) => isCurrent(p) && s.re.test(p.title)) ?? s.programs.find((p) => s.re.test(p.title)) ?? s.programs[0])?.hero;
 
 // Programas agrupados por país. Primero los países recomendados para la especie (en el orden
 // que indica Alvaro, con la etiqueta "Recomendado"); después, los que tienen más programas.

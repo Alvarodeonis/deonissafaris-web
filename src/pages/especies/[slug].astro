@@ -5,6 +5,10 @@ import CountryPrograms from '../../components/CountryPrograms.astro';
 import SpeciesTiles from '../../components/SpeciesTiles.astro';
 import { groups, subgroups, activeSpecies, speciesIn, groupOf, groupUrl, speciesUrl, speciesCover, byCountry, countriesOfSpecies } from '../../data/species.js';
 import { u } from '../../lib/url.js';
+import SeoText from '../../components/SeoText.astro';
+import seoEs from '../../data/seo-species.json';
+import seoEn from '../../data/seo-species.en.json';
+import { lang } from '../../i18n/index.js';
 
 export const getStaticPaths = speciesPaths;
 const { group, sp } = Astro.props;
@@ -15,8 +19,10 @@ const hero = sp ? speciesCover(sp) : speciesCover(members[0]);
 const title = sp ? `Caza de ${sp.name.toLowerCase()}` : g.title;
 const lead = sp ? sp.intro : g.lead;
 const subs = subgroups[g.slug];
+const seo = (lang() === 'en' ? seoEn : seoEs)[sp ? sp.slug : g.slug];
+const faqSchema = seo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: seo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 ---
-<Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader crumbs={[['Por especie', 'especies'], ...(sp ? [[g.name, groupUrl(g)], [sp.name, speciesUrl(sp)]] : [[g.name, groupUrl(g)]])]}>
+<Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader schema={faqSchema} crumbs={[['Por especie', 'especies'], ...(sp ? [[g.name, groupUrl(g)], [sp.name, speciesUrl(sp)]] : [[g.name, groupUrl(g)]])]}>
   <section class="sp-hero">
     <img src={hero} alt={title} />
     <div class="wrap">
@@ -63,6 +69,8 @@ const subs = subgroups[g.slug];
       </div>
     </section>
   )}
+
+  <SeoText data={seo} />
 
   {sp && others.length > 0 && (
     <section class="sec more">

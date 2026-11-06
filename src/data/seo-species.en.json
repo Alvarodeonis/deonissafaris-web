@@ -1,0 +1,461 @@
+{
+ "big-five": {
+  "heading": "Hunting the Big Five with us",
+  "sections": [
+   {"h": "Where we hunt each one", "p": [
+    "[Buffalo](especies/bufalo) is the one we arrange most: Mozambique, Tanzania, South Africa, Zambia and Zimbabwe. We hunt [leopard](especies/leopardo) in Namibia and Mozambique, always over bait. [Lion](especies/leon) is tracked on foot in the Kalahari and in Limpopo.",
+    "[Elephant](especies/elefante) is hunted in Botswana and South Africa, and [rhino](especies/rinoceronte) can be added as a trophy in Limpopo, subject to availability."
+   ]},
+   {"h": "Where to start", "p": [
+    "If you have never hunted dangerous game, buffalo is the natural first step. In Coutada 10 at Marromeu there is a five-day programme with one buffalo included.",
+    "The longer Mozambique programmes, of ten or fourteen days, let you put buffalo, leopard and plains game into a single trip."
+   ]}
+  ],
+  "faq": [
+   {"q": "Can you hunt all five on one trip?", "a": "In practice, no. Most hunters combine two or three, such as buffalo and leopard in Mozambique."},
+   {"q": "Which of the Big Five can be hunted with a bow?", "a": "Buffalo in Mozambique and South Africa, and tracked lion in Limpopo. You will find them under [bowhunting](caza-con-arco)."}
+  ]
+ },
+ "caza-mayor": {
+  "heading": "Big game hunting abroad",
+  "sections": [
+   {"h": "Europe: close to home, with good trophies", "p": [
+    "For a short trip, Eastern Europe is hard to beat: [roebuck](especies/corzo) by weight in Hungary and Poland, [red deer](especies/ciervo) in the rut in Romania and Belarus, [chamois](especies/rebeco) in the Carpathians and the Balkans, and [bear](especies/oso) in Romania and Croatia.",
+    "Most are programmes of three hunting days that fit easily into a week."
+   ]},
+   {"h": "Mountains, Africa and North America", "p": [
+    "If you want to go further afield, Central Asia has [ibex](especies/ibex) and Marco Polo sheep. In Africa, the [antelope](especies/antilopes) of Namibia and South Africa. In Canada and Greenland, [moose, caribou and muskox](especies/alce-caribu-muskox).",
+    "Each species has its own page listing the countries and programmes where we hunt it."
+   ]}
+  ],
+  "faq": [
+   {"q": "Which species do you recommend for a first hunting trip abroad?", "a": "Antelope in Namibia or roebuck in Hungary. Both are comfortable, short trips with a high success rate."},
+   {"q": "Do you handle importing the trophy into Spain?", "a": "We advise you at every step, although the Spanish permits are the hunter's responsibility. Each programme explains how it works."}
+  ]
+ },
+ "caza-menor": {
+  "heading": "Small game in Europe",
+  "sections": [
+   {"h": "Our destinations", "p": [
+    "We hunt [woodcock](especies/becada) in the Strandja mountains of Bulgaria, over pointing dogs and with no bag limit. [Capercaillie](especies/urogallo) is hunted in the spring display in the Rhodopes, also in Bulgaria.",
+    "For [wildfowl and pheasant](especies/acuaticas-y-faisanes), it is West Norfolk in England, an hour from Stansted."
+   ]},
+   {"h": "Short trips", "p": [
+    "These are three-day programmes, easy to fit around a long weekend.",
+    "In England, guns and cartridges are included, so you don't need to travel with a gun."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time for woodcock in Bulgaria?", "a": "From 15 November to 15 February."},
+   {"q": "Can capercaillie be combined with another species?", "a": "Yes. From 1 May you can add roebuck and wild boar in the Rhodopes."}
+  ]
+ },
+ "elefante": {
+  "heading": "Elephant hunting",
+  "sections": [
+   {"h": "Botswana", "p": [
+    "Botswana is one of Africa's great ivory destinations. The [Botswana programme](caza-en-africa/botswana/botswana-elefante-10-dias) has ten hunting days, the time a quality elephant needs.",
+    "Terms change from one year to the next, so it is worth asking us about current offers."
+   ]},
+   {"h": "South Africa", "p": [
+    "In Limpopo we hunt elephant from a [luxury lodge](caza-en-africa/sudafrica/sudafrica-elefantes), on private land bordering Kruger National Park.",
+    "From there you can go on to [buffalo](especies/bufalo) or antelope on the same trip."
+   ]}
+  ],
+  "faq": [
+   {"q": "How many days does an elephant hunt take?", "a": "In Botswana we plan ten hunting days."},
+   {"q": "Can the trophy be imported into Spain?", "a": "It needs CITES permits. We explain the process before you book."}
+  ]
+ },
+ "bufalo": {
+  "heading": "Cape buffalo hunting",
+  "sections": [
+   {"h": "Mozambique, Tanzania and South Africa", "p": [
+    "These are the three countries we recommend most. In Mozambique we hunt Coutada 10 at Marromeu, in the Zambezi Delta, with [5-day](caza-en-africa/mozambique/mozambique-bufalo-en-5-dias) and [7 or 10-day packages](caza-en-africa/mozambique/mozambique-bufalos-pack-7-y-10-dias).",
+    "In Tanzania, the [buffalo special](caza-en-africa/tanzania/tanzania-especial-bufalos) in the Mlele Game Reserve includes two buffalo per hunter. In South Africa there are hard-bossed buffalo in Limpopo and tracked buffalo in the Kalahari."
+   ]},
+   {"h": "Zambia, Zimbabwe and bowhunting", "p": [
+    "In Zambia, buffalo is combined with hippo and crocodile over seven days. Zimbabwe also has its own buffalo special.",
+    "With the bow, buffalo is hunted in the Zambezi reed beds and tracked on foot in Limpopo."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time for buffalo?", "a": "In Mozambique, May to November. In Tanzania, September and October."},
+   {"q": "How many days do I need?", "a": "Five days is usually enough for one buffalo. If you want to add leopard or plains game, seven or ten is better."}
+  ]
+ },
+ "leon": {
+  "heading": "Tracking lion on foot",
+  "sections": [
+   {"h": "Kalahari", "p": [
+    "In the Kalahari the lions roam free on a 20,000-hectare property. You follow the tracks with native trackers until you find them.",
+    "The [Kalahari programme](caza-en-africa/sudafrica/sudafrica-leones-y-bufalo-kalahari) can include tracked buffalo as well."
+   ]},
+   {"h": "With the bow in Limpopo", "p": [
+    "For bowhunters, [tracked lion](caza-con-arco/sudafrica/sudafrica-arco-leones) on 60,000 hectares next to Kruger, for both lions and lionesses.",
+    "It is five hunting days and a seven-day stay. A very intense hunt."
+   ]}
+  ],
+  "faq": [
+   {"q": "Are the lions fenced in?", "a": "No. We track them on foot, on large properties where they live free."},
+   {"q": "How long is the programme?", "a": "Four to five hunting days, and a stay of six to seven days."}
+  ]
+ },
+ "leopardo": {
+  "heading": "Leopard hunting",
+  "sections": [
+   {"h": "Namibia", "p": [
+    "[Leopard in Namibia](caza-en-africa/namibia/namibia-leopardo) is hunted over bait, with a minimum of ten hunting days.",
+    "The lodge is 40 km from Windhoek airport, and you can add [antelope](especies/antilopes) from the general programme."
+   ]},
+   {"h": "Mozambique", "p": [
+    "In Coutada 10 at Marromeu and in Nairoto, leopard is part of the [general programme](caza-en-africa/mozambique/mozambique-programa-general), of 7, 10 or 14 days.",
+    "There, most hunters pair it with [buffalo](especies/bufalo)."
+   ]}
+  ],
+  "faq": [
+   {"q": "Why does it take so many days?", "a": "Because the baits have to be hung first, and then you wait for the leopard to come in. Ten days gives you time."},
+   {"q": "What is the season in Mozambique?", "a": "From 1 May to 30 November."}
+  ]
+ },
+ "rinoceronte": {
+  "heading": "Rhino in South Africa",
+  "sections": [
+   {"h": "As an additional trophy", "p": [
+    "Rhino has no programme of its own. It is added to a hunt in Limpopo, on private land bordering Kruger National Park.",
+    "Most often it goes with the [Limpopo general programme](caza-en-africa/sudafrica/sudafrica-limpopo-programa-general) or the [buffalo from a luxury lodge](caza-en-africa/sudafrica/sudafrica-bufalo-lodge-de-lujo)."
+   ]},
+   {"h": "Ask us first", "p": [
+    "Availability and terms change. Please ask us before you finalise the trip.",
+    "It is also possible with the bow, as part of the luxury lodge packages."
+   ]}
+  ],
+  "faq": [
+   {"q": "Where is rhino hunted?", "a": "In Limpopo, South Africa."},
+   {"q": "Are there places every season?", "a": "It depends on the year. We will confirm availability when you get in touch."}
+  ]
+ },
+ "antilopes": {
+  "heading": "Antelope hunting in Africa",
+  "sections": [
+   {"h": "Namibia, our favourite", "p": [
+    "For antelope we recommend Namibia. There are 80,000 hectares of open farmland 40 km from Windhoek, and the stalking is the real thing.",
+    "The [budget package](caza-en-africa/namibia/namibia-paquete-economico) includes an oryx, two springbok, a baboon and a jackal in four days. The [Windhoek package](caza-en-africa/namibia/namibia-paquete-windhoek) is six days, one-to-one."
+   ]},
+   {"h": "South Africa, Mozambique and Zambia", "p": [
+    "Limpopo has around 34 possible species and a luxury lodge, for bowhunters too.",
+    "In Mozambique, antelope are added to a buffalo hunt. In Zambia, sable and lechwe stand out."
+   ]}
+  ],
+  "faq": [
+   {"q": "Is it a good destination for a family trip?", "a": "Namibia is: the lodge is close to the airport and companions can go sightseeing."},
+   {"q": "What is the season in Namibia?", "a": "February to November."}
+  ]
+ },
+ "facochero": {
+  "heading": "Warthog hunting",
+  "sections": [
+   {"h": "Mauritania", "p": [
+    "In southern Mauritania, 110 km from Nouakchott, the [warthog special](caza-en-africa/mauritania/mauritania-especial-facocheros) includes five per hunter over four days.",
+    "The camp is a luxury one, and the area is safe and free of malaria."
+   ]},
+   {"h": "With the bow", "p": [
+    "In Mauritania, [warthog with the bow](caza-con-arco/mauritania/mauritania-arco-facochero) are stalked morning and evening, closing in while they feed.",
+    "In South Africa we have a bowhunting special, currently on hold because of the drought."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the season in Mauritania?", "a": "November to March."},
+   {"q": "How many warthog are included?", "a": "Five per hunter on the rifle programme."}
+  ]
+ },
+ "felinos": {
+  "heading": "Cheetah, cougar and lynx",
+  "sections": [
+   {"h": "Cheetah in Namibia", "p": [
+    "Very few countries allow cheetah hunting. In [Namibia](caza-en-africa/namibia/namibia-guepardo) we ask for a minimum of six days.",
+    "The lodge is 40 km from the airport, and antelope can be added."
+   ]},
+   {"h": "Canada and Argentina", "p": [
+    "In British Columbia we hunt [cougar, lynx and bobcat](caza-en-america/canada/canada-british-columbia-puma-lince-gato-montes) with hounds, tracking by 4x4 and snowmobile. You need to be fit.",
+    "In La Pampa, cougar is part of the [Argentina general programme](caza-en-america/argentina/argentina-programa-general)."
+   ]}
+  ],
+  "faq": [
+   {"q": "What is the season in British Columbia?", "a": "From 15 November to 15 February."},
+   {"q": "How many days does cheetah take?", "a": "Six at least."}
+  ]
+ },
+ "ibex": {
+  "heading": "Ibex hunting",
+  "sections": [
+   {"h": "Kazakhstan and Turkey", "p": [
+    "These are the two destinations we recommend. In Kazakhstan, [Siberian ibex](caza-en-asia/kazakhstan/kazakhstan-ibex-zonas-premium) are hunted in the Dzungarian Alatau, Narynkol and Kegen, on foot and on horseback.",
+    "In Turkey, [bezoar ibex](caza-en-asia/turquia/turquia-ibex-bezoar) carry trophies of 100 to 110 cm. November and December are best."
+   ]},
+   {"h": "More destinations", "p": [
+    "In Tajikistan ibex reach 135 cm, and in Kyrgyzstan they are hunted between 3,500 and 3,700 metres. In Mongolia, in the Altai or the Gobi.",
+    "There is also ibex in Iran, and Alpine ibex in Austria."
+   ]}
+  ],
+  "faq": [
+   {"q": "Do I need to be fit?", "a": "Yes. This is high-mountain hunting, and in Kyrgyzstan you go above 3,500 metres."},
+   {"q": "Can it be combined with other species?", "a": "In Tajikistan, with wild boar and wolf. In Mongolia, with black-tailed gazelle."}
+  ]
+ },
+ "rebeco": {
+  "heading": "Chamois hunting",
+  "sections": [
+   {"h": "Balkan and Carpathian", "p": [
+    "In North Macedonia, [Balkan chamois](caza-en-europa/macedonia/macedonia-caza-de-rebecos) are hunted on the alpine estate of Karadžica, with no points limit.",
+    "In Romania, the [Carpathian chamois](caza-en-europa/rumania/rumania-rebeco-carpatico) is the world's largest in body and trophy. It is hunted between 1,500 and 2,400 metres."
+   ]},
+   {"h": "The Alps, the Pyrenees and New Zealand", "p": [
+    "Alpine chamois in Slovenia, Italy, Austria and France, and Balkan chamois in Bulgaria and Croatia too.",
+    "In Spain, Pyrenean and Cantabrian chamois. And in New Zealand, alongside tahr on the South Island."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time?", "a": "Across most of Europe, September to November. Pyrenean chamois, in May and June."},
+   {"q": "How many days do I need?", "a": "Two or three hunting days."}
+  ]
+ },
+ "macho-montes": {
+  "heading": "Spanish ibex hunting",
+  "sections": [
+   {"h": "Gredos", "p": [
+    "We hunt Spanish ibex on a [private estate in Gredos](caza-en-europa/espana/espana-macho-montes-gredos-finca-privada), with horses, a guide and airport pick-up.",
+    "The season runs from September to March."
+   ]},
+   {"h": "With the bow", "p": [
+    "It is one of the great bowhunting challenges in Spain. The [bowhunting programme](caza-con-arco/espana/espana-arco-macho-montes) is on the same estate.",
+    "It takes two or three days."
+   ]}
+  ],
+  "faq": [
+   {"q": "Where is it hunted?", "a": "On a private estate in the Sierra de Gredos."},
+   {"q": "How long does it take?", "a": "Two or three days."}
+  ]
+ },
+ "cabras-y-carneros": {
+  "heading": "Mountain goats and sheep",
+  "sections": [
+   {"h": "Marco Polo and tahr", "p": [
+    "In Tajikistan, [Marco Polo](caza-en-asia/tayikistan/tayikistan-marco-polo) has had 100% success over the last 12 years, with average trophies of 55–56 inches.",
+    "In New Zealand, Himalayan tahr are hunted in the Southern Alps as part of the [general programme](caza-en-oceania/nueva-zelanda/nueva-zelanda-programa-general)."
+   ]},
+   {"h": "Tur, Dall sheep and Balearic goat", "p": [
+    "Caucasian tur are hunted in Azerbaijan and Russia, on foot or on horseback. Dall sheep, in the Yukon.",
+    "And without leaving Spain, the [Balearic goat](caza-en-europa/espana/espana-boc-balear) in Mallorca, all year round."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time for Marco Polo?", "a": "From September to mid-December, and also in February and March."},
+   {"q": "And for the Balearic goat?", "a": "It is hunted all year. November, March and April are best."}
+  ]
+ },
+ "jabali": {
+  "heading": "Wild boar hunting",
+  "sections": [
+   {"h": "Turkey", "p": [
+    "It is our number one destination for wild boar. There are [driven hunts on reserves](caza-en-asia/turquia/turquia-batidas-jabali-caza-en-reservas) for groups of 8 to 14 hunters and [mixed hunts](caza-en-asia/turquia/turquia-jabali-caza-mixta) combining drives and night stalking.",
+    "On the [VIP night programme](caza-en-asia/turquia/turquia-jabali-vip-caza-nocturna) the average tusk is over 23 cm."
+   ]},
+   {"h": "Iran, Europe and Argentina", "p": [
+    "For really big boar, Iran and Tajikistan. Sitting up and driven hunts in Romania, Bulgaria and North Macedonia, and driven hunts in Tunisia.",
+    "In Argentina a great many feral pigs are taken. With the bow, sitting up an hour from Madrid and at night in Turkey."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the driven season in Turkey?", "a": "From 15 October to 15 February. Night hunting runs all year."},
+   {"q": "How many boar are taken on a drive in Turkey?", "a": "A good result is one boar per hunter per day."}
+  ]
+ },
+ "ciervo": {
+  "heading": "Red deer hunting",
+  "sections": [
+   {"h": "The rut in Europe", "p": [
+    "We hunt the September rut in [Romania](caza-en-europa/rumania/rumania-caza-de-ciervo), in Belarus with stags of 12 to 14 kg, in Bulgaria and in Austria.",
+    "In Spain, [big stags](caza-en-europa/espana/espana-grandes-venados) an hour from Madrid, with a gold-medal stag as the aim."
+   ]},
+   {"h": "New Zealand and Argentina", "p": [
+    "The biggest red stags in the world are in [New Zealand](caza-en-oceania/nueva-zelanda/nueva-zelanda-programa-general), where the roar is in March and April.",
+    "In Argentina, red stag in the Andes near Esquel and in La Pampa. And maral in Kazakhstan."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the roar in New Zealand?", "a": "In March and April, the opposite of Europe."},
+   {"q": "Can red deer be hunted with the bow?", "a": "Yes, in Spain and in New Zealand."}
+  ]
+ },
+ "corzo": {
+  "heading": "Roebuck hunting",
+  "sections": [
+   {"h": "Roebuck by weight", "p": [
+    "In [Hungary](caza-en-europa/hungria/hungria-corzos-a-peso) we hunt the Great Plain, home to the country's best roebuck. In [Poland](caza-en-europa/polonia/polonia-caza-de-corzos-a-peso), from 11 May.",
+    "In both, the trophy is charged by weight, and Romania has roebuck on the plains and in the lower mountains."
+   ]},
+   {"h": "England, Scotland and Spain", "p": [
+    "In England, roebuck is combined with muntjac. In Scotland, with red deer.",
+    "In Spain we have [big roebuck](caza-en-europa/espana/espana-grandes-corzos) an hour from Madrid. And in Mongolia, Siberian roe deer."
+   ]}
+  ],
+  "faq": [
+   {"q": "When does the season start in Hungary?", "a": "On 15 April, and it runs until 30 September."},
+   {"q": "How is the trophy weighed?", "a": "With the full skull, 24 hours after boiling."}
+  ]
+ },
+ "muflon-y-gamo": {
+  "heading": "Mouflon and fallow deer hunting",
+  "sections": [
+   {"h": "Fallow deer", "p": [
+    "[Fallow deer in Romania](caza-en-europa/rumania/rumania-rececho-de-gamo) are hunted where «Fallow Buck Paradise» was filmed. A new national record was taken there in 2023.",
+    "The rut runs from 25 September to 15 November. There are fallow deer in Bulgaria, Austria and New Zealand too."
+   ]},
+   {"h": "Mouflon", "p": [
+    "In Spain, [big mouflon](caza-en-europa/espana/espana-grandes-muflones) an hour from Madrid, stalked in the rut or from a high seat.",
+    "In Croatia, mouflon can be added to chamois at Biokovo. With the bow, from a blind or stalked in Spain."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the mouflon rut?", "a": "In October and November."},
+   {"q": "Can mouflon be hunted all year?", "a": "In Bulgaria, yes. In Spain, from a high seat outside the rut."}
+  ]
+ },
+ "muntjac": {
+  "heading": "Muntjac and Chinese water deer",
+  "sections": [
+   {"h": "Two unusual trophies", "p": [
+    "Both are hunted in England, on West Norfolk estates. Muntjac all year round; CWD from November to March.",
+    "On the [muntjac and CWD programme](caza-en-europa/inglaterra/inglaterra-caza-de-muntjac-y-cwd), guide, rifle and ammunition are included."
+   ]},
+   {"h": "With roebuck", "p": [
+    "Between April and October, muntjac can be added to [roebuck in England](caza-en-europa/inglaterra/inglaterra-caza-de-corzos).",
+    "We recommend not bringing your own rifle, as UK entry formalities are slow."
+   ]}
+  ],
+  "faq": [
+   {"q": "How many days is it?", "a": "Three at least."},
+   {"q": "Which is the nearest airport?", "a": "Stansted."}
+  ]
+ },
+ "antilope-negro": {
+  "heading": "Blackbuck in Argentina",
+  "sections": [
+   {"h": "Buenos Aires province", "p": [
+    "Blackbuck are hunted in the marshes and farmland of Buenos Aires province, alongside feral pigs, axis deer and rams.",
+    "You will find it under [feral pigs and antelope](caza-en-america/argentina/argentina-chanchos-y-antilopes), from April to July."
+   ]},
+   {"h": "La Pampa", "p": [
+    "In La Pampa, the [general programme](caza-en-america/argentina/argentina-programa-general) includes blackbuck along with red stag, wild boar, buffalo and cougar.",
+    "You stay in the estancia house."
+   ]}
+  ],
+  "faq": [
+   {"q": "What is the season?", "a": "From mid-April to the end of July."},
+   {"q": "How many days is it?", "a": "The La Pampa general programme has a minimum of five days."}
+  ]
+ },
+ "oso": {
+  "heading": "Bear hunting",
+  "sections": [
+   {"h": "Brown bear in Europe", "p": [
+    "Romania has Europe's largest brown bear population, around 8,000. We hunt them [from a hide](caza-en-europa/rumania/rumania-osos-en-espera) and [on drives](caza-en-europa/rumania/rumania-caza-de-oso-en-batida) in the Carpathians.",
+    "In Croatia, from high seats over bait. Most bears taken there make a medal."
+   ]},
+   {"h": "North America and Russia", "p": [
+    "Black bear in Quebec, with a Spanish guide from Madrid airport onwards. Grizzly in the Yukon and Kodiak bear from a boat in Alaska.",
+    "In Russia, Siberian brown bear around Baikal and in the Altai, and the black grizzly of Manchuria."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is bear hunted in Romania?", "a": "In spring, 15 March to 14 May, and in autumn, 1 October to 31 December."},
+   {"q": "Can bear be hunted with the bow?", "a": "Yes, black bear in Quebec."}
+  ]
+ },
+ "lobo": {
+  "heading": "Wolf hunting",
+  "sections": [
+   {"h": "North Macedonia", "p": [
+    "This is the destination we recommend. There is [wolf from a hide](caza-en-europa/macedonia/macedonia-lobo-en-espera) on the southern plains, 80 km from Skopje, with a one-to-one guide.",
+    "There are also [driven wolf and boar hunts](caza-en-europa/macedonia/macedonia-lobo-y-jabali-en-batida) with dogs in the centre of the country."
+   ]},
+   {"h": "Mongolia and Canada", "p": [
+    "In Mongolia, [driven wolf hunts](caza-en-asia/mongolia/mongolia-batidas-de-lobos) on the steppe, with one wolf included.",
+    "In British Columbia, wolf can be added to the general programme."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is wolf hunted from a hide in North Macedonia?", "a": "From 15 October to 31 March."},
+   {"q": "Can the trophy be exported?", "a": "Yes, with a CITES permit, which has its own fee in the programme."}
+  ]
+ },
+ "alce-caribu-muskox": {
+  "heading": "Moose, caribou and muskox",
+  "sections": [
+   {"h": "Greenland", "p": [
+    "We hunt muskox there [in spring](caza-en-europa/groenlandia/groenlandia-muskox-en-primavera), over frozen lakes, and [in summer](caza-en-europa/groenlandia/groenlandia-muskox-en-verano) with a helicopter.",
+    "[Caribou at Narsarsuaq](caza-en-europa/groenlandia/groenlandia-caribous) are hunted in August and September."
+   ]},
+   {"h": "Moose and bison", "p": [
+    "European moose in the rut in Belarus, and moose in the Yukon, home to the biggest in the world, with the bow as well.",
+    "Belarus also has European bison, one of the most special hunts in Europe."
+   ]}
+  ],
+  "faq": [
+   {"q": "Can muskox be hunted with the bow?", "a": "Yes, in summer at Kangerlussuaq."},
+   {"q": "When is the moose rut in Belarus?", "a": "From 8 to 20 September."}
+  ]
+ },
+ "becada": {
+  "heading": "Woodcock shooting in Bulgaria",
+  "sections": [
+   {"h": "Strandja", "p": [
+    "We shoot woodcock in the oak woods of the Strandja mountains, in south-eastern Bulgaria, over pointing dogs.",
+    "The [woodcock programme](caza-en-europa/bulgaria/bulgaria-becadas) has no bag limit."
+   ]},
+   {"h": "Small groups", "p": [
+    "It is four nights with three days' shooting, with professional guides.",
+    "Very easy to arrange for a group of friends."
+   ]}
+  ],
+  "faq": [
+   {"q": "What is the season?", "a": "From 15 November to 15 February."},
+   {"q": "Is there a bag limit?", "a": "No, there is no limit."}
+  ]
+ },
+ "urogallo": {
+  "heading": "Capercaillie in the spring display",
+  "sections": [
+   {"h": "The Rhodopes", "p": [
+    "[Capercaillie](caza-en-europa/bulgaria/bulgaria-urogallo) are hunted during the display in the Bulgarian Rhodopes, in conifer forest between 1,200 and 2,200 metres.",
+    "It is a spring hunt, while the cock birds are displaying."
+   ]},
+   {"h": "Combining it", "p": [
+    "From 1 May you can add roebuck and wild boar.",
+    "In Russia, capercaillie and black grouse are an option within other programmes."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time?", "a": "From 15 April to 5 May."},
+   {"q": "How long is the trip?", "a": "Four nights and three hunting days."}
+  ]
+ },
+ "acuaticas-y-faisanes": {
+  "heading": "Wildfowl and pheasant in England",
+  "sections": [
+   {"h": "West Norfolk", "p": [
+    "The [wildfowling days](caza-en-europa/inglaterra/inglaterra-caza-de-acuaticas) are on West Norfolk estates, an hour from Stansted, with a local guide per hunter.",
+    "Mallard, wigeon, teal, greylag and Canada goose are guaranteed."
+   ]},
+   {"h": "No need to bring a gun", "p": [
+    "Guns and cartridges are included.",
+    "It can be combined with muntjac and CWD."
+   ]}
+  ],
+  "faq": [
+   {"q": "When is the best time?", "a": "Wildfowl in October and November; pheasant from November to January."},
+   {"q": "How many days do I need to book?", "a": "Two at least."}
+  ]
+ }
+}
