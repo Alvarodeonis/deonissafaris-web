@@ -1,0 +1,47 @@
+name: Guardar páginas de la web antigua
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          node -e '
+          const urls = process.env.URLS.split(/\s+/).filter(Boolean);
+          (async () => { const out = {};
+            for (const u of urls) { try { const r = await fetch(u, { headers: { "User-Agent": "deonis-audit/1.0" } }); out[u] = await r.text(); } catch (e) { out[u] = "ERROR " + e; } }
+            require("fs").writeFileSync("/tmp/old-pages.json", JSON.stringify(out)); console.log(Object.keys(out).length); })();'
+        env:
+          URLS: >-
+            https://www.deonissafaris.com/safaris-fotograficos-namibia/safaris-fotograficos-namibia/fotografico-namibia-0
+            https://www.deonissafaris.com/safaris-fotograficos-sudafrica/safaris-fotograficos-sudafrica/fotografico-sudafrica-0
+            https://www.deonissafaris.com/safaris-fotograficos-mozambique/safaris-fotograficos-mozambique/fotografico-mozambique-0
+            https://www.deonissafaris.com/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-tanzania-0
+            https://www.deonissafaris.com/pesca/finlandia/especial-grupo-iberalia-junio-2020
+            https://www.deonissafaris.com/pesca/bolivia/pesca-en-bolivia
+            https://www.deonissafaris.com/pesca/espana-pesca/pesca-en-cadiz-desde-embarcacion
+            https://www.deonissafaris.com/pesca/eslovenia/pesca-en-eslovenia
+            https://www.deonissafaris.com/pesca/finlandia/pesca-en-finlandia-grandes-truchas
+            https://www.deonissafaris.com/pesca/groenlandia/pesca-en-groenlandia-2019
+            https://www.deonissafaris.com/pesca/pesca-cabo-verde/pesca-en-isla-de-sal-cabo-verde
+            https://www.deonissafaris.com/pesca/pesca-cabo-verde/pesca-en-isla-sao-nicolau---cabo-verde
+            https://www.deonissafaris.com/pesca/mauritania/pesca-en-mauritania-2019
+            https://www.deonissafaris.com/pesca/mozambique/pesca-en-mozambique-marlin-azul-negro-y-rayado
+            https://www.deonissafaris.com/pesca/islandia/pesca-salmones-en-islandia
+            https://www.deonissafaris.com/pesca
+            https://www.deonissafaris.com/fotograficos
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git checkout --orphan old-pages
+          git rm -rfq .
+          mv /tmp/old-pages.json .
+          git add old-pages.json
+          git commit -qm "Páginas guardadas de la web antigua"
+          git push -f origin old-pages
