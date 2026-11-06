@@ -110,7 +110,7 @@ body:has(.program-hero) .site-header .logo img { width: 92px; }
 .dropdown-menu a small { display: block; margin-top: 2px; font-family: var(--body); letter-spacing: 0; text-transform: none; color: var(--stone); font-size: 13px; font-weight: 400; }
 .nav-cta { padding: 10px 18px !important; background: var(--red) !important; color: #fff !important; }
 .menu-toggle { display: none; }
-@media (max-width: 1320px) {
+@media (max-width: 1180px) {
   .menu-toggle { display: block; background: none; border: 0; color: var(--bone); font: 400 12px var(--label); letter-spacing: .24em; text-transform: uppercase; cursor: pointer; }
   .main-nav { position: fixed; inset: 0; z-index: 60; flex-direction: column; justify-content: flex-start; align-items: center; gap: 22px; padding: 110px var(--gutter) 40px; overflow-y: auto; background: var(--black); transform: translateX(100%); visibility: hidden; transition: transform .3s, visibility .3s; }
   .main-nav.open { transform: none; visibility: visible; }
@@ -122,7 +122,9 @@ body:has(.program-hero) .site-header .logo img { width: 92px; }
   .dropdown-menu a small { display: none; }
   .menu-close { position: absolute; top: 22px; right: var(--gutter); color: var(--red-hi) !important; }
 }
-@media (min-width: 1321px) { .menu-close { display: none !important; } }
+@media (min-width: 1181px) { .menu-close { display: none !important; } }
+/* Pantallas de portátil: el menú completo cabe con letras y huecos algo menores. */
+@media (min-width: 1181px) and (max-width: 1400px) { .main-nav { gap: 12px; } .main-nav a, .main-nav button { font-size: 11px; letter-spacing: .1em; } .nav-cta { padding: 9px 12px !important; } }
 
 /* Page hero (interiores) */
 /* La foto se ve siempre entera (contain); el hueco sobrante queda en negro, igual que el fondo. */
@@ -240,7 +242,7 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 .sp-dd .mega .mall:hover { color: var(--red-hi); }
 .sp-dd .mob { display: none !important; }
 .sx-mob { display: none !important; }
-@media (max-width: 1320px) {
+@media (max-width: 1180px) {
   .sp-dd .mega { display: none !important; }
   .sp-dd .mob { display: grid !important; }
   .sx-desk { display: none !important; }
@@ -249,7 +251,7 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 .sp-dd .mcol { display: flex; flex-direction: column; }
 .sp-dd .mega { z-index: 3; }
 /* Desplegables centrados: el de especies sobre la página, el de rifle bajo su botón. */
-@media (min-width: 1321px) {
+@media (min-width: 1181px) {
   .dropdown.sp-dd { position: static; }
   .sp-dd .mega { top: 100%; }
   /* Alineado a la izquierda del botón para no tapar el logo. */
@@ -260,11 +262,11 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
 
 /* Selector de idioma */
 .lang-dd > button { font: 500 12px var(--label); letter-spacing: .16em; border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; }
-@media (min-width: 1321px) {
+@media (min-width: 1181px) {
   .dropdown.lang-dd > .dropdown-menu { left: auto; right: -10px; width: 180px; min-width: 0; }
 }
 .lang-dd .dropdown-menu a.on { color: var(--red-hi); }
-@media (max-width: 1320px) {
+@media (max-width: 1180px) {
   .lang-dd .dropdown-menu { grid-template-columns: repeat(4, auto); gap: 4px 14px; justify-content: center; }
   .lang-dd > button { pointer-events: none; border: 0; }
 }
