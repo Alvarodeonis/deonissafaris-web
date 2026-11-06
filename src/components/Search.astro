@@ -100,7 +100,8 @@ const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Nami
       else if (x._k.includes(w)) sc += 2;
       else return 0;
     }
-    return sc - (x.o || 0) * 1.5;
+    // Recomendados (r: 2) y destacados (r: 1) siempre por delante.
+    return sc - (x.o || 0) * 1.5 + (x.r || 0) * 20;
   };
 
   const LABEL = { e: 'Especies', c: 'Continentes', p: 'Países', g: 'Programas', w: 'Páginas' };
