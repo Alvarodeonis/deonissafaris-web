@@ -204,6 +204,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
     const id = el.dataset.hover!;
     const n = Number(el.dataset.frames || 0);
+    // Sin fotogramas propios: las 3 miniaturas automáticas de YouTube (al 25, 50 y 75 % del vídeo, nunca la intro).
     const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/hq${k}.jpg`);
     el.style.setProperty('--len', `${(srcs.length * HOLD) / 1000}s`);
     let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
