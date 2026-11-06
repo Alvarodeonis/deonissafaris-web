@@ -98,6 +98,12 @@ export const translateDist = (out, langs, root) => {
           if (tn || ts) x.k = [x.k, x.n, x.s].filter(Boolean).join(' ');
           if (tn) x.n = tn;
           if (ts) x.s = ts;
+          else if (x.s) x.s = localizeNumbers(x.s.split(' · ').map((part) => {
+            const t = dict.get(norm(part)); if (t) return t;
+            const m = part.match(/^(\d+) (especies|países|programas)$/) || part.match(/^(desde) (.+)$/);
+            if (m) { const w = (m[1] === '1' && dict.get(`1 ${m[2]}`)) || dict.get(`{n} ${m[2]}`) || dict.get(`${m[1]} {x}`); if (w) return /^\d/.test(m[1]) ? w.replace('{n}', m[1]) : w.replace('{x}', m[2]); }
+            return part;
+          }).join(' · '), l);
         }
         r = JSON.stringify(data);
       } else {
