@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   audit:
@@ -19,7 +19,14 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/audit-old-site.mjs
-      - uses: actions/upload-artifact@v4
-        with:
-          name: audit-old-site
-          path: audit-old-site.json
+      # El resultado se guarda en la rama audit-data (no dispara el despliegue).
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          mv audit-old-site.json /tmp/
+          git checkout --orphan audit-data
+          git rm -rfq .
+          mv /tmp/audit-old-site.json .
+          git add audit-old-site.json
+          git commit -qm "Resultado de la auditoría"
+          git push -f origin audit-data
