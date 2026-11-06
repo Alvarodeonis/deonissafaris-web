@@ -149,7 +149,6 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           <h4>Pesca y fotografía</h4>
           <ul>
             <li><a href={u('pesca')}>Viajes de pesca</a></li>
-            {countriesOf('pesca').map((c) => <li class="sub"><a href={u(`pesca/${c.slug}`)}>{c.name}</a></li>)}
             <li><a href={u('safaris-fotograficos')}>Safaris fotográficos</a></li>
           </ul>
         </div>

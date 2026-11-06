@@ -169,7 +169,6 @@ section { padding-block: clamp(24px, 2.6vw, 40px); scroll-margin-top: 70px; }
 .f-nav a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone); }
 .f-nav a:hover { color: var(--red-hi); }
 .site-footer .cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; }
-.site-footer .cols li.sub a { opacity: .75; font-size: .92em; }
 .site-footer h4 { color: var(--bone); font: 500 11px var(--label); letter-spacing: .28em; text-transform: uppercase; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
 .site-footer .offices { gap: 14px; }
