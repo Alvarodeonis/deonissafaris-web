@@ -17,11 +17,21 @@ for (let i = 0; i < list.length; i += 12) {
     try { path = join('public', decodeURIComponent(rel)); } catch { fails.push(rel); return; }
     if (existsSync(path)) { skip++; return; }
     try {
-      const r = await fetch(`https://www.deonissafaris.com/${rel}`, { headers: { 'User-Agent': 'deonis-media/1.0' } });
+      let r;
+      for (let t = 0; t < 3; t++) {
+        try { r = await fetch(`https://www.deonissafaris.com/${rel}`, { headers: { 'User-Agent': 'deonis-media/1.0' } }); break; }
+        catch (e) { if (t === 2) throw e; await new Promise((ok) => setTimeout(ok, 2000 * (t + 1))); }
+      }
       if (!r.ok) { fails.push(`${r.status} ${rel}`); return; }
+      const buf = Buffer.from(await r.arrayBuffer());
+      // La web antigua responde 200 con una página HTML cuando el archivo no existe: no se guarda.
+      if (/html/i.test(r.headers.get('content-type') || '') || buf.subarray(0, 15).toString().trimStart().startsWith('<')) { fails.push(`HTML ${rel}`); return; }
       mkdirSync(dirname(path), { recursive: true });
-      writeFileSync(path, Buffer.from(await r.arrayBuffer()));
-      if (/\.(jpe?g|png)$/i.test(path)) execFileSync('mogrify', ['-auto-orient', '-resize', '1600x1600>', '-strip', ...(/\.png$/i.test(path) ? [] : ['-quality', '82']), path]);
+      writeFileSync(path, buf);
+      if (/\.(jpe?g|png)$/i.test(path)) {
+        try { execFileSync('mogrify', ['-auto-orient', '-resize', '1600x1600>', '-strip', ...(/\.png$/i.test(path) ? [] : ['-quality', '82']), path]); }
+        catch (e) { console.log('   sin optimizar', rel); }
+      }
       ok++;
     } catch (e) { fails.push(`ERR ${rel} ${String(e).slice(0, 80)}`); }
   }));
