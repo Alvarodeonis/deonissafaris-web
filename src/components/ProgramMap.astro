@@ -17,8 +17,8 @@ const [x, y] = g ? proj([g[1], g[2]]) : [0, 0];
   <figure class="pmap">
     <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Mapa: ${name}`}>
       <g class="pm-land">{land.map((f) => <path d={path(f)} class:list={[{ on: f.properties.name === g[0] }]} />)}</g>
-      <circle class="pm-pulse" cx={x.toFixed(1)} cy={y.toFixed(1)} r="14" />
-      <circle class="pm-dot" cx={x.toFixed(1)} cy={y.toFixed(1)} r="9" />
+      <circle class="pm-pulse" cx={x.toFixed(1)} cy={y.toFixed(1)} r="22" />
+      <circle class="pm-dot" cx={x.toFixed(1)} cy={y.toFixed(1)} r="15" />
     </svg>
     <figcaption><b>{name}</b></figcaption>
   </figure>
@@ -29,9 +29,9 @@ const [x, y] = g ? proj([g[1], g[2]]) : [0, 0];
   .pmap svg { width: 100%; height: auto; display: block; }
   .pm-land path { fill: #b9ae9c; stroke: #f5f0e8; stroke-width: .6; }
   .pm-land path.on { fill: var(--red); stroke: #fff; stroke-width: 1.2; }
-  .pm-dot { fill: #fff; stroke: var(--red); stroke-width: 3; }
+  .pm-dot { fill: #fff; stroke: var(--red); stroke-width: 5; }
   .pm-pulse { fill: var(--red); opacity: .5; transform-box: fill-box; transform-origin: center; animation: pm 2.2s ease-out infinite; }
-  @keyframes pm { from { transform: scale(1); opacity: .55; } to { transform: scale(4); opacity: 0; } }
+  @keyframes pm { from { transform: scale(1); opacity: .55; } to { transform: scale(3.2); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .pm-pulse { animation: none; } }
   .pmap figcaption { position: absolute; left: 12px; bottom: 8px; max-width: 30%; line-height: 1.25; }
   .pm-k { font: 500 10px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }

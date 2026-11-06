@@ -3,7 +3,7 @@ import { u } from '../lib/url.js';
 const chips = ['Búfalo', 'Jabalí', 'Leopardo', 'Oso', 'Íbex', 'Rebeco', 'Namibia', 'Groenlandia', 'Arco'];
 const BUILD = Date.now().toString(36);
 ---
-<div class="sx" id="sx" hidden data-base={u()} data-index={`${u('search.json')}?v=${BUILD}`}>
+<div class="sx" id="sx" hidden data-base={u()} data-index={`${u('x').replace(/x$/, '')}search.json?v=${BUILD}`}>
   <div class="sx-top">
     <div class="sx-bar">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
@@ -106,20 +106,21 @@ const BUILD = Date.now().toString(36);
     return sc - (x.o || 0) * 1.5 + (x.r || 0) * 20 - (x.x || 0) * 9;
   };
 
-  const LABEL = { e: 'Especies', c: 'Continentes', p: 'Países', g: 'Programas', w: 'Páginas' };
+  const tt = (window as any).tt;
+  const LABEL = { e: tt('Especies'), c: tt('Continentes'), p: tt('Países'), g: tt('Programas'), w: tt('Páginas') };
   const MAX = { e: 8, c: 3, p: 10, g: 14, w: 4 };
   const render = () => {
     const words = norm(q.value).trim().split(/\s+/).filter((w) => w.length > 0);
     empty.hidden = words.length > 0;
     sel = -1;
     if (!words.length) { res.innerHTML = ''; return; }
-    if (!data) { res.innerHTML = '<p class="sx-none">Buscando…</p>'; load().then(render); return; }
+    if (!data) { res.innerHTML = `<p class="sx-none">${tt('Buscando…')}</p>`; load().then(render); return; }
     const hits = data.map((x) => [x, score(x, words)]).filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1]);
-    if (!hits.length) { res.innerHTML = `<p class="sx-none">No encontramos «${esc(q.value)}». <a href="${base}contacto">Cuéntenos qué quiere cazar</a> y se lo organizamos.</p>`; return; }
+    if (!hits.length) { res.innerHTML = `<p class="sx-none">${tt('No encontramos «{q}».', { q: esc(q.value) })} <a href="${base}contacto">${tt('Cuéntenos qué quiere cazar')}</a> ${tt('y se lo organizamos.')}</p>`; return; }
     let html = '';
     // Los programas recomendados que coinciden van arriba del todo.
     const top = hits.filter(([x]) => x.t === 'g' && x.r === 2).slice(0, 3).map(([x]) => x);
-    if (top.length) html += '<div class="sx-grp"><h4>Recomendado</h4><div class="sx-list">' + top.map((x) => `<a href="${base}${x.h}"><img src="${x.i}" alt="" loading="lazy"><span><b>${mark(x.n, words)}</b><small>${esc(x.s)}</small></span></a>`).join('') + '</div></div>';
+    if (top.length) html += `<div class="sx-grp"><h4>${tt('Recomendado')}</h4><div class="sx-list">` + top.map((x) => `<a href="${base}${x.h}"><img src="${x.i}" alt="" loading="lazy"><span><b>${mark(x.n, words)}</b><small>${esc(x.s)}</small></span></a>`).join('') + '</div></div>';
     for (const t of ['e', 'p', 'g', 'c', 'w']) {
       const g = hits.filter(([x]) => x.t === t && !top.includes(x)).slice(0, MAX[t]).map(([x]) => x);
       if (!g.length) continue;

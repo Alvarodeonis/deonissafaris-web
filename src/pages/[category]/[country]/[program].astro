@@ -263,13 +263,13 @@ const trip = {
   .from { margin-top: 16px; }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
   .hero-media-btns { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 18px; }
-  .hero-map { margin-top: 18px; max-width: 280px; }
-  @media (min-width: 1100px) and (max-height: 840px) { .hero-map { max-width: 220px; margin-top: 14px; } }
+  .hero-map { margin-top: 18px; max-width: 420px; }
+  @media (min-width: 1100px) and (max-height: 840px) { .hero-map { max-width: 340px; margin-top: 14px; } }
   @media (min-width: 961px) {
-    .ph { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: center; gap: 0; padding-block: 24px 8px; }
+    .ph { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: center; gap: 0; padding-block: 8px; }
     .ph .hero-media { order: 2; height: auto; min-height: 0; overflow: visible; background: none; }
     .ph .hero-media .fg { position: static; display: block; width: 100%; height: auto; max-height: calc(100vh - 130px); object-fit: contain; object-position: center right; }
-    .ph .ph-info { order: 1; padding: 72px 48px 16px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
+    .ph .ph-info { order: 1; padding: 40px 48px 16px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
     .ph h1 { font-size: clamp(40px, 4vw, 66px); }
   }
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
