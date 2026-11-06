@@ -2,7 +2,10 @@
 // intro: párrafo corto bajo el título. sections: guía al final de la página.
 // faq: preguntas frecuentes (se publican también como FAQPage en JSON-LD).
 // Enlaces internos con formato [texto](ruta/relativa).
+import countryTexts from './seo-countries.json';
+
 export const seoTexts = {
+  ...countryTexts,
   'caza-en-africa': {
     intro: 'Llevamos más de treinta años organizando safaris de caza en África. Búfalo, leopardo, león, elefante o una buena semana de plains game: le mandamos solo a cazaderos que conocemos, porque antes hemos cazado allí nosotros.',
     heading: 'Cazar en África con de Onís Safaris',

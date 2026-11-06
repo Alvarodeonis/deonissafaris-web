@@ -4,6 +4,8 @@ import ProgramCard from '../../../components/ProgramCard.astro';
 import { allCategories as categories } from '../../../data/site.js';
 import { countries } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
+import SeoText from '../../../components/SeoText.astro';
+import { seoTexts } from '../../../data/seo-texts.js';
 
 export function getStaticPaths() {
   return categories.flatMap((cat) =>
@@ -12,13 +14,16 @@ export function getStaticPaths() {
 }
 const { cat, c } = Astro.props;
 const arco = cat.slug === 'caza-con-arco';
+const seo = seoTexts[`${cat.slug}/${c.slug}`];
+const faqSchema = seo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: seo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 const place = cat.place ?? (arco ? 'Caza con arco en' : 'Caza en');
 ---
-<Layout title={`${place} ${c.name}`} description={`${place} ${c.name} con de Onís Safaris: ${c.programs.map((p) => p.title).join(', ')}. Precios, temporadas y presupuesto a medida.`} image={c.programs[0].hero} crumbs={[[cat.title, cat.slug], [c.name, `${cat.slug}/${c.slug}`]]}>
+<Layout title={`${place} ${c.name}`} description={`${place} ${c.name} con de Onís Safaris: ${c.programs.map((p) => p.title).join(', ')}. Precios, temporadas y presupuesto a medida.`} image={c.programs[0].hero} crumbs={[[cat.title, cat.slug], [c.name, `${cat.slug}/${c.slug}`]]} schema={faqSchema}>
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>
       <h1>{arco ? `Arco en ${c.name}` : `${place} ${c.name}`}</h1>
+      {seo?.intro && <p class="intro">{seo.intro}</p>}
       <p class="count">{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'} · los más actualizados primero</p>
     </div>
   </section>
@@ -27,6 +32,8 @@ const place = cat.place ?? (arco ? 'Caza con arco en' : 'Caza en');
       <div class="grid-3">{c.programs.map((p) => <ProgramCard p={p} />)}</div>
     </div>
   </section>
+
+  <SeoText data={seo} />
 </Layout>
 
 <style>
@@ -37,6 +44,8 @@ const place = cat.place ?? (arco ? 'Caza con arco en' : 'Caza en');
     .head .crumbs, .head h1, .count { text-align: center; justify-content: center; }
     .head h1 { margin: 10px 0 0; }
   }
+  .intro { max-width: 760px; margin: 14px auto 0; font-size: 17px; line-height: 1.6; color: var(--stone); }
+  @media (min-width: 961px) { .intro { text-align: center; } }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
   .list { padding-top: 32px; }
   @media (max-width: 760px) { .head { padding-top: 120px; } }
