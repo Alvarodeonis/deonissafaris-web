@@ -9,9 +9,9 @@ import { programs, programUrl } from '../data/programs.js';
 import { categories, videos, team } from '../data/site.js';
 import { u } from '../lib/url.js';
 
-const hero = videos[0];
+const hero = videos.find((v) => v.id === 'Jk2uAbcHA9Q') ?? videos[0];
 // Foto de portada mientras carga el vídeo (y si el móvil no lo reproduce).
-const heroPoster = u('media/images/proyectos_85_dsc01123.jpg');
+const heroPoster = u('media/images/proyectos_160_img_1034.jpg');
 const bySlug = (slug) => programs.find((p) => p.slug.startsWith(slug));
 // Mismo orden que la web actual.
 const bestSellers = ['mozambique', 'kazakhstan', 'namibia-paquete', 'sudafrica', 'turquia'].map(bySlug);
