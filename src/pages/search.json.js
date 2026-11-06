@@ -1,5 +1,5 @@
 import { programs, programUrl, countries, isCurrent, fromPrice, money } from '../data/programs.js';
-import { categories } from '../data/site.js';
+import { allCategories as categories } from '../data/site.js';
 import { activeSpecies, groups, speciesIn, speciesUrl, groupUrl, speciesCover, countriesOfSpecies } from '../data/species.js';
 
 // Índice del buscador de la cabecera: se descarga la primera vez que se abre la lupa.

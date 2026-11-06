@@ -146,6 +146,14 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           <ul>{arcoCountries.map((c) => <li><a href={u(`caza-con-arco/${c.slug}`)}>{c.name}</a></li>)}</ul>
         </div>
         <div>
+          <h4>Pesca y fotografía</h4>
+          <ul>
+            <li><a href={u('pesca')}>Viajes de pesca</a></li>
+            {countriesOf('pesca').map((c) => <li class="sub"><a href={u(`pesca/${c.slug}`)}>{c.name}</a></li>)}
+            <li><a href={u('safaris-fotograficos')}>Safaris fotográficos</a></li>
+          </ul>
+        </div>
+        <div>
           <h4>Oficinas</h4>
           <ul class="offices">{contact.offices.map((o) => <li><b>{o.city}</b>{o.phone}</li>)}</ul>
         </div>

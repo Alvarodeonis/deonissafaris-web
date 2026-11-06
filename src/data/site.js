@@ -48,3 +48,11 @@ export const categories = [
   { slug: 'caza-en-oceania', emoji: '🌏', name: 'Oceanía', title: 'Caza en Oceanía', tagline: 'Ciervos gigantes, tahr y rebeco en Nueva Zelanda; banteng y búfalo de agua en Australia.' },
   { slug: 'caza-con-arco', emoji: '🏹', name: 'Arco', title: 'Caza con arco', tagline: 'Arco en África, España, Norteamérica, Groenlandia, Nueva Zelanda y Turquía.' },
 ];
+
+// Otros viajes (fuera del menú de caza; se enlazan desde el pie de página).
+export const extraCategories = [
+  { slug: 'pesca', name: 'Pesca', title: 'Viajes de pesca', place: 'Pesca en', unit: 'pescador', verb: 'Así se pesca aquí', tagline: 'Marlín en Mozambique y Cabo Verde, atún rojo en Cádiz, salmón en Islandia, truchas en Finlandia y Eslovenia, arctic char en Groenlandia y la Amazonía boliviana.' },
+  { slug: 'safaris-fotograficos', name: 'Safaris fotográficos', title: 'Safaris fotográficos', place: 'Safari fotográfico en', unit: 'persona', verb: 'Vídeo', tagline: 'Safaris fotográficos a medida en Namibia, Sudáfrica, Mozambique y Tanzania, con amigos o en familia.' },
+];
+export const allCategories = [...categories, ...extraCategories];
+export const isHunting = (slug) => categories.some((c) => c.slug === slug);

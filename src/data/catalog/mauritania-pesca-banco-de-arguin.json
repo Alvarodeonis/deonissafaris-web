@@ -1,0 +1,113 @@
+{
+ "title": "Pesca en el Banco de Arguin",
+ "summary": "Pesca desde costa y en barco de vela latina en el Parque Nacional del Banco de Arguin: corvinas, palometones, king mackerel, pargos, tiburones y peces guitarra.",
+ "season": "Todo el año según especie (2019–2020)",
+ "duration": "3 o 6 días de pesca",
+ "area": "Parque Nacional del Banco de Arguin (11.000 km²)",
+ "lodging": "Campamento en la costa, pensión completa",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_164_mauritania%20pesca%202019-2020.pdf",
+ "video": "",
+ "images": [
+  "proyectos_164_pesca%20mauritania%202.jpg",
+  "proyectos_164_imagen%201.png",
+  "proyectos_164_fdfsd.png",
+  "proyectos_164_imagefdfn%201.png",
+  "proyectos_164_imagefdsfdsn%201.png",
+  "proyectos_164_2ed7c00a-fad1-4671-acf3-380fc3bdc8c4.jpg",
+  "proyectos_164_52c17bf6-8b7d-472f-a020-67d434e98afc.jpg",
+  "proyectos_164_c827d2a1-916c-4429-a3c0-9edfc1a247fd.jpg",
+  "proyectos_164_0a8d63a1-a3ec-4e0f-b1f3-94844350dde9.jpg",
+  "proyectos_164_pesca%20mauritania.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Precios por pescador",
+   "table": {
+    "head": [
+     "Grupo",
+     "3 días de pesca",
+     "6 días de pesca"
+    ],
+    "rows": [
+     [
+      "2 personas",
+      "900 €",
+      "1.300 €"
+     ],
+     [
+      "3–4 personas",
+      "800 €",
+      "1.200 €"
+     ],
+     [
+      "5–6 personas",
+      "700 €",
+      "1.000 €"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Temporadas",
+   "rows": [
+    [
+     "Febrero – abril",
+     "Corvina blanca y negra"
+    ],
+    [
+     "Marzo – julio",
+     "Roncadores, king mackerel y palometones"
+    ],
+    [
+     "Mayo – julio",
+     "Peces guitarra y tiburones"
+    ],
+    [
+     "Julio – octubre",
+     "Caballas, atuncillos, anchovas y agujas"
+    ],
+    [
+     "Todo el año",
+     "Bailas, meros, sargos, samas, brecas, morenas, pargos, sepias y pulpos"
+    ]
+   ]
+  },
+  {
+   "title": "Cómo se pesca",
+   "text": [
+    "Desde costa, en el cabo rocoso del campamento y en las grandes playas: spinning ligero, pesca a cebo junto a las rocas y surfcasting para corvinas, pargos y, de noche, tiburones y peces guitarra.",
+    "Cada programa incluye una jornada en barco de madera de vela latina (en el parque se prohíbe el motor), con jigging ligero para corvinas, meros, pargos y palometones."
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Recogida en Nuakchot y traslado al campamento (4 h en 4x4).",
+    "Campamento en la costa con pensión completa.",
+    "Equipo de pesca, cebos y un día de barco."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos vía Canarias (500–800 €).",
+    "Visado (55 €).",
+    "Hotel en la capital si hace falta (100 €/noche).",
+    "Día adicional de barco (90 €).",
+    "Traslados adicionales (100 €).",
+    "Propinas (100 €/persona).",
+    "Gastos personales."
+   ]
+  },
+  {
+   "title": "Nota importante",
+   "text": [
+    "Estos programas no son un documento contractual; se confeccionan a título informativo. Los precios pueden variar sin previo aviso por motivos ajenos a nuestra empresa. Condiciones de cancelación según el organizador local."
+   ]
+  }
+ ],
+ "slug": "mauritania-pesca-banco-de-arguin",
+ "category": "pesca",
+ "country": "mauritania",
+ "countryName": "Mauritania"
+}

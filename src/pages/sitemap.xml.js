@@ -1,6 +1,6 @@
 // Sitemap con todas las páginas HTML que genera el sitio.
 const pages = import.meta.glob('./**/*.astro');
-import { categories } from '../data/site.js';
+import { allCategories as categories } from '../data/site.js';
 import { countries, programs, programUrl, programYear } from '../data/programs.js';
 import { groups, speciesIn, activeSpecies } from '../data/species.js';
 

@@ -1,0 +1,139 @@
+{
+ "title": "Pesca en Cádiz desde embarcación",
+ "summary": "Alquiler de barco con patrón y guía en Barbate, El Puerto de Santa María y La Línea: pesca a fondo, jigging, curricán y big game de atún rojo y marlín.",
+ "season": "Todo el año (big game de junio a octubre)",
+ "duration": "Jornadas de 5 o 10 horas",
+ "area": "Barbate, El Puerto de Santa María y La Línea",
+ "lodging": "Libre (hoteles de la zona)",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_175_cadiz%20pesca%202019.pdf",
+ "video": "",
+ "images": [
+  "proyectos_175_mgud0857.jpg",
+  "proyectos_175_spanish-tuna-fishery-receives-msc-certification_15bec36d43a1ac.png",
+  "proyectos_175_2239f218-42c4-4871-9de7-93e5e80d3ed3.jpg",
+  "proyectos_175_img_1154.jpg",
+  "proyectos_175_img_1275-001%20%282%29.jpg",
+  "proyectos_175_img_6709.jpg",
+  "proyectos_175_img_2679.jpg",
+  "proyectos_175_img_1149.jpg",
+  "proyectos_175_aulf7171.jpg",
+  "proyectos_175_qtej8969.jpg",
+  "proyectos_175_bkkk1097.jpg",
+  "proyectos_175_img_0434.jpg",
+  "proyectos_175_ijal8194.jpg",
+  "proyectos_175_wqgr2241.jpg",
+  "proyectos_175_lwdt7675.jpg",
+  "proyectos_175_pfya4917.jpg",
+  "proyectos_175_pbxt9830.jpg",
+  "proyectos_175_rdpx8023.jpg",
+  "proyectos_175_tdhw6012.jpg",
+  "proyectos_175_img_3245.jpg",
+  "proyectos_175_mvfa8064.jpg",
+  "proyectos_175_paot5631.jpg",
+  "proyectos_175_bqpo7624.jpg",
+  "proyectos_175_wdtc2650.jpg",
+  "proyectos_175_img_3957.jpg",
+  "proyectos_175_hfef9889.jpg",
+  "proyectos_175_ddey4439.jpg",
+  "proyectos_175_uztb0400.jpg",
+  "proyectos_175_ushb9830.jpg",
+  "proyectos_175_kybs1105.jpg",
+  "proyectos_175_img_0877.jpg",
+  "proyectos_175_veyr4296.jpg",
+  "proyectos_175_img_6516.jpg",
+  "proyectos_175_img_2665.jpg",
+  "proyectos_175_img_1740.jpg",
+  "proyectos_175_img_8158.jpg",
+  "proyectos_175_img_6801.jpg",
+  "proyectos_175_rdih2500.jpg",
+  "proyectos_175_img_7118.jpg",
+  "proyectos_175_vxkx8887.jpg",
+  "proyectos_175_cxpg4059.jpg",
+  "proyectos_175_img_2659.jpg",
+  "proyectos_175_img_3152.jpg",
+  "proyectos_175__dsc0103.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Modalidades y precios por barco",
+   "table": {
+    "head": [
+     "Modalidad",
+     "Época",
+     "Especies",
+     "Puerto",
+     "5 horas",
+     "10 horas"
+    ],
+    "rows": [
+     [
+      "Fondo",
+      "Todo el año",
+      "Tiburón, corvina, pargo, hurta, mero, serviola, sargo, dorada",
+      "Barbate",
+      "400 €",
+      "600 €"
+     ],
+     [
+      "Jigging / popping",
+      "Todo el año",
+      "Tiburón, corvina, pargo, hurta, mero, serviola, llampuga",
+      "Barbate / El Puerto",
+      "450 €",
+      "700 €"
+     ],
+     [
+      "Curricán",
+      "Julio – noviembre",
+      "Marlín, túnidos, bonito, alistado, serrucho, dorado, llampuga, albacora",
+      "Barbate / El Puerto",
+      "500 €",
+      "900 €"
+     ],
+     [
+      "Big game",
+      "16 junio – octubre",
+      "Atún rojo, túnidos y marlín",
+      "El Puerto y La Línea",
+      "600 €",
+      "1.000 €"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Equipos de pesca.",
+    "Guía de pesca.",
+    "Combustible y patrón.",
+    "Licencias de pesca.",
+    "Bebidas a bordo."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Comidas a bordo.",
+    "Alojamiento (recomendamos hoteles de la zona).",
+    "Traslados."
+   ]
+  },
+  {
+   "title": "Reservas",
+   "text": [
+    "30 % al reservar y el resto al empezar el viaje."
+   ]
+  },
+  {
+   "title": "Nota importante",
+   "text": [
+    "Estos programas no son un documento contractual; se confeccionan a título informativo. Los precios pueden variar sin previo aviso por motivos ajenos a nuestra empresa. Condiciones de cancelación según el organizador local."
+   ]
+  }
+ ],
+ "slug": "espana-pesca-cadiz",
+ "category": "pesca",
+ "country": "espana",
+ "countryName": "España"
+}

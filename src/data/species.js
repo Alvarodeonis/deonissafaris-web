@@ -2,6 +2,7 @@
 // Un programa entra en una especie si su título la nombra o, cuando el título es genérico
 // ("Programa general", "Paquete Windhoek"…), si la nombra su resumen. `add` y `skip` corrigen a mano.
 import { programs, byUpdate, isCurrent } from './programs.js';
+import { isHunting } from './site.js';
 
 export const groups = [
   { slug: 'big-five', name: 'Big Five', title: 'Caza de los Big Five', lead: 'Elefante, búfalo, león, leopardo y rinoceronte: los cinco grandes de África, con los outfitters que mejor conocemos en Mozambique, Tanzania, Sudáfrica, Zimbabwe, Zambia y Botswana.' },
@@ -61,6 +62,7 @@ const generic = (p) => !anySpecies.test(p.title);
 
 for (const s of species) {
   s.programs = programs.filter((p) => {
+    if (!isHunting(p.category)) return false;
     if (s.skip?.includes(p.slug)) return false;
     if (s.add?.includes(p.slug)) return true;
     if (s.onlyCountry && p.country !== s.onlyCountry) return false;

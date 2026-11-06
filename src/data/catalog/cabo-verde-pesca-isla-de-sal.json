@@ -1,0 +1,192 @@
+{
+ "title": "Pesca en la isla de Sal",
+ "summary": "Barco en exclusiva para hasta cuatro pescadores en la isla de Sal: marlín azul, atún, serviola, wahoo y tiburón, a vertical, deriva, fondo o curricán.",
+ "season": "Mayo (marlín); junio – agosto (resto)",
+ "duration": "De 2 a 7 días",
+ "area": "Isla de Sal, Cabo Verde",
+ "lodging": "Hotel (aparte, unos 50 €/día)",
+ "pdf": "",
+ "video": "",
+ "images": [
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.25.08.png",
+  "proyectos_170_r0_60_640_420_w1200_h678_fmax.jpg",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.25.50.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.26.28.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.26.00.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.26.09.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.25.16.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.26.18.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.23.43.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.13.02.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.12.40.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.12.48.png",
+  "proyectos_170_captura%20de%20pantalla%202019-03-04%20a%20las%2020.12.31.png",
+  "proyectos_170_58574780_1001661773355950_6181627046221840384_n.jpg",
+  "proyectos_170_57486096_1001662066689254_1621713306609778688_o.jpg",
+  "proyectos_170_575101_10150896306098430_970677187_n.jpg",
+  "proyectos_170_57572760_1001659050022889_2867318616326406144_n.jpg",
+  "proyectos_170_60204067_2495047543894761_3407029957702975488_o.jpg",
+  "proyectos_170_61076670_2521397684593080_6976946704725573632_n.jpg",
+  "proyectos_170_62322604_1034609443394516_8116595785430204416_n.jpg",
+  "proyectos_170_62263645_1034609390061188_2600550578299863040_n.jpg",
+  "proyectos_170_62473739_1034609366727857_6752753281639907328_n.jpg",
+  "proyectos_170_62381085_1034609470061180_1997785827073064960_n.jpg",
+  "proyectos_170_64627353_1034609383394522_5750289682617335808_n.jpg"
+ ],
+ "blocks": [
+  {
+   "title": "Opción 1 · 4 horas de barco en exclusiva (precio por persona)",
+   "table": {
+    "head": [
+     "",
+     "1 día",
+     "2 días",
+     "3 días",
+     "4 días",
+     "5 días"
+    ],
+    "rows": [
+     [
+      "1 persona",
+      "550 €",
+      "990 €",
+      "1.430 €",
+      "1.870 €",
+      "2.310 €"
+     ],
+     [
+      "2 personas",
+      "275 €",
+      "495 €",
+      "715 €",
+      "935 €",
+      "1.155 €"
+     ],
+     [
+      "3 personas",
+      "183 €",
+      "330 €",
+      "477 €",
+      "623 €",
+      "770 €"
+     ],
+     [
+      "4 personas",
+      "138 €",
+      "248 €",
+      "358 €",
+      "468 €",
+      "578 €"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Opción 2 · 6 horas de barco en exclusiva (precio por persona)",
+   "table": {
+    "head": [
+     "",
+     "1 día",
+     "2 días",
+     "3 días",
+     "4 días",
+     "5 días"
+    ],
+    "rows": [
+     [
+      "1 persona",
+      "900 €",
+      "1.620 €",
+      "2.340 €",
+      "3.060 €",
+      "3.780 €"
+     ],
+     [
+      "2 personas",
+      "450 €",
+      "810 €",
+      "1.170 €",
+      "1.530 €",
+      "1.890 €"
+     ],
+     [
+      "3 personas",
+      "300 €",
+      "540 €",
+      "780 €",
+      "1.020 €",
+      "1.260 €"
+     ],
+     [
+      "4 personas",
+      "225 €",
+      "405 €",
+      "585 €",
+      "765 €",
+      "945 €"
+     ]
+    ]
+   }
+  },
+  {
+   "title": "Modalidades",
+   "rows": [
+    [
+     "Vertical (junio – agosto)",
+     "Serviolas, black jack, barracudas, cuberas, meros y atunes"
+    ],
+    [
+     "Deriva de atún (abril – agosto)",
+     "Atunes y serviolas"
+    ],
+    [
+     "Deriva de tiburón (tardes, junio – agosto)",
+     "Varias especies de tiburón"
+    ],
+    [
+     "Fondo (junio – agosto)",
+     "Garopa, mero, corvina, jurel, salmonete, bica"
+    ],
+    [
+     "Curricán (tardes, mayo – junio)",
+     "Marlín azul, pez vela, atún de aleta amarilla, wahoo, llampuga, barracuda"
+    ]
+   ]
+  },
+  {
+   "title": "Incluye",
+   "list": [
+    "Equipos de pesca.",
+    "Guías de pesca.",
+    "Permisos de pesca."
+   ]
+  },
+  {
+   "title": "No incluye",
+   "list": [
+    "Vuelos (300–400 €).",
+    "Alojamiento (unos 50 €/persona y día en el hotel NHaTerra).",
+    "Comidas y bebidas.",
+    "Traslados aeropuerto – alojamiento (unos 40 €).",
+    "Visado (unos 50 €, en la embajada en Madrid).",
+    "Propinas."
+   ]
+  },
+  {
+   "title": "Reservas",
+   "text": [
+    "50 % al contratar y el resto un mes antes del viaje. Para el marlín recomendamos una semana entera dedicada solo a él."
+   ]
+  },
+  {
+   "title": "Nota importante",
+   "text": [
+    "Estos programas no son un documento contractual; se confeccionan a título informativo. Los precios pueden variar sin previo aviso por motivos ajenos a nuestra empresa. Condiciones de cancelación según el organizador local."
+   ]
+  }
+ ],
+ "slug": "cabo-verde-pesca-isla-de-sal",
+ "category": "pesca",
+ "country": "cabo-verde",
+ "countryName": "Cabo Verde"
+}

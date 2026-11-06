@@ -10,7 +10,7 @@ import LegalNote from '../../../components/LegalNote.astro';
 import Lightbox from '../../../components/Lightbox.astro';
 import { details } from '../../../data/details.js';
 import { galleries } from '../../../data/galleries.js';
-import { categories } from '../../../data/site.js';
+import { allCategories as categories } from '../../../data/site.js';
 import { programs, programUrl, fromPrice, money, isCurrent, programYear } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
 import { contact } from '../../../data/site.js';
@@ -41,10 +41,11 @@ const facts = [
   ['Alojamiento', p.lodging],
 ].filter(([, v]) => v);
 const spTags = speciesOf(p);
+const unit = cat.unit ?? 'cazador';
 // Datos estructurados: el programa como viaje organizado, con su precio de partida.
 const trip = {
   '@type': 'TouristTrip', name: `${p.title} · ${p.countryName}`, description: p.summary, image: photos.slice(0, 6).map((x) => new URL(x, Astro.site).href),
-  touristType: p.category === 'caza-con-arco' ? 'Cazadores con arco' : 'Cazadores',
+  touristType: p.category === 'caza-con-arco' ? 'Cazadores con arco' : p.category === 'pesca' ? 'Pescadores' : p.category === 'safaris-fotograficos' ? 'Viajeros' : 'Cazadores',
   provider: { '@id': new URL(u().replace(/\/?$/, '/'), Astro.site).href + '#org' },
   itinerary: { '@type': 'Place', name: p.area ? `${p.area}, ${p.countryName}` : p.countryName },
   ...(from && cur ? { offers: { '@type': 'Offer', price: from.amount, priceCurrency: ['USD', 'GBP'].includes(from.currency) ? from.currency : 'EUR', availability: 'https://schema.org/InStock', url: new URL(u(programUrl(p)).replace(/\/?$/, '/'), Astro.site).href } } : {}),
@@ -65,7 +66,7 @@ const trip = {
         <div class="eyebrow" style="margin-bottom:10px">{p.countryName}</div>
         <h1>{p.title}</h1>
         {!cur && <p class="old-note">Programa de temporadas anteriores{oldYear ? ` (tarifas ${oldYear})` : ''}. Los precios son orientativos: escríbenos y te confirmamos disponibilidad y tarifa actualizada.</p>}
-        {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / cazador</div>}
+        {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / {unit}</div>}
         <div class="hero-btns">
           {sim ? <a class="btn" href="#simulador">Calcular presupuesto</a> : <a class="btn" href={wa} target="_blank" rel="noopener">Pedir presupuesto</a>}
           {d && <a class="btn outline" href="#programa">Ver programa completo</a>}
@@ -122,7 +123,7 @@ const trip = {
     <section class="video-sec dark" id="video">
       <div class="wrap">
         <div class="eyebrow">Vídeo</div>
-        <h2>Así se caza aquí</h2>
+        <h2>{cat.verb ?? 'Así se caza aquí'}</h2>
         <button type="button" class="video-facade" data-yt={p.video} aria-label={`Reproducir vídeo de ${p.title}`}>
           <img src={`https://i.ytimg.com/vi/${p.video}/maxresdefault.jpg`} alt="" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
           <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
@@ -137,7 +138,7 @@ const trip = {
         <div>
           <div class="eyebrow">Presupuesto a medida</div>
           <h2>{d?.blocks.length ? 'Te preparamos el presupuesto' : 'Consúltanos este programa'}</h2>
-          <p>{d?.blocks.length ? 'Cuéntanos cuántos cazadores y acompañantes sois, las fechas y los trofeos que te interesan, y te enviamos un presupuesto cerrado.' : 'Las tarifas de este destino cambian cada temporada. Escríbenos y te enviamos los precios actualizados, las fechas disponibles y un presupuesto sin compromiso.'}</p>
+          <p>{d?.blocks.length ? (cat.unit ? `Cuéntanos cuántos sois, las fechas y lo que os interesa, y te enviamos un presupuesto cerrado.` : 'Cuéntanos cuántos cazadores y acompañantes sois, las fechas y los trofeos que te interesan, y te enviamos un presupuesto cerrado.') : 'Las tarifas de este destino cambian cada temporada. Escríbenos y te enviamos los precios actualizados, las fechas disponibles y un presupuesto sin compromiso.'}</p>
         </div>
         <div class="ask-btns">
           <a class="btn" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
