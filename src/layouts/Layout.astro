@@ -12,19 +12,20 @@ const sg = (slug) => groups.find((g) => g.slug === slug);
 const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
 const lupa = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>';
 
-const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false, crumbs = [], schema = [] } = Astro.props;
+const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false, crumbs = [], schema = [], canonicalPath } = Astro.props;
 // SEO: descripción entre ~70 y 160 caracteres, cortada por palabra.
 const clean = (t) => String(t).replace(/\s+/g, ' ').trim();
 let description = clean(rawDesc);
 if (description.length < 90) description = `${description.replace(/\.?$/, '.')} Safaris de caza a medida con de Onís Safaris, más de 30 años de experiencia.`;
 if (description.length > 160) description = description.slice(0, 157).replace(/[\s,;:·.(]+[^\s]*$/, '') + '…';
 const site = Astro.site ?? new URL('https://www.deonissafaris.com');
-const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), site).href;
+const canonical = new URL((canonicalPath ? u(canonicalPath) : Astro.url.pathname).replace(/\/?$/, '/'), site).href;
 // La vista previa en github.io no debe indexarse: duplicaría la web real.
 const preview = /github\.io/.test(site.host);
 const L = lang();
 const relPath = stripLang(Astro.url.pathname);
-const alternates = LANGS.filter((x) => ACTIVE.includes(x.code)).map((x) => ({ ...x, href: new URL(pathIn(x.code, relPath), site).href }));
+const altPath = canonicalPath ?? relPath;
+const alternates = LANGS.filter((x) => ACTIVE.includes(x.code)).map((x) => ({ ...x, href: new URL(pathIn(x.code, altPath), site).href }));
 const home = new URL(u().replace(/\/?$/, '/'), site).href;
 const abs = (x) => (x ? new URL(x, site).href : undefined);
 const org = {

@@ -3,7 +3,7 @@ import { countryPaths } from '../../../lib/routes.js';
 import Layout from '../../../layouts/Layout.astro';
 import ProgramCard from '../../../components/ProgramCard.astro';
 import { allCategories as categories } from '../../../data/site.js';
-import { countries } from '../../../data/programs.js';
+import { countries, programUrl } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
 import SeoText from '../../../components/SeoText.astro';
 import { seoTexts } from '../../../data/seo-texts.js';
@@ -15,7 +15,7 @@ const seo = seoTexts[`${cat.slug}/${c.slug}`];
 const faqSchema = seo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: seo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 const place = cat.place ?? (arco ? 'Caza con arco en' : 'Caza en');
 ---
-<Layout title={`${place} ${c.name}`} description={`${place} ${c.name} con de Onís Safaris: ${c.programs.map((p) => p.title).join(', ')}. Precios, temporadas y presupuesto a medida.`} image={c.programs[0].hero} crumbs={[[cat.title, cat.slug], [c.name, `${cat.slug}/${c.slug}`]]} schema={faqSchema}>
+<Layout title={`${place} ${c.name}`} description={`${place} ${c.name} con de Onís Safaris: ${c.programs.map((p) => p.title).join(', ')}. Precios, temporadas y presupuesto a medida.`} image={c.programs[0].hero} crumbs={[[cat.title, cat.slug], [c.name, `${cat.slug}/${c.slug}`]]} schema={faqSchema} canonicalPath={c.programs.length === 1 ? programUrl(c.programs[0]) : undefined}>
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>

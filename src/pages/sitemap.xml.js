@@ -12,7 +12,7 @@ export function GET({ site }) {
     .map((f) => f.replace(/^\.\//, '').replace(/\.astro$/, '').replace(/(^|\/)index$/, ''));
   const urls = [
     ...statics.map((p) => [p, p === '' ? '1.0' : '0.5']),
-    ...categories.filter((c) => countries(c.slug).length).flatMap((c) => [[c.slug, '0.9'], ...countries(c.slug).map((k) => [`${c.slug}/${k.slug}`, '0.8'])]),
+    ...categories.filter((c) => countries(c.slug).length).flatMap((c) => [[c.slug, '0.9'], ...countries(c.slug).filter((k) => k.programs.length > 1).map((k) => [`${c.slug}/${k.slug}`, '0.8'])]),
     ...programs.map((p) => [programUrl(p), programYear(p) >= 2025 ? '0.8' : '0.6']),
     ...groups.filter((g) => speciesIn(g.slug).length).map((g) => [`especies/${g.slug}`, '0.7']),
     ...activeSpecies.map((s) => [`especies/${s.slug}`, '0.7']),

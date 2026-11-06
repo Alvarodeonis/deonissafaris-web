@@ -5,7 +5,7 @@ import { feature } from 'topojson-client';
 import world from 'world-atlas/countries-110m.json';
 import { GEO } from '../data/geo.js';
 
-const { country, name, region } = Astro.props;
+const { country, name, area } = Astro.props;
 const g = GEO[country];
 const W = 1000, H = 500;
 const land = feature(world, world.objects.countries).features.filter((f) => f.properties.name !== 'Antarctica');
@@ -17,15 +17,15 @@ const [x, y] = g ? proj([g[1], g[2]]) : [0, 0];
   <figure class="pmap">
     <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Mapa: ${name}`}>
       <g class="pm-land">{land.map((f) => <path d={path(f)} class:list={[{ on: f.properties.name === g[0] }]} />)}</g>
-      <circle class="pm-pulse" cx={x.toFixed(1)} cy={y.toFixed(1)} r="10" />
-      <circle class="pm-dot" cx={x.toFixed(1)} cy={y.toFixed(1)} r="6" />
+      <circle class="pm-pulse" cx={x.toFixed(1)} cy={y.toFixed(1)} r="14" />
+      <circle class="pm-dot" cx={x.toFixed(1)} cy={y.toFixed(1)} r="9" />
     </svg>
-    <figcaption><span class="pm-k">Dónde</span><b>{name}</b>{region && <span class="pm-r">{region}</span>}</figcaption>
+    <figcaption><b>{name}</b>{area && area !== name && <span class="pm-r">{area}</span>}</figcaption>
   </figure>
 )}
 
 <style>
-  .pmap { margin: 0; padding: 18px 20px 16px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.02); }
+  .pmap { margin: 0; padding: 12px 12px 10px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.02); }
   .pmap svg { width: 100%; height: auto; display: block; }
   .pm-land path { fill: rgba(140,130,115,.28); stroke: rgba(0,0,0,.25); stroke-width: .5; }
   .pm-land path.on { fill: var(--red); stroke: #fff; stroke-width: 1.2; }
@@ -33,8 +33,8 @@ const [x, y] = g ? proj([g[1], g[2]]) : [0, 0];
   .pm-pulse { fill: var(--red); opacity: .5; transform-box: fill-box; transform-origin: center; animation: pm 2.2s ease-out infinite; }
   @keyframes pm { from { transform: scale(1); opacity: .55; } to { transform: scale(4); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .pm-pulse { animation: none; } }
-  .pmap figcaption { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+  .pmap figcaption { display: grid; gap: 2px; margin-top: 8px; line-height: 1.3; }
   .pm-k { font: 500 10px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
-  .pmap b { font: 500 22px var(--display); }
-  .pm-r { color: var(--stone); font-size: 14px; }
+  .pmap b { font: 500 18px var(--display); }
+  .pm-r { color: var(--stone); font-size: 13px; }
 </style>
