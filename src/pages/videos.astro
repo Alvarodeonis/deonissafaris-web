@@ -20,16 +20,17 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 
       <div class="stage">
         <div class="player">
-          <div class="frame" id="frame">
-            <iframe id="player" src={`https://www.youtube-nocookie.com/embed/${first.id}?rel=0&modestbranding=1`} title={first.title} allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
-          </div>
+          <div class="frame" id="frame"><button type="button" class="poster" id="poster-btn" data-play={first.id} data-title={first.title} data-group={first.groupName} aria-label={`Ver ${first.title}`}>
+            <img id="poster" src={thumb(first.id, 'maxresdefault')} alt={first.title} onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
+            <span class="bigplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
+          </button></div>
           <div class="now"><span class="eyebrow" id="now-group">{first.groupName}</span><h2 id="now-title">{first.title}</h2></div>
         </div>
         <aside class="recs">
           <div class="eyebrow">Recomendadas</div>
           {featuredFilms.map((f, i) => (
             <button type="button" class:list={['rec', { on: i === 0 }]} data-play={f.id} data-title={f.title} data-group={f.groupName}>
-              <span class="rth" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt="" loading="lazy" /></span>
+              <span class="rth" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /></span>
               <span class="rtx"><small>{f.groupName}</small>{f.title}</span>
             </button>
           ))}
@@ -51,7 +52,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
           <div class="flist">
             {g.films.map((f) => (
               <button type="button" class="fcard" data-play={f.id} data-title={f.title} data-group={g.name}>
-                <span class="th" data-hover={f.id}><img src={thumb(f.id)} alt="" loading="lazy" /><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
+                <span class="th" data-hover={f.id}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
                 <span class="ftl">{f.title}</span>
               </button>
             ))}
@@ -61,6 +62,19 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
       <p class="yt"><a class="btn outline" href={contact.social.youtube} target="_blank" rel="noopener">Nuestro canal de YouTube</a></p>
     </div>
   </section>
+  <div class="vmodal" id="vmodal" hidden role="dialog" aria-modal="true" aria-labelledby="vm-title">
+    <div class="vm-box">
+      <div class="vm-top">
+        <div><small id="vm-group"></small><h2 id="vm-title"></h2></div>
+        <button type="button" class="vm-close" id="vm-close" aria-label="Cerrar">Cerrar <kbd>Esc</kbd></button>
+      </div>
+      <div class="vm-frame" id="vm-frame"></div>
+      <div class="vm-nav">
+        <button type="button" id="vm-prev">‹ Anterior</button>
+        <button type="button" id="vm-next">Siguiente ›</button>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
@@ -70,7 +84,14 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .ft-head p { margin: 0; max-width: 52ch; color: var(--stone); }
   .stage { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
   .frame { aspect-ratio: 16 / 9; background: #000; }
-  .frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .frame :global(iframe) { width: 100%; height: 100%; border: 0; display: block; }
+  .poster { position: relative; display: block; width: 100%; height: 100%; padding: 0; background: #000; border: 0; cursor: pointer; overflow: hidden; }
+  .poster img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease, filter .4s; }
+  .poster::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.45)); }
+  .poster:hover img { transform: scale(1.03); filter: brightness(1.05); }
+  .bigplay { position: absolute; z-index: 1; inset: 0; margin: auto; width: 88px; height: 88px; border-radius: 50%; background: var(--red); display: grid; place-items: center; box-shadow: 0 10px 40px rgba(0,0,0,.45); transition: transform .3s; }
+  .bigplay svg { width: 40%; fill: #fff; margin-left: 5px; }
+  .poster:hover .bigplay { transform: scale(1.1); }
   .now { margin-top: 14px; }
   .now h2 { font-size: clamp(24px, 2.2vw, 32px); margin: 6px 0 0; }
   .recs { display: grid; gap: 10px; }
@@ -95,12 +116,34 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .fcard { border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
-  .th :global(iframe.prev), .rth :global(iframe.prev) { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; border: 0; pointer-events: none; transform: translate(-50%, -50%) scale(1.35); opacity: 0; transition: opacity .5s; }
-  .th :global(iframe.prev.on), .rth :global(iframe.prev.on) { opacity: 1; }
-  .fcard:hover .pl { background: var(--red); border-color: var(--red); opacity: 0; }
+  /* Avance al pasar el ratón: fotogramas del vídeo que se funden con un zoom lento. */
+  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
+  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; }
+  .th img, .rth img { transition: transform 4s ease-out; }
+  .fcard:hover .th img, .rec:hover .rth img { transform: scale(1.12); }
+  .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
+  .fcard:hover .bar { width: 100%; transition: width 4.2s linear; }
+  .fcard:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
+  .pl { z-index: 2; }
   .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
   .ftl { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
   .yt { margin-top: 48px; text-align: center; }
+  .vmodal { position: fixed; inset: 0; z-index: 210; display: grid; place-items: center; padding: 20px; background: rgba(8,7,6,.94); opacity: 0; transition: opacity .25s; }
+  .vmodal.on { opacity: 1; }
+  .vmodal[hidden] { display: none; }
+  .vm-box { width: min(1200px, 100%, calc((100vh - 170px) * 16 / 9)); color: #fff; transform: translateY(12px) scale(.98); transition: transform .3s; }
+  .vmodal.on .vm-box { transform: none; }
+  .vm-top { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 12px; }
+  .vm-top small { font: 500 10px var(--label); letter-spacing: .2em; text-transform: uppercase; color: #ff6b6b; }
+  .vm-top h2 { margin: 4px 0 0; font-size: clamp(22px, 2.4vw, 34px); color: #fff; }
+  .vm-close, .vm-nav button { background: none; border: 0; color: rgba(255,255,255,.8); font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .vm-close:hover, .vm-nav button:hover { color: #fff; }
+  .vm-close kbd { border: 1px solid rgba(255,255,255,.3); padding: 2px 6px; font: inherit; }
+  .vm-frame { aspect-ratio: 16 / 9; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  .vm-frame :global(iframe) { width: 100%; height: 100%; border: 0; display: block; }
+  .vm-nav { display: flex; justify-content: space-between; margin-top: 12px; }
+  html.vm-lock { overflow: hidden; }
+  @media (max-width: 600px) { .vm-close kbd { display: none; } .vmodal { padding: 12px; } }
   @media (max-width: 960px) {
     .stage { grid-template-columns: 1fr; }
     .rec { grid-template-columns: 120px minmax(0, 1fr); }
@@ -108,57 +151,70 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 </style>
 
 <script>
-  const player = document.getElementById('player') as HTMLIFrameElement;
-  const play = (b: HTMLElement) => {
-    player.src = `https://www.youtube-nocookie.com/embed/${b.dataset.play}?autoplay=1&rel=0&modestbranding=1`;
-    player.title = b.dataset.title!;
-    document.getElementById('now-title')!.textContent = b.dataset.title!;
-    document.getElementById('now-group')!.textContent = b.dataset.group!;
-    document.querySelectorAll('.rec').forEach((r) => r.classList.toggle('on', (r as HTMLElement).dataset.play === b.dataset.play));
-    document.getElementById('frame')!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const yt = (id: string) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&vq=hd1080`;
+  const iframe = (id: string, title: string) => {
+    const f = document.createElement('iframe');
+    f.src = yt(id); f.title = title;
+    f.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    return f;
   };
-  document.querySelectorAll<HTMLElement>('[data-play]').forEach((b) => b.addEventListener('click', () => play(b)));
 
-  // Al pasar el ratón se reproduce un avance del vídeo, sin sonido, dentro de la miniatura.
-  // Mientras YouTube arranca, la miniatura recorre varios fotogramas.
-  const canHover = matchMedia('(hover: hover)').matches;
-  // Muestra el avance en cuanto YouTube avisa de que está reproduciendo.
-  window.addEventListener('message', (e) => {
-    if (!/youtube/.test(e.origin)) return;
-    try {
-      const d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
-      const st = d.event === 'onStateChange' ? d.info : d.info?.playerState;
-      if (st === 1) document.querySelectorAll<HTMLIFrameElement>('iframe.prev').forEach((f) => { if (f.contentWindow === e.source) f.classList.add('on'); });
-    } catch {}
+  // Reproductor destacado: se carga YouTube solo al pulsar (la página abre más rápido).
+  const frame = document.getElementById('frame')!;
+  const stagePlay = (id: string, title: string, group: string, autoplay = true) => {
+    document.getElementById('now-title')!.textContent = title;
+    document.getElementById('now-group')!.textContent = group;
+    document.querySelectorAll<HTMLElement>('.rec').forEach((r) => r.classList.toggle('on', r.dataset.play === id));
+    if (autoplay) frame.replaceChildren(iframe(id, title));
+  };
+  const pb = document.getElementById('poster-btn')!;
+  pb.addEventListener('click', () => stagePlay(pb.dataset.play!, pb.dataset.title!, pb.dataset.group!));
+  document.querySelectorAll<HTMLElement>('.rec').forEach((b) => b.addEventListener('click', () => stagePlay(b.dataset.play!, b.dataset.title!, b.dataset.group!)));
+
+  // Resto de películas: se abren en grande en una ventana, con anterior y siguiente.
+  const modal = document.getElementById('vmodal')!;
+  const mFrame = document.getElementById('vm-frame')!;
+  const cards = [...document.querySelectorAll<HTMLElement>('.fcard')];
+  let cur = -1;
+  const visible = () => cards.filter((c) => !c.closest('.fgroup')!.hasAttribute('hidden'));
+  const open = (c: HTMLElement) => {
+    cur = visible().indexOf(c);
+    document.getElementById('vm-title')!.textContent = c.dataset.title!;
+    document.getElementById('vm-group')!.textContent = c.dataset.group!;
+    mFrame.replaceChildren(iframe(c.dataset.play!, c.dataset.title!));
+    if (modal.hidden) { modal.hidden = false; document.documentElement.classList.add('vm-lock'); requestAnimationFrame(() => modal.classList.add('on')); }
+  };
+  const close = () => { modal.classList.remove('on'); document.documentElement.classList.remove('vm-lock'); mFrame.replaceChildren(); setTimeout(() => { modal.hidden = true; }, 250); };
+  const step = (n: number) => { const v = visible(); if (v.length) open(v[(cur + n + v.length) % v.length]); };
+  cards.forEach((c) => c.addEventListener('click', () => open(c)));
+  document.getElementById('vm-close')!.addEventListener('click', close);
+  document.getElementById('vm-prev')!.addEventListener('click', () => step(-1));
+  document.getElementById('vm-next')!.addEventListener('click', () => step(1));
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (modal.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'ArrowLeft') step(-1);
   });
+
+  // Avance al pasar el ratón: los fotogramas del propio vídeo se funden uno tras otro.
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
-    const img = el.querySelector('img')!;
-    const orig = img.src;
-    const id = el.dataset.hover;
-    const frames = [1, 2, 3].map((n) => `https://i.ytimg.com/vi/${id}/hq${n}.jpg`);
-    let t: number | undefined, d: number | undefined, i = 0, ifr: HTMLIFrameElement | null = null;
+    const id = el.dataset.hover!;
+    let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
     el.addEventListener('mouseenter', () => {
-      frames.forEach((f) => { new Image().src = f; });
+      if (!layers.length) layers = [1, 2, 3].map((n) => {
+        const im = document.createElement('img');
+        im.className = 'fr'; im.alt = ''; im.src = `https://i.ytimg.com/vi/${id}/hq${n}.jpg`;
+        el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
+        return im;
+      });
       i = 0;
-      t = window.setInterval(() => { img.src = frames[i++ % frames.length]; }, 700);
-      if (!canHover) return;
-      d = window.setTimeout(() => {
-        ifr = document.createElement('iframe');
-        ifr.className = 'prev';
-        ifr.title = '';
-        ifr.tabIndex = -1;
-        ifr.allow = 'autoplay; encrypted-media';
-        ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&start=40&loop=1&playlist=${id}&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
-        const me = ifr;
-        me.addEventListener('load', () => { me.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id }), '*'); });
-        setTimeout(() => me.classList.add('on'), 2500);
-        el.appendChild(ifr);
-      }, 350);
+      const next = () => { layers.forEach((l, k) => l.classList.toggle('on', k === i % layers.length)); i++; };
+      t = window.setTimeout(function tick() { next(); t = window.setTimeout(tick, 1300); }, 250);
     });
-    el.addEventListener('mouseleave', () => {
-      clearInterval(t); clearTimeout(d); img.src = orig;
-      ifr?.remove(); ifr = null;
-    });
+    el.addEventListener('mouseleave', () => { clearTimeout(t); layers.forEach((l) => l.classList.remove('on')); });
   });
 
   const btns = document.querySelectorAll<HTMLElement>('.ffilter button');

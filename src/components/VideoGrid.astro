@@ -30,8 +30,8 @@ const { videos } = Astro.props;
   .vthumb.big .vtitle { font-size: 34px; left: 24px; bottom: 20px; }
   .vmodal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.92); display: grid; place-items: center; padding: 20px; }
   .vmodal[hidden] { display: none; }
-  .vframe { width: min(1200px, 100%); aspect-ratio: 16 / 9; }
-  .vframe iframe { width: 100%; height: 100%; border: 0; }
+  .vframe { width: min(1200px, 100%, calc((100vh - 80px) * 16 / 9)); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  .vframe :global(iframe) { width: 100%; height: 100%; border: 0; display: block; }
   .vclose { position: absolute; top: 14px; right: 20px; background: none; border: 0; color: #fff; font-size: 44px; cursor: pointer; line-height: 1; }
   @media (max-width: 860px) { .vgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 520px) { .vgrid { grid-template-columns: 1fr; } .vthumb.big { grid-column: auto; grid-row: auto; } }
@@ -40,10 +40,11 @@ const { videos } = Astro.props;
 <script>
   const modal = document.getElementById('vmodal');
   const frame = document.getElementById('vframe');
-  const close = () => { modal.hidden = true; frame.innerHTML = ''; };
+  const close = () => { modal.hidden = true; frame.innerHTML = ''; document.documentElement.style.overflow = ''; };
   document.querySelectorAll('[data-yt]').forEach((b) => b.addEventListener('click', () => {
-    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="Vídeo"></iframe>`;
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0&modestbranding=1&playsinline=1&vq=hd1080" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Vídeo"></iframe>`;
     modal.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
   }));
   document.getElementById('vclose').addEventListener('click', close);
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
