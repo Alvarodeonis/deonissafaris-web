@@ -9,7 +9,8 @@ import { programs, programUrl } from '../data/programs.js';
 import { categories, videos, team } from '../data/site.js';
 import { u } from '../lib/url.js';
 
-const hero = videos.find((v) => v.id === 'Jk2uAbcHA9Q') ?? videos[0];
+// Vídeo de portada elegido por Alvaro (se salta los primeros 20 s de introducción).
+const hero = { id: '4eBr23WJLiI', title: 'Lances de caza · de Onís Safaris', start: 20 };
 // Foto de portada mientras carga el vídeo (y si el móvil no lo reproduce).
 const heroPoster = u('media/images/proyectos_160_img_1034.jpg');
 const bySlug = (slug) => programs.find((p) => p.slug.startsWith(slug));
