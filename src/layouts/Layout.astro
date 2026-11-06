@@ -11,14 +11,36 @@ const sg = (slug) => groups.find((g) => g.slug === slug);
 const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
 const lupa = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>';
 
-const { title, description = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false } = Astro.props;
+const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false, crumbs = [], schema = [] } = Astro.props;
+// SEO: descripción entre ~70 y 160 caracteres, cortada por palabra.
+const clean = (t) => String(t).replace(/\s+/g, ' ').trim();
+let description = clean(rawDesc);
+if (description.length < 90) description = `${description.replace(/\.?$/, '.')} Safaris de caza a medida con de Onís Safaris, más de 30 años de experiencia.`;
+if (description.length > 160) description = description.slice(0, 157).replace(/[\s,;:·.(]+[^\s]*$/, '') + '…';
+const site = Astro.site ?? new URL('https://www.deonissafaris.com');
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), site).href;
+// La vista previa en github.io no debe indexarse: duplicaría la web real.
+const preview = /github\.io/.test(site.host);
+const home = new URL(u().replace(/\/?$/, '/'), site).href;
+const abs = (x) => (x ? new URL(x, site).href : undefined);
+const org = {
+  '@type': 'TravelAgency', '@id': home + '#org', name: 'de Onís Safaris', legalName: 'Onrom S.L.',
+  url: home, logo: abs(u('logo.png')), image: abs(u('img/namibia-kudu.jpg')),
+  telephone: contact.phone, email: contact.email,
+  address: { '@type': 'PostalAddress', streetAddress: 'Calle Doctor Velázquez 10', addressLocality: 'Pozuelo de Alarcón', addressRegion: 'Madrid', addressCountry: 'ES' },
+  sameAs: Object.values(contact.social),
+};
+const ld = [org, { '@type': 'WebSite', '@id': home + '#web', name: 'de Onís Safaris', url: home, inLanguage: 'es', publisher: { '@id': org['@id'] } }];
+if (crumbs.length) ld.push({ '@type': 'BreadcrumbList', itemListElement: [['Inicio', ''], ...crumbs].map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: new URL(u(path).replace(/\/?$/, '/'), site).href })) });
+ld.push(...schema);
+const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': ld }).replace(/</g, '\\u003c');
 const links = [
   ['Safari Club International', 'https://safariclub.org/'],
   ['Federación Española de Caza', 'https://www.fecaza.com/'],
   ['Ministerio de Asuntos Exteriores', 'https://www.exteriores.gob.es/'],
   ['Convertidor de divisas', 'https://www.xe.com/es/'],
 ];
-const fullTitle = title ? `${title} · de Onís Safaris` : 'de Onís Safaris · Safaris de caza internacional';
+const fullTitle = !title ? 'de Onís Safaris · Safaris de caza internacional' : `${title} · de Onís Safaris`.length <= 62 ? `${title} · de Onís Safaris` : title;
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, me gustaría información sobre un safari de caza.')}`;
 ---
 <!doctype html>
@@ -28,9 +50,17 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {preview && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="de Onís Safaris" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:url" content={canonical} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
-  {image && <meta property="og:image" content={image} />}
+  <meta property="og:image" content={abs(image) ?? abs(u('img/namibia-kudu.jpg'))} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" set:html={jsonld} />
   <link rel="icon" href={u('favicon.ico')} sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href={u('favicon-32.png')} />
   <link rel="icon" type="image/png" sizes="192x192" href={u('favicon-192.png')} />

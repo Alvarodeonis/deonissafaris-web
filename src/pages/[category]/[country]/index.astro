@@ -11,8 +11,9 @@ export function getStaticPaths() {
   );
 }
 const { cat, c } = Astro.props;
+const arco = cat.slug === 'caza-con-arco';
 ---
-<Layout title={`Caza en ${c.name}`} description={`Programas de caza en ${c.name}: ${c.programs.map((p) => p.title).join(', ')}.`} image={c.programs[0].hero}>
+<Layout title={arco ? `Caza con arco en ${c.name}` : `Caza en ${c.name}`} description={`${arco ? 'Caza con arco' : 'Caza'} en ${c.name} con de Onís Safaris: ${c.programs.map((p) => p.title).join(', ')}. Precios, temporadas y presupuesto a medida.`} image={c.programs[0].hero} crumbs={[[cat.title, cat.slug], [c.name, `${cat.slug}/${c.slug}`]]}>
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><a href={u(cat.slug)}>{cat.title}</a><span>/</span><span>{c.name}</span></div>

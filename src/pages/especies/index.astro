@@ -5,7 +5,7 @@ import { groups, speciesIn, groupUrl } from '../../data/species.js';
 import { u } from '../../lib/url.js';
 const list = groups.filter((g) => speciesIn(g.slug).length);
 ---
-<Layout title="Caza por especie" description="Busque la especie que quiere cazar: Big Five, caza mayor y caza menor, con los países y programas donde la organizamos.">
+<Layout title="Caza por especie" crumbs={[['Por especie', 'especies']]} description="Busque la especie que quiere cazar: Big Five, caza mayor y caza menor, con los países y programas donde la organizamos.">
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>Por especie</span></div>

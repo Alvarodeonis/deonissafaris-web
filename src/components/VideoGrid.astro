@@ -5,7 +5,7 @@ const { videos } = Astro.props;
 <div class="vgrid">
   {videos.map((v, i) => (
     <button type="button" class:list={['vthumb', { big: i === 0 }]} data-yt={v.id}>
-      <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" />
+      <img src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} loading="lazy" />
       <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
       <span class="vtitle">{v.title}</span>
     </button>

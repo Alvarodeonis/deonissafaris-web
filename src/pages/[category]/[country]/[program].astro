@@ -11,7 +11,7 @@ import Lightbox from '../../../components/Lightbox.astro';
 import { details } from '../../../data/details.js';
 import { galleries } from '../../../data/galleries.js';
 import { categories } from '../../../data/site.js';
-import { programs, fromPrice, money, isCurrent, programYear } from '../../../data/programs.js';
+import { programs, programUrl, fromPrice, money, isCurrent, programYear } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
 import { contact } from '../../../data/site.js';
 
@@ -41,13 +41,21 @@ const facts = [
   ['Alojamiento', p.lodging],
 ].filter(([, v]) => v);
 const spTags = speciesOf(p);
+// Datos estructurados: el programa como viaje organizado, con su precio de partida.
+const trip = {
+  '@type': 'TouristTrip', name: `${p.title} · ${p.countryName}`, description: p.summary, image: photos.slice(0, 6).map((x) => new URL(x, Astro.site).href),
+  touristType: p.category === 'caza-con-arco' ? 'Cazadores con arco' : 'Cazadores',
+  provider: { '@id': new URL(u().replace(/\/?$/, '/'), Astro.site).href + '#org' },
+  itinerary: { '@type': 'Place', name: p.area ? `${p.area}, ${p.countryName}` : p.countryName },
+  ...(from && cur ? { offers: { '@type': 'Offer', price: from.amount, priceCurrency: ['USD', 'GBP'].includes(from.currency) ? from.currency : 'EUR', availability: 'https://schema.org/InStock', url: new URL(u(programUrl(p)).replace(/\/?$/, '/'), Astro.site).href } } : {}),
+};
 ---
-<Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader>
+<Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader crumbs={[[cat.title, p.category], [p.countryName, `${p.category}/${p.country}`], [p.title, programUrl(p)]]} schema={[trip]}>
   <div class="page-hero program-hero">
     <div class="ph">
       <button type="button" class="hero-media" data-lb="prog" data-src={photos[0]} aria-label="Ampliar foto">
         <img class="bg" src={p.hero} alt="" aria-hidden="true" />
-        <img class="fg" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
+        <img class="fg" fetchpriority="high" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
       </button>
       <div class="wrap ph-info">
         <div class="crumbs">

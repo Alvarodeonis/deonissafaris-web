@@ -170,7 +170,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
         <p class="lead">Estaremos encantados de atenderte.</p>
         <div class="leads">
           {team.filter((t) => t.phone).map((t) => (
-            <div><img src={t.photo} alt="" loading="lazy" /><span><b>{t.name}</b>{t.phone}<br />{t.email}</span></div>
+            <div><img src={t.photo} alt={t.name} loading="lazy" /><span><b>{t.name}</b>{t.phone}<br />{t.email}</span></div>
           ))}
         </div>
       </div>

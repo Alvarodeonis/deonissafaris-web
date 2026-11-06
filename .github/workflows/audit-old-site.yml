@@ -1,0 +1,25 @@
+name: Auditoría de la web antigua
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/audit-old-site.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audit-old-site
+          path: audit-old-site.json

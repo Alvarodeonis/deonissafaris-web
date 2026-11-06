@@ -15,14 +15,14 @@ const total = list.reduce((n, c) => n + c.programs.length, 0);
 // Portada de cada país: el primer programa con foto propia.
 const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.programs[0].hero;
 ---
-<Layout title={cat.title} description={`${cat.title}: ${list.map((c) => c.name).join(', ')}.`} image={cover(list[0])}>
+<Layout title={cat.title} description={`${cat.title} con de Onís Safaris: ${cat.tagline} Programas en ${list.map((c) => c.name).join(', ')}.`} image={cover(list[0])} crumbs={[[cat.title, cat.slug]]}>
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>{cat.title}</span></div>
       <h1>{cat.title}</h1>
       <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
       <nav class="jump" aria-label="Países">
-        {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)}><img src={cover(c)} alt="" loading="lazy" /><span><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></span></a>)}
+        {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)}><img src={cover(c)} alt={`${cat.title.replace('Caza en ', 'Caza en ')} · ${c.name}`} loading="lazy" /><span><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></span></a>)}
       </nav>
     </div>
   </section>

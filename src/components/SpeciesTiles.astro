@@ -8,7 +8,7 @@ const { list, big = false } = Astro.props;
     const n = countriesOfSpecies(s);
     return (
       <a href={u(speciesUrl(s))}>
-        <img src={speciesCover(s)} alt="" loading="lazy" />
+        <img src={speciesCover(s)} alt={`Caza de ${s.name.toLowerCase()}`} loading="lazy" />
         <span><b>{s.name}</b><small>{n} {n === 1 ? 'país' : 'países'} · {s.programs.length} {s.programs.length === 1 ? 'programa' : 'programas'}</small></span>
       </a>
     );

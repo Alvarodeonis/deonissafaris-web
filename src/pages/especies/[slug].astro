@@ -20,9 +20,9 @@ const title = sp ? `Caza de ${sp.name.toLowerCase()}` : g.title;
 const lead = sp ? sp.intro : g.lead;
 const subs = subgroups[g.slug];
 ---
-<Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader>
+<Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader crumbs={[['Por especie', 'especies'], ...(sp ? [[g.name, groupUrl(g)], [sp.name, speciesUrl(sp)]] : [[g.name, groupUrl(g)]])]}>
   <section class="sp-hero">
-    <img src={hero} alt="" aria-hidden="true" />
+    <img src={hero} alt={title} />
     <div class="wrap">
       <div class="crumbs">
         <a href={u()}>Inicio</a><span>/</span><a href={u('especies')}>Por especie</a>

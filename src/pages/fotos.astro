@@ -25,7 +25,7 @@ const albums = [...map.values()]
 const conts = categories.filter((c) => c.slug !== 'caza-con-arco' && albums.some((a) => a.cat === c.slug));
 const total = albums.reduce((n, a) => n + a.photos.length, 0);
 ---
-<Layout title="Fotos" description="Fotos de nuestras cacerías en los cinco continentes, por países.">
+<Layout title="Fotos de caza internacional" description="Fotos de nuestras cacerías en los cinco continentes, por países.">
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Fotos</div>
