@@ -157,7 +157,7 @@ export const seoTexts = {
       },
     ],
     faq: [
-      { q: '¿Cuándo es la berrea en Nueva Zelanda?', a: 'En marzo y abril. La temporada general va de enero a agosto.' },
+      { q: '¿Cuándo es la berrea en Nueva Zelanda?', a: 'En marzo y abril. Se caza de enero a agosto.' },
       { q: '¿Qué se puede cazar en un mismo viaje a Nueva Zelanda?', a: 'Ciervo, tahr, rebeco, wapití y gamo. Lo normal es combinar dos o tres especies.' },
     ],
   },
