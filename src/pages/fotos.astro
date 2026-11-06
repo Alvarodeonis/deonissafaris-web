@@ -5,7 +5,7 @@ import Lightbox from '../components/Lightbox.astro';
 import { reportajes } from '../data/media.js';
 import { galleries } from '../data/galleries.js';
 import { programs } from '../data/programs.js';
-import { categories } from '../data/site.js';
+import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
 
 // Un álbum por país: junta las fotos de todos sus programas (rifle y arco) y los reportajes.
@@ -30,7 +30,7 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Fotos</div>
       <h1>Fotos</h1>
-      <p class="lead">{total} fotos de nuestras cacerías en {albums.length} países. Abra un país para recorrer su álbum a pantalla completa.</p>
+      <p class="lead">{total} fotos de nuestras cacerías en {albums.length} países. Abra un país para recorrer su álbum a pantalla completa. Las de esta temporada las vamos subiendo a <a class="ig-link" href={contact.social.instagram} target="_blank" rel="noopener">Instagram @deonissafaris</a>.</p>
       <nav class="cfilter" aria-label="Filtrar por continente">
         <button type="button" class="on" data-f="all">Todos</button>
         {conts.map((c) => <button type="button" data-f={c.slug}><ContinentIcon slug={c.slug} class="fico" />{c.name}</button>)}
@@ -84,4 +84,5 @@ const total = albums.reduce((n, a) => n + a.photos.length, 0);
   .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
   .meta h2 { font-size: 28px; margin: 0; }
   .meta span { font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+.ig-link { color: var(--red); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 </style>

@@ -168,10 +168,30 @@ section { padding-block: clamp(24px, 2.6vw, 40px); scroll-margin-top: 70px; }
 .f-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 30px; margin: 0 0 44px; padding: 18px 0; border-block: 1px solid var(--line); }
 .f-nav a { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone); }
 .f-nav a:hover { color: var(--red-hi); }
-.site-footer .cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; }
+.site-footer .cols { display: grid; grid-template-columns: 1fr 1fr 1fr 1.5fr; gap: 32px; }
 .site-footer h4 { color: var(--bone); font: 500 11px var(--label); letter-spacing: .28em; text-transform: uppercase; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
-.site-footer .offices { gap: 14px; }
+.site-footer .contacts { gap: 16px; }
+.site-footer .contacts b { display: block; font: 500 19px var(--display); color: var(--bone); line-height: 1.2; }
+.site-footer .contacts .f-phone { margin-bottom: 0; }
+.site-footer .contacts .f-phone.sm { font-size: 22px; }
+.site-footer .f-mail { margin-top: 18px !important; }
+.follow { display: grid; grid-template-columns: auto 1fr 1fr; gap: 18px; align-items: center; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.follow-k { margin: 0; font: 500 11px var(--label); letter-spacing: .28em; text-transform: uppercase; color: var(--bone); }
+.fcard { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 14px; color: var(--bone); transition: border-color .2s, background .2s, transform .2s; }
+.fcard:hover { transform: translateY(-2px); }
+.fcard .fi { flex: none; width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; color: #fff; }
+.fcard .fi svg { width: 28px; height: 28px; fill: currentColor; }
+.fcard.ig .fi { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.fcard.yt .fi { background: #e00; }
+.fcard.ig:hover { border-color: #d6249f; background: rgba(214,36,159,.08); }
+.fcard.yt:hover { border-color: #e00; background: rgba(238,0,0,.08); }
+.fcard .ft { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.fcard .ft b { font: 500 24px var(--display); }
+.fcard .ft small { font-size: 13px; color: var(--stone); line-height: 1.4; }
+.fcard .fgo { flex: none; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; padding: 10px 16px; border-radius: 99px; background: var(--bone); color: #090a09; }
+@media (max-width: 900px) { .follow { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .fcard { text-align: left; padding: 14px; gap: 12px; } .fcard .fgo { display: none; } }
 .site-footer .offices b { display: block; font: 500 19px var(--display); color: var(--bone); }
 .f-phone { display: block; font: 500 28px var(--display); color: var(--bone); margin-bottom: 14px; }
 .site-footer .f-who { margin: 0 0 2px; font: 500 10px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
@@ -184,7 +204,7 @@ section { padding-block: clamp(24px, 2.6vw, 40px); scroll-margin-top: 70px; }
 .site-footer .links span { font: 500 10px var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--bone); align-self: center; }
 .site-footer .legal { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font: 400 11px var(--label); letter-spacing: .14em; text-transform: uppercase; }
 .site-footer .legal a { margin-left: 18px; }
-@media (max-width: 1100px) { .site-footer .cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 1100px) { .site-footer .cols { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 800px) { .site-footer .cols { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .site-footer .cols { grid-template-columns: 1fr; text-align: center; } .social { justify-content: center; } .site-footer .legal { justify-content: center; text-align: center; } .site-footer .legal a { margin: 0 9px; } }
 
