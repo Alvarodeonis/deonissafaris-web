@@ -121,9 +121,22 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
   <main><slot /></main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="follow">
-        <p class="follow-k">Síguenos</p>
+    <div class="f-hero" style={`--fbg:url(${u('img/namibia-kudu.jpg')})`}>
+      <div class="wrap f-hero-in">
+        <div class="f-top">
+        <a class="f-logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
+        <div class="f-brand">
+          <p class="motto">Born wild · Free forever</p>
+          <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años. Solo le llevamos donde nuestro equipo ya ha cazado.</p>
+        </div>
+        <div class="f-cta">
+          <a class="btn" href={u('contacto')}>Planifica tu cacería</a>
+          <a class="f-tel" href={`tel:${contact.mobile.replace(/\s/g, '')}`}>{contact.mobile}</a>
+        </div>
+      
+        </div>
+        <div class="f-follow">
+        <p class="follow-k">Síguenos en redes</p>
         <a class="fcard ig" href={contact.social.instagram} target="_blank" rel="noopener">
           <span class="fi"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c2.7 0 3 0 4 .1 2.8.1 4.1 1.4 4.2 4.2.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 4.1-4.2 4.2-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.8-.1-4.1-1.5-4.2-4.2-.1-1-.1-1.3-.1-4s0-3 .1-4C3.9 3.7 5.2 2.4 8 2.3c1-.1 1.3-.1 4-.1z"/></svg></span>
           <span class="ft"><b>Instagram</b><small>@deonissafaris · las cacerías de cada temporada, contadas en fotos</small></span>
@@ -135,20 +148,9 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
           <span class="fgo">Suscribirse</span>
         </a>
       </div>
-      <div class="f-top">
-        <a class="f-logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
-        <div class="f-brand">
-          <p class="motto">Born wild · Free forever</p>
-          <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años. Solo le llevamos donde nuestro equipo ya ha cazado.</p>
-        </div>
-        <div class="f-cta">
-          <a class="btn" href={u('contacto')}>Planifica tu cacería</a>
-          <a class="f-tel" href={`tel:${contact.mobile.replace(/\s/g, '')}`}>{contact.mobile}</a>
-        </div>
       </div>
-      <nav class="f-nav" aria-label="Secciones">
-        <a href={u('caza-en-africa')}>Caza con rifle</a><a href={u('caza-con-arco')}>Caza con arco</a><a href={u('especies')}>Por especie</a><a href={u('fotos')}>Fotos</a><a href={u('videos')}>Películas</a><a href={u('articulos-revistas')}>Artículos / revistas</a><a href={u('sobre-nosotros')}>Sobre nosotros</a><a href={u('contacto')}>Contacto</a>
-      </nav>
+    </div>
+    <div class="wrap">
       <div class="cols">
         <div>
           <h4>Caza con rifle</h4>
