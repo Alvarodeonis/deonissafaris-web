@@ -1,4 +1,5 @@
 ---
+import { programPaths } from '../../../lib/routes.js';
 import { speciesOf, speciesUrl } from '../../../data/species.js';
 import { filmGroups } from '../../../data/films.js';
 import Layout from '../../../layouts/Layout.astro';
@@ -8,6 +9,7 @@ import TeamStrip from '../../../components/TeamStrip.astro';
 import ProgramDetails from '../../../components/ProgramDetails.astro';
 import LegalNote from '../../../components/LegalNote.astro';
 import Lightbox from '../../../components/Lightbox.astro';
+import ProgramMap from '../../../components/ProgramMap.astro';
 import { details } from '../../../data/details.js';
 import { galleries } from '../../../data/galleries.js';
 import { allCategories as categories } from '../../../data/site.js';
@@ -15,12 +17,7 @@ import { programs, programUrl, fromPrice, money, isCurrent, programYear } from '
 import { u } from '../../../lib/url.js';
 import { contact } from '../../../data/site.js';
 
-export function getStaticPaths() {
-  return programs.map((p) => ({
-    params: { category: p.category, country: p.country, program: p.slug },
-    props: { p },
-  }));
-}
+export const getStaticPaths = programPaths;
 const { p } = Astro.props;
 const cat = categories.find((c) => c.slug === p.category);
 const from = fromPrice(p);
@@ -91,7 +88,10 @@ const trip = {
 
   <section class="intro">
     <div class="wrap">
-      <p class="summary">{p.summary}</p>
+      <div class="intro-l">
+        <p class="summary">{p.summary}</p>
+        <ProgramMap country={p.country} name={p.countryName} region={cat.slug.startsWith('caza-en-') ? cat.name : undefined} />
+      </div>
       <dl class="facts">
         {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
       </dl>
@@ -265,8 +265,10 @@ const trip = {
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
   .from b { font: 600 34px var(--display); letter-spacing: 0; color: var(--bone); margin: 0 6px; text-transform: none; }
   .intro .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; }
+  .intro-l { display: grid; gap: 28px; align-content: start; }
+  .intro-l .pmap { max-width: 520px; }
   .summary { font: 500 clamp(24px, 2.2vw, 32px)/1.35 var(--display); margin: 0; }
-  .facts { margin: 0; display: grid; gap: 0; }
+  .facts { margin: 0; display: grid; gap: 0; align-content: start; }
   .facts div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .facts dt { font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red-hi); padding-top: 3px; }
   .facts dd { margin: 0; }

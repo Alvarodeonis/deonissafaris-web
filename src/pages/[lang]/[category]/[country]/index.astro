@@ -1,0 +1,7 @@
+---
+// Misma página en otro idioma: reutiliza la versión española y traduce por el idioma de la URL.
+import Page from '../../../[category]/[country]/index.astro';
+import { inLangs, countryPaths } from '../../../../lib/routes.js';
+export const getStaticPaths = () => inLangs(countryPaths());
+---
+<Page {...Astro.props} />

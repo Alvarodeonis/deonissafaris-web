@@ -254,3 +254,14 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
   .dropdown:not(.sp-dd) > .dropdown-menu small { white-space: normal; line-height: 1.4; }
   .dropdown:not(.sp-dd):hover > .dropdown-menu, .dropdown:not(.sp-dd):focus-within > .dropdown-menu { transform: none; }
 }
+
+/* Selector de idioma */
+.lang-dd > button { font: 500 12px var(--label); letter-spacing: .16em; border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; }
+@media (min-width: 1181px) {
+  .dropdown.lang-dd > .dropdown-menu { left: auto; right: -10px; width: 180px; min-width: 0; }
+}
+.lang-dd .dropdown-menu a.on { color: var(--red-hi); }
+@media (max-width: 1180px) {
+  .lang-dd .dropdown-menu { grid-template-columns: repeat(4, auto); gap: 4px 14px; justify-content: center; }
+  .lang-dd > button { pointer-events: none; border: 0; }
+}

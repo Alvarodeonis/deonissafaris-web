@@ -5,6 +5,7 @@ import { groups, subgroups, speciesIn, speciesUrl, groupUrl } from '../data/spec
 import '../styles/global.css';
 import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
+import { LANGS, ACTIVE, lang, langInfo, stripLang, pathIn, t } from '../i18n/index.js';
 import { countries as countriesOf } from '../data/programs.js';
 const arcoCountries = countriesOf('caza-con-arco');
 const sg = (slug) => groups.find((g) => g.slug === slug);
@@ -21,6 +22,9 @@ const site = Astro.site ?? new URL('https://www.deonissafaris.com');
 const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), site).href;
 // La vista previa en github.io no debe indexarse: duplicaría la web real.
 const preview = /github\.io/.test(site.host);
+const L = lang();
+const relPath = stripLang(Astro.url.pathname);
+const alternates = LANGS.filter((x) => ACTIVE.includes(x.code)).map((x) => ({ ...x, href: new URL(pathIn(x.code, relPath), site).href }));
 const home = new URL(u().replace(/\/?$/, '/'), site).href;
 const abs = (x) => (x ? new URL(x, site).href : undefined);
 const org = {
@@ -30,7 +34,7 @@ const org = {
   address: { '@type': 'PostalAddress', streetAddress: 'Calle Doctor Velázquez 10', addressLocality: 'Pozuelo de Alarcón', addressRegion: 'Madrid', addressCountry: 'ES' },
   sameAs: Object.values(contact.social),
 };
-const ld = [org, { '@type': 'WebSite', '@id': home + '#web', name: 'de Onís Safaris', url: home, inLanguage: 'es', publisher: { '@id': org['@id'] } }];
+const ld = [org, { '@type': 'WebSite', '@id': home + '#web', name: 'de Onís Safaris', url: home, inLanguage: langInfo(L).hreflang, publisher: { '@id': org['@id'] } }];
 if (crumbs.length) ld.push({ '@type': 'BreadcrumbList', itemListElement: [['Inicio', ''], ...crumbs].map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: new URL(u(path).replace(/\/?$/, '/'), site).href })) });
 ld.push(...schema);
 const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': ld }).replace(/</g, '\\u003c');
@@ -44,7 +48,7 @@ const fullTitle = !title ? 'de Onís Safaris · Safaris de caza internacional' :
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, me gustaría información sobre un safari de caza.')}`;
 ---
 <!doctype html>
-<html lang="es">
+<html lang={langInfo(L).hreflang}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,13 +58,17 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
   {preview && <meta name="robots" content="noindex, follow" />}
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="de Onís Safaris" />
-  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale" content={langInfo(L).og} />
+  {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+  <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={abs(image) ?? abs(u('img/namibia-kudu.jpg'))} />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json" set:html={jsonld} />
+  <script id="i18n-data" type="application/json">{}</script>
+  <script is:inline>window.tt=function(s,v){var d=window.__i18n||(window.__i18n=JSON.parse(document.getElementById('i18n-data').textContent||'{}'));var r=d[s]||s;return v?r.replace(/\{(\w+)\}/g,function(m,k){return k in v?v[k]:m}):r};</script>
   <link rel="icon" href={u('favicon.ico')} sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href={u('favicon-32.png')} />
   <link rel="icon" type="image/png" sizes="192x192" href={u('favicon-192.png')} />
@@ -114,6 +122,14 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
         <a href={u('sobre-nosotros')}>Sobre nosotros</a>
         <a class="nav-cta" href={u('contacto')}>Contacto</a>
         <button class="sx-open sx-desk" type="button" data-sx-open aria-label="Buscar (tecla /)" set:html={lupa} />
+        {alternates.length > 1 && (
+          <div class="dropdown lang-dd">
+            <button type="button" aria-haspopup="true" aria-label="Idioma / Language">{langInfo(L).short}</button>
+            <div class="dropdown-menu">
+              {alternates.map((a) => <a href={pathIn(a.code, relPath)} hreflang={a.hreflang} lang={a.hreflang} class:list={[{ on: a.code === L }]}>{a.name}</a>)}
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   </header>

@@ -180,6 +180,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
 
   const root = document.querySelector<HTMLElement>('[data-sim]')!;
   const cfg = JSON.parse(root.dataset.sim!);
+  const tt = (window as any).tt as (s: string, v?: Record<string, unknown>) => string;
   const isQty = (f: Fee) => f.optional && f.per === 'hunter' && !/propina/i.test(f.label);
   const fmt = (n: number) => {
     const v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -207,12 +208,12 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     const h = state.hunters;
     const lines: [string, number][] = [];
     const price = unitPrice(k, h);
-    lines.push([`${k.label} · ${h} ${h === 1 ? 'cazador' : 'cazadores'} × ${fmt(price)}`, price * h]);
+    lines.push([`${tt(k.label)} · ${h} ${h === 1 ? tt('cazador') : tt('cazadores')} × ${fmt(price)}`, price * h]);
     cfg.companions.forEach((c: any, i: number) => {
       const n = state.comps[i];
       if (!n) return;
       const mult = c.per === 'day' ? k.days : 1;
-      lines.push([`${c.label} × ${n}${c.per === 'day' ? ` · ${k.days} días` : ''}`, c.price * mult * n]);
+      lines.push([`${tt(c.label)} × ${n}${c.per === 'day' ? ` · ${k.days} ${tt('días')}` : ''}`, c.price * mult * n]);
     });
     let extraTrophies = 0, cites = 0;
     cfg.trophies.forEach((t: any, i: number) => {
@@ -220,7 +221,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
       if (!n || (t.minDays && k.days < t.minDays)) return;
       extraTrophies += n;
       if (t.cites) cites += n;
-      lines.push([`${t.name}${n > 1 ? ` × ${n}` : ''}`, t.price * n]);
+      lines.push([`${tt(t.name)}${n > 1 ? ` × ${n}` : ''}`, t.price * n]);
     });
     const ownTips: [string, number, number][] = [];
     const trophyCount = extraTrophies + (k.includedTrophies ?? 0) * h;
@@ -229,16 +230,16 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
       const price = k.feeOverrides?.[f.id] ?? f.price;
       const qty = isQty(f) ? Math.min(state.qty[f.id], h) : { hunter: h, group: 1, trophy: trophyCount, cites, single: h === 1 ? 1 : 0 }[f.per] ?? 0;
       if (!qty) return;
-      if (/propina/i.test(f.label)) { ownTips.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty, price * qty]); return; }
-      lines.push([`${f.label}${qty > 1 ? ` × ${qty}` : ''}`, price * qty]);
+      if (/propina/i.test(f.label)) { ownTips.push([`${tt(f.label)}${qty > 1 ? ` × ${qty}` : ''}`, price * qty, price * qty]); return; }
+      lines.push([`${tt(f.label)}${qty > 1 ? ` × ${qty}` : ''}`, price * qty]);
     });
     const total = lines.reduce((a, [, v]) => a + v, 0);
     const extras: [string, number, number][] = [];
     const t = cfg.travel;
     const people = h + state.comps.reduce((a, b) => a + b, 0);
     if (t) {
-      extras.push([`Vuelos ${t.route} · ${people} ${people === 1 ? 'persona' : 'personas'}`, t.flight[0] * people, t.flight[1] * people]);
-      if (!ownTips.length) extras.push([`Propinas recomendadas · ${h} ${h === 1 ? 'cazador' : 'cazadores'} × ${k.days} días`, t.tipsDay[0] * k.days * h, t.tipsDay[1] * k.days * h]);
+      extras.push([`${tt('Vuelos')} ${tt(t.route)} · ${people} ${people === 1 ? tt('persona') : tt('personas')}`, t.flight[0] * people, t.flight[1] * people]);
+      if (!ownTips.length) extras.push([`${tt('Propinas recomendadas')} · ${h} ${h === 1 ? tt('cazador') : tt('cazadores')} × ${k.days} ${tt('días')}`, t.tipsDay[0] * k.days * h, t.tipsDay[1] * k.days * h]);
     }
     extras.push(...ownTips);
     return { lines, total, extras };
@@ -248,10 +249,10 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     const k = pkg();
     cfg.packages.forEach((p: Pkg) => {
       const el = root.querySelector(`[data-pkg-price="${p.id}"]`)!;
-      el.textContent = p.tiers ? `${fmt(unitPrice(p, state.hunters))} / cazador` : `${fmt(p.price!)} / cazador`;
+      el.textContent = p.tiers ? `${fmt(unitPrice(p, state.hunters))} / ${tt('cazador')}` : `${fmt(p.price!)} / ${tt('cazador')}`;
     });
     const hint = root.querySelector('#hunters-hint')!;
-    hint.textContent = step() === 2 ? '2×1: dos cazadores por profesional' : `de ${cfg.hunters.min} a ${cfg.hunters.max}`;
+    hint.textContent = step() === 2 ? tt('2×1: dos cazadores por profesional') : tt('de {min} a {max}', { min: cfg.hunters.min, max: cfg.hunters.max });
     for (const id in state.qty) state.qty[id] = Math.min(state.qty[id], state.hunters);
     root.querySelector('#hunters')!.textContent = String(state.hunters);
     root.querySelectorAll<HTMLElement>('.stepper').forEach((st) => {
@@ -274,27 +275,27 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     });
     cfg.fees.filter((f: Fee) => f.optional).forEach((f: Fee) => {
       const el = root.querySelector(`[data-fee-price="${f.id}"]`);
-      if (el) el.textContent = `${fmt(f.price)}${f.per === 'hunter' ? ' / cazador' : ''}`;
+      if (el) el.textContent = `${fmt(f.price)}${f.per === 'hunter' ? ` / ${tt('cazador')}` : ''}`;
     });
 
     const { lines, total, extras } = compute();
     root.querySelector('#lines')!.innerHTML = lines.map(([l, v]) => `<li><span>${l}</span><b>${fmt(v)}</b></li>`).join('');
     root.querySelector('#total')!.textContent = fmt(total);
-    root.querySelector('#per')!.textContent = state.hunters > 1 ? `${fmt(total / state.hunters)} por cazador` : '';
+    root.querySelector('#per')!.textContent = state.hunters > 1 ? tt('{x} por cazador', { x: fmt(total / state.hunters) }) : '';
     const eur = (n: number) => `${Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} €`;
     const rng = (a: number, b: number) => a === b ? fmt(a) : `${eur(a)} – ${eur(b)}`;
     root.querySelector('#xlines')!.innerHTML = extras.length
-      ? extras.map(([l, a, b]) => `<li><span>${l}</span><b>${rng(a, b)}</b></li>`).join('') + '<li><span>Hoteles antes o después, taxidermia y envío de trofeos a España</span><b>Aparte</b></li>'
-      : '<li><span>Vuelos, propinas, hoteles fuera del programa y envío de trofeos</span><b>Consultar</b></li>';
-    root.querySelector('#xnote')!.textContent = extras.length ? 'Vuelos: ida y vuelta desde Madrid en turista, precio orientativo que depende de la aerolínea y de las fechas. Propinas: recomendación habitual para el profesional, rastreadores y personal del campamento.' : '';
+      ? extras.map(([l, a, b]) => `<li><span>${l}</span><b>${rng(a, b)}</b></li>`).join('') + `<li><span>${tt('Hoteles antes o después, taxidermia y envío de trofeos a España')}</span><b>${tt('Aparte')}</b></li>`
+      : `<li><span>${tt('Vuelos, propinas, hoteles fuera del programa y envío de trofeos')}</span><b>${tt('Consultar')}</b></li>`;
+    root.querySelector('#xnote')!.textContent = extras.length ? tt('Vuelos: ida y vuelta desde Madrid en turista, precio orientativo que depende de la aerolínea y de las fechas. Propinas: recomendación habitual para el profesional, rastreadores y personal del campamento.') : tt('');
     const xa = extras.reduce((a, e) => a + e[1], 0), xb = extras.reduce((a, e) => a + e[2], 0);
     root.querySelector('#trip')!.innerHTML = !extras.length ? '' : cfg.currency === 'EUR'
-      ? `Coste aproximado del viaje completo<b>${rng(total + xa, total + xb)}</b>`
-      : `Coste aproximado del viaje completo<b>${fmt(total)} + ${rng(xa, xb)}</b>`;
+      ? `${tt('Coste aproximado del viaje completo')}<b>${rng(total + xa, total + xb)}</b>`
+      : `${tt('Coste aproximado del viaje completo')}<b>${fmt(total)} + ${rng(xa, xb)}</b>`;
 
-    const msg = [`Hola, me interesa el programa ${cfg.title}.`, '', 'CACERÍA', ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), `Total cacería (simulador web): ${fmt(total)}`, ...(extras.length ? ['', 'GASTOS APARTE (aprox.)', ...extras.map(([l, a, b]) => `• ${l}: ${rng(a, b)}`)] : []), '', '¿Me podéis confirmar el precio, fechas y disponibilidad?'].join('\n');
+    const msg = [tt('Hola, me interesa el programa {x}.', { x: tt(cfg.title) }), '', tt('CACERÍA'), ...lines.map(([l, v]) => `• ${l}: ${fmt(v)}`), tt('Total cacería (simulador web): {x}', { x: fmt(total) }), ...(extras.length ? ['', tt('GASTOS APARTE (aprox.)'), ...extras.map(([l, a, b]) => `• ${l}: ${rng(a, b)}`)] : []), '', tt('¿Me podéis confirmar el precio, fechas y disponibilidad?')].join('\n');
     (root.querySelector('#send-wa') as HTMLAnchorElement).href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`;
-    (root.querySelector('#send-mail') as HTMLAnchorElement).href = `mailto:${cfg.email}?subject=${encodeURIComponent(`Presupuesto ${cfg.title}`)}&body=${encodeURIComponent(msg)}`;
+    (root.querySelector('#send-mail') as HTMLAnchorElement).href = `mailto:${cfg.email}?subject=${encodeURIComponent(`${tt('Presupuesto')} ${tt(cfg.title)}`)}&body=${encodeURIComponent(msg)}`;
   }
 
   root.querySelectorAll<HTMLInputElement>('input[name="pkg"]').forEach((r) => r.addEventListener('change', () => {

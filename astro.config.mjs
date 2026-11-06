@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { translateDist } from './src/i18n/translate-html.mjs';
 
 // Fotos y PDF de la web antigua ya copiados a public/: los enlaces apuntan a la copia propia.
 const localMedia = () => ({
@@ -22,6 +23,8 @@ const localMedia = () => ({
         if (res !== src) writeFileSync(f, res);
       }
       console.log(`[local-media] ${n} enlaces apuntan a la copia propia`);
+      const langs = (process.env.LANGS || 'es').split(',').filter((l) => l !== 'es');
+      translateDist(out, langs, process.cwd());
     },
   },
 });

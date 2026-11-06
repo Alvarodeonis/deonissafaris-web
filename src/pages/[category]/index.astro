@@ -1,4 +1,5 @@
 ---
+import { categoryPaths } from '../../lib/routes.js';
 import Layout from '../../layouts/Layout.astro';
 import { allCategories as categories } from '../../data/site.js';
 import { countries, programUrl, fromPrice, money, programYear, isCurrent } from '../../data/programs.js';
@@ -6,11 +7,7 @@ import { u } from '../../lib/url.js';
 import SeoText from '../../components/SeoText.astro';
 import { seoTexts } from '../../data/seo-texts.js';
 
-export function getStaticPaths() {
-  return categories
-    .filter((c) => countries(c.slug).length)
-    .map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
-}
+export const getStaticPaths = categoryPaths;
 const { cat } = Astro.props;
 const list = countries(cat.slug);
 const total = list.reduce((n, c) => n + c.programs.length, 0);

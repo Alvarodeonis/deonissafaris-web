@@ -1,4 +1,5 @@
 ---
+import { countryPaths } from '../../../lib/routes.js';
 import Layout from '../../../layouts/Layout.astro';
 import ProgramCard from '../../../components/ProgramCard.astro';
 import { allCategories as categories } from '../../../data/site.js';
@@ -7,11 +8,7 @@ import { u } from '../../../lib/url.js';
 import SeoText from '../../../components/SeoText.astro';
 import { seoTexts } from '../../../data/seo-texts.js';
 
-export function getStaticPaths() {
-  return categories.flatMap((cat) =>
-    countries(cat.slug).map((c) => ({ params: { category: cat.slug, country: c.slug }, props: { cat, c } })),
-  );
-}
+export const getStaticPaths = countryPaths;
 const { cat, c } = Astro.props;
 const arco = cat.slug === 'caza-con-arco';
 const seo = seoTexts[`${cat.slug}/${c.slug}`];
