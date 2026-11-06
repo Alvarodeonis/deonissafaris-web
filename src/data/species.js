@@ -16,7 +16,7 @@ export const subgroups = {
 export const species = [
   // Big Five
   { slug: 'elefante', group: 'big-five', name: 'Elefante', re: /elefante/i, intro: 'Elefante en Botswana y Sudáfrica.' },
-  { slug: 'bufalo', group: 'big-five', name: 'Búfalo', re: /búfalo|bufalo/i, skip: ['australia-caza-de-banteng-y-bufalo-de-agua', 'argentina-programa-general'], intro: 'Búfalo cafre en Mozambique, Tanzania, Sudáfrica, Zambia y Zimbabwe, a rifle y con arco.' },
+  { slug: 'bufalo', group: 'big-five', name: 'Búfalo', re: /búfalo|bufalo/i, skip: ['australia-caza-de-banteng-y-bufalo-de-agua', 'argentina-programa-general'], recommended: ['mozambique', 'sudafrica', 'tanzania'], intro: 'Búfalo cafre en Mozambique, Tanzania, Sudáfrica, Zambia y Zimbabwe, a rifle y con arco.' },
   { slug: 'leon', group: 'big-five', name: 'León', re: /\bleón|\bleon\b|leones|leona/i, intro: 'León a la huella en el Kalahari, a rifle y con arco.' },
   { slug: 'leopardo', group: 'big-five', name: 'Leopardo', re: /leopardo/i, add: ['mozambique-bufalos-pack-7-y-10-dias'], intro: 'Leopardo en Mozambique y Namibia, con cebado previo.' },
   { slug: 'rinoceronte', group: 'big-five', name: 'Rinoceronte', re: /rinoceronte/i, add: ['sudafrica-limpopo-programa-general', 'sudafrica-bufalo-lodge-de-lujo', 'sudafrica-arco-lodge-de-lujo'], intro: 'Rinoceronte en Sudáfrica, como trofeo adicional en Limpopo. Consúltenos disponibilidad y condiciones.' },
@@ -78,8 +78,9 @@ export const countriesOfSpecies = (s) => new Set(s.programs.map((p) => p.country
 // Foto de portada: la de un programa vigente cuyo título nombra la especie.
 export const speciesCover = (s) => (s.programs.find((p) => isCurrent(p) && s.re.test(p.title)) ?? s.programs.find((p) => s.re.test(p.title)) ?? s.programs[0])?.hero;
 
-// Programas agrupados por país (orden: más programas primero).
-export const byCountry = (list) => {
+// Programas agrupados por país. Primero los países recomendados para la especie (en el orden
+// que indica Alvaro, con la etiqueta "Recomendado"); después, los que tienen más programas.
+export const byCountry = (list, recommended = []) => {
   const m = new Map();
   for (const p of list) {
     if (!m.has(p.country)) m.set(p.country, { slug: p.country, name: p.countryName, category: p.category, programs: [] });
@@ -87,5 +88,7 @@ export const byCountry = (list) => {
     if (c.category === 'caza-con-arco' && p.category !== 'caza-con-arco') c.category = p.category;
     c.programs.push(p);
   }
-  return [...m.values()].sort((a, b) => b.programs.length - a.programs.length || a.name.localeCompare(b.name, 'es'));
+  const rank = (c) => { const i = recommended.indexOf(c.slug); return i < 0 ? recommended.length : i; };
+  for (const c of m.values()) c.rec = recommended.includes(c.slug);
+  return [...m.values()].sort((a, b) => rank(a) - rank(b) || b.programs.length - a.programs.length || a.name.localeCompare(b.name, 'es'));
 };

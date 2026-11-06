@@ -36,7 +36,7 @@ const subs = subgroups[g.slug];
 
   {sp && (
     <section class="sec">
-      <div class="wrap"><CountryPrograms list={byCountry(sp.programs)} /></div>
+      <div class="wrap"><CountryPrograms list={byCountry(sp.programs, sp.recommended)} /></div>
     </section>
   )}
 
@@ -48,7 +48,7 @@ const subs = subgroups[g.slug];
           <div class="wrap">
             <div class="divider"><span>{s.name}</span></div>
             <p class="intro">{s.intro} <a href={u(speciesUrl(s))}>Ver página de {s.name.toLowerCase()}</a></p>
-            <CountryPrograms list={byCountry(s.programs)} />
+            <CountryPrograms list={byCountry(s.programs, s.recommended)} />
           </div>
         </section>
       ))}
