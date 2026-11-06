@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { categories } from '../../data/site.js';
 import { countries, programUrl, fromPrice, money, programYear, isCurrent } from '../../data/programs.js';
 import { u } from '../../lib/url.js';
+import SeoText from '../../components/SeoText.astro';
+import { seoTexts } from '../../data/seo-texts.js';
 
 export function getStaticPaths() {
   return categories
@@ -13,13 +15,16 @@ const { cat } = Astro.props;
 const list = countries(cat.slug);
 const total = list.reduce((n, c) => n + c.programs.length, 0);
 // Portada de cada país: el primer programa con foto propia.
+const seo = seoTexts[cat.slug];
+const faqSchema = seo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: seo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.programs[0].hero;
 ---
-<Layout title={cat.title} description={`${cat.title} con de Onís Safaris: ${cat.tagline} Programas en ${list.map((c) => c.name).join(', ')}.`} image={cover(list[0])} crumbs={[[cat.title, cat.slug]]}>
+<Layout title={cat.title} description={`${cat.title} con de Onís Safaris: ${cat.tagline} Programas en ${list.map((c) => c.name).join(', ')}.`} image={cover(list[0])} crumbs={[[cat.title, cat.slug]]} schema={faqSchema}>
   <section class="head">
     <div class="wrap">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span><span>{cat.title}</span></div>
       <h1>{cat.title}</h1>
+      {seo?.intro && <p class="intro">{seo.intro}</p>}
       <p class="count">{list.length} {list.length === 1 ? 'país' : 'países'} · {total} programas</p>
       <nav class="jump" aria-label="Países">
         {list.map((c) => <a href={u(`${cat.slug}/${c.slug}`)}><img src={cover(c)} alt={`${cat.title.replace('Caza en ', 'Caza en ')} · ${c.name}`} loading="lazy" /><span><b>{c.name}</b><small>{c.programs.length} {c.programs.length === 1 ? 'programa' : 'programas'}</small></span></a>)}
@@ -58,6 +63,8 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
       ))}
     </div>
   </section>
+
+  <SeoText data={seo} />
 </Layout>
 
 <style>
@@ -71,6 +78,8 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
     .head .crumbs, .head h1, .count { text-align: center; justify-content: center; }
     .head h1 { margin: 10px 0 0; }
   }
+  .intro { max-width: 760px; margin: 14px auto 0; font-size: 17px; line-height: 1.6; color: var(--stone); }
+  @media (min-width: 961px) { .intro { text-align: center; } }
   .count { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
   .jump { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-top: 34px; }
   .jump a { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #111; text-decoration: none; }
