@@ -36,8 +36,7 @@ const cover = (c) => c.programs.find((p) => isCurrent(p) && p.gallery?.length)?.
 <style>
   .cp { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 36px 28px; }
   .country { position: relative; display: flex; flex-direction: column; }
-  .country.rec { padding: 8px 8px 4px; margin: -9px -9px -5px; border: 1px solid var(--red); background: color-mix(in srgb, var(--red) 4%, transparent); }
-  .rec-badge { position: absolute; top: 20px; left: 20px; z-index: 1; padding: 7px 12px; background: var(--red); color: #fff; font: 500 10px var(--label); letter-spacing: .2em; text-transform: uppercase; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+  .rec-badge { position: absolute; top: 12px; left: 12px; z-index: 1; padding: 7px 12px; background: var(--red); color: #fff; font: 500 10px var(--label); letter-spacing: .2em; text-transform: uppercase; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
   .pic { display: block; aspect-ratio: 16 / 9; background: var(--char); overflow: hidden; }
   .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .6s; }
   .pic:hover img { transform: scale(1.03); }
