@@ -19,6 +19,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/audit-old-site.mjs
+        env:
+          SAVE: https://www.deonissafaris.com/caza-en-africa/namibia/namibia-paquete-economico- https://www.deonissafaris.com/pesca
       # El resultado se guarda en la rama audit-data (no dispara el despliegue).
       - run: |
           git config user.name github-actions
