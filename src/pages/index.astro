@@ -9,8 +9,9 @@ import { programs, programUrl } from '../data/programs.js';
 import { categories, videos, team } from '../data/site.js';
 import { u } from '../lib/url.js';
 
-// Vídeo de portada. El 4eBr23WJLiI elegido por Alvaro no se reproduce insertado (pendiente de que active «Permitir inserción»).
-const hero = videos.find((v) => v.id === 'Jk2uAbcHA9Q') ?? videos[0];
+// Vídeo de portada elegido por Alvaro. Si YouTube no deja insertarlo, se cambia solo al de búfalos (fallback).
+const hero = { id: 'V5wtSFkVEYo', title: 'Lances de caza · de Onís Safaris', start: 0 };
+const fallback = videos.find((v) => v.id === 'Jk2uAbcHA9Q') ?? videos[0];
 // Foto de portada mientras carga el vídeo (y si el móvil no lo reproduce).
 const heroPoster = u('media/images/proyectos_85_dsc01123.jpg');
 const bySlug = (slug) => programs.find((p) => p.slug.startsWith(slug));
@@ -29,6 +30,8 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
       <iframe
         id="hero-video"
         data-start={hero.start ?? 0}
+        data-fallback={`https://www.youtube-nocookie.com/embed/${fallback.id}?autoplay=1&mute=1&loop=1&playlist=${fallback.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080${fallback.start ? `&start=${fallback.start}` : ''}`}
+        data-fallback-start={fallback.start ?? 0}
         src={`https://www.youtube-nocookie.com/embed/${hero.id}?autoplay=1&mute=1&loop=1&playlist=${hero.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080${hero.start ? `&start=${hero.start}` : ''}`}
         title="Lances de caza de de Onís Safaris"
         allow="autoplay; encrypted-media"
@@ -290,13 +293,19 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
   const iframe = document.getElementById('hero-video') as HTMLIFrameElement;
   // Dejamos ver la miniatura mientras YouTube arranca y luego fundimos el vídeo.
   // Solo se muestra cuando ya está reproduciendo, para que no se vea la interfaz de YouTube.
-  const START = Number(iframe.dataset.start || 0);
+  let START = Number(iframe.dataset.start || 0);
   const listen = () => iframe.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id: 'hero' }), '*');
   iframe.addEventListener('load', () => { listen(); setTimeout(listen, 800); });
   window.addEventListener('message', (e) => {
     if (!/youtube/.test(e.origin)) return;
     try {
       const d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+      // Vídeo que no se puede insertar (errores 101/150) o no disponible: pasamos al de reserva.
+      if (d.event === 'onError' && iframe.dataset.fallback && iframe.src !== iframe.dataset.fallback) {
+        START = Number(iframe.dataset.fallbackStart || 0);
+        iframe.src = iframe.dataset.fallback; iframe.dataset.fallback = '';
+        return;
+      }
       const st = d.event === 'onStateChange' ? d.info : d.info?.playerState;
       if (st === 1) setTimeout(() => iframe.classList.add('on'), 400);
       // Al repetirse, saltamos otra vez la entrada con letras.
