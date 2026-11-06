@@ -5,6 +5,8 @@ export const contact = {
   phone: '+34 915 152 606',
   // Teléfono que se muestra en el pie: el móvil de Arturo.
   mobile: '+34 629 110 612',
+  // Caza con arco: Álvaro.
+  bowPhone: '+34 647 686 891',
   email: 'info@deonissafaris.com',
   address: 'Calle Doctor Velázquez 10, Pozuelo de Alarcón (Madrid)',
   // Número que recibe los presupuestos del simulador por WhatsApp.
