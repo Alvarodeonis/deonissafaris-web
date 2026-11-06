@@ -69,6 +69,7 @@ export const galleries = {
     'proyectos_52_onganja%20sept%202010%20074%20%5Bhdtv%20%28720%29%5D.jpg',
     'proyectos_52_onganja%20sept%202010%20075%20%5Bhdtv%20%28720%29%5D.jpg',
     'proyectos_52_onganja%20sept%202010%20009%20%5Bhdtv%20%28720%29%5D.jpg',
+    'proyectos_52_img_6683.jpg',
   ].map((f) => M + f),
   'sudafrica-limpopo-paquetes-en-lodge-de-lujo': [
     'proyectos_62_proyectos_151_fddfs.png',

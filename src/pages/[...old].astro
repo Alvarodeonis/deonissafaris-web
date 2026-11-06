@@ -1,0 +1,25 @@
+---
+// URLs de la web antigua que han cambiado: página de redirección (sirve en cualquier alojamiento).
+// En el servidor definitivo conviene además convertirlas en 301 (ver public/.htaccess y src/data/redirects.json).
+import redirects from '../data/redirects.json';
+import { u } from '../lib/url.js';
+
+export function getStaticPaths() {
+  return Object.entries(redirects).map(([from, to]) => ({ params: { old: from.replace(/^\//, '') }, props: { to } }));
+}
+const { to } = Astro.props;
+const target = u(to.replace(/^\//, '')).replace(/\/?$/, '/');
+const abs = new URL(target, Astro.site).href;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirigiendo…</title>
+  <link rel="canonical" href={abs} />
+  <meta name="robots" content="noindex, follow" />
+  <meta http-equiv="refresh" content={`0; url=${target}`} />
+  <script set:html={`location.replace(${JSON.stringify(target)} + location.hash)`} />
+</head>
+<body><p>Esta página ha cambiado de dirección: <a href={target}>{abs}</a></p></body>
+</html>
