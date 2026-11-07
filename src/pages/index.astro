@@ -210,7 +210,8 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
   .hero-cats + .hero-cats { margin-top: 10px; }
   .hero-cats a { font: 400 clamp(15px, 1.25vw, 20px) Arial, Helvetica, sans-serif; text-transform: uppercase; text-decoration: none; padding: 15px clamp(24px, 3.2vw, 60px); border: 1px solid #fff; border-radius: 3px; background: rgba(0,0,0,.25); color: #fff; transition: .2s; }
   .hero-cats a:hover { background: #fff; color: #111; }
-  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .hero-cats a { padding: 14px 8px; } .hero-cats + .hero-cats { grid-template-columns: 1fr; } }
+  /* En el móvil, como en la web actual: un botón por línea, todos del mismo ancho. */
+  @media (max-width: 600px) { .hero-cats { display: grid; grid-template-columns: 1fr; gap: 7px; width: 100%; } .hero-cats + .hero-cats { margin-top: 7px; } .hero-cats a { padding: 9px 8px; font-size: 15px; text-align: center; } }
   .hero-arco { font: 500 12px var(--label); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; padding: 12px 34px; background: var(--red); border: 1px solid var(--red); transition: .2s; }
   .hero-arco:hover { background: var(--red-hi); border-color: var(--red-hi); }
   .hero-videos { display: inline-flex; align-items: center; gap: 10px; font: 500 11px var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
