@@ -28,7 +28,7 @@ jobs:
         env:
           SITE_URL: https://${{ github.repository_owner }}.github.io
           SITE_BASE: /${{ github.event.repository.name }}/
-          LANGS: es,en
+          LANGS: es,en,de,fr,it,pl,ro,pt,cs,hu,ru,zh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

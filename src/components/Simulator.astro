@@ -181,13 +181,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
   const root = document.querySelector<HTMLElement>('[data-sim]')!;
   const cfg = JSON.parse(root.dataset.sim!);
   const tt = (window as any).tt as (s: string, v?: Record<string, unknown>) => string;
+  const tn = (window as any).tn as (n: number, one: string, other: string) => string;
   const isQty = (f: Fee) => f.optional && f.per === 'hunter' && !/propina/i.test(f.label);
-  const fmt = (n: number) => {
-    const en = document.documentElement.lang.startsWith('en');
-    const v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, en ? ',' : '.');
-    if (en) return cfg.currency === 'USD' ? `US$${v}` : `€${v}`;
-    return cfg.currency === 'USD' ? `US$ ${v}` : `${v} €`;
-  };
+  const fmt = (n: number) => (window as any).money(n, cfg.currency);
   const state = {
     pkg: cfg.packages[0].id as string,
     hunters: cfg.hunters.min as number,
@@ -210,12 +206,12 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     const h = state.hunters;
     const lines: [string, number][] = [];
     const price = unitPrice(k, h);
-    lines.push([`${tt(k.label)} · ${h} ${h === 1 ? tt('cazador') : tt('cazadores')} × ${fmt(price)}`, price * h]);
+    lines.push([`${tt(k.label)} · ${h} ${tn(h, 'cazador', 'cazadores')} × ${fmt(price)}`, price * h]);
     cfg.companions.forEach((c: any, i: number) => {
       const n = state.comps[i];
       if (!n) return;
       const mult = c.per === 'day' ? k.days : 1;
-      lines.push([`${tt(c.label)} × ${n}${c.per === 'day' ? ` · ${k.days} ${tt('días')}` : ''}`, c.price * mult * n]);
+      lines.push([`${tt(c.label)} × ${n}${c.per === 'day' ? ` · ${k.days} ${tn(k.days, 'días', 'días')}` : ''}`, c.price * mult * n]);
     });
     let extraTrophies = 0, cites = 0;
     cfg.trophies.forEach((t: any, i: number) => {
@@ -240,8 +236,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     const t = cfg.travel;
     const people = h + state.comps.reduce((a, b) => a + b, 0);
     if (t) {
-      extras.push([`${tt('Vuelos')} ${tt(t.route)} · ${people} ${people === 1 ? tt('persona') : tt('personas')}`, t.flight[0] * people, t.flight[1] * people]);
-      if (!ownTips.length) extras.push([`${tt('Propinas recomendadas')} · ${h} ${h === 1 ? tt('cazador') : tt('cazadores')} × ${k.days} ${tt('días')}`, t.tipsDay[0] * k.days * h, t.tipsDay[1] * k.days * h]);
+      extras.push([`${tt('Vuelos')} ${tt(t.route)} · ${people} ${tn(people, 'persona', 'personas')}`, t.flight[0] * people, t.flight[1] * people]);
+      if (!ownTips.length) extras.push([`${tt('Propinas recomendadas')} · ${h} ${tn(h, 'cazador', 'cazadores')} × ${k.days} ${tn(k.days, 'días', 'días')}`, t.tipsDay[0] * k.days * h, t.tipsDay[1] * k.days * h]);
     }
     extras.push(...ownTips);
     return { lines, total, extras };
@@ -284,7 +280,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
     root.querySelector('#lines')!.innerHTML = lines.map(([l, v]) => `<li><span>${l}</span><b>${fmt(v)}</b></li>`).join('');
     root.querySelector('#total')!.textContent = fmt(total);
     root.querySelector('#per')!.textContent = state.hunters > 1 ? tt('{x} por cazador', { x: fmt(total / state.hunters) }) : '';
-    const eur = (n: number) => document.documentElement.lang.startsWith('en') ? `€${Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}` : `${Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} €`;
+    const eur = (n: number) => (window as any).money(n, 'EUR');
     const rng = (a: number, b: number) => a === b ? fmt(a) : `${eur(a)} – ${eur(b)}`;
     root.querySelector('#xlines')!.innerHTML = extras.length
       ? extras.map(([l, a, b]) => `<li><span>${l}</span><b>${rng(a, b)}</b></li>`).join('') + `<li><span>${tt('Hoteles antes o después, taxidermia y envío de trofeos a España')}</span><b>${tt('Aparte')}</b></li>`
