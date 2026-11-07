@@ -266,9 +266,15 @@ a:hover > .cemo { opacity: 1; transform: scale(1.06); }
   .dropdown.lang-dd > .dropdown-menu { left: auto; right: -10px; width: 180px; min-width: 0; }
 }
 .lang-dd .dropdown-menu a.on { color: var(--red-hi); }
+/* En el menú del móvil, un desplegable nativo en vez de la lista de idiomas. */
+.lang-sel { display: none; }
+.lang-sel .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 @media (max-width: 1180px) {
-  .lang-dd .dropdown-menu { grid-template-columns: repeat(4, auto); gap: 4px 14px; justify-content: center; }
-  .lang-dd > button { pointer-events: none; border: 0; }
+  .lang-dd { display: none !important; }
+  .lang-sel { display: block; position: relative; margin: 18px auto 0; width: max-content; }
+  .lang-sel::after { content: ''; position: absolute; right: 18px; top: 50%; width: 7px; height: 7px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); pointer-events: none; color: #f5f0e8; }
+  .lang-sel select { appearance: none; -webkit-appearance: none; background: transparent; color: #f5f0e8; border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 10px 44px 10px 22px; font: 500 13px var(--label); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+  .lang-sel select option { color: #111; background: #fff; text-transform: none; letter-spacing: 0; }
 }
 .lang-hint { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 70; display: flex; align-items: center; gap: 14px; max-width: calc(100% - 32px); padding: 10px 10px 10px 18px; background: #16130f; color: #f5f0e8; border: 1px solid rgba(255,255,255,.14); border-radius: 99px; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-size: 14px; }
 .lang-hint[hidden] { display: none; }

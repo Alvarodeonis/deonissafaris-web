@@ -131,6 +131,14 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
             </div>
           </div>
         )}
+        {alternates.length > 1 && (
+          <label class="lang-sel">
+            <span class="sr">Idioma / Language</span>
+            <select aria-label="Idioma / Language" onchange="try{localStorage.setItem('lang-choice',this.selectedOptions[0].dataset.code)}catch(e){};location.href=this.value">
+              {alternates.map((a) => <option value={pathIn(a.code, relPath)} data-code={a.code} selected={a.code === L}>{a.name}</option>)}
+            </select>
+          </label>
+        )}
       </nav>
     </div>
   </header>
