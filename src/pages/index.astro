@@ -26,13 +26,14 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
 ---
 <Layout transparentHeader image={heroPoster}>
   <section class="hero dark" id="hero">
-    <div class="hero-media" style={`background-image:url(${heroPoster})`}>
+    <div class="hero-media">
+      <img class="poster" src={heroPoster} alt="" aria-hidden="true" fetchpriority="high" />
       <iframe
         id="hero-video"
         data-start={hero.start ?? 0}
         data-fallback={`https://www.youtube-nocookie.com/embed/${fallback.id}?autoplay=1&mute=1&loop=1&playlist=${fallback.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080${fallback.start ? `&start=${fallback.start}` : ''}`}
         data-fallback-start={fallback.start ?? 0}
-        src={`https://www.youtube-nocookie.com/embed/${hero.id}?autoplay=1&mute=1&loop=1&playlist=${hero.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080${hero.start ? `&start=${hero.start}` : ''}`}
+        data-src={`https://www.youtube-nocookie.com/embed/${hero.id}?autoplay=1&mute=1&loop=1&playlist=${hero.id}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080${hero.start ? `&start=${hero.start}` : ''}`}
         title="Lances de caza de de Onís Safaris"
         allow="autoplay; encrypted-media"
         tabindex="-1"
@@ -196,6 +197,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
   .expert .lead a { color: var(--red-hi); white-space: nowrap; }
   .hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; padding: 0; overflow: hidden; display: flex; align-items: center; }
   .hero-media { position: absolute; inset: 0; background: var(--black) center / cover no-repeat; }
+  .hero-media .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hero-media iframe {
     position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none;
     width: 122vw; height: 68.63vw; min-height: 122%; min-width: 216.9vh;
@@ -297,6 +299,9 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
   let START = Number(iframe.dataset.start || 0);
   const listen = () => iframe.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id: 'hero' }), '*');
   iframe.addEventListener('load', () => { listen(); setTimeout(listen, 800); });
+  // El vídeo (más de 1 MB de YouTube) se carga cuando la página ya se ve, para no frenarla.
+  const startVideo = () => setTimeout(() => { if (!iframe.src || iframe.src === 'about:blank') iframe.src = iframe.dataset.src!; }, 300);
+  if (document.readyState === 'complete') startVideo(); else window.addEventListener('load', startVideo, { once: true });
   window.addEventListener('message', (e) => {
     if (!/youtube/.test(e.origin)) return;
     try {

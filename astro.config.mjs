@@ -24,9 +24,9 @@ const localMedia = () => ({
         if (res !== src) writeFileSync(f, res);
       }
       console.log(`[local-media] ${n} enlaces apuntan a la copia propia`);
-      if (existsSync(join(out, 'media/images'))) await shrinkMedia(join(out, 'media/images'));
       const langs = (process.env.LANGS || 'es').split(',').filter((l) => l !== 'es');
       translateDist(out, langs, process.cwd());
+      await shrinkMedia(out);
     },
   },
 });

@@ -163,7 +163,9 @@ body:has(.program-hero) .site-header .logo img { width: 92px; }
 .site-footer { background: #16130f; border-top: 3px solid var(--red); padding-block: 0 28px; color: var(--stone); font-size: 15px; position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 4px; left: 0; right: 0; border-top: 1px solid rgba(255,255,255,.05); }
 .site-footer a { text-decoration: none; transition: color .2s; } .site-footer a:hover { color: var(--bone); }
-.f-hero { position: relative; background: linear-gradient(90deg, rgba(14,11,8,.92) 0%, rgba(14,11,8,.7) 45%, rgba(14,11,8,.55) 100%), var(--fbg) center 40% / cover no-repeat; margin-bottom: 52px; }
+.f-hero { position: relative; isolation: isolate; background: #1a140f; margin-bottom: 52px; }
+.f-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(14,11,8,.92) 0%, rgba(14,11,8,.7) 45%, rgba(14,11,8,.55) 100%); }
+.f-hero .f-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .f-hero-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 60px; }
 .f-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 28px; align-items: center; }
 .f-logo { grid-row: span 2; align-self: start; }
