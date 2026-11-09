@@ -10,18 +10,20 @@ import { u } from '../lib/url.js';
 
 // Un álbum por país: junta las fotos de todos sus programas (rifle y arco) y los reportajes.
 const contOf = {};
-for (const p of programs) if (p.category !== 'caza-con-arco') contOf[p.country] ??= p.category;
+for (const p of programs) if (p.category !== 'caza-con-arco' && p.category !== 'pesca') contOf[p.country] ??= p.category;
+for (const p of programs) if (p.category === 'pesca') contOf[p.country] ??= 'pesca';
 const map = new Map();
 for (const p of programs) {
-  const a = map.get(p.country) ?? { slug: p.country, name: p.countryName, cat: contOf[p.country] ?? 'caza-con-arco', photos: [] };
-  a.photos.push(p.hero, ...(p.gallery || []), ...(galleries[p.slug] || []));
+  const a = map.get(p.country) ?? { slug: p.country, name: p.countryName, cat: contOf[p.country] ?? 'caza-con-arco', photos: [], fish: [] };
+  // Las fotos de pesca van siempre al final (Alvaro, 2026-11-09).
+  (p.category === 'pesca' ? a.fish : a.photos).push(p.hero, ...(p.gallery || []), ...(galleries[p.slug] || []));
   map.set(p.country, a);
 }
 for (const r of reportajes) map.get(r.slug)?.photos.push(...r.photos);
 const albums = [...map.values()]
-  .map((a) => ({ ...a, photos: [...new Set(a.photos.filter(Boolean))] }))
+  .map((a) => ({ ...a, photos: [...new Set([...a.photos, ...a.fish].filter(Boolean))] }))
   .filter((a) => a.photos.length)
-  .sort((a, b) => a.name.localeCompare(b.name, 'es'));
+  .sort((a, b) => (a.cat === 'pesca') - (b.cat === 'pesca') || a.name.localeCompare(b.name, 'es'));
 const conts = categories.filter((c) => c.slug !== 'caza-con-arco' && albums.some((a) => a.cat === c.slug));
 const total = albums.reduce((n, a) => n + a.photos.length, 0);
 ---
