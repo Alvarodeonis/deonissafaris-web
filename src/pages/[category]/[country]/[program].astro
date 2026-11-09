@@ -189,6 +189,25 @@ const trip = {
 </Layout>
 
 <script>
+  // En ordenador, el mapa crece hasta llenar el hueco que deja la foto, sin hacer más alta la cabecera.
+  const fitMap = () => {
+    const map = document.querySelector<HTMLElement>('.ph .hero-map');
+    const info = document.querySelector<HTMLElement>('.ph .ph-info');
+    const media = document.querySelector<HTMLElement>('.ph .hero-media');
+    if (!map || !info || !media) return;
+    map.style.maxWidth = '';
+    if (innerWidth < 961) return;
+    const extra = media.offsetHeight - info.offsetHeight;
+    const fig = map.firstElementChild as HTMLElement | null;
+    if (!fig || extra <= 8) return;
+    const pad = fig.offsetHeight - fig.offsetWidth * 0.443; // bordes y margen interior del recuadro
+    const w = Math.min(map.parentElement!.clientWidth, (fig.offsetHeight + extra - 8 - pad) / 0.443);
+    if (w > map.offsetWidth) map.style.maxWidth = `${Math.floor(w)}px`;
+  };
+  const fg = document.querySelector<HTMLImageElement>('.ph .hero-media .fg');
+  if (fg && !fg.complete) fg.addEventListener('load', fitMap, { once: true });
+  fitMap();
+  let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = window.setTimeout(fitMap, 120); });
   const modal = document.getElementById('vmodal')!;
   const frame = document.getElementById('vframe')!;
   const close = () => { modal.hidden = true; frame.innerHTML = ''; };

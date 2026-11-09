@@ -5,9 +5,12 @@ import { feature } from 'topojson-client';
 import world from 'world-atlas/countries-110m.json';
 import { GEO } from '../../data/geo.js';
 
-const W = 1000, H = 500;
 const land = feature(world, world.objects.countries).features.filter((f) => f.properties.name !== 'Antarctica');
-const proj = geoNaturalEarth1().fitExtent([[4, 4], [W - 4, H - 4]], { type: 'FeatureCollection', features: land });
+const fc = { type: 'FeatureCollection', features: land };
+// El lienzo tiene la misma proporción que las tierras, para que el mapa llene todo el recuadro.
+const [[x0, y0], [x1, y1]] = geoPath(geoNaturalEarth1().fitWidth(1000, fc)).bounds(fc);
+const W = 1000, H = Math.round((1000 * (y1 - y0)) / (x1 - x0)) + 8;
+const proj = geoNaturalEarth1().fitExtent([[4, 4], [W - 4, H - 4]], fc);
 const path = geoPath(proj).digits(0);
 
 export const getStaticPaths = () => Object.keys(GEO).map((country) => ({ params: { country } }));
