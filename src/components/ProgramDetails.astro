@@ -1,4 +1,7 @@
 ---
+// Celdas con un importe (€, US$…): en negrita, como los precios de las listas.
+const CUR = /€|US\$|USD|\$|CAD|GBP|£|NOK|SEK|ZAR|RUB|TRY/;
+const isPrice = (c) => /\d/.test(String(c)) && /€|US\$|USD|\$|CAD|GBP|£|NOK|SEK|ZAR|RUB|TRY/.test(String(c)) && String(c).length <= 40;
 // Programa completo (tarifas, tasas, incluye, condiciones) de data/details.js.
 const { d, title } = Astro.props;
 ---
@@ -21,7 +24,7 @@ const { d, title } = Astro.props;
             <div class="tscroll">
               <table>
                 <thead><tr>{b.table.head.map((h) => <th>{h}</th>)}</tr></thead>
-                <tbody>{b.table.rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+                <tbody>{b.table.rows.map((r) => <tr>{r.map((c, i) => <td class:list={{ price: isPrice(c) || (CUR.test(b.table.head[i] ?? '') && /\d/.test(String(c))) }}>{c}</td>)}</tr>)}</tbody>
               </table>
             </div>
           )}
@@ -49,6 +52,7 @@ const { d, title } = Astro.props;
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 15px; }
   th { text-align: left; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
   td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--line); hyphens: auto; }
+  td.price { font-weight: 600; }
   td:nth-child(even), th:nth-child(even) { text-align: right; padding-right: 28px; }
   .block:not(.wide) td:last-child, .block:not(.wide) th:last-child { text-align: right; padding-right: 0; }
   @media (max-width: 600px) { dd:not(.short) { white-space: normal; } }
