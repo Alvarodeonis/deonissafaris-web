@@ -9,6 +9,7 @@ import TeamStrip from '../../../components/TeamStrip.astro';
 import ProgramDetails from '../../../components/ProgramDetails.astro';
 import LegalNote from '../../../components/LegalNote.astro';
 import Lightbox from '../../../components/Lightbox.astro';
+import { lodging } from '../../../data/lodging.js';
 import ProgramMap from '../../../components/ProgramMap.astro';
 import SeoText from '../../../components/SeoText.astro';
 import { seoTexts } from '../../../data/seo-texts.js';
@@ -35,6 +36,7 @@ const fslug = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerC
 const countryFilm = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films[0]?.id;
 const heroVideo = p.video || countryFilm;
 const photos = [...new Set([p.hero, ...(galleries[p.slug] ?? p.gallery)])];
+const lodge = (lodging[p.slug] ?? []).map((f) => u(f));
 const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(`Hola, me gustaría recibir un presupuesto del programa «${p.title}» en ${p.countryName}.`)}`;
 const facts = [
@@ -119,6 +121,23 @@ const trip = {
       ))}
     </div>
     </div>
+  )}
+
+  {lodge.length > 0 && (
+    <section class="lodge" id="alojamiento" aria-labelledby="lodge-h">
+      <div class="wrap"><h2 id="lodge-h" class="lodge-h">Alojamiento</h2></div>
+      <div class="gal-wrap">
+        <button type="button" class="gal-arrow prev" data-gal="-1" aria-label="Fotos anteriores">‹</button>
+        <button type="button" class="gal-arrow next" data-gal="1" aria-label="Fotos siguientes">›</button>
+        <div class="gallery">
+          {lodge.map((g) => (
+            <button type="button" data-lb="aloj" data-src={g} aria-label="Ampliar foto">
+              <img src={g} alt="Alojamiento" loading="lazy" width="563" height="1000" />
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
 
 
@@ -220,7 +239,8 @@ const trip = {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 
   // Carrusel: avanza solo y se detiene al pasar el ratón o tocarlo.
-  const gal = document.querySelector<HTMLElement>('.gallery');
+  // Una o varias filas de fotos (galería y alojamiento): cada una con su carrusel y sus flechas.
+  document.querySelectorAll<HTMLElement>('.gallery').forEach((gal) => {
   if (gal && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let paused = false; let pos = 0;
     const stop = () => { paused = true; }; const go = () => { paused = false; pos = gal.scrollLeft; };
@@ -255,7 +275,7 @@ const trip = {
     window.addEventListener('pointerup', () => { if (!down) return; down = false; gal.classList.remove('grab'); });
     gal.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
     gal.addEventListener('dragstart', (e) => e.preventDefault());
-    document.querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => {
+    (gal.closest('.gal-wrap') ?? document).querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => {
       // Salta de foto en foto: busca la siguiente (o anterior) que no se ve entera.
       const dir = Number(b.dataset.gal);
       const g0 = gal.getBoundingClientRect().left - gal.scrollLeft;
@@ -266,6 +286,7 @@ const trip = {
       gal.scrollTo({ left: to, behavior: 'smooth' });
     }));
   }
+  });
 </script>
 
 <style>
@@ -305,6 +326,8 @@ const trip = {
   .gallery { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .gallery::-webkit-scrollbar { display: none; }
   .gal-wrap { position: relative; }
+  .lodge { margin-top: 4px; padding: 0; }
+  .lodge-h { font-size: clamp(26px, 2.4vw, 34px); margin: 22px 0 12px; }
   .gal-arrow { position: absolute; top: 50%; z-index: 2; width: 46px; height: 46px; margin-top: -23px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; font: 300 30px/1 var(--display); cursor: pointer; opacity: 0; transition: opacity .25s, background .2s; }
   .gal-arrow.prev { left: 14px; } .gal-arrow.next { right: 14px; }
   .gal-wrap:hover .gal-arrow { opacity: 1; }
