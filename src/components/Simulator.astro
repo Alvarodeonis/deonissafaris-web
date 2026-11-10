@@ -55,7 +55,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
             <legend>3 · Animales adicionales</legend>
             <p class="hint">Tasas de abate por animal, además de los incluidos en el paquete.</p>
             <div class="trophies">
-              {s.trophies.map((t, i) => (
+              {s.trophies.map((t, i) => [
+                t.group && t.group !== s.trophies[i - 1]?.group && <p class="t-group">{t.group}</p>,
                 <div class="trophy" data-trophy={i}>
                   <span class="t-name">{t.name}{t.cites && <em>CITES</em>}<small class="t-min">{t.minDays ? `mín. ${t.minDays} días` : ''}</small></span>
                   <span class="t-price"></span>
@@ -64,8 +65,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
                     <output>{s.defaultTrophies?.[t.name] ?? 0}</output>
                     <button type="button" data-d="1" aria-label={`Añadir ${t.name}`}>+</button>
                   </div>
-                </div>
-              ))}
+                </div>,
+              ])}
             </div>
           </fieldset>
         )}
@@ -155,6 +156,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
   #lines :global(li b) { color: var(--bone); font-weight: 600; white-space: nowrap; }
   .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 18px; font: 500 11px var(--label); text-transform: uppercase; letter-spacing: .22em; }
   .total b { font: 600 clamp(34px, 3.2vw, 44px) var(--display); letter-spacing: 0; color: #fff; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+  .t-group { grid-column: 1 / -1; margin: 14px 0 2px; font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
   .per { color: var(--stone); font-size: 14px; text-align: right; margin-bottom: 18px; }
   .blk { font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--bone); margin: 18px 0 4px; }
   .blk small { display: block; margin-top: 4px; letter-spacing: .08em; text-transform: none; font: 400 13px var(--body, sans-serif); color: var(--stone); }
@@ -268,7 +270,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
       const off = !!t.minDays && k.days < t.minDays;
       row.classList.toggle('off', off);
       row.classList.toggle('active', !off && state.trophies[i] > 0);
-      row.querySelector('.t-price')!.textContent = fmt(t.price);
+      row.querySelector('.t-price')!.textContent = t.plus ? tt('desde {x}', { x: fmt(t.price) }) : fmt(t.price);
       row.querySelectorAll('button').forEach((b) => { if (off) b.disabled = true; });
     });
     cfg.fees.filter((f: Fee) => f.optional).forEach((f: Fee) => {

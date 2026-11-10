@@ -23,6 +23,9 @@ háblales en español, claro y breve, sin jerga técnica, y confirma siempre lo 
 - **Programas importados de la web antigua**: `src/data/catalog/<slug>.json`. Ahí están el título, el resumen,
   la temporada, la duración, el alojamiento, el PDF, el vídeo, las fotos (`images`, la primera es la portada)
   y las tarifas (`blocks`: cada fila es `[concepto, precio]`).
+- **Calculadora de presupuesto de los programas importados**: `src/data/simulators.js`. Si cambias un precio
+  en `catalog/<slug>.json`, cámbialo también aquí. Los textos nuevos de la calculadora se traducen en
+  `src/i18n/text/<idioma>/30-sim.json`.
 - **Tarifas y condiciones de los programas hechos a mano**: `src/data/details.js`.
 - **Fila de fotos "Alojamiento"**: `src/data/lodging.js` (fotos en `public/img/alojamiento-namibia/`).
 - **Galerías extra de fotos**: `src/data/galleries.js`.

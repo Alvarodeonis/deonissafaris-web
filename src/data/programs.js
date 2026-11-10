@@ -10,6 +10,7 @@
 //               `optional: true` los convierte en casillas; `checked` marca la casilla por defecto.
 import { u } from '../lib/url.js';
 import { details as fullDetails } from './details.js';
+import { simulators } from './simulators.js';
 
 const M = 'https://www.deonissafaris.com/media/images/';
 
@@ -376,6 +377,8 @@ const catalog = Object.values(import.meta.glob('./catalog/*.json', { eager: true
     ...j,
     hero: imgs[0],
     gallery: imgs.slice(1),
+    simulator: simulators[j.slug],
+    imported: true,
     video: j.video || undefined,
     details: j.blocks?.length || j.pdf ? { pdf: j.pdf || undefined, blocks: j.blocks || [] } : null,
   };
@@ -440,7 +443,8 @@ const FROM_OVERRIDE = {
 
 export const fromPrice = (p) => {
   if (!isCurrent(p)) return null;
-  const s = p.simulator;
+  // En los importados, el "desde" sigue saliendo de la tabla de precios (no del simulador).
+  const s = p.imported ? null : p.simulator;
   if (!s) {
     if (FROM_OVERRIDE[p.slug]) return FROM_OVERRIDE[p.slug];
     // Bloque del paquete o precio de la cacería (nunca tarifas diarias, suplementos ni trofeos).
