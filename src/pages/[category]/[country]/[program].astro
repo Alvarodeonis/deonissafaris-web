@@ -291,6 +291,8 @@ const trip = {
     .ph .ph-info { order: 1; padding: 40px 48px 16px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
     .ph h1 { font-size: clamp(40px, 4vw, 66px); }
   }
+  /* Pantallas anchas: el texto se acerca al borde para no dejar un hueco blanco a la izquierda. */
+  @media (min-width: 1500px) { .ph .ph-info { padding-left: clamp(var(--gutter), calc((100vw - 1500px) / 2 + 80px), 260px); } }
   .from { font: 500 13px var(--label); letter-spacing: .1em; text-transform: uppercase; }
   .from b { font: 600 34px var(--display); letter-spacing: 0; color: var(--bone); margin: 0 6px; text-transform: none; }
   .intro .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; }
