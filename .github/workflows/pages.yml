@@ -41,3 +41,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # La web pesa casi 1 GB: GitHub a veces tarda más de 10 minutos en copiarla.
+          timeout: 1800000
