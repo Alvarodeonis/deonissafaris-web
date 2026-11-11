@@ -199,7 +199,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     const n = Number(el.dataset.frames || 0);
     // Sin fotogramas propios: las 3 miniaturas automáticas de YouTube (al 25, 50 y 75 % del vídeo, nunca la intro).
     const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/sd${k}.jpg`);
-    el.style.setProperty('--len', '10s');
+    el.style.setProperty('--len', '8s');
     // Una sola capa encima de la miniatura: cambia de fotograma de golpe, sin fundidos ni zoom,
     // para que nunca se vean dos imágenes superpuestas.
     let frames: string[] = [], ov: HTMLImageElement | null = null, t: number | undefined, i = 0, over = false;
@@ -227,8 +227,8 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
       t = window.setTimeout(show, HOLD);
     };
     // Si el ratón se queda encima, se pone la película de verdad, sin sonido, a partir del minuto 1
-    // (se salta la introducción) y saltando cada 2 s a otra parte de la película: 5 escenas distintas
-    // en 10 s, y vuelta a empezar. Mientras carga se ven los fotogramas, que cambian cada segundo.
+    // (se salta la introducción) y saltando cada segundo a otra parte de la película: 8 escenas distintas
+    // en 8 s, y vuelta a empezar. Mientras carga se ven los fotogramas, que cambian cada segundo.
     let vt: number | undefined, jt: number | undefined, vid: HTMLIFrameElement | null = null, dur = 0, jump = 0;
     const cmd = (func: string, args: unknown[] = []) => vid?.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args }), '*');
     const onMsg = (e: MessageEvent) => {
@@ -239,11 +239,11 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
       // Puntos repartidos entre el minuto 1 y el final (en películas cortas, desde el 20 %).
       const from = dur > 150 ? 60 : dur * 0.2, to = dur * 0.92;
       if (!dur) { jt = window.setTimeout(scene, 200); return; } // aún no sabemos lo que dura
-      cmd('seekTo', [from + ((to - from) * (jump % 5)) / 5, true]);
+      cmd('seekTo', [from + ((to - from) * (jump % 8)) / 8, true]);
       // El vídeo solo se enseña después del primer salto, para que nunca se vea la introducción.
       if (!jump) window.setTimeout(() => vid?.classList.add('on'), 500);
       jump++;
-      jt = window.setTimeout(scene, 2000);
+      jt = window.setTimeout(scene, 1000);
     };
     const stopVid = () => { clearTimeout(vt); clearTimeout(jt); window.removeEventListener('message', onMsg); vid?.remove(); vid = null; };
     el.addEventListener('mouseenter', () => {
