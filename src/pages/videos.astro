@@ -104,6 +104,9 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   /* Avance al pasar el ratón: una sola capa que cambia de fotograma. */
   .th :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s ease; }
   .th :global(img.fr.on) { opacity: 1; }
+  /* Película en silencio al dejar el ratón encima; un poco ampliada para tapar los rótulos de YouTube. */
+  .th :global(iframe.pv) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; transform: scale(1.3); opacity: 0; transition: opacity .4s ease; }
+  .th :global(iframe.pv.on) { opacity: 1; }
   .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
   .film-card:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
   .film-card:hover .pl, .film-card:focus-visible .pl { opacity: 1; background: var(--red); border-color: var(--red); }
@@ -190,13 +193,13 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 
   // Avance al pasar el ratón: fotogramas reales de la película (sin la intro), unos 2,5 s cada uno.
   const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-  const HOLD = 2500;
+  const HOLD = 1000;
   document.querySelectorAll<HTMLElement>('[data-hover]').forEach((el) => {
     const id = el.dataset.hover!;
     const n = Number(el.dataset.frames || 0);
     // Sin fotogramas propios: las 3 miniaturas automáticas de YouTube (al 25, 50 y 75 % del vídeo, nunca la intro).
     const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/sd${k}.jpg`);
-    el.style.setProperty('--len', `${(srcs.length * HOLD) / 1000}s`);
+    el.style.setProperty('--len', '10s');
     // Una sola capa encima de la miniatura: cambia de fotograma de golpe, sin fundidos ni zoom,
     // para que nunca se vean dos imágenes superpuestas.
     let frames: string[] = [], ov: HTMLImageElement | null = null, t: number | undefined, i = 0, over = false;
@@ -223,11 +226,47 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
       ov.src = ok[i % ok.length]; ov.classList.add('on'); i++;
       t = window.setTimeout(show, HOLD);
     };
+    // Si el ratón se queda encima, se pone la película de verdad, sin sonido, a partir del minuto 1
+    // (se salta la introducción) y saltando cada 2 s a otra parte de la película: 5 escenas distintas
+    // en 10 s, y vuelta a empezar. Mientras carga se ven los fotogramas, que cambian cada segundo.
+    let vt: number | undefined, jt: number | undefined, vid: HTMLIFrameElement | null = null, dur = 0, jump = 0;
+    const cmd = (func: string, args: unknown[] = []) => vid?.contentWindow?.postMessage(JSON.stringify({ event: 'command', func, args }), '*');
+    const onMsg = (e: MessageEvent) => {
+      if (!vid || e.source !== vid.contentWindow) return;
+      try { const d = JSON.parse(e.data); if (d.info && d.info.duration) dur = d.info.duration; } catch { /* otro mensaje */ }
+    };
+    const scene = () => {
+      // Puntos repartidos entre el minuto 1 y el final (en películas cortas, desde el 20 %).
+      const from = dur > 150 ? 60 : dur * 0.2, to = dur * 0.92;
+      if (!dur) { jt = window.setTimeout(scene, 200); return; } // aún no sabemos lo que dura
+      cmd('seekTo', [from + ((to - from) * (jump % 5)) / 5, true]);
+      // El vídeo solo se enseña después del primer salto, para que nunca se vea la introducción.
+      if (!jump) window.setTimeout(() => vid?.classList.add('on'), 500);
+      jump++;
+      jt = window.setTimeout(scene, 2000);
+    };
+    const stopVid = () => { clearTimeout(vt); clearTimeout(jt); window.removeEventListener('message', onMsg); vid?.remove(); vid = null; };
     el.addEventListener('mouseenter', () => {
       prep(); over = true; i = 0; clearTimeout(t);
       t = window.setTimeout(show, 150);
+      stopVid();
+      vt = window.setTimeout(() => {
+        if (!over) return;
+        dur = 0; jump = 0;
+        vid = document.createElement('iframe');
+        vid.className = 'pv'; vid.tabIndex = -1; vid.title = ''; vid.allow = 'autoplay; encrypted-media';
+        vid.setAttribute('aria-hidden', 'true');
+        vid.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
+        window.addEventListener('message', onMsg);
+        vid.addEventListener('load', () => {
+          vid?.contentWindow?.postMessage(JSON.stringify({ event: 'listening', id }), '*');
+          // YouTube tarda un poco en arrancar: se muestra cuando ya está reproduciendo.
+          window.setTimeout(() => { cmd('mute'); cmd('playVideo'); scene(); }, 800);
+        }, { once: true });
+        el.insertBefore(vid, el.querySelector('.bar') ?? el.querySelector('.pl'));
+      }, 500);
     });
-    el.addEventListener('mouseleave', () => { over = false; clearTimeout(t); ov?.classList.remove('on'); });
+    el.addEventListener('mouseleave', () => { over = false; clearTimeout(t); ov?.classList.remove('on'); stopVid(); });
   });
 
   // Película destacada: cambia sola entre las recomendadas cada 8 s (se para con el ratón encima).
