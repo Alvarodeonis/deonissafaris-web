@@ -174,9 +174,10 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   // Resto de películas: se abren en grande en una ventana, con anterior y siguiente.
   const modal = document.getElementById('vmodal')!;
   const mFrame = document.getElementById('vm-frame')!;
-  const cards = [...document.querySelectorAll<HTMLElement>('.fcard')];
+  // Solo las tarjetas de películas (el pie de página también tiene tarjetas .fcard de redes sociales).
+  const cards = [...document.querySelectorAll<HTMLElement>('.fgroup .fcard[data-play]')];
   let cur = -1;
-  const visible = () => cards.filter((c) => !c.closest('.fgroup')!.hasAttribute('hidden'));
+  const visible = () => cards.filter((c) => !c.closest<HTMLElement>('.fgroup')?.hidden);
   const open = (c: HTMLElement) => {
     cur = visible().indexOf(c);
     document.getElementById('vm-title')!.textContent = c.dataset.title!;
