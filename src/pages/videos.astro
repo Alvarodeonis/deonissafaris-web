@@ -10,7 +10,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 ---
 <Layout
   title="Películas de caza internacional"
-  description={`${allFilms.length} películas de nuestras cacerías: búfalo y leopardo en Mozambique, leones en el Kalahari, ciervos de récord en Nueva Zelanda, osos en Rumanía y Siberia, jabalíes en Irán y Turquía, buey almizclero en Groenlandia y caza con arco.`}>
+  description={`Películas de nuestras cacerías: búfalo y leopardo en Mozambique, leones en el Kalahari, ciervos de récord en Nueva Zelanda, osos en Rumanía y Siberia, jabalíes en Irán y Turquía, buey almizclero en Groenlandia y caza con arco.`}>
   <section class="dark nf-hero" id="bb" aria-label="Película destacada">
     {featuredFilms.map((f, i) => (
       <img class:list={['bb-img', { on: i === 0 }]} src={thumb(f.id, 'maxresdefault')} alt="" fetchpriority={i === 0 ? 'high' : undefined} loading={i === 0 ? undefined : 'lazy'} onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
@@ -22,7 +22,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
       <div class="bb-txt">
         <div class="eyebrow" id="bb-group">{first.groupName}</div>
         <h2 id="bb-title">{first.title}</h2>
-        <p>{allFilms.length} películas rodadas en nuestras propias cacerías por todo el mundo, muchas emitidas en Iberalia TV.</p>
+        <p>Películas rodadas en nuestras propias cacerías por todo el mundo, muchas emitidas en Iberalia TV.</p>
         <div class="bb-act">
           <button type="button" class="bb-play" id="bb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>Ver película</button>
           <div class="bb-dots">{featuredFilms.map((f, i) => <button type="button" class:list={{ on: i === 0 }} data-i={i} aria-label={f.title}></button>)}</div>
@@ -68,17 +68,17 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 
 <style>
   /* Portada tipo Netflix: película destacada a todo ancho y una fila deslizable por país. */
-  .nf-hero { position: relative; overflow: hidden; min-height: min(92vh, 56.25vw + 60px); display: flex; align-items: flex-end; background: #0b0a09; }
+  .nf-hero { position: relative; overflow: hidden; min-height: min(68vh, 620px); display: flex; align-items: flex-end; background: #0b0a09; }
   .bb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
   .bb-img.on { opacity: 1; }
   .bb-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,10,9,.88) 0%, rgba(11,10,9,.55) 38%, rgba(11,10,9,0) 70%), linear-gradient(180deg, rgba(11,10,9,.7) 0%, rgba(11,10,9,0) 30%, rgba(11,10,9,0) 62%, #0b0a09 100%); }
-  .bb-in { position: relative; z-index: 1; width: 100%; padding-top: var(--page-top); padding-bottom: clamp(40px, 6vw, 90px); }
+  .bb-in { position: relative; z-index: 1; width: 100%; padding-top: calc(var(--page-top) - 40px); padding-bottom: clamp(28px, 3vw, 48px); }
   .bb-in .crumbs { color: rgba(255,255,255,.7); }
   .bb-h1 { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.75); }
   .bb-h1 span { margin-left: 10px; color: rgba(255,255,255,.5); }
-  .bb-txt { max-width: 640px; margin-top: clamp(30px, 7vh, 90px); }
+  .bb-txt { max-width: 640px; margin-top: clamp(18px, 3vh, 40px); }
   .bb-txt .eyebrow { color: #ff6b6b; }
-  .bb-txt h2 { margin: 8px 0 14px; font-size: clamp(36px, 5vw, 72px); line-height: 1; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.5); }
+  .bb-txt h2 { margin: 8px 0 12px; font-size: clamp(34px, 4vw, 58px); line-height: 1; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.5); }
   .bb-txt p { margin: 0 0 24px; color: rgba(255,255,255,.85); max-width: 48ch; }
   .bb-act { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
   .bb-play { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px 14px 22px; background: #fff; color: #111; border: 0; font: 500 13px var(--label); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: .2s; }
