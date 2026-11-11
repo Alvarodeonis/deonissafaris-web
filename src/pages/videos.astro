@@ -53,7 +53,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
           <div class="flist">
             {g.films.map((f) => (
               <button type="button" class="film-card" data-play={f.id} data-title={f.title} data-group={g.name}>
-                <span class="th" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
+                <span class="th" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'maxresdefault')} alt={f.title} loading="lazy" onload="if(this.naturalWidth<200&&/maxres/.test(this.src))this.src=this.src.replace('maxresdefault','hqdefault')" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
                 <span class="ftl">{f.title}</span>
               </button>
             ))}
@@ -209,12 +209,17 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     const id = el.dataset.hover!;
     const n = Number(el.dataset.frames || 0);
     // Sin fotogramas propios: las 3 miniaturas automáticas de YouTube (al 25, 50 y 75 % del vídeo, nunca la intro).
-    const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/hq${k}.jpg`);
+    const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/sd${k}.jpg`);
     el.style.setProperty('--len', `${(srcs.length * HOLD) / 1000}s`);
     let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
     const load = () => { if (!layers.length) layers = srcs.map((src) => {
       const im = document.createElement('img');
-      im.className = n ? 'fr' : 'fr ytf'; im.alt = ''; im.decoding = 'async'; im.src = src;
+      im.className = n ? 'fr' : 'fr ytf'; im.alt = ''; im.decoding = 'async';
+      // Fotogramas de 640 px; si el vídeo no los tiene, los de 480 px.
+      // (YouTube devuelve una imagen gris de 120 px cuando no existe, así que se mira también el tamaño).
+      const low = () => { if (/\/sd\d\.jpg$/.test(im.src)) im.src = im.src.replace(/\/sd(\d)\.jpg$/, '/hq$1.jpg'); };
+      if (!n) { im.onerror = low; im.addEventListener('load', () => { if (im.naturalWidth < 200) low(); }); }
+      im.src = src;
       el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
       return im;
     }); };
