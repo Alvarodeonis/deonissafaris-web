@@ -11,57 +11,45 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 <Layout
   title="Películas de caza internacional"
   description={`${allFilms.length} películas de nuestras cacerías: búfalo y leopardo en Mozambique, leones en el Kalahari, ciervos de récord en Nueva Zelanda, osos en Rumanía y Siberia, jabalíes en Irán y Turquía, buey almizclero en Groenlandia y caza con arco.`}>
-  <section class="films-top">
-    <div class="wrap">
+  <section class="dark nf-hero" id="bb" aria-label="Película destacada">
+    {featuredFilms.map((f, i) => (
+      <img class:list={['bb-img', { on: i === 0 }]} src={thumb(f.id, 'maxresdefault')} alt="" fetchpriority={i === 0 ? 'high' : undefined} loading={i === 0 ? undefined : 'lazy'} onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
+    ))}
+    <div class="bb-shade" aria-hidden="true"></div>
+    <div class="wrap bb-in">
       <div class="crumbs"><a href={u()}>Inicio</a><span>/</span>Películas</div>
-      <div class="ft-head">
-        <h1>Películas de caza</h1>
+      <h1 class="bb-h1">Películas de caza <span>{allFilms.length} películas</span></h1>
+      <div class="bb-txt">
+        <div class="eyebrow" id="bb-group">{first.groupName}</div>
+        <h2 id="bb-title">{first.title}</h2>
         <p>{allFilms.length} películas rodadas en nuestras propias cacerías por todo el mundo, muchas emitidas en Iberalia TV.</p>
-      </div>
-
-      <div class="stage">
-        <div class="player">
-          <div class="frame" id="frame"><button type="button" class="poster" id="poster-btn" data-play={first.id} data-title={first.title} data-group={first.groupName} aria-label={`Ver ${first.title}`}>
-            <img id="poster" src={thumb(first.id, 'maxresdefault')} alt={first.title} onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
-            <span class="bigplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
-          </button></div>
-          <div class="now"><span class="eyebrow" id="now-group">{first.groupName}</span><h2 id="now-title">{first.title}</h2></div>
+        <div class="bb-act">
+          <button type="button" class="bb-play" id="bb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>Ver película</button>
+          <div class="bb-dots">{featuredFilms.map((f, i) => <button type="button" class:list={{ on: i === 0 }} data-i={i} aria-label={f.title}></button>)}</div>
         </div>
-        <aside class="recs">
-          <div class="eyebrow">Recomendadas</div>
-          {featuredFilms.map((f, i) => (
-            <button type="button" class:list={['rec', { on: i === 0 }]} data-play={f.id} data-title={f.title} data-group={f.groupName}>
-              <span class="rth" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /></span>
-              <span class="rtx"><small>{f.groupName}</small>{f.title}</span>
-            </button>
-          ))}
-        </aside>
       </div>
     </div>
   </section>
 
-  <section class="films-all">
-    <div class="wrap">
-      <div class="eyebrow">Todas las películas</div>
-      <nav class="ffilter" aria-label="Filtrar por país">
-        <button type="button" class="on" data-f="all"><b>Todas</b><small>{allFilms.length} películas</small></button>
-        {filmGroups.map((g) => <button type="button" data-f={g.slug}><b>{g.name}</b><small>{g.films.length} {g.films.length === 1 ? 'película' : 'películas'}</small></button>)}
-      </nav>
-      {filmGroups.map((g) => (
-        <div class="fgroup" data-g={g.slug}>
-          <h3>{g.name}</h3>
+  <section class="dark nf-rows">
+    {[{ name: 'Recomendadas', slug: 'recomendadas', films: featuredFilms }, ...filmGroups].map((g) => (
+      <div class="fgroup" data-g={g.slug}>
+        <div class="wrap row-h"><h3>{g.name}</h3><small>{g.films.length} {g.films.length === 1 ? 'película' : 'películas'}</small></div>
+        <div class="row">
+          <button type="button" class="ra prev" aria-label="Anterior" hidden><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></svg></button>
           <div class="flist">
             {g.films.map((f) => (
-              <button type="button" class="film-card" data-play={f.id} data-title={f.title} data-group={g.name}>
+              <button type="button" class="film-card" data-play={f.id} data-title={f.title} data-group={f.groupName ?? g.name}>
                 <span class="th" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'maxresdefault')} alt={f.title} loading="lazy" onload="if(this.naturalWidth<200&&/maxres/.test(this.src))this.src=this.src.replace('maxresdefault','hqdefault')" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
                 <span class="ftl">{f.title}</span>
               </button>
             ))}
           </div>
+          <button type="button" class="ra next" aria-label="Siguiente" hidden><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg></button>
         </div>
-      ))}
-      <p class="yt"><a class="btn outline" href={contact.social.youtube} target="_blank" rel="noopener">Nuestro canal de YouTube</a></p>
-    </div>
+      </div>
+    ))}
+    <p class="yt"><a class="btn outline" href={contact.social.youtube} target="_blank" rel="noopener">Nuestro canal de YouTube</a></p>
   </section>
   <div class="vmodal" id="vmodal" hidden role="dialog" aria-modal="true" aria-labelledby="vm-title">
     <div class="vm-box">
@@ -79,54 +67,68 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
 </Layout>
 
 <style>
-  .films-top { padding-top: calc(var(--page-top) - 30px); padding-bottom: 30px; }
-  .ft-head { display: flex; justify-content: space-between; align-items: end; gap: 12px 40px; flex-wrap: wrap; margin: 14px 0 22px; }
-  .ft-head h1 { font-size: clamp(38px, 4.4vw, 64px); margin: 0; line-height: 1; }
-  .ft-head p { margin: 0; max-width: 52ch; color: var(--stone); }
-  .stage { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
-  .frame { aspect-ratio: 16 / 9; background: #000; }
-  .frame :global(iframe) { width: 100%; height: 100%; border: 0; display: block; }
-  .poster { position: relative; display: block; width: 100%; height: 100%; padding: 0; background: #000; border: 0; cursor: pointer; overflow: hidden; }
-  .poster img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease, filter .4s; }
-  .poster::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.45)); }
-  .poster:hover img { transform: scale(1.03); filter: brightness(1.05); }
-  .bigplay { position: absolute; z-index: 1; inset: 0; margin: auto; width: 88px; height: 88px; border-radius: 50%; background: var(--red); display: grid; place-items: center; box-shadow: 0 10px 40px rgba(0,0,0,.45); transition: transform .3s; }
-  .bigplay svg { width: 40%; fill: #fff; margin-left: 5px; }
-  .poster:hover .bigplay { transform: scale(1.1); }
-  .now { margin-top: 14px; }
-  .now h2 { font-size: clamp(24px, 2.2vw, 32px); margin: 6px 0 0; }
-  .recs { display: grid; gap: 10px; }
-  .rec { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px; background: none; border: 1px solid transparent; text-align: left; color: var(--bone); cursor: pointer; transition: .2s; }
-  .rec:hover, .rec.on { background: var(--char); border-color: var(--line); }
-  .rec.on { box-shadow: inset 3px 0 0 var(--red); }
-  .rth { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char-2); }
-  .rth img, .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .rtx { font: 500 17px/1.2 var(--display); }
-  .rtx small { display: block; margin-bottom: 4px; font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--red); }
-  .films-all { padding-top: 20px; }
-  .ffilter { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 14px 0 10px; }
-  .ffilter button { text-align: left; padding: 12px 14px 10px; background: var(--char); border: 1px solid rgba(28,27,24,.22); border-top: 3px solid var(--red); color: var(--bone); cursor: pointer; transition: .2s; }
-  .ffilter b { display: block; font: 500 20px/1.1 var(--display); }
-  .ffilter small { display: block; margin-top: 4px; font: 500 10px var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
-  .ffilter button:hover, .ffilter button.on { background: var(--red); border-color: var(--red); color: #fff; }
-  .ffilter button:hover small, .ffilter button.on small { color: rgba(255,255,255,.8); }
-  .fgroup { margin: 34px 0 0; }
-  .fgroup[hidden] { display: none; }
-  .fgroup h3 { font-size: 30px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-  .flist { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 26px 18px; }
-  .film-card { display: flex; flex-direction: column; justify-content: flex-start; border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
-  .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
-  .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
-  /* Avance al pasar el ratón: fotogramas del vídeo que se funden con un zoom lento. */
-  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s ease; }
-  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; }
+  /* Portada tipo Netflix: película destacada a todo ancho y una fila deslizable por país. */
+  .nf-hero { position: relative; overflow: hidden; min-height: min(92vh, 56.25vw + 60px); display: flex; align-items: flex-end; background: #0b0a09; }
+  .bb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s ease; }
+  .bb-img.on { opacity: 1; }
+  .bb-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,10,9,.88) 0%, rgba(11,10,9,.55) 38%, rgba(11,10,9,0) 70%), linear-gradient(180deg, rgba(11,10,9,.7) 0%, rgba(11,10,9,0) 30%, rgba(11,10,9,0) 62%, #0b0a09 100%); }
+  .bb-in { position: relative; z-index: 1; width: 100%; padding-top: var(--page-top); padding-bottom: clamp(40px, 6vw, 90px); }
+  .bb-in .crumbs { color: rgba(255,255,255,.7); }
+  .bb-h1 { margin: 10px 0 0; font: 500 12px var(--label); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+  .bb-h1 span { margin-left: 10px; color: rgba(255,255,255,.5); }
+  .bb-txt { max-width: 640px; margin-top: clamp(30px, 7vh, 90px); }
+  .bb-txt .eyebrow { color: #ff6b6b; }
+  .bb-txt h2 { margin: 8px 0 14px; font-size: clamp(36px, 5vw, 72px); line-height: 1; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.5); }
+  .bb-txt p { margin: 0 0 24px; color: rgba(255,255,255,.85); max-width: 48ch; }
+  .bb-act { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .bb-play { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px 14px 22px; background: #fff; color: #111; border: 0; font: 500 13px var(--label); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: .2s; }
+  .bb-play svg { width: 22px; fill: currentColor; }
+  .bb-play:hover { background: var(--red); color: #fff; }
+  .bb-dots { display: flex; gap: 8px; }
+  .bb-dots button { width: 26px; height: 3px; padding: 0; border: 0; background: rgba(255,255,255,.35); cursor: pointer; }
+  .bb-dots button.on { background: var(--red); }
+  .nf-rows { background: #0b0a09; padding: 0 0 70px; }
+  .fgroup { margin-top: 38px; }
+  .fgroup:first-child { margin-top: 0; }
+  .row-h { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .row-h h3 { margin: 0; font-size: clamp(24px, 2.2vw, 32px); color: #fff; }
+  .row-h small { font: 500 10px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+  .row { position: relative; }
+  .flist { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(250px, 24vw, 380px); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; --side: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter))); scroll-padding-inline: var(--side); padding: 10px var(--side) 14px; scrollbar-width: none; }
+  .flist::-webkit-scrollbar { display: none; }
+  .film-card { scroll-snap-align: start; display: flex; flex-direction: column; justify-content: flex-start; border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); transition: transform .3s ease; }
+  .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #1a1816; border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+  .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pl { position: absolute; z-index: 2; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; opacity: 0; transition: .25s; }
+  .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
+  /* Avance al pasar el ratón: una sola capa que cambia de fotograma. */
+  .th :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s ease; }
+  .th :global(img.fr.on) { opacity: 1; }
   .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
   .film-card:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
-  .film-card:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
-  .pl { z-index: 2; }
-  .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
-  .ftl { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
-  .yt { margin-top: 48px; text-align: center; }
+  .film-card:hover .pl, .film-card:focus-visible .pl { opacity: 1; background: var(--red); border-color: var(--red); }
+  .ftl { display: block; margin-top: 10px; font: 500 18px/1.25 var(--display); color: rgba(255,255,255,.9); }
+  .film-card:hover .ftl { color: #fff; }
+  .ra { position: absolute; z-index: 3; top: 10px; bottom: 50px; width: calc(var(--gutter) + 10px); min-width: 44px; border: 0; background: rgba(11,10,9,.72); color: #fff; cursor: pointer; display: grid; place-items: center; opacity: 0; transition: opacity .2s, background .2s; }
+  .ra[hidden] { display: none; }
+  .ra svg { width: 30px; fill: none; stroke: currentColor; stroke-width: 2.4; }
+  .ra.prev { left: 0; } .ra.next { right: 0; }
+  .row:hover .ra, .ra:focus-visible { opacity: 1; }
+  .ra:hover { background: rgba(191,18,29,.85); }
+  @media (hover: hover) and (min-width: 821px) { .film-card:hover { transform: scale(1.05); z-index: 2; } }
+  @media (hover: none) { .ra { display: none; } .pl { opacity: 1; } }
+  @media (max-width: 820px) {
+    .nf-hero { min-height: 0; display: block; }
+    .bb-img { position: relative; height: auto; aspect-ratio: 16 / 9; display: none; }
+    .bb-img.on { display: block; }
+    .nf-hero { padding-top: calc(var(--page-top) - 40px); }
+    .bb-shade { display: none; }
+    .bb-in { padding-top: 18px; padding-bottom: 30px; }
+    .bb-txt { margin-top: 18px; }
+    .bb-txt h2 { font-size: 34px; }
+    .flist { grid-auto-columns: 74vw; }
+  }
+  .yt { margin: 56px 0 0; text-align: center; }
   .vmodal { position: fixed; inset: 0; z-index: 210; display: grid; place-items: center; padding: 20px; background: rgba(8,7,6,.94); opacity: 0; transition: opacity .25s; }
   .vmodal.on { opacity: 1; }
   .vmodal[hidden] { display: none; }
@@ -143,10 +145,6 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .vm-nav { display: flex; justify-content: space-between; margin-top: 12px; }
   html.vm-lock { overflow: hidden; }
   @media (max-width: 600px) { .vm-close kbd { display: none; } .vmodal { padding: 12px; } }
-  @media (max-width: 960px) {
-    .stage { grid-template-columns: 1fr; }
-    .rec { grid-template-columns: 120px minmax(0, 1fr); }
-  }
 </style>
 
 <script>
@@ -159,27 +157,18 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     return f;
   };
 
-  // Reproductor destacado: se carga YouTube solo al pulsar (la página abre más rápido).
-  const frame = document.getElementById('frame')!;
-  const stagePlay = (id: string, title: string, group: string, autoplay = true) => {
-    document.getElementById('now-title')!.textContent = title;
-    document.getElementById('now-group')!.textContent = group;
-    document.querySelectorAll<HTMLElement>('.rec').forEach((r) => r.classList.toggle('on', r.dataset.play === id));
-    if (autoplay) frame.replaceChildren(iframe(id, title));
-  };
-  const pb = document.getElementById('poster-btn')!;
-  pb.addEventListener('click', () => stagePlay(pb.dataset.play!, pb.dataset.title!, pb.dataset.group!));
-  document.querySelectorAll<HTMLElement>('.rec').forEach((b) => b.addEventListener('click', () => stagePlay(b.dataset.play!, b.dataset.title!, b.dataset.group!)));
-
   // Resto de películas: se abren en grande en una ventana, con anterior y siguiente.
   const modal = document.getElementById('vmodal')!;
   const mFrame = document.getElementById('vm-frame')!;
   // Solo las tarjetas de películas (el pie de página también tiene tarjetas .film-card de redes sociales).
   const cards = [...document.querySelectorAll<HTMLElement>('.fgroup .film-card[data-play]')];
   let cur = -1;
-  const visible = () => cards.filter((c) => !c.closest<HTMLElement>('.fgroup')?.hidden);
+  // Anterior / siguiente: dentro de la misma fila.
+  let rowCards: HTMLElement[] = [];
+  const visible = () => rowCards;
   const open = (c: HTMLElement) => {
-    cur = visible().indexOf(c);
+    rowCards = [...c.closest<HTMLElement>('.flist')!.querySelectorAll<HTMLElement>('.film-card')];
+    cur = rowCards.indexOf(c);
     document.getElementById('vm-title')!.textContent = c.dataset.title!;
     document.getElementById('vm-group')!.textContent = c.dataset.group!;
     mFrame.replaceChildren(iframe(c.dataset.play!, c.dataset.title!));
@@ -241,10 +230,33 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     el.addEventListener('mouseleave', () => { over = false; clearTimeout(t); ov?.classList.remove('on'); });
   });
 
-  const btns = document.querySelectorAll<HTMLElement>('.ffilter button');
-  const groups = document.querySelectorAll<HTMLElement>('.fgroup');
-  btns.forEach((b) => b.addEventListener('click', () => {
-    btns.forEach((x) => x.classList.toggle('on', x === b));
-    groups.forEach((g) => { g.hidden = b.dataset.f !== 'all' && g.dataset.g !== b.dataset.f; });
-  }));
+  // Película destacada: cambia sola entre las recomendadas cada 8 s (se para con el ratón encima).
+  const bbImgs = [...document.querySelectorAll<HTMLElement>('.bb-img')];
+  const dots = [...document.querySelectorAll<HTMLElement>('.bb-dots button')];
+  const rec = [...document.querySelectorAll<HTMLElement>('.fgroup[data-g="recomendadas"] .film-card')];
+  let bi = 0, bt: number | undefined;
+  const setBB = (k: number) => {
+    bi = (k + rec.length) % rec.length;
+    bbImgs.forEach((im, j) => im.classList.toggle('on', j === bi));
+    dots.forEach((d, j) => d.classList.toggle('on', j === bi));
+    document.getElementById('bb-title')!.textContent = rec[bi].dataset.title!;
+    document.getElementById('bb-group')!.textContent = rec[bi].dataset.group!;
+  };
+  const auto = () => { clearInterval(bt); bt = window.setInterval(() => setBB(bi + 1), 8000); };
+  dots.forEach((d, j) => d.addEventListener('click', () => { setBB(j); auto(); }));
+  document.getElementById('bb-play')!.addEventListener('click', () => open(rec[bi]));
+  const bb = document.getElementById('bb')!;
+  bb.addEventListener('mouseenter', () => clearInterval(bt));
+  bb.addEventListener('mouseleave', auto);
+  auto();
+
+  // Flechas de cada fila: avanzan casi una pantalla; se ocultan al llegar al principio o al final.
+  document.querySelectorAll<HTMLElement>('.row').forEach((row) => {
+    const list = row.querySelector<HTMLElement>('.flist')!;
+    const prev = row.querySelector<HTMLElement>('.prev')!, next = row.querySelector<HTMLElement>('.next')!;
+    const upd = () => { prev.hidden = list.scrollLeft < 8; next.hidden = list.scrollLeft + list.clientWidth >= list.scrollWidth - 8; };
+    const go = (d: number) => list.scrollBy({ left: d * list.clientWidth * 0.85, behavior: 'smooth' });
+    prev.addEventListener('click', () => go(-1)); next.addEventListener('click', () => go(1));
+    list.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
+  });
 </script>
