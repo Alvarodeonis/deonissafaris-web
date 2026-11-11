@@ -20,7 +20,11 @@ const raw = {
   'Varios': [['e6hzeb_t8pc', 'Osos y jabalíes, de Siberia a Canadá'], ['ozKyH4kOL2g', 'Entrevista a Mark Sullivan']],
 };
 const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z]+/g, '-');
-export const filmGroups = Object.entries(raw).map(([name, list]) => ({ name, slug: slug(name), films: list.map(([id, title]) => ({ id, title })) }));
+// Orden de Álvaro (2026-11-11): primero Irán, Turquía, Namibia, Kazajistán y caza con arco; Bolivia y Canadá al final.
+const FIRST = ['Irán', 'Turquía', 'Namibia', 'Kazajistán', 'Caza con arco'];
+const LAST = ['Varios', 'Bolivia', 'Canadá'];
+const rank = (n) => (FIRST.includes(n) ? FIRST.indexOf(n) - 100 : LAST.includes(n) ? 100 + LAST.indexOf(n) : 0);
+export const filmGroups = Object.entries(raw).sort(([a], [b]) => rank(a) - rank(b)).map(([name, list]) => ({ name, slug: slug(name), films: list.map(([id, title]) => ({ id, title })) }));
 export const allFilms = filmGroups.flatMap((g) => g.films.map((f) => ({ ...f, group: g.slug, groupName: g.name })));
 // Recomendadas: arriba del todo.
 export const featuredFilms = ['v1QI4A65U8E', 'Jk2uAbcHA9Q', 'nDaS1yA3V3U', 'poJsSFtcmrA', 'VGUfuC1U6is'].map((id) => allFilms.find((f) => f.id === id));

@@ -52,7 +52,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
           <h3>{g.name}</h3>
           <div class="flist">
             {g.films.map((f) => (
-              <button type="button" class="fcard" data-play={f.id} data-title={f.title} data-group={g.name}>
+              <button type="button" class="film-card" data-play={f.id} data-title={f.title} data-group={g.name}>
                 <span class="th" data-hover={f.id} data-frames={frames[f.id] ?? 0}><img src={thumb(f.id, 'mqdefault')} alt={f.title} loading="lazy" /><span class="bar" aria-hidden="true"></span><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span>
                 <span class="ftl">{f.title}</span>
               </button>
@@ -113,16 +113,19 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .fgroup { margin: 34px 0 0; }
   .fgroup[hidden] { display: none; }
   .fgroup h3 { font-size: 30px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-  .flist { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px 16px; }
-  .fcard { border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
+  .flist { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 26px 18px; }
+  .film-card { display: flex; flex-direction: column; justify-content: flex-start; border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: var(--bone); }
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
   /* Avance al pasar el ratón: fotogramas del vídeo que se funden con un zoom lento. */
-  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; opacity: 0; transform: scale(1); transition: opacity .8s ease, transform 3.2s linear; }
+  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1); transition: opacity .8s ease, transform 3.2s linear; }
   .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; transform: scale(1.08); }
+  /* Fotogramas automáticos de YouTube (4:3 con bandas negras): un poco de zoom para que no asome ningún borde. */
+  .th :global(img.fr.ytf), .rth :global(img.fr.ytf) { transform: scale(1.04); }
+  .th :global(img.fr.ytf.on), .rth :global(img.fr.ytf.on) { transform: scale(1.12); }
   .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
-  .fcard:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
-  .fcard:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
+  .film-card:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
+  .film-card:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
   .pl { z-index: 2; }
   .pl svg { width: 45%; fill: #fff; margin-left: 3px; }
   .ftl { display: block; margin-top: 10px; font: 500 19px/1.25 var(--display); }
@@ -174,8 +177,8 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   // Resto de películas: se abren en grande en una ventana, con anterior y siguiente.
   const modal = document.getElementById('vmodal')!;
   const mFrame = document.getElementById('vm-frame')!;
-  // Solo las tarjetas de películas (el pie de página también tiene tarjetas .fcard de redes sociales).
-  const cards = [...document.querySelectorAll<HTMLElement>('.fgroup .fcard[data-play]')];
+  // Solo las tarjetas de películas (el pie de página también tiene tarjetas .film-card de redes sociales).
+  const cards = [...document.querySelectorAll<HTMLElement>('.fgroup .film-card[data-play]')];
   let cur = -1;
   const visible = () => cards.filter((c) => !c.closest<HTMLElement>('.fgroup')?.hidden);
   const open = (c: HTMLElement) => {
@@ -211,7 +214,7 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
     const load = () => { if (!layers.length) layers = srcs.map((src) => {
       const im = document.createElement('img');
-      im.className = 'fr'; im.alt = ''; im.decoding = 'async'; im.src = src;
+      im.className = n ? 'fr' : 'fr ytf'; im.alt = ''; im.decoding = 'async'; im.src = src;
       el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
       return im;
     }); };
