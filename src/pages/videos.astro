@@ -118,11 +118,8 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
   .th { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--char); }
   .pl { position: absolute; inset: 0; margin: auto; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: .25s; }
   /* Avance al pasar el ratón: fotogramas del vídeo que se funden con un zoom lento. */
-  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1); transition: opacity .8s ease, transform 3.2s linear; }
-  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; transform: scale(1.08); }
-  /* Fotogramas automáticos de YouTube (4:3 con bandas negras): un poco de zoom para que no asome ningún borde. */
-  .th :global(img.fr.ytf), .rth :global(img.fr.ytf) { transform: scale(1.04); }
-  .th :global(img.fr.ytf.on), .rth :global(img.fr.ytf.on) { transform: scale(1.12); }
+  .th :global(img.fr), .rth :global(img.fr) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s ease; }
+  .th :global(img.fr.on), .rth :global(img.fr.on) { opacity: 1; }
   .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); }
   .film-card:hover .bar { width: 100%; transition: width var(--len, 16s) linear; }
   .film-card:hover .pl { background: var(--red); border-color: var(--red); transform: scale(1.12); }
@@ -211,27 +208,37 @@ const thumb = (id, n = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${n}.jpg`;
     // Sin fotogramas propios: las 3 miniaturas automáticas de YouTube (al 25, 50 y 75 % del vídeo, nunca la intro).
     const srcs = n ? Array.from({ length: n }, (_, k) => `${base}img/frames/${id}-${k + 1}.jpg`) : [1, 2, 3].map((k) => `https://i.ytimg.com/vi/${id}/sd${k}.jpg`);
     el.style.setProperty('--len', `${(srcs.length * HOLD) / 1000}s`);
-    let layers: HTMLImageElement[] = [], t: number | undefined, i = 0;
-    const load = () => { if (!layers.length) layers = srcs.map((src) => {
-      const im = document.createElement('img');
-      im.className = n ? 'fr' : 'fr ytf'; im.alt = ''; im.decoding = 'async';
-      // Fotogramas de 640 px; si el vídeo no los tiene, los de 480 px.
-      // (YouTube devuelve una imagen gris de 120 px cuando no existe, así que se mira también el tamaño).
-      const low = () => { if (/\/sd\d\.jpg$/.test(im.src)) im.src = im.src.replace(/\/sd(\d)\.jpg$/, '/hq$1.jpg'); };
-      if (!n) { im.onerror = low; im.addEventListener('load', () => { if (im.naturalWidth < 200) low(); }); }
-      im.src = src;
-      el.insertBefore(im, el.querySelector('.bar') ?? el.querySelector('.pl'));
-      return im;
-    }); };
+    // Una sola capa encima de la miniatura: cambia de fotograma de golpe, sin fundidos ni zoom,
+    // para que nunca se vean dos imágenes superpuestas.
+    let frames: string[] = [], ov: HTMLImageElement | null = null, t: number | undefined, i = 0, over = false;
+    const prep = () => {
+      if (ov) return;
+      ov = document.createElement('img');
+      ov.className = 'fr'; ov.alt = ''; ov.decoding = 'async';
+      el.insertBefore(ov, el.querySelector('.bar') ?? el.querySelector('.pl'));
+      // Fotogramas de 640 px; si el vídeo no los tiene, los de 480 px. YouTube devuelve una imagen gris
+      // de 120 px cuando no existe, así que se mira también el tamaño. Se quitan los que fallan.
+      frames = srcs.map(() => '');
+      srcs.forEach((src, k) => {
+        const pre = new Image();
+        const low = () => { if (/\/sd\d\.jpg$/.test(pre.src)) { pre.src = pre.src.replace(/\/sd(\d)\.jpg$/, '/hq$1.jpg'); return; } frames[k] = ''; };
+        pre.onload = () => { if (!n && pre.naturalWidth < 200) low(); else frames[k] = pre.src; };
+        pre.onerror = low;
+        pre.src = src;
+      });
+    };
+    const show = () => {
+      if (!over || !ov) return;
+      const ok = frames.filter(Boolean);
+      if (!ok.length) { t = window.setTimeout(show, 150); return; }
+      ov.src = ok[i % ok.length]; ov.classList.add('on'); i++;
+      t = window.setTimeout(show, HOLD);
+    };
     el.addEventListener('mouseenter', () => {
-      load();
-      i = 0;
-      const show = () => { layers.forEach((l, k) => l.classList.toggle('on', k === i % layers.length)); i++; t = window.setTimeout(show, HOLD); };
-      // Empieza en cuanto el primer fotograma está listo, para no ver un hueco.
-      const first = layers[0];
-      if (first.complete) show(); else { first.addEventListener('load', show, { once: true }); first.addEventListener('error', show, { once: true }); }
+      prep(); over = true; i = 0; clearTimeout(t);
+      t = window.setTimeout(show, 150);
     });
-    el.addEventListener('mouseleave', () => { clearTimeout(t); layers.forEach((l) => l.classList.remove('on')); });
+    el.addEventListener('mouseleave', () => { over = false; clearTimeout(t); ov?.classList.remove('on'); });
   });
 
   const btns = document.querySelectorAll<HTMLElement>('.ffilter button');
