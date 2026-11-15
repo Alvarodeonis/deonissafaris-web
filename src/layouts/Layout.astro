@@ -13,7 +13,7 @@ const sg = (slug) => groups.find((g) => g.slug === slug);
 const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
 const lupa = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>';
 
-const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false, crumbs = [], schema = [], canonicalPath } = Astro.props;
+const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías en destinos que conocemos en persona.', image, transparentHeader = false, crumbs = [], schema = [], canonicalPath } = Astro.props;
 // SEO: descripción entre ~70 y 160 caracteres, cortada por palabra.
 const clean = (t) => String(t).replace(/\s+/g, ' ').trim();
 // Descripciones revisadas a mano (src/data/meta-desc.json) mandan sobre las automáticas.
@@ -157,7 +157,7 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
         <a class="f-logo" href={u()} aria-label="de Onís Safaris, inicio"><img src={u('logo.png')} alt="de Onís Safaris" width="120" height="133" /></a>
         <div class="f-brand">
           <p class="motto">Born wild · Free forever</p>
-          <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años. Solo le llevamos donde nuestro equipo ya ha cazado.</p>
+          <p class="claim">Safaris de caza internacional a medida desde hace más de treinta años. Solo vendemos destinos donde hemos estado nosotros.</p>
         </div>
         <div class="f-cta">
           <a class="btn" href={u('contacto')}>Planifica tu cacería</a>

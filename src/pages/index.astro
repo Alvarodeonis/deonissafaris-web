@@ -90,7 +90,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
       <div class="map-txt">
         <div class="eyebrow">Dónde cazamos</div>
         <h2>{nHunt} países en cinco continentes</h2>
-        <p>Solo enviamos a un cliente donde alguien de nuestro equipo ha cazado antes.</p>
+        <p>Solo vendemos destinos donde hemos estado nosotros: en la mayoría hemos cazado y en el resto hemos acompañado a un cliente.</p>
       </div>
         <ul class="map-conts">
           {categories.filter((c) => c.slug !== 'caza-con-arco').map((c) => <li><a href={u(c.slug)}><span>{c.name}</span><b>{catCount(c.slug)}</b></a></li>)}
