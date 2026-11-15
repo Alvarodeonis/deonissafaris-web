@@ -8,6 +8,7 @@ import { u } from '../lib/url.js';
 import { LANGS, ACTIVE, lang, langInfo, stripLang, pathIn, t } from '../i18n/index.js';
 import { countries as countriesOf } from '../data/programs.js';
 import metaDesc from '../data/meta-desc.json';
+import metaTitle from '../data/meta-title.json';
 const arcoCountries = countriesOf('caza-con-arco');
 const sg = (slug) => groups.find((g) => g.slug === slug);
 const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
@@ -47,7 +48,8 @@ const links = [
   ['Ministerio de Asuntos Exteriores', 'https://www.exteriores.gob.es/'],
   ['Convertidor de divisas', 'https://www.xe.com/es/'],
 ];
-const fullTitle = !title ? 'de Onís Safaris · Safaris de caza internacional' : `${title} · de Onís Safaris`.length <= 62 ? `${title} · de Onís Safaris` : title;
+// Títulos revisados a mano (src/data/meta-title.json) mandan sobre los automáticos.
+const fullTitle = metaTitle[stripLang(Astro.url.pathname)] ?? (!title ? 'de Onís Safaris · Safaris de caza internacional' : `${title} · de Onís Safaris`.length <= 62 ? `${title} · de Onís Safaris` : title);
 const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, me gustaría información sobre un safari de caza.')}`;
 ---
 <!doctype html>
