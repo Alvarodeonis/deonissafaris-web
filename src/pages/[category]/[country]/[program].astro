@@ -56,7 +56,7 @@ const trip = {
   ...(from && cur ? { offers: { '@type': 'Offer', price: from.amount, priceCurrency: ['USD', 'GBP'].includes(from.currency) ? from.currency : 'EUR', availability: 'https://schema.org/InStock', url: new URL(u(programUrl(p)).replace(/\/?$/, '/'), Astro.site).href } } : {}),
 };
 ---
-<Layout title={`${p.title} · ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader crumbs={[[cat.title, p.category], [p.countryName, `${p.category}/${p.country}`], [p.title, programUrl(p)]]} schema={[trip, ...countryFaq]}>
+<Layout title={`${p.title} · Caza en ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader crumbs={[[cat.title, p.category], [p.countryName, `${p.category}/${p.country}`], [p.title, programUrl(p)]]} schema={[trip, ...countryFaq]}>
   <div class="page-hero program-hero">
     <div class="ph">
       <button type="button" class="hero-media" data-lb="prog" data-src={photos[0]} aria-label="Ampliar foto">

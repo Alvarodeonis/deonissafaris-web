@@ -54,7 +54,22 @@ const INLINE_TEST = /<(a|strong|em|b|i|span)\b/;
 const OTHER_TAG = /<(?!\/?(?:a|strong|em|b|i|span)\b)/;
 
 export const translateHtml = (html, dict, lang) => {
-  const tr = (raw) => dict.get(norm(raw));
+  const tr1 = (raw) => dict.get(norm(raw));
+  // Si no está la frase entera, se traducen por separado las partes separadas por « · »
+  // (así los títulos «Programa · Caza en País» salen traducidos sin repetir cada combinación).
+  const tr = (raw) => {
+    const t = tr1(raw); if (t || !raw.includes(' · ')) return t;
+    // Se busca primero el trozo más largo que esté en el diccionario («Íbice · zonas premium»).
+    const parts = raw.split(' · '), out = [];
+    let hit = false;
+    for (let i = 0; i < parts.length;) {
+      let j = parts.length;
+      for (; j > i; j--) { const t = tr1(parts.slice(i, j).join(' · ')); if (t) { out.push(t); hit = true; break; } }
+      if (j === i) { out.push(parts[i]); j = i + 1; }
+      i = j;
+    }
+    return hit ? out.join(' · ') : undefined;
+  };
   // Separa scripts/estilos para no tocarlos (salvo JSON-LD).
   return html.split(/(<script\b[^>]*>[\s\S]*?<\/script>|<style\b[^>]*>[\s\S]*?<\/style>)/i).map((part, i) => {
     if (i % 2) {
