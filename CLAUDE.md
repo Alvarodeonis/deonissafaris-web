@@ -39,7 +39,8 @@ háblales en español, claro y breve, sin jerga técnica, y confirma siempre lo 
 
 ## Idiomas (muy importante)
 
-La web está en 12 idiomas: español (raíz) y en, de, fr, it, pl, ro, pt, cs, hu, ru, zh (en `/<idioma>/`).
+La web está en 13 idiomas: español (raíz) y en, de, fr, it, pl, ro, pt, cs, hu, ru, zh, sw (en `/<idioma>/`).
+El suajili (sw) está traducido solo en parte: lo que no está en `src/i18n/text/sw/` sale en inglés.
 Las páginas se escriben en español y se traducen al compilar con diccionarios
 `src/i18n/text/<idioma>/*.json` con el formato `{"texto exacto en español": "traducción"}`.
 
