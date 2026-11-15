@@ -265,5 +265,19 @@ const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hola, m
     }
     document.getElementById('menu-close').addEventListener('click', () => { nav.classList.remove('open'); open.setAttribute('aria-expanded', 'false'); });
   </script>
+  <script is:inline>
+    // Menú de arriba: si en algún idioma no cabe y el selector de idioma se sale por la derecha, se compacta.
+    (function () {
+      var h = document.querySelector('.site-header'), w = h && h.querySelector('.wrap'); if (!w) return;
+      var fit = function () {
+        h.classList.remove('nav-t1', 'nav-t2');
+        if (innerWidth <= 1180) return;
+        var over = function () { return w.scrollWidth > w.clientWidth + 1; };
+        if (over()) h.classList.add('nav-t1');
+        if (over()) h.classList.add('nav-t2');
+      };
+      fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit);
+    })();
+  </script>
 </body>
 </html>

@@ -125,6 +125,15 @@ body:has(.program-hero) .site-header .logo img { width: 92px; }
 @media (min-width: 1181px) { .menu-close { display: none !important; } }
 /* Pantallas de portátil: el menú completo cabe con letras y huecos algo menores. */
 @media (min-width: 1181px) and (max-width: 1400px) { .main-nav { gap: 12px; } .main-nav a, .main-nav button { font-size: 11px; letter-spacing: .1em; } .nav-cta { padding: 9px 12px !important; } }
+/* Si el menú no cabe (idiomas con palabras largas), se compacta en dos pasos; lo decide un script en Layout. */
+@media (min-width: 1181px) {
+  .site-header.nav-t1 .main-nav { gap: 12px; }
+  .site-header.nav-t1 .main-nav a, .site-header.nav-t1 .main-nav button { font-size: 11px; letter-spacing: .1em; }
+  .site-header.nav-t1 .nav-cta { padding: 9px 12px !important; }
+  .site-header.nav-t2 .main-nav { gap: 9px; }
+  .site-header.nav-t2 .main-nav a, .site-header.nav-t2 .main-nav button { font-size: 10.5px; letter-spacing: .05em; }
+  .site-header.nav-t2 .logo img { width: 130px; }
+}
 
 /* Page hero (interiores) */
 /* La foto se ve siempre entera (contain); el hueco sobrante queda en negro, igual que el fondo. */
