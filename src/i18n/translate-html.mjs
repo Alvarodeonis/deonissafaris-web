@@ -31,6 +31,7 @@ const NUM = {
 // en chino, como en inglés (€1,500).
 const NUM_STYLE = { de: ['.', 'US$'], it: ['.', 'US$'], ro: ['.', 'US$'], fr: ['\u202f', 'US$'], cs: ['\u00a0', 'US$'], hu: ['\u00a0', 'US$', 5], ru: ['\u00a0', 'US$', 5], pl: ['\u00a0', 'USD', 5], pt: ['\u00a0', 'USD', 5] };
 NUM.zh = NUM.en; // en chino se escribe como en inglés: €3,200, US$15,250
+NUM.sw = NUM.en; // en suajili, igual que en inglés (Tanzania y Kenia escriben 3,200)
 for (const [l, [sep, usd, min = 4]] of Object.entries(NUM_STYLE)) {
   NUM[l] = (t) => {
     let r = t.replace(/\d{1,3}(?:\.\d{3})+(?![\d.])/g, (x) => { const d = x.replace(/\./g, ''); return d.length < min ? d : d.replace(/\B(?=(\d{3})+(?!\d))/g, sep); });
@@ -120,13 +121,15 @@ const clientDict = (html, dict, keys) => {
   return JSON.stringify(out).replace(/</g, '\\u003c');
 };
 
+const FALLBACK = { sw: 'en' };
 export const translateDist = (out, langs, root) => {
   const walk = (d) => readdirSync(d).flatMap((f) => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : /\.(html|json)$/.test(p) ? [p] : []; });
   const keys = JSON.parse(readFileSync(join(root, 'src/i18n/client-keys.json'), 'utf8'));
   for (const l of langs) {
     const dir = join(out, l);
     if (!existsSync(dir)) continue;
-    const dict = loadDict(join(root, 'src/i18n/text', l));
+    // Suajili: lo que aún no está traducido sale en inglés (no en español), que en África oriental se entiende.
+    const dict = FALLBACK[l] ? new Map([...loadDict(join(root, 'src/i18n/text', FALLBACK[l])), ...loadDict(join(root, 'src/i18n/text', l))]) : loadDict(join(root, 'src/i18n/text', l));
     let n = 0;
     for (const f of walk(dir)) {
       const s = readFileSync(f, 'utf8');

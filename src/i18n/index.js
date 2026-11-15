@@ -12,6 +12,7 @@ export const LANGS = [
   { code: 'hu', name: 'Magyar', short: 'HU', hreflang: 'hu', og: 'hu_HU', suggest: 'Ez az oldal magyarul is elérhető.', go: 'Megnézem magyarul' },
   { code: 'ru', name: 'Русский', short: 'RU', hreflang: 'ru', og: 'ru_RU', suggest: 'Эта страница доступна и на русском языке.', go: 'Открыть на русском' },
   { code: 'zh', name: '中文', short: '中文', hreflang: 'zh-Hans', og: 'zh_CN', suggest: '本页面也有中文版本。', go: '查看中文版' },
+  { code: 'sw', name: 'Kiswahili', short: 'SW', hreflang: 'sw', og: 'sw_TZ', suggest: 'Ukurasa huu unapatikana pia kwa Kiswahili.', go: 'Tazama kwa Kiswahili' },
 ];
 // Idiomas publicados (los que ya tienen traducción). Se amplía según se traducen.
 export const ACTIVE = (process.env.LANGS || 'es').split(',');

@@ -19,7 +19,7 @@ const hero = sp ? speciesCover(sp) : speciesCover(members[0]);
 const title = sp ? `Caza de ${sp.name.toLowerCase()}` : g.title;
 const lead = sp ? sp.intro : g.lead;
 const subs = subgroups[g.slug];
-const seo = (lang() === 'en' ? seoEn : seoEs)[sp ? sp.slug : g.slug];
+const seo = (['en', 'sw'].includes(lang()) ? seoEn : seoEs)[sp ? sp.slug : g.slug];
 const faqSchema = seo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: seo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 ---
 <Layout title={sp ? `${title}: países y programas` : title} description={lead} image={hero} transparentHeader schema={faqSchema} crumbs={[['Por especie', 'especies'], ...(sp ? [[g.name, groupUrl(g)], [sp.name, speciesUrl(sp)]] : [[g.name, groupUrl(g)]])]}>
