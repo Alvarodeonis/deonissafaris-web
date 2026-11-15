@@ -1,12 +1,12 @@
 {
  "title": "Facocheros",
- "summary": "Facocheros con arco a rececho, mañana y tarde, acercándose mientras comen, en 200.000 ha del sur de Mauritania. Zona segura y libre de malaria.",
- "season": "Noviembre a marzo",
- "duration": "3,5 días de caza y 4 de estancia",
- "area": "Sur del país, junto a Senegal (200.000 ha)",
- "lodging": "Bungalows y haimas dobles",
- "pdf": "https://www.deonissafaris.com/media/files/proyectos_154_mauritania%20%E2%80%93%20arco%20facocheros%202020.pdf",
- "video": "",
+ "summary": "Facocheros con arco a rececho, mañana y tarde, acercándose mientras comen, en el sur de Mauritania: cuatro días de caza 1×1, campamento de lujo y cinco facocheros incluidos.",
+ "season": "Noviembre – marzo",
+ "duration": "4 días de caza",
+ "area": "Sur del país, a 110 km de Nuakchot",
+ "lodging": "Campamento de lujo",
+ "pdf": "https://www.deonissafaris.com/media/files/proyectos_49_mauritania%20facos%202026%202027.pdf",
+ "video": "II2sBb8QkXM",
  "images": [
   "proyectos_154_mauritania.jpg",
   "proyectos_154_sin-titulo1.png",
@@ -20,92 +20,108 @@
  ],
  "blocks": [
   {
-   "title": "Precios",
+   "title": "Paquete de caza",
    "rows": [
     [
-     "Paquete de 3,5 días de caza y 4 de estancia, con 5 facocheros",
-     "2.080 €"
-    ],
-    [
-     "Facochero extra",
-     "210 €"
+     "4 días de caza 1×1, 5 facocheros por cazador, todo incluido",
+     "3.500 €"
     ],
     [
      "Acompañante",
-     "500 €"
+     "600 €"
     ]
    ]
   },
   {
-   "title": "Gastos adicionales",
+   "title": "Tarifas adicionales",
    "rows": [
     [
-     "Billetes de avión (aprox.)",
-     "750 €"
+     "Facochero extra, cada uno",
+     "350 €"
     ],
     [
-     "Hotel fuera de programa (aprox.)",
-     "90 €"
+     "Facochero herido",
+     "350 €"
     ],
     [
-     "Visado",
-     "100 €"
+     "Día adicional de cazador",
+     "300 €"
     ],
     [
-     "Certificado sanitario de trofeos",
-     "100 €"
+     "Día adicional de acompañante",
+     "150 €"
     ],
     [
-     "Primera preparación del cráneo",
-     "50 €"
-    ],
-    [
-     "Preparación de piel (pecho)",
+     "Noche extra en el campamento, por persona",
      "75 €"
     ],
     [
-     "Preparación de piel (entera)",
+     "Preparación del cráneo, por animal",
+     "50 €"
+    ],
+    [
+     "Preparación de piel (pecho), por animal",
+     "75 €"
+    ],
+    [
+     "Preparación de piel (entera), por animal",
      "100 €"
     ],
     [
-     "Desplazamientos Nouakchott – campamento fuera de programa",
-     "100 €"
+     "Cerveza sin alcohol",
+     "3 €"
     ]
    ]
   },
   {
-   "title": "Información general",
+   "title": "Notas",
    "list": [
-    "Grupo máximo de cuatro cazadores (consultar para grupos mayores)",
-    "Aeropuerto: Nouakchott",
-    "Zona libre de malaria y totalmente segura",
+    "El máximo legal de facocheros cobrables es de 10.",
+    "Aeropuerto: Nuakchot. Zona libre de malaria.",
     "El alcohol está prohibido en todo el país"
    ]
   },
   {
    "title": "Incluye",
    "list": [
-    "Cazador profesional con vehículo y ayudantes",
-    "5 facocheros por cazador",
-    "Pensión completa (salvo la cena del último día)",
+    "Cazador profesional con vehículo y ayudantes.",
+    "Pensión completa (excepto la cena del último día).",
     "Permiso de arco y caza"
    ]
   },
   {
    "title": "No incluye",
-   "list": [
-    "Vuelos",
-    "Alojamientos o comidas fuera del programa",
-    "Visado: 100 €",
-    "Propinas (recomendado 150 € por cazador)",
-    "Gastos de naturaleza personal"
+   "rows": [
+    [
+     "Vuelos internacionales",
+     ""
+    ],
+    [
+     "Alojamiento o comidas antes o después del safari",
+     ""
+    ],
+    [
+     "Visado",
+     "55 €"
+    ],
+    [
+     "Certificado sanitario",
+     "125 €"
+    ],
+    [
+     "Hoteles fuera del programa (aprox.)",
+     "90 €"
+    ],
+    [
+     "Gastos personales",
+     ""
+    ]
    ]
   },
   {
-   "title": "Forma de pago",
+   "title": "Cancelación",
    "list": [
-    "Señal de 1.000 € para reservar",
-    "Resto 15 días antes del viaje"
+    "Condiciones de cancelación según outfitter."
    ]
   }
  ],
