@@ -115,7 +115,7 @@ export const seoTexts = {
         h: 'Canadá y Alaska',
         p: [
           'En el Yukón cazamos en Devilhole, con avioneta, caballos y guía 1x1, entre montañas, lagos y glaciares: alce, carnero de Dall y grizzly. En British Columbia, alce, wapití, caribú, cabra de las Rocosas o borrego de Stone, y en invierno el puma, el lince y el gato montés con perros. Esta última es una de las cacerías más físicas que ofrecemos.',
-          'El [oso](especies/oso) negro de Quebec es la puerta de entrada perfecta a [Canadá](caza-en-america/canada): un guía español va con usted desde Barajas y vuelve con usted. En [Alaska](caza-en-america/eeuu) el Kodiak se caza desde un yate en la isla de Kodiak, combinado con pesca de fletán y salmón.',
+          'El [oso](especies/oso) negro de Quebec es la puerta de entrada perfecta a [Canadá](caza-en-america/canada): una cacería corta, en primavera, desde puestos elevados. En [Alaska](caza-en-america/eeuu) el Kodiak se caza desde un yate en la isla de Kodiak, combinado con pesca de fletán y salmón.',
         ],
       },
       {
@@ -133,7 +133,7 @@ export const seoTexts = {
       },
     ],
     faq: [
-      { q: '¿Cuál es la mejor cacería para empezar en Canadá?', a: 'El oso negro de Quebec. Es corta, un guía español le acompaña desde Barajas y tiene muy buen porcentaje de éxito.' },
+      { q: '¿Cuál es la mejor cacería para empezar en Canadá?', a: 'El oso negro de Quebec. Es una cacería corta, desde puestos elevados, y tiene muy buen porcentaje de éxito.' },
       { q: '¿Cuándo es la berrea en Argentina?', a: 'De mediados de marzo a mediados de abril, el otoño austral.' },
       { q: '¿Hace falta mucho estado físico en el Yukón?', a: 'Sí, se camina y se monta a caballo en montaña. Le contaremos con detalle cómo es cada día antes de reservar.' },
     ],

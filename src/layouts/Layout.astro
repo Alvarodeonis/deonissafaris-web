@@ -7,6 +7,7 @@ import { categories, contact } from '../data/site.js';
 import { u } from '../lib/url.js';
 import { LANGS, ACTIVE, lang, langInfo, stripLang, pathIn, t } from '../i18n/index.js';
 import { countries as countriesOf } from '../data/programs.js';
+import metaDesc from '../data/meta-desc.json';
 const arcoCountries = countriesOf('caza-con-arco');
 const sg = (slug) => groups.find((g) => g.slug === slug);
 const mayorSubs = subgroups['caza-mayor'].filter((x) => speciesIn('caza-mayor', x).length);
@@ -15,7 +16,8 @@ const lupa = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="
 const { title, description: rawDesc = 'Safaris de caza internacional a medida en cinco continentes. Más de 30 años organizando cacerías donde nuestro equipo ya ha cazado.', image, transparentHeader = false, crumbs = [], schema = [], canonicalPath } = Astro.props;
 // SEO: descripción entre ~70 y 160 caracteres, cortada por palabra.
 const clean = (t) => String(t).replace(/\s+/g, ' ').trim();
-let description = clean(rawDesc);
+// Descripciones revisadas a mano (src/data/meta-desc.json) mandan sobre las automáticas.
+let description = clean(metaDesc[stripLang(Astro.url.pathname)] ?? rawDesc);
 if (description.length < 90) description = `${description.replace(/\.?$/, '.')} Safaris de caza a medida con de Onís Safaris, más de 30 años de experiencia.`;
 if (description.length > 160) description = description.slice(0, 157).replace(/[\s,;:·.(]+[^\s]*$/, '') + '…';
 const site = Astro.site ?? new URL('https://www.deonissafaris.com');

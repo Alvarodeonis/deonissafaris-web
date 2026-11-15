@@ -997,7 +997,7 @@
    {
     "h": "Oso negro en Quebec",
     "p": [
-     "Para empezar en Canadá, el [oso negro](especies/oso) de Quebec es la opción más asequible: cinco días de caza en mayo desde puestos elevados, por 3.500 € con un oso incluido. Un guía español le acompaña desde Barajas hasta la vuelta."
+     "Para empezar en Canadá, el [oso negro](especies/oso) de Quebec es la opción más asequible: cinco días de caza en mayo desde puestos elevados, por 3.500 € con un oso incluido."
     ]
    }
   ],
@@ -1699,7 +1699,7 @@
     "h": "Oso negro en Quebec",
     "p": [
      "Se caza el [oso negro](especies/oso) desde puestos elevados, por la tarde y alguna mañana, entre el 20 de mayo y el 20 de junio. La zona está entre Mont Joli y Matapedia, en Gaspé y New Brunswick.",
-     "Son cinco días de caza con un oso por 3.500 €. El segundo oso cuesta 1.250 € y el tercero, si hay licencias, 1.000 €. Un guía español le acompaña desde Barajas hasta la vuelta, así que es un viaje muy cómodo para quien va por primera vez."
+     "Son cinco días de caza con un oso por 3.500 €. El segundo oso cuesta 1.250 € y el tercero, si hay licencias, 1.000 €."
     ]
    },
    {
@@ -1720,10 +1720,6 @@
    {
     "q": "¿Cuándo se caza el oso negro en Quebec?",
     "a": "En primavera, del 20 de mayo al 20 de junio, desde puestos elevados."
-   },
-   {
-    "q": "¿Va alguien de De Onís en el viaje del oso?",
-    "a": "Sí, un guía español acompaña al grupo desde Barajas hasta el regreso."
    },
    {
     "q": "¿Cuánto cuesta el alce con arco en el Yukón?",
