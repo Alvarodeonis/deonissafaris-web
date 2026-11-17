@@ -11,8 +11,8 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
 <section class="sim" id="simulador">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Simulador</div><h2>Calcula tu presupuesto</h2></div>
-      <p class="lead">Elige paquete, cazadores, acompañantes y animales. El total es orientativo, puede contener errores y debes confirmarlo con nosotros.</p>
+      <div><div class="eyebrow">Simulador</div><h2>Calcule su presupuesto</h2></div>
+      <p class="lead">Elija paquete, cazadores, acompañantes y animales. El total es orientativo, puede contener errores y debe confirmarlo con nosotros.</p>
     </div>
     <div class="sim-grid" data-sim={JSON.stringify(config)}>
       <div class="sim-form">
@@ -61,9 +61,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
                   <span class="t-name">{t.name}{t.cites && <em>CITES</em>}<small class="t-min">{t.minDays ? `mín. ${t.minDays} días` : ''}</small></span>
                   <span class="t-price"></span>
                   <div class="stepper sm" data-step={`t-${i}`}>
-                    <button type="button" data-d="-1" aria-label={`Quitar ${t.name}`}>−</button>
+                    <button type="button" data-d="-1" aria-label={`Menos · ${t.name}`}>−</button>
                     <output>{s.defaultTrophies?.[t.name] ?? 0}</output>
-                    <button type="button" data-d="1" aria-label={`Añadir ${t.name}`}>+</button>
+                    <button type="button" data-d="1" aria-label={`Más · ${t.name}`}>+</button>
                   </div>
                 </div>,
               ])}
@@ -88,9 +88,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
 
       <aside class="sim-sum">
         <div class="sum-inner dark">
-          <div class="eyebrow">Tu presupuesto</div>
+          <div class="eyebrow">Su presupuesto</div>
           <h3>{p.countryName}</h3>
-          <p class="warn">Este cálculo es orientativo y puede contener errores. <b>Confirma siempre el precio final con nosotros</b> antes de reservar.</p>
+          <p class="warn">Este cálculo es orientativo y puede contener errores. <b>Confirme siempre el precio final con nosotros</b> antes de reservar.</p>
           <div class="blk">1 · La cacería <small>lo que organizamos nosotros</small></div>
           <ul id="lines"></ul>
           <div class="total"><span>Total cacería</span><b id="total"></b></div>

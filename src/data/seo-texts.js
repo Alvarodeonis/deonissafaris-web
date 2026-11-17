@@ -7,7 +7,7 @@ import countryTexts from './seo-countries.json';
 export const seoTexts = {
   ...countryTexts,
   'caza-en-africa': {
-    intro: 'Llevamos más de treinta años organizando safaris de caza en África. Búfalo, leopardo, león, elefante o una buena semana de plains game: le mandamos solo a cazaderos que conocemos, porque antes hemos cazado allí nosotros.',
+    intro: 'Llevamos más de treinta años organizando safaris de caza en África. Búfalo, leopardo, león, elefante o una buena semana de plains game: le mandamos solo a cazaderos que conocemos, porque antes hemos estado allí nosotros.',
     heading: 'Cazar en África con de Onís Safaris',
     sections: [
       {
@@ -34,10 +34,10 @@ export const seoTexts = {
       },
     ],
     faq: [
-      { q: '¿Qué país me recomendáis para un primer safari?', a: 'Namibia o Sudáfrica. Son fáciles de viajar, tienen muchísimas especies y hay programas cortos a buen precio. Namibia, además, es ideal si viaja con la familia.' },
+      { q: '¿Qué país me recomiendan para un primer safari?', a: 'Namibia o Sudáfrica. Son fáciles de viajar, tienen muchísimas especies y hay programas cortos a buen precio. Namibia, además, es ideal si viaja con la familia.' },
       { q: '¿Cuánto cuesta un safari de caza en África?', a: 'Depende mucho del país, de los días y de lo que se cace. Un safari de plains game puede salir por unos pocos miles de euros; un búfalo o un leopardo en zona salvaje cuestan bastante más. En cada programa verá el precio desde y en el simulador puede calcular el suyo.' },
       { q: '¿Puedo llevar mi rifle?', a: 'Sí, y es lo más habitual. Nosotros tramitamos el permiso de importación temporal. Para búfalo y elefante normalmente se exige como mínimo un .375.' },
-      { q: '¿Cómo traigo el trofeo a España?', a: 'Lo coordinamos con el taxidermista y el transitario, incluidos los permisos CITES cuando la especie los necesita. Usted no tiene que preocuparse de nada.' },
+      { q: '¿Cómo traigo el trofeo a España?', a: 'Le ponemos en contacto con el taxidermista y el transitario, y le asesoramos con los permisos CITES cuando la especie los necesita. Los trámites de importación corren a cargo del cazador, pero le acompañamos en todo el proceso.' },
       { q: '¿Pueden venir acompañantes que no cazan?', a: 'Claro. Todos los programas tienen precio de acompañante y en muchos cazaderos hay safaris fotográficos y excursiones para ellos.' },
     ],
   },
@@ -62,7 +62,7 @@ export const seoTexts = {
       {
         h: 'Cómo lo organizamos',
         p: [
-          'En estos destinos lo difícil no es solo la caza: son los vuelos, los visados, los permisos de armas y la logística hasta campamentos que a veces están a muchas horas de la capital. De todo eso nos encargamos nosotros, también de la exportación de los trofeos.',
+          'En estos destinos lo difícil no es solo la caza: son los vuelos, los visados, los permisos de armas y la logística hasta campamentos que a veces están a muchas horas de la capital. Le ayudamos con todo eso y le asesoramos también con la exportación de los trofeos.',
           'Las temporadas varían mucho. El Marco Polo va de septiembre a diciembre, el maral de Kazajistán se caza en septiembre y los osos de la osera, entre diciembre y febrero. Cada programa lleva sus fechas y su precio.',
         ],
       },
@@ -71,7 +71,7 @@ export const seoTexts = {
       { q: '¿Dónde se caza el Marco Polo?', a: 'Lo organizamos en el Pamir de Tayikistán y en el Tian Shan de Kirguizia. En Tayikistán el éxito en los últimos doce años ha sido del cien por cien.' },
       { q: '¿Hace falta estar muy en forma?', a: 'Para la montaña, sí. Se caza a más de 3.000 metros, a pie y a caballo. Para el jabalí en Turquía o el oso en espera, mucho menos.' },
       { q: '¿Cuál es el íbex más fácil de cazar?', a: 'El bezoar de Turquía es una buena puerta de entrada: buenos trofeos, de 100 a 110 cm, y un viaje sencillo desde España.' },
-      { q: '¿Se pueden traer los trofeos de Asia a España?', a: 'Sí. Nos encargamos de los permisos de exportación e importación, CITES incluido cuando la especie lo pide.' },
+      { q: '¿Se pueden traer los trofeos de Asia a España?', a: 'Sí. Los permisos de exportación e importación, CITES incluido cuando la especie lo pide, corren a cargo del cazador, pero le asesoramos y le acompañamos en cada paso.' },
     ],
   },
   'caza-en-europa': {
@@ -169,7 +169,7 @@ export const seoTexts = {
         h: 'África con arco',
         p: [
           'En [Namibia](caza-con-arco/namibia) tenemos dos fincas dedicadas solo al arco, seis días con lodge, profesional y vehículo. En [Sudáfrica](caza-con-arco/sudafrica), en Limpopo junto al Kruger, hay paquetes en lodge de lujo y algo que pocos ofrecen: búfalo y león a la huella con rastreadores nativos.',
-          'En [Mozambique](caza-con-arco/mozambique) se caza el búfalo en los pajonales del delta del Zambeze, donde la vegetación permite acercarse a la distancia buena, y en [Mauritania](caza-con-arco/mauritania), facocheros a rececho en 200.000 hectáreas sin malaria.',
+          'En [Mozambique](caza-con-arco/mozambique) se caza el búfalo en los pajonales del delta del Zambeze, donde la vegetación permite acercarse a la distancia buena, y en [Mauritania](caza-con-arco/mauritania), facocheros a rececho en el sur del país, en una zona sin malaria.',
         ],
       },
       {

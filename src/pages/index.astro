@@ -41,8 +41,8 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
     </div>
     <div class="hero-shade"></div>
     <div class="wrap hero-content">
-      <h1>Tu caza de los BIG&nbsp;FIVE diseñada a la medida de tus necesidades</h1>
-      <p>Contáctanos y te propondremos el safari que mejor se adapta a tus requerimientos</p>
+      <h1>Su caza de los BIG&nbsp;FIVE, diseñada a la medida de sus necesidades</h1>
+      <p>Contáctenos y le propondremos el safari que mejor se adapte a lo que busca</p>
       <nav class="hero-cats" aria-label="Destinos">
         {['caza-en-africa', 'caza-en-america', 'caza-en-asia', 'caza-en-europa', 'caza-en-oceania'].map((k) => categories.find((c) => c.slug === k)).map((c) => <a href={u(c.slug)}>{c.name}</a>)}
       </nav>
@@ -57,8 +57,8 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
   <section id="destinos">
     <div class="wrap">
       <div class="sec-head">
-        <div><div class="eyebrow">Caza por los 5 continentes</div><h2>Elige continente</h2></div>
-        <p class="lead">Dentro de cada continente encontrarás los países y en cada país sus programas, con precios, temporadas y simulador de presupuesto.</p>
+        <div><div class="eyebrow">Caza por los 5 continentes</div><h2>Elija continente</h2></div>
+        <p class="lead">Dentro de cada continente encontrará los países y en cada país sus programas, con precios, temporadas y simulador de presupuesto.</p>
       </div>
       <div class="mosaic">
         {categories.map((c, i) => (
@@ -103,7 +103,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
     <div class="wrap">
       <div class="sec-head">
         <div><div class="eyebrow">Temporada 2026</div><h2>Programas más vendidos</h2></div>
-        <p class="lead">Consulta en cada programa nuestra tarifa de precios y condiciones, y calcula tu presupuesto.</p>
+        <p class="lead">Consulte en cada programa nuestras tarifas y condiciones, y calcule su presupuesto.</p>
       </div>
       <div class="bestsellers">
         {bestSellers.map((p) => <ProgramCard p={p} />)}
@@ -117,7 +117,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
         <div class="eyebrow">Quiénes somos</div>
         <h2>de Onís Safaris</h2>
         <p class="lead">Organizamos cacerías por los cinco continentes con los mejores outfitters. Todo nuestro equipo es cazador, con más de 30 años de experiencia.</p>
-        <blockquote>Nuestra máxima es no llevar nunca a un cazador a un destino donde alguno de nosotros no haya cazado antes.</blockquote>
+        <blockquote>Nuestra máxima es no llevar nunca a un cazador a un destino donde no hayamos estado antes nosotros.</blockquote>
         <a class="btn outline" href={u('sobre-nosotros')}>Sobre nosotros</a>
       </div>
     </div>
@@ -135,7 +135,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
     <div class="wrap">
       <div class="sec-head">
         <div><div class="eyebrow">Novedades</div><h2>Nuevos programas</h2></div>
-        <p class="lead">Te presentamos los safaris más destacados y los más novedosos.</p>
+        <p class="lead">Le presentamos los safaris más destacados y los más novedosos.</p>
       </div>
       <div class="grid-3">{newPrograms.map((p) => <ProgramCard p={p} />)}</div>
     </div>
@@ -145,8 +145,8 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
     <div class="wrap">
       <div>
         <div class="eyebrow">Nuevo</div>
-        <h2>Calcula tu presupuesto en un minuto</h2>
-        <p class="lead">En cada programa eliges el paquete, cuántos cazadores y acompañantes vais y los animales que quieres. Te mostramos el coste estimado al momento y nos lo puedes enviar por WhatsApp.</p>
+        <h2>Calcule su presupuesto en un minuto</h2>
+        <p class="lead">En cada programa elige el paquete, cuántos cazadores y acompañantes van y los animales que quiere. Le mostramos el coste estimado al momento y nos lo puede enviar por WhatsApp.</p>
         <a class="btn" href={`${u(programUrl(simProgram))}#simulador`}>Probar con Namibia · paquete Windhoek</a>
       </div>
       <div class="sim-mock" aria-hidden="true">
@@ -185,7 +185,7 @@ const expert = ['jabali', 'bufalo', 'leopardo', 'oso', 'ibex', 'rebeco', 'antilo
         <label>Nombre<input id="h-name" name="nombre" required autocomplete="name" /></label>
         <label>Teléfono<input id="h-phone" name="telefono" autocomplete="tel" /></label>
         <label class="full">Email<input id="h-email" name="email" type="email" required autocomplete="email" /></label>
-        <label class="full">¿Qué te gustaría cazar?<textarea id="h-msg" name="mensaje" rows="4"></textarea></label>
+        <label class="full">¿Qué le gustaría cazar?<textarea id="h-msg" name="mensaje" rows="4"></textarea></label>
         <label class="full chk"><input type="checkbox" required /> He leído y acepto la política de privacidad</label>
         <button class="btn full" type="submit">Enviar</button>
       </form>

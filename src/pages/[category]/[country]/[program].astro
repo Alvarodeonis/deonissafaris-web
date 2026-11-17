@@ -29,6 +29,7 @@ const countrySeo = onlyOne ? seoTexts[`${p.category}/${p.country}`] : null;
 const countryFaq = countrySeo?.faq?.length ? [{ '@type': 'FAQPage', mainEntity: countrySeo.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })) }] : [];
 const from = fromPrice(p);
 const cur = isCurrent(p);
+const imgAlt = p.title.includes(p.countryName) ? p.title : `${p.title} · ${p.countryName}`;
 const oldYear = programYear(p);
 const sim = cur && p.simulator;
 const d = details[p.slug] ?? p.details;
@@ -61,7 +62,7 @@ const trip = {
     <div class="ph">
       <button type="button" class="hero-media" data-lb="prog" data-src={photos[0]} aria-label="Ampliar foto">
         <img class="bg" src={p.hero} alt="" aria-hidden="true" />
-        <img class="fg" fetchpriority="high" src={p.hero} alt={`${p.title} en ${p.countryName}`} />
+        <img class="fg" fetchpriority="high" src={p.hero} alt={imgAlt} />
       </button>
       <div class="wrap ph-info">
         <div class="crumbs">
@@ -70,7 +71,7 @@ const trip = {
         {p.tag && <span class="tag" style="position:static;display:inline-block;margin-bottom:14px">{p.tag}</span>}
         <div class="eyebrow" style="margin-bottom:10px">{p.countryName}</div>
         <h1>{p.title}</h1>
-        {!cur && <p class="old-note">Programa de temporadas anteriores{oldYear ? ` (tarifas ${oldYear})` : ''}. Los precios son orientativos: escríbenos y te confirmamos disponibilidad y tarifa actualizada.</p>}
+        {!cur && <p class="old-note">Programa de temporadas anteriores{oldYear ? ` (tarifas ${oldYear})` : ''}. Los precios son orientativos: escríbanos y le confirmamos disponibilidad y tarifa actualizada.</p>}
         {from && <div class="from">Desde <b>{money(from.amount, from.currency)}</b> / {unit}</div>}
         <div class="hero-act">
         <div class="hero-btns">
@@ -116,7 +117,7 @@ const trip = {
     <div class="gallery" id="fotos">
       {photos.slice(1).map((g, i) => (
         <button type="button" data-lb="prog" data-src={g} aria-label={`Ampliar foto ${i + 2} de ${photos.length}`}>
-          <img src={g} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
+          <img src={g} alt={imgAlt} loading="lazy" />
         </button>
       ))}
     </div>
@@ -141,7 +142,7 @@ const trip = {
   )}
 
 
-  {d && !cur && <div class="wrap"><p class="old-note band">Precios orientativos de {oldYear || 'temporadas anteriores'}. <a href={wa} target="_blank" rel="noopener">Pídenos la tarifa actual por WhatsApp</a>.</p></div>}
+  {d && !cur && <div class="wrap"><p class="old-note band">Precios orientativos de {oldYear || 'temporadas anteriores'}. <a href={wa} target="_blank" rel="noopener">Pídanos la tarifa actual por WhatsApp</a>.</p></div>}
   {d && <ProgramDetails d={d} title={p.title} />}
 
   {p.video && (
@@ -149,7 +150,7 @@ const trip = {
       <div class="wrap">
         <div class="eyebrow">Vídeo</div>
         <h2>{cat.verb ?? 'Así se caza aquí'}</h2>
-        <button type="button" class="video-facade" data-yt={p.video} aria-label={`Reproducir vídeo de ${p.title}`}>
+        <button type="button" class="video-facade" data-yt={p.video} aria-label={`Vídeo · ${p.title}`}>
           <img src={`https://i.ytimg.com/vi/${p.video}/maxresdefault.jpg`} alt="" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
           <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
         </button>
@@ -162,8 +163,8 @@ const trip = {
       <div class="wrap"><div class="ask-box">
         <div>
           <div class="eyebrow">Presupuesto a medida</div>
-          <h2>{d?.blocks.length ? 'Te preparamos el presupuesto' : 'Consúltanos este programa'}</h2>
-          <p>{d?.blocks.length ? (cat.unit ? `Cuéntanos cuántos sois, las fechas y lo que os interesa, y te enviamos un presupuesto cerrado.` : 'Cuéntanos cuántos cazadores y acompañantes sois, las fechas y los trofeos que te interesan, y te enviamos un presupuesto cerrado.') : 'Las tarifas de este destino cambian cada temporada. Escríbenos y te enviamos los precios actualizados, las fechas disponibles y un presupuesto sin compromiso.'}</p>
+          <h2>{d?.blocks.length ? 'Le preparamos el presupuesto' : 'Consúltenos este programa'}</h2>
+          <p>{d?.blocks.length ? (cat.unit ? `Díganos cuántos son, las fechas y lo que les interesa, y les enviamos un presupuesto cerrado.` : 'Díganos cuántos cazadores y acompañantes son, las fechas y los trofeos que le interesan, y le enviamos un presupuesto cerrado.') : 'Las tarifas de este destino cambian cada temporada. Escríbanos y le enviamos los precios actualizados, las fechas disponibles y un presupuesto sin compromiso.'}</p>
         </div>
         <div class="ask-btns">
           <a class="btn" href={wa} target="_blank" rel="noopener">Pedir por WhatsApp</a>
@@ -193,7 +194,7 @@ const trip = {
 
   <section class="more">
     <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">También te puede interesar</div><h2>Otros programas</h2></div></div>
+      <div class="sec-head"><div><div class="eyebrow">También le puede interesar</div><h2>Otros programas</h2></div></div>
       <div class="grid-3">{related.map((o) => <ProgramCard p={o} />)}</div>
     </div>
   </section>

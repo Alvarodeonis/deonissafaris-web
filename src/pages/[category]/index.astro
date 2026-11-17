@@ -48,7 +48,7 @@ const cover = (c) => c.programs.find((p) => p.gallery?.length)?.hero ?? c.progra
                   <li>
                     <a href={u(programUrl(p))}>
                       <span class="t">{p.title}</span>
-                      <span class="m">{[isCurrent(p) ? `Tarifas ${programYear(p)}` : '', p.duration].filter(Boolean).join(' · ')}</span>
+                      <span class="m">{[isCurrent(p) && programYear(p) ? `Tarifas ${programYear(p)}` : '', p.duration].filter(Boolean).join(' · ')}</span>
                       <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : isCurrent(p) ? 'Consultar' : 'Consultar disponibilidad'}</span>
                     </a>
                   </li>

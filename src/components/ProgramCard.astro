@@ -7,10 +7,10 @@ const year = programYear(p);
 const cur = isCurrent(p);
 ---
 <a class="photo-card" href={u(programUrl(p))}>
-  <img src={p.hero} alt={`${p.title}, ${p.countryName}`} loading="lazy" />
+  <img src={p.hero} alt={p.title.includes(p.countryName) ? p.title : `${p.title} · ${p.countryName}`} loading="lazy" />
   {showRec && p.recommended ? <span class="rec-badge">★ Recomendado</span> : p.tag && <span class="tag">{p.tag}</span>}
   <div class="info">
-    <div class="eyebrow">{p.countryName}{cur ? ` · Tarifas ${year}` : ''}</div>
+    <div class="eyebrow">{p.countryName}{cur && year ? ` · Tarifas ${year}` : ''}</div>
     <h3>{p.title}</h3>
     <div class="meta">{[p.duration, p.season].filter(Boolean).join(' · ') || 'Temporada y precios a consultar'}</div>
     {from ? <div class="price">Desde <b>{money(from.amount, from.currency)}</b></div> : <div class="price">{cur ? 'Precio a consultar' : 'Consultar disponibilidad y precio'}</div>}

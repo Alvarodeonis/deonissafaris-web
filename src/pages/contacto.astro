@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import { contact, team } from '../data/site.js';
 const lead = team.filter((t) => t.phone);
 ---
-<Layout title="Contacto" description="Cuéntanos qué quieres cazar y te preparamos una propuesta a medida.">
+<Layout title="Contacto" description="Cuéntenos qué quiere cazar y le preparamos una propuesta a medida.">
   <section style="padding-top:var(--page-top)">
     <div class="wrap ct">
       <div>
         <div class="eyebrow">Contacto</div>
-        <h1>Cuéntanos qué quieres cazar</h1>
-        <p class="lead">Te preparamos una propuesta a medida con destino, fechas, presupuesto y trámites.</p>
+        <h1>Cuéntenos qué quiere cazar</h1>
+        <p class="lead">Le preparamos una propuesta a medida con destino, fechas, presupuesto y trámites.</p>
         <div class="people">
           {lead.map((t) => <div><b>{t.name}</b><span>{t.phone}</span><span>{t.email}</span></div>)}
         </div>
@@ -26,7 +26,7 @@ const lead = team.filter((t) => t.phone);
         <label>Modalidad<select name="modalidad"><option>Rifle</option><option>Arco</option><option>Pesca</option><option>Fotográfico</option></select></label>
         <label>Fechas aproximadas<input name="fechas" /></label>
         <label>Cazadores y acompañantes<input name="grupo" /></label>
-        <label class="full">¿Qué te gustaría cazar?<textarea name="mensaje" rows="5"></textarea></label>
+        <label class="full">¿Qué le gustaría cazar?<textarea name="mensaje" rows="5"></textarea></label>
         <label class="full chk"><input type="checkbox" required /> Acepto la política de privacidad</label>
         <button class="btn full" type="submit">Enviar</button>
       </form>

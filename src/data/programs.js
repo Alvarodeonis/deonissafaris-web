@@ -66,7 +66,7 @@ export const programs = [
         { id: 'rifle2', label: 'Importación de un segundo rifle', price: 500, per: 'hunter', optional: true },
         { id: 'charter', label: 'Chárter Beira – campamento (Cessna 206, 3-4 pax, total grupo)', price: 3000, per: 'group', optional: true },
       ],
-      notes: ['Leopardo, elefante y hiena requieren 14 días: consúltanos.', 'IVA del 17 % incluido en las tarifas diarias.'],
+      notes: ['Leopardo, elefante y hiena requieren 14 días: consúltenos.', 'IVA del 17 % incluido en las tarifas diarias.'],
     },
   },
   {
@@ -177,7 +177,7 @@ export const programs = [
         { id: 'vet', label: 'Certificado veterinario', price: 300, per: 'hunter', optional: true, checked: true },
         { id: 'cites', label: 'Certificado CITES', price: 700, per: 'hunter', optional: true },
       ],
-      notes: ['Elige el tamaño de íbice que esperas: la tasa se paga según la medida real.', 'Día extra de caza: 290 US$; día extra de acompañante: 230 US$.'],
+      notes: ['Elija el tamaño de íbice que espera: la tasa se paga según la medida real.', 'Día extra de caza: 290 US$; día extra de acompañante: 230 US$.'],
     },
   },
   {
@@ -329,14 +329,14 @@ export const programs = [
       companions: [{ label: 'Observador', price: 200, per: 'day' }],
       trophies: [
         { name: 'Búfalo de agua adicional', price: 3500 },
-        { name: 'Búfalo de gestión / toro dugga', price: 2200 },
+        { name: 'Búfalo de gestión / toro dagga', price: 2200 },
         { name: 'Toro salvaje (scrub bull)', price: 1500 },
         { name: 'Segundo toro de banteng', price: 12500 },
       ],
       fees: [
         { id: 'prep', label: 'Preparación del trofeo (cabeza con capa)', price: 400, per: 'trophy', optional: true, checked: true },
       ],
-      notes: ['Con 2 cazadores por guía el precio por persona baja.', 'Avioneta desde Darwin obligatoria, aparte: consúltanos.'],
+      notes: ['Con 2 cazadores por guía el precio por persona baja.', 'Avioneta desde Darwin obligatoria, aparte: consúltenos.'],
     },
   },
   {
@@ -394,7 +394,8 @@ export const programYear = (p) => {
   return p.year || (ys.length ? Math.max(...ys) : 0);
 };
 export const CURRENT_FROM = 2025;
-export const isCurrent = (p) => programYear(p) >= CURRENT_FROM;
+// Los safaris fotográficos son a medida y no tienen tarifa, así que nunca salen como «temporadas anteriores».
+export const isCurrent = (p) => p.category === 'safaris-fotograficos' || programYear(p) >= CURRENT_FROM;
 export const byUpdate = (a, b) => programYear(b) - programYear(a);
 
 // Orden destacado de países por continente (el resto va después, por orden alfabético).

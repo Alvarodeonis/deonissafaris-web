@@ -21,7 +21,7 @@ const cover = (c) => c.programs.find((p) => isCurrent(p) && p.gallery?.length)?.
               <li>
                 <a href={u(programUrl(p))}>
                   <span class="t">{p.title}{p.category === 'caza-con-arco' && <em> · con arco</em>}</span>
-                  <span class="m">{[isCurrent(p) ? `Tarifas ${programYear(p)}` : 'Temporadas anteriores', p.duration].filter(Boolean).join(' · ')}</span>
+                  <span class="m">{[isCurrent(p) && programYear(p) ? `Tarifas ${programYear(p)}` : isCurrent(p) ? '' : 'Temporadas anteriores', p.duration].filter(Boolean).join(' · ')}</span>
                   <span class="pr">{from ? `Desde ${money(from.amount, from.currency)}` : 'Consultar'}</span>
                 </a>
               </li>
