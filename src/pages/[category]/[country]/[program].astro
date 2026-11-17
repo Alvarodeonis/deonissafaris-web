@@ -1,7 +1,7 @@
 ---
 import { programPaths } from '../../../lib/routes.js';
 import { speciesOf, speciesUrl } from '../../../data/species.js';
-import { filmGroups } from '../../../data/films.js';
+import { filmGroups, allFilms } from '../../../data/films.js';
 import Layout from '../../../layouts/Layout.astro';
 import Simulator from '../../../components/Simulator.astro';
 import ProgramCard from '../../../components/ProgramCard.astro';
@@ -37,8 +37,16 @@ const d0 = details[p.slug] ?? p.details;
 // PDF de la web antigua que no se pudo copiar: se usa el PDF generado desde esta misma página.
 const d = d0 && needsOwnPdf(d0) ? { ...d0, pdf: `${u(programUrl(p))}/${pdfName(p)}` } : d0;
 const fslug = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, '-');
-const countryFilm = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films[0]?.id;
-const heroVideo = p.video || countryFilm;
+// Vídeos del programa: el suyo propio, los del país y, en arco, los de arco de ese país.
+// Primero los que comparten palabras con el título del programa (especie, zona).
+const words = (x) => fslug(x).split('-').filter((w) => w.length > 3);
+const pWords = new Set(words(`${p.title} ${p.area ?? ''}`).filter((w) => !words(p.countryName).includes(w)));
+const countryFilms = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films ?? [];
+const bowFilms = p.category === 'caza-con-arco' ? (filmGroups.find((g) => g.slug === 'caza-con-arco')?.films ?? []).filter((f) => words(f.title).some((w) => words(p.countryName).includes(w))) : [];
+const score = (f) => (f.id === p.video ? 100 : 0) + (bowFilms.includes(f) ? 10 : 0) + words(f.title).filter((w) => pWords.has(w)).length;
+const pool = [...(p.video ? [{ id: p.video, title: allFilms.find((f) => f.id === p.video)?.title ?? p.title }] : []), ...bowFilms, ...countryFilms];
+const videos = pool.filter((f, i) => pool.findIndex((o) => o.id === f.id) === i)
+  .map((f, i) => ({ ...f, i, s: score(f) })).sort((a, b) => b.s - a.s || a.i - b.i).slice(0, 9);
 const photos = [...new Set([p.hero, ...(galleries[p.slug] ?? p.gallery)])];
 const lodge = (lodging[p.slug] ?? []).map((f) => u(f));
 const related = [...programs.filter((o) => o !== p && o.country === p.country), ...programs.filter((o) => o !== p && o.country !== p.country && o.category === p.category)].slice(0, 3);
@@ -63,10 +71,16 @@ const trip = {
 <Layout title={`${p.title} · Caza en ${p.countryName}`} description={p.summary} image={p.hero} transparentHeader crumbs={[[cat.title, p.category], [p.countryName, `${p.category}/${p.country}`], [p.title, programUrl(p)]]} schema={[trip, ...countryFaq]}>
   <div class="page-hero program-hero">
     <div class="ph">
+      <div class="hero-box">
       <button type="button" class="hero-media" data-lb="prog" data-src={photos[0]} aria-label="Ampliar foto">
         <img class="bg" src={p.hero} alt="" aria-hidden="true" />
         <img class="fg" fetchpriority="high" src={p.hero} alt={imgAlt} />
       </button>
+      {photos.length > 1 && <>
+        <button type="button" class="gal-arrow hero-arrow prev" data-hero="-1" aria-label="Foto anterior">‹</button>
+        <button type="button" class="gal-arrow hero-arrow next" data-hero="1" aria-label="Foto siguiente">›</button>
+      </>}
+      </div>
       <div class="wrap ph-info">
         <div class="crumbs">
           <a href={u()}>Inicio</a><span>/</span><a href={u(p.category)}>{cat.title}</a><span>/</span><a href={u(`${p.category}/${p.country}`)}>{p.countryName}</a>
@@ -82,18 +96,12 @@ const trip = {
           {d && <a class="btn outline" href="#programa">Ver precios</a>}
         </div>
         <div class="hero-media-btns">
-          {heroVideo ? (
-            <button type="button" class="hero-play" data-yt={heroVideo}>
-              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeos
-            </button>
-          ) : (
-            <a class="hero-play" href={u('videos')}>
-              <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeos
-            </a>
-          )}
-          <button type="button" class="hero-play" data-lb="prog" data-src={photos[0]}>
+          <a class="hero-play" href={videos.length ? '#videos' : u('videos')}>
+            <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>Vídeos{videos.length > 1 && <i class="cnt">&nbsp;({videos.length})</i>}
+          </a>
+          <a class="hero-play" href={photos.length > 1 ? '#fotos' : '#'} data-lb={photos.length > 1 ? undefined : 'prog'} data-src={photos.length > 1 ? undefined : photos[0]}>
             <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM6 17h12l-4-5-3 4-2-2z" /></svg></span>Fotos ({photos.length})
-          </button>
+          </a>
         </div>
         <div class="hero-map"><ProgramMap country={p.country} name={p.countryName} area={p.area} /></div>
         </div>
@@ -114,17 +122,20 @@ const trip = {
   </section>
 
   {photos.length > 1 && (
-    <div class="gal-wrap">
-      <button type="button" class="gal-arrow prev" data-gal="-1" aria-label="Fotos anteriores">‹</button>
-      <button type="button" class="gal-arrow next" data-gal="1" aria-label="Fotos siguientes">›</button>
-    <div class="gallery" id="fotos">
-      {photos.slice(1).map((g, i) => (
-        <button type="button" data-lb="prog" data-src={g} aria-label={`Ampliar foto ${i + 2} de ${photos.length}`}>
-          <img src={g} alt={imgAlt} loading="lazy" />
-        </button>
-      ))}
-    </div>
-    </div>
+    <section class="photos-sec" id="fotos" aria-labelledby="fotos-h">
+      <div class="wrap"><h2 id="fotos-h" class="lodge-h">Fotos</h2></div>
+      <div class="gal-wrap">
+        <button type="button" class="gal-arrow prev" data-gal="-1" aria-label="Fotos anteriores">‹</button>
+        <button type="button" class="gal-arrow next" data-gal="1" aria-label="Fotos siguientes">›</button>
+        <div class="gallery">
+          {photos.slice(1).map((g, i) => (
+            <button type="button" data-lb="prog" data-src={g} aria-label={`Ampliar foto ${i + 2} de ${photos.length}`}>
+              <img src={g} alt={imgAlt} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
 
   {lodge.length > 0 && (
@@ -148,15 +159,23 @@ const trip = {
   {d && !cur && <div class="wrap"><p class="old-note band">Precios orientativos de {oldYear || 'temporadas anteriores'}. <a href={wa} target="_blank" rel="noopener">Pídanos la tarifa actual por WhatsApp</a>.</p></div>}
   {d && <ProgramDetails d={d} title={p.title} />}
 
-  {p.video && (
-    <section class="video-sec dark" id="video">
+  {videos.length > 0 && (
+    <section class="video-sec dark" id="videos">
       <div class="wrap">
-        <div class="eyebrow">Vídeo</div>
+        <div class="eyebrow">Vídeos</div>
         <h2>{cat.verb ?? 'Así se caza aquí'}</h2>
-        <button type="button" class="video-facade" data-yt={p.video} aria-label={`Vídeo · ${p.title}`}>
-          <img src={`https://i.ytimg.com/vi/${p.video}/maxresdefault.jpg`} alt="" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
-          <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
-        </button>
+        <div class={`vgrid n${Math.min(videos.length, 3)}`}>
+          {videos.map((f, i) => (
+            <figure class="vcard">
+              <button type="button" class="video-facade" data-yt={f.id} aria-label={`Vídeo · ${f.title}`}>
+                <img src={`https://i.ytimg.com/vi/${f.id}/${videos.length === 1 ? 'maxresdefault' : 'mqdefault'}.jpg`} alt="" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')" />
+                <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span>
+              </button>
+              {videos.length > 1 && <figcaption>{f.title}</figcaption>}
+            </figure>
+          ))}
+        </div>
+        {videos.length > 1 && <p class="vall"><a href={u('videos')}>Ver todos los vídeos</a></p>}
       </div>
     </section>
   )}
@@ -242,26 +261,34 @@ const trip = {
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 
-  // Carrusel: avanza solo y se detiene al pasar el ratón o tocarlo.
+  // Carrusel: cada pocos segundos pasa a la foto siguiente y al llegar al final vuelve al principio.
+  // Se detiene mientras el ratón está encima o se toca con el dedo.
   // Una o varias filas de fotos (galería y alojamiento): cada una con su carrusel y sus flechas.
+  const jump = (gal: HTMLElement, dir: number) => {
+    const g0 = gal.getBoundingClientRect().left - gal.scrollLeft;
+    const items = ([...gal.children] as HTMLElement[]).map((it) => { const r = it.getBoundingClientRect(); return { l: r.left - g0, r: r.right - g0 }; });
+    const left = gal.scrollLeft;
+    const end = gal.scrollWidth - gal.clientWidth;
+    // Al final de la fila, la flecha siguiente vuelve a la primera foto (y la anterior, a la última).
+    if (dir > 0 && left >= end - 2) return gal.scrollTo({ left: 0, behavior: 'smooth' });
+    if (dir < 0 && left <= 2) return gal.scrollTo({ left: end, behavior: 'smooth' });
+    // Avanza o retrocede de una en una foto.
+    const target = dir > 0 ? items.find((it) => it.l > left + 2) : [...items].reverse().find((it) => it.l < left - 2);
+    const to = target ? target.l : (dir > 0 ? end : 0);
+    gal.scrollTo({ left: Math.max(0, Math.min(to, end)), behavior: 'smooth' });
+  };
   document.querySelectorAll<HTMLElement>('.gallery').forEach((gal) => {
-  if (gal && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let paused = false; let pos = 0;
-    const stop = () => { paused = true; }; const go = () => { paused = false; pos = gal.scrollLeft; };
-    // Se detiene al pasar el ratón por las fotos o por las flechas, para que las flechas no peleen con el avance automático.
-    const wrap = gal.closest<HTMLElement>('.gal-wrap') ?? gal;
-    wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', go);
-    gal.addEventListener('scroll', () => { if (paused) pos = gal.scrollLeft; }, { passive: true });
-    gal.addEventListener('touchstart', stop, { passive: true }); gal.addEventListener('touchend', () => setTimeout(go, 2500));
-    const step = () => {
-      if (!paused) {
-        pos += 0.5;
-        if (pos >= gal.scrollWidth - gal.clientWidth - 1) pos = 0;
-        gal.scrollLeft = pos;
-      }
-      requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+  const wrap = gal.closest<HTMLElement>('.gal-wrap') ?? gal;
+  // Si todas las fotos caben a la vez, no hay carrusel ni flechas.
+  const fits = () => wrap.classList.toggle('fits', gal.scrollWidth <= gal.clientWidth + 2);
+  fits(); addEventListener('resize', fits); gal.querySelectorAll('img').forEach((im) => im.addEventListener('load', fits, { once: true }));
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let paused = false; let seen = false;
+    wrap.addEventListener('mouseenter', () => { paused = true; }); wrap.addEventListener('mouseleave', () => { paused = false; });
+    gal.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+    gal.addEventListener('touchend', () => setTimeout(() => { paused = false; }, 4000));
+    new IntersectionObserver(([e]) => { seen = e.isIntersecting; }).observe(gal);
+    setInterval(() => { if (!paused && seen && !document.hidden && !wrap.classList.contains('fits')) jump(gal, 1); }, 3500);
   }
   // Arrastrar con el ratón para pasar las fotos.
   if (gal) {
@@ -279,18 +306,34 @@ const trip = {
     window.addEventListener('pointerup', () => { if (!down) return; down = false; gal.classList.remove('grab'); });
     gal.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
     gal.addEventListener('dragstart', (e) => e.preventDefault());
-    (gal.closest('.gal-wrap') ?? document).querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => {
-      // Salta de foto en foto: busca la siguiente (o anterior) que no se ve entera.
-      const dir = Number(b.dataset.gal);
-      const g0 = gal.getBoundingClientRect().left - gal.scrollLeft;
-      const items = ([...gal.children] as HTMLElement[]).map((it) => { const r = it.getBoundingClientRect(); return { l: r.left - g0, r: r.right - g0 }; });
-      const left = gal.scrollLeft, right = left + gal.clientWidth;
-      const target = dir > 0 ? items.find((it) => it.r > right + 2) : [...items].reverse().find((it) => it.l < left - 2);
-      const to = target ? (dir > 0 ? target.l : target.r - gal.clientWidth) : (dir > 0 ? 0 : gal.scrollWidth);
-      gal.scrollTo({ left: to, behavior: 'smooth' });
-    }));
+    wrap.querySelectorAll<HTMLElement>('[data-gal]').forEach((b) => b.addEventListener('click', () => jump(gal, Number(b.dataset.gal))));
   }
   });
+
+  // Flechas de la foto principal: pasan por todas las fotos del programa sin mover la página.
+  const box = document.querySelector<HTMLElement>('.ph .hero-box');
+  const hm = box?.querySelector<HTMLElement>('.hero-media');
+  if (box && hm) {
+    const list = [hm.dataset.src!, ...[...document.querySelectorAll<HTMLElement>('#fotos [data-src]')].map((b) => b.dataset.src!)];
+    const fgI = hm.querySelector<HTMLImageElement>('.fg')!, bgI = hm.querySelector<HTMLImageElement>('.bg')!;
+    let at = 0;
+    // Hueco que queda a cada lado de la foto (en ordenador la foto va centrada y no ocupa todo el ancho).
+    const place = () => {
+      const r = fgI.getBoundingClientRect();
+      const w = fgI.naturalWidth && fgI.naturalHeight ? Math.min(r.width, r.height * fgI.naturalWidth / fgI.naturalHeight) : r.width;
+      box.style.setProperty('--pl', `${Math.max(0, Math.round((r.width - w) / 2))}px`);
+    };
+    fgI.addEventListener('load', place); if (fgI.complete) place();
+    addEventListener('resize', place);
+    box.querySelectorAll<HTMLElement>('[data-hero]').forEach((b) => b.addEventListener('click', () => {
+      // La primera vez se fija el alto actual, para que una foto vertical no empuje el resto de la página.
+      if (!box.classList.contains('locked')) { hm.style.height = `${hm.offsetHeight}px`; hm.style.width = `${hm.offsetWidth}px`; box.classList.add('locked'); }
+      at = (at + Number(b.dataset.hero) + list.length) % list.length;
+      fgI.removeAttribute('srcset'); bgI.removeAttribute('srcset'); fgI.src = list[at]; bgI.src = list[at];
+      hm.dataset.src = list[at];
+      new Image().src = list[(at + 1) % list.length];
+    }));
+  }
 </script>
 
 <style>
@@ -311,8 +354,13 @@ const trip = {
   @media (min-width: 1100px) and (max-height: 760px) { .hero-map { max-width: 440px; margin-top: 14px; } }
   @media (min-width: 961px) {
     .ph { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: center; gap: 0; padding-block: 8px; }
+    .ph .hero-box { order: 2; }
+    /* La foto va centrada en su hueco y no ocupa todo el ancho: las flechas se ponen sobre sus bordes (lo calcula un script). */
+    .ph .hero-arrow.prev { left: calc(var(--pl, 0px) + 14px); }
+    .ph .hero-arrow.next { right: calc(var(--pl, 0px) + 14px); }
+    .ph .hero-box.locked .hero-media .fg { width: 100%; height: 100%; max-height: none; object-position: center; }
     .ph .hero-media { order: 2; height: auto; min-height: 0; overflow: visible; background: none; }
-    .ph .hero-media .fg { position: static; display: block; width: 100%; height: auto; max-height: calc(100vh - 130px); object-fit: contain; object-position: center right; }
+    .ph .hero-media .fg { position: static; display: block; width: 100%; height: auto; max-height: calc(100vh - 130px); object-fit: contain; object-position: center; }
     .ph .ph-info { order: 1; padding: 40px 48px 16px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
     .ph h1 { font-size: clamp(40px, 4vw, 66px); }
   }
@@ -332,17 +380,23 @@ const trip = {
   .gal-wrap { position: relative; }
   .lodge { margin-top: 4px; padding: 0; }
   .lodge-h { font-size: clamp(26px, 2.4vw, 34px); margin: 22px 0 12px; }
-  .gal-arrow { position: absolute; top: 50%; z-index: 2; width: 46px; height: 46px; margin-top: -23px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; font: 300 30px/1 var(--display); cursor: pointer; opacity: 0; transition: opacity .25s, background .2s; }
+  /* Flechas siempre visibles, también en el móvil. */
+  .gal-arrow { position: absolute; top: 50%; z-index: 2; width: 46px; height: 46px; margin-top: -23px; padding: 0 0 4px; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; background: rgba(0,0,0,.5); color: #fff; font: 300 30px/1 var(--display); cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s; }
   .gal-arrow.prev { left: 14px; } .gal-arrow.next { right: 14px; }
-  .gal-wrap:hover .gal-arrow { opacity: 1; }
   .gal-arrow:hover { background: var(--red); border-color: var(--red); }
-  @media (hover: none) { .gal-arrow { display: none; } }
+  @media (max-width: 700px) { .gal-arrow { width: 38px; height: 38px; margin-top: -19px; font-size: 26px; } .gal-arrow.prev { left: 8px; } .gal-arrow.next { right: 8px; } }
+  .gal-wrap.fits .gal-arrow { display: none; }
+  .gal-wrap.fits .gallery { justify-content: center; }
+  .photos-sec, .video-sec { scroll-margin-top: 100px; }
+  .photos-sec { padding: 0; }
+  .hero-box { position: relative; min-width: 0; }
+  .hero-arrow { z-index: 3; }
   .gallery { cursor: grab; user-select: none; }
   .gallery.grab { cursor: grabbing; }
   .gallery.grab button { cursor: grabbing; }
   .gallery button { flex: none; padding: 0; border: 0; background: var(--char); cursor: zoom-in; }
   .gallery button:hover img { opacity: .85; }
-  .gallery img { display: block; transition: opacity .3s; flex: none; height: clamp(140px, 16vw, 220px); width: auto; max-width: none; background: var(--char); }
+  .gallery img { display: block; transition: opacity .3s; flex: none; height: clamp(200px, 24vw, 380px); width: auto; max-width: none; background: var(--char); }
   .inc { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
   .inc h2 { font-size: 36px; margin-bottom: 18px; }
   .inc ul { list-style: none; margin: 0; padding: 0; }
@@ -352,6 +406,16 @@ const trip = {
   @media (max-width: 760px) { .inc { grid-template-columns: 1fr; } }
   .video-sec { background: var(--char); }
   .video-sec h2 { font-size: clamp(34px, 3.8vw, 54px); margin: 12px 0 28px; }
+  .vgrid { display: grid; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .vgrid.n1 { grid-template-columns: 1fr; } .vgrid.n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-play .cnt { font-style: normal; }
+  .vcard { margin: 0; }
+  .vcard figcaption { margin-top: 10px; font: 500 14px/1.35 var(--body); color: var(--bone); }
+  .vgrid:not(.n1) .vplay { width: 62px; height: 62px; }
+  .vall { margin: 26px 0 0; }
+  .vall a { font: 500 12px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--bone); }
+  .vall a:hover { color: var(--red-hi); }
+  @media (max-width: 760px) { .vgrid, .vgrid.n2 { grid-template-columns: 1fr; } }
   .video-facade { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; padding: 0; border: 0; cursor: pointer; overflow: hidden; background: var(--black); }
   .video-facade img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.7); transition: transform .8s, filter .4s; }
   .video-facade:hover img { transform: scale(1.03); filter: brightness(.85); }
