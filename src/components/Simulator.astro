@@ -260,7 +260,7 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
       const [val, min, max] = key === 'hunters'
         ? [state.hunters, cfg.hunters.min, cfg.hunters.max]
         : key.startsWith('comp-') ? [state.comps[+key.slice(5)], 0, 10]
-        : key.startsWith('f-') ? [state.qty[key.slice(2)], 0, state.hunters] : [state.trophies[+key.slice(2)], 0, 5];
+        : key.startsWith('f-') ? [state.qty[key.slice(2)], 0, state.hunters] : [state.trophies[+key.slice(2)], 0, cfg.trophies[+key.slice(2)].max ?? 5];
       st.querySelector('output')!.textContent = String(val);
       (st.querySelector('[data-d="-1"]') as HTMLButtonElement).disabled = val <= min;
       (st.querySelector('[data-d="1"]') as HTMLButtonElement).disabled = val >= max;
@@ -320,7 +320,9 @@ const config = { ...s, travel: travel[p.country] ?? null, title: `${p.countryNam
       state.qty[id] = Math.max(0, Math.min(state.hunters, state.qty[id] + d));
     } else {
       const i = +key.slice(2);
-      state.trophies[i] = Math.max(0, Math.min(5, state.trophies[i] + d));
+      const t = cfg.trophies[i];
+      // Aves y piezas por unidad: se cuentan de 10 en 10 (t.step) hasta t.max.
+      state.trophies[i] = Math.max(0, Math.min(t.max ?? 5, state.trophies[i] + d * (t.step ?? 1)));
     }
     render();
   }));

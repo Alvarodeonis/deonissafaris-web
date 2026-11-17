@@ -32,7 +32,7 @@ const from = fromPrice(p);
 const cur = isCurrent(p);
 const imgAlt = p.title.includes(p.countryName) ? p.title : `${p.title} · ${p.countryName}`;
 const oldYear = programYear(p);
-const sim = cur && p.simulator;
+const sim = p.simulator;
 const d0 = details[p.slug] ?? p.details;
 // PDF de la web antigua que no se pudo copiar: se usa el PDF generado desde esta misma página.
 const d = d0 && needsOwnPdf(d0) ? { ...d0, pdf: `${u(programUrl(p))}/${pdfName(p)}` } : d0;
@@ -114,10 +114,8 @@ const trip = {
       <p class="summary">{p.summary}</p>
       <dl class="facts">
         {facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        {spTags.length > 0 && <div><dt>Especies</dt><dd class="sp-tags">{spTags.map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}</dd></div>}
       </dl>
-      {spTags.length > 0 && (
-        <div class="sp-tags"><span>Especies</span>{spTags.map((s) => <a href={u(speciesUrl(s))}>{s.name}</a>)}</div>
-      )}
     </div>
   </section>
 
@@ -337,9 +335,9 @@ const trip = {
 </script>
 
 <style>
-  .sp-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
-  .sp-tags span { margin-right: 6px; font: 500 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
-  .sp-tags a { padding: 7px 14px; border: 1px solid var(--line); font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: .2s; }
+  /* Especies: una fila más de la ficha, para que las fotos queden justo debajo. */
+  .facts .sp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sp-tags a { padding: 4px 10px; border: 1px solid var(--line); font: 500 11px var(--label); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: .2s; }
   .sp-tags a:hover { background: var(--red); border-color: var(--red); color: #fff; }
   .ask-box { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 40px; align-items: center; border: 1px solid var(--line); border-left: 2px solid var(--red); background: var(--char); padding: clamp(24px, 3vw, 44px); }
   .ask h2 { font-size: clamp(30px, 3vw, 42px); margin: 10px 0 12px; }
@@ -389,6 +387,8 @@ const trip = {
   .gal-wrap.fits .gallery { justify-content: center; }
   .photos-sec, .video-sec { scroll-margin-top: 100px; }
   .photos-sec { padding: 0; }
+  .photos-sec .lodge-h { margin-top: 0; }
+  .intro { padding-bottom: 18px; }
   .hero-box { position: relative; min-width: 0; }
   .hero-arrow { z-index: 3; }
   .gallery { cursor: grab; user-select: none; }

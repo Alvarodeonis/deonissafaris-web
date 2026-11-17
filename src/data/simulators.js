@@ -6,6 +6,8 @@
 //   trophies[].plus   el precio es la base del tramo; se suma el suplemento por g, cm o punto
 // Los precios que dependen de medidas (+X € por g, cm o punto) usan la base del tramo.
 
+import { more } from './simulators-more.js';
+
 const tr = (group, list, opts = {}) => list.map(([name, price]) => ({ name, price, ...(group ? { group } : {}), ...opts }));
 const PLUS = { plus: true };
 const NOTE_PLUS = 'Los trofeos por medida se calculan con el precio base del tramo; el suplemento se suma al medir el trofeo.';
@@ -455,4 +457,5 @@ export const simulators = {
     ],
     notes: ['Hembras y machos de hasta 19 cm están incluidos.', 'Habitación individual: 35 € por noche (5 noches).'],
   },
+  ...more,
 };
