@@ -19,6 +19,7 @@ import { allCategories as categories } from '../../../data/site.js';
 import { programs, programUrl, fromPrice, money, isCurrent, programYear } from '../../../data/programs.js';
 import { u } from '../../../lib/url.js';
 import { contact } from '../../../data/site.js';
+import { needsOwnPdf, pdfName } from '../../../lib/own-pdf.js';
 
 export const getStaticPaths = programPaths;
 const { p } = Astro.props;
@@ -32,7 +33,9 @@ const cur = isCurrent(p);
 const imgAlt = p.title.includes(p.countryName) ? p.title : `${p.title} · ${p.countryName}`;
 const oldYear = programYear(p);
 const sim = cur && p.simulator;
-const d = details[p.slug] ?? p.details;
+const d0 = details[p.slug] ?? p.details;
+// PDF de la web antigua que no se pudo copiar: se usa el PDF generado desde esta misma página.
+const d = d0 && needsOwnPdf(d0) ? { ...d0, pdf: `${u(programUrl(p))}/${pdfName(p)}` } : d0;
 const fslug = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]+/g, '-');
 const countryFilm = filmGroups.find((g) => g.slug === fslug(p.countryName))?.films[0]?.id;
 const heroVideo = p.video || countryFilm;

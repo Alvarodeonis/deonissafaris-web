@@ -33,6 +33,9 @@ háblales en español, claro y breve, sin jerga técnica, y confirma siempre lo 
 - **Contacto, teléfonos, redes, equipo, categorías y vídeos**: `src/data/site.js`.
 - **Especies**: `src/data/species.js`; textos SEO en `src/data/seo-species.json`.
 - **Textos SEO de países y categorías**: `src/data/seo-countries.json` y `src/data/seo-texts.js`.
+- **PDF de los programas**: si el PDF de la web antigua no está copiado en `public/media/files/`, al compilar se genera
+  uno propio desde el texto de la página, en cada idioma (`src/lib/own-pdf.js` y `src/lib/make-pdfs.mjs`). Así el PDF
+  siempre coincide con los precios de la web.
 - **Fotos nuevas**: guárdalas en `public/img/<carpeta>/` con nombres sencillos (sin espacios).
   No modifiques ni borres las fotos originales de `public/media/`. Al compilar, las fotos se convierten
   solas a un formato más ligero; no hace falta reducirlas a mano.

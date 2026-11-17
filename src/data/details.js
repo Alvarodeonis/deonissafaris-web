@@ -13,7 +13,7 @@ export const details = {
         ['Segundo búfalo', '7 / 10', '7.800'], ['Sable', '10', '7.600'], ['Hipopótamo', '10', '7.500'], ['Eland', '10', '5.000'], ['Nyala', '10', '4.500'],
         ['Cebra de Selous', '10', '3.000'], ['Hartebeest', '10', '2.700'], ['Waterbuck', '10', '2.500'],
         ['Cocodrilo', '7', '4.000'], ['Oribi', '7', '2.000'], ['Duiker azul', '7', '2.000'], ['Duiker rojo', '7', '1.800'], ['Suni', '7', '1.800'], ['Bushbuck', '7', '1.700'],
-        ['Reedbuck común', '7', '1.400'], ['Potamóquero', '7', '1.400'], ['Facóquero', '7', '1.100'], ['Duiker gris', '7', '950'], ['Impala', '7', '850'], ['Babuino', '7', '400'],
+        ['Reedbuck común', '7', '1.400'], ['Potamóquero', '7', '1.400'], ['Facochero', '7', '1.100'], ['Duiker gris', '7', '950'], ['Impala', '7', '850'], ['Babuino', '7', '400'],
       ] } },
       { title: 'Incluye', list: ['Licencia de caza.', 'Permiso de importación de un rifle.', 'Tasas comunitarias.', 'Permiso general de exportación y permiso de exportación de un búfalo.', 'Cazador profesional con vehículo y equipo.', 'Alojamiento en pensión completa.', 'Primera preparación de trofeos.'] },
       { title: 'No incluye', rows: [
@@ -32,15 +32,15 @@ export const details = {
     pdf: `${F}proyectos_52_namibia%202026%20paquete%20especial%20windhoek%201%20y%202.pdf`,
     blocks: [
       { title: 'El programa', list: ['Seis días de caza 1×1 en unas 80.000 hectáreas de fincas abiertas, zona de grandes trofeos.', 'Lodge con todas las comodidades a unos 40 km (media hora) del aeropuerto internacional Hosea Kutako.', 'Temporada: de febrero a noviembre.', 'Los animales del paquete se pueden cambiar por otros de categoría similar, pagando la diferencia.', 'Ideal para ir en familia y combinar con turismo en la costa o en los Parques Nacionales.'] },
-      { title: 'Paquetes (6 días, 1×1)', table: { head: ['Paquete', 'Trofeos incluidos', 'Precio'], rows: [['Windhoek 1', 'Órix, hartebeest rojo, impala, steenbuck, facóquero, babuino y chacal (7 trofeos)', '3.200 €'], ['Windhoek 2', 'Kudu, órix, hartebeest rojo, facóquero, steenbuck, babuino y chacal (7 trofeos)', '4.200 €'], ['Acompañante no cazador', '', '750 €']] } },
-      { title: 'Devolución por animales del paquete no abatidos', rows: [['Kudu', '975 €'], ['Órix', '250 €'], ['Hartebeest rojo', '350 €'], ['Impala', '300 €'], ['Steenbuck', '125 €'], ['Facóquero', '100 €'], ['Babuino y chacal', '0 €']] },
+      { title: 'Paquetes (6 días, 1×1)', table: { head: ['Paquete', 'Trofeos incluidos', 'Precio'], rows: [['Windhoek 1', 'Órix, hartebeest rojo, impala, steenbuck, facochero, babuino y chacal (7 trofeos)', '3.200 €'], ['Windhoek 2', 'Kudu, órix, hartebeest rojo, facochero, steenbuck, babuino y chacal (7 trofeos)', '4.200 €'], ['Acompañante no cazador', '', '750 €']] } },
+      { title: 'Devolución por animales del paquete no abatidos', rows: [['Kudu', '975 €'], ['Órix', '250 €'], ['Hartebeest rojo', '350 €'], ['Impala', '300 €'], ['Steenbuck', '125 €'], ['Facochero', '100 €'], ['Babuino y chacal', '0 €']] },
       { title: 'Extensiones', rows: [['Kalahari 1 · 2 días, 2 springbuck y 1 blesbuck (springbuck extra 350 € trofeo / 150 € no trofeo)', '950 €'], ['Kalahari 2 · 1 día ida y vuelta, 2 springbok (springbok extra 350 € trofeo / 150 € no trofeo)', '550 €'], ['Cebra de montaña de Hartmann · 1 día en Khomas Hochland', '1.100 €']] },
       { title: 'Tasas de abate de animales adicionales', table: { head: ['Especie', '€', 'Especie', '€'], rows: [
         ['Greater kudu', '1.950', 'Waterbuck', '1.800'], ['Hartebeest rojo', '700', 'Eland', '2.200'], ['Roan', 'Consultar', 'Ñu negro', '1.200'],
         ['Órix (gemsbok)', '500', 'Ñu azul', '1.000'], ['Órix dorado', '1.500', 'Ñu dorado', '2.500'], ['Cebra de montaña', '1.100', 'Klipspringer', 'Consultar'],
         ['Cebra común', '900', 'Sable (menos de 40")', '4.500'], ['Blesbuck', '600', 'Sable (más de 40")', '5.800'], ['Blesbuck blanco', 'Consultar', 'Impala común', '600'],
         ['Springbuck', '350', 'Nyala', '2.500'], ['Springbok blanco / negro', 'Consultar', 'Leopardo (CITES)', 'Consultar'], ['Duiker', '250', 'Guepardo (CITES)', 'Consultar'],
-        ['Steenbok', '250', 'Tsessebe', 'Consultar'], ['Facóquero', '390', 'Lechwe', '3.500'], ['Impala de cara negra', 'Consultar', 'Chacal y babuino', 'Gratis'],
+        ['Steenbok', '250', 'Tsessebe', 'Consultar'], ['Facochero', '390', 'Lechwe', '3.500'], ['Impala de cara negra', 'Consultar', 'Chacal y babuino', 'Gratis'],
       ] } },
       { title: 'Incluye', list: ['Traslados desde el aeropuerto.', 'Lodge de lujo en pensión completa.', 'Bebidas alcohólicas en cantidades razonables.', 'Lavandería diaria.', 'Servicios de un PH y vehículo de caza.', 'Licencia de caza.', 'Primera preparación de trofeos.'] },
       { title: 'No incluye', rows: [['Vuelos', ''], ['Tasas de abate de animales adicionales abatidos o heridos y no cobrados', ''], ['Objetos de naturaleza personal', ''], ['Permisos de importación y exportación de armas', ''], ['Propinas (recomendadas)', '400 €'], ['Alquiler de rifle y munición', '200 € / 6 días']] },
@@ -52,13 +52,13 @@ export const details = {
     pdf: `${F}proyectos_62_sudafrica%20lodge%20de%20lujo%20%202026%20limpopo%20paquetes.pdf`,
     blocks: [
       { title: 'El programa', list: ['88.000 hectáreas de fincas privadas en Limpopo, lindando con el Parque Kruger. Finca principal de 30.000 hectáreas.', 'Lodge de lujo. Aeropuerto de Johannesburgo.', 'Posibilidad de 34 especies distintas, con trofeos de calidad.', 'Extras: excursiones al Kruger o vuelos en helicóptero.', 'Los paquetes no se pueden modificar. Se pueden añadir otros trofeos pagando su tasa de abate.'] },
-      { title: 'Paquetes (6 días: 4 de caza más llegada y salida)', table: { head: ['Paquete', 'Animales', 'Precio'], rows: [['Nº 1', '1 ñu azul, 1 impala, 1 blesbuck', '3.700 €'], ['Nº 2', '1 búfalo (hasta 38"), boss duro', '9.900 €'], ['Nº 3', '1 blesbuck, 1 ñu azul o negro o cebra, 1 impala, 1 facóquero', '4.200 €'], ['Nº 4', '1 blesbuck, 1 impala, 1 facóquero, 1 duiker gris', '3.500 €']] } },
+      { title: 'Paquetes (6 días: 4 de caza más llegada y salida)', table: { head: ['Paquete', 'Animales', 'Precio'], rows: [['Nº 1', '1 ñu azul, 1 impala, 1 blesbuck', '3.700 €'], ['Nº 2', '1 búfalo (hasta 38"), boss duro', '9.900 €'], ['Nº 3', '1 blesbuck, 1 ñu azul o negro o cebra, 1 impala, 1 facochero', '4.200 €'], ['Nº 4', '1 blesbuck, 1 impala, 1 facochero, 1 duiker gris', '3.500 €']] } },
       { title: 'Gastos diarios (programa general, por persona)', rows: [['1 cazador con 1 profesional, antílopes', '440 €'], ['1 cazador con 1 profesional, Big Five', '700 €'], ['2 cazadores con 1 profesional', '380 €'], ['Acompañante no cazador', '230 €'], ['Día de llegada y salida', '290 €'], ['Excursión de turismo', '180 € / día'], ['Alquiler de helicóptero', '800 € / hora'], ['Alquiler de rifle', '80 € / día']] },
       { title: 'Tasas de abate de trofeos adicionales', table: { head: ['Especie', '€', 'Especie', '€'], rows: [
         ['Babuino', '150', 'Kudu', '3.900'], ['Blesbuck', '500', 'Leopardo', 'Consultar'], ['Ñu azul', '1.300', 'León / leona', 'Consultar'], ['Ñu negro', '1.300', 'Lince caracal', '950'],
         ['Búfalo más de 40"', '12.000', 'Nyala', '2.700'], ['Búfalo hembra', '3.400', 'Órix', '2.300'], ['Bushbuck', '1.400', 'Avestruz', '1.200'], ['Potamóquero', '2.150', 'Reedbuck común', '1.300'],
         ['Civeta', '1.700', 'Reedbuck de montaña', '1.200'], ['Duiker gris', '490', 'Rinoceronte (por pulgada)', '2.300'], ['Eland', '5.450', 'Sable', '5.700'], ['Gineta', '450', 'Springbuck', '740'],
-        ['Jirafa', '2.950', 'Steenbok', '520'], ['Hiena parda + licencia', '3.900', 'Tsessebe', '2.100'], ['Hiena manchada + licencia', '3.900', 'Facóquero 8" o más', '700'], ['Hartebeest rojo', '2.100', 'Facóquero', '550'],
+        ['Jirafa', '2.950', 'Steenbok', '520'], ['Hiena parda + licencia', '3.900', 'Tsessebe', '2.100'], ['Hiena manchada + licencia', '3.900', 'Facochero 8" o más', '700'], ['Hartebeest rojo', '2.100', 'Facochero', '550'],
         ['Impala', '450', 'Waterbuck', '2.850'], ['Chacal', '290', 'Cebra', '1.300'], ['Klipspringer', '2.850', '', ''],
       ] } },
       { title: 'Incluye', list: ['Recogida y regreso al aeropuerto de Johannesburgo.', 'Cazador profesional con vehículo y equipo de ayudantes.', 'Lodge de lujo en pensión completa.', 'Lavandería diaria.', 'Primera preparación de trofeos.'] },
@@ -143,9 +143,9 @@ export const details = {
 
   'namibia-caza-con-arco-africa': {
     blocks: [
-      { title: 'El programa', list: ['Dos de las mejores fincas de Namibia dedicadas exclusivamente al arco, a 40 km del aeropuerto Hosea Kutako.', 'Esperas de día en charcas y saladeros, en puestos a ras de suelo y treestands, a 20-45 metros.', 'Temporada: mayo a octubre; mejor época septiembre a noviembre.', 'Grupo máximo de 3 o 4 cazadores (más, consultar).', 'Lodge excelente con todas las comodidades. Apto para familias y para combinar con turismo.'] },
-      { title: 'Paquete', rows: [['Seis días de caza con arco: 1 facóquero y 2 animales a elegir entre órix, hartebeest rojo y ñu', '2.700 €'], ['Chacales, gallinas de guinea y babuinos', 'Gratis'], ['Acompañante no cazador', '750 €']] },
-      { title: 'Trofeos recomendados', table: { head: ['Especie', '€'], rows: [['Órix', '500'], ['Hartebeest rojo macho', '700'], ['Impala', '600'], ['Facóquero', '390'], ['Kudu', '1.950'], ['Ñu negro', '1.200'], ['Ñu azul', '1.200'], ['Eland', '1.800'], ['Waterbuck', '1.800'], ['Sable', 'Consultar']] } },
+      { title: 'El programa', list: ['Dos de las mejores fincas de Namibia dedicadas exclusivamente al arco, a 40 km del aeropuerto Hosea Kutako.', 'Esperas de día en charcas y saladeros, en puestos a ras de suelo y treestands, a 20-45 metros.', 'Temporada: mayo a noviembre; la mejor época es de septiembre a noviembre, pero se caza bien toda la temporada.', 'Grupo máximo de 3 o 4 cazadores (más, consultar).', 'Lodge excelente con todas las comodidades. Apto para familias y para combinar con turismo.'] },
+      { title: 'Paquete', rows: [['Seis días de caza con arco: 1 facochero y 2 animales a elegir entre órix, hartebeest rojo y ñu', '2.700 €'], ['Chacales, gallinas de guinea y babuinos', 'Gratis'], ['Acompañante no cazador', '750 €']] },
+      { title: 'Trofeos recomendados', table: { head: ['Especie', '€'], rows: [['Órix', '500'], ['Hartebeest rojo macho', '700'], ['Impala', '600'], ['Facochero', '390'], ['Kudu', '1.950'], ['Ñu negro', '1.200'], ['Ñu azul', '1.200'], ['Eland', '1.800'], ['Waterbuck', '1.800'], ['Sable', 'Consultar']] } },
       { title: 'Incluye', list: ['Lodge de lujo en pensión completa.', 'Bebidas alcohólicas en cantidades razonables.', 'Lavandería diaria.', 'PH y vehículo de caza.', 'Licencia de caza.', 'Primera preparación de trofeos.', 'Traslados desde el aeropuerto.'] },
       { title: 'No incluye', rows: [['Vuelos', 'aprox. 700 €'], ['Tasas de abate de animales adicionales abatidos o heridos y no cobrados', ''], ['Propinas', '50 € / día'], ['Objetos personales', ''], ['Permisos de importación y exportación de arcos', '']] },
       { title: 'Forma de pago', list: ['Depósito de reserva de 500 €. Las reservas se hacen por riguroso orden de recepción.', 'Condiciones de cancelación según outfitter.'] },

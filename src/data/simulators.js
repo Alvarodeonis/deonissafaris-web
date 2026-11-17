@@ -15,7 +15,7 @@ const namibiaTrophies = [
   ['Kudu', 1950], ['Eland', 2200], ['Waterbuck', 1800], ['Órix (gemsbok)', 500], ['Órix dorado', 1500],
   ['Ñu negro', 1200], ['Ñu azul', 1000], ['Ñu dorado', 2500], ['Cebra de montaña', 1100], ['Cebra común', 900],
   ['Hartebeest rojo', 700], ['Blesbok', 600], ['Impala común', 600], ['Nyala', 2500], ['Lechwe', 3500],
-  ['Sable (menos de 40")', 4500], ['Sable (más de 40")', 5800], ['Springbok', 350], ['Facóquero', 390],
+  ['Sable (menos de 40")', 4500], ['Sable (más de 40")', 5800], ['Springbok', 350], ['Facochero', 390],
   ['Duiker', 250], ['Steenbok', 250],
 ];
 // Limpopo (Sudáfrica), tarifas 2026.
@@ -25,7 +25,7 @@ const limpopo26 = [
   ['Gineta', 450], ['Jirafa', 2950], ['Hiena parda (con licencia)', 3900], ['Hiena manchada (con licencia)', 3900],
   ['Hartebeest rojo', 2100], ['Impala', 450], ['Chacal', 290], ['Klipspringer', 2850], ['Kudu', 3900], ['Nyala', 2700],
   ['Órix', 2300], ['Avestruz', 1200], ['Reedbuck común', 1300], ['Reedbuck de montaña', 1200], ['Sable', 5700],
-  ['Springbok', 740], ['Steenbok', 520], ['Tsessebe', 2100], ['Facóquero de 8" o más', 700], ['Facóquero', 550],
+  ['Springbok', 740], ['Steenbok', 520], ['Tsessebe', 2100], ['Facochero de 8" o más', 700], ['Facochero', 550],
   ['Waterbuck', 2850], ['Cebra', 1300],
 ];
 
@@ -206,7 +206,7 @@ export const simulators = {
     currency: 'USD', hunters: { min: 1, max: 4 },
     packages: [{ id: 'p', label: '5 días de caza con 1 búfalo incluido, 1×1', days: 5, price: 13000, includedTrophies: 1 }],
     companions: [{ label: 'Acompañante', price: 420, per: 'day' }],
-    trophies: tr(null, [['Reedbuck común', 1400], ['Potamóquero', 1400], ['Facóquero', 1100], ['Bushbuck', 1700], ['Duiker rojo', 1800], ['Duiker azul', 2000], ['Duiker gris', 950], ['Suni', 1800], ['Oribi', 2000], ['Impala', 850], ['Babuino', 400]]),
+    trophies: tr(null, [['Reedbuck común', 1400], ['Potamóquero', 1400], ['Facochero', 1100], ['Bushbuck', 1700], ['Duiker rojo', 1800], ['Duiker azul', 2000], ['Duiker gris', 950], ['Suni', 1800], ['Oribi', 2000], ['Impala', 850], ['Babuino', 400]]),
     fees: [
       { id: 'cessna', label: 'Cessna 206 (3-4 pasajeros)', price: 3000, per: 'group', optional: true },
       { id: 'airvan', label: 'Airvan (4-5 pasajeros)', price: 3600, per: 'group', optional: true },
@@ -384,7 +384,7 @@ export const simulators = {
     currency: 'EUR', hunters: { min: 1, max: 6 },
     packages: [
       ['Paquete 1: ñu azul, impala y blesbok', 3700, 3], ['Paquete 2: búfalo (hasta 38") de caza dura', 9900, 1],
-      ['Paquete 3: blesbok, ñu azul o negro o cebra, impala y facóquero', 4200, 4], ['Paquete 4: blesbok, impala, facóquero y duiker gris', 3500, 4],
+      ['Paquete 3: blesbok, ñu azul o negro o cebra, impala y facochero', 4200, 4], ['Paquete 4: blesbok, impala, facochero y duiker gris', 3500, 4],
     ].map(([label, price, n], i) => ({ id: `p${i}`, label, days: 6, price, includedTrophies: n })),
     companions: [{ label: 'Acompañante no cazador', price: 230, per: 'day' }],
     trophies: tr(null, limpopo26),
@@ -400,7 +400,7 @@ export const simulators = {
       ['Potamóquero', 750], ['Caracal', 950], ['Civeta', 950], ['Duiker gris', 440], ['Eland', 4100], ['Gineta', 400], ['Jirafa', 2950],
       ['Hiena parda (con licencia)', 3600], ['Hiena manchada (con licencia)', 3400], ['Hartebeest rojo', 2100], ['Impala', 325], ['Chacal', 290],
       ['Klipspringer', 2850], ['Kudu', 2900], ['Nyala', 2250], ['Órix', 1650], ['Avestruz', 700], ['Reedbuck común', 1300], ['Reedbuck de montaña', 980],
-      ['Sable', 4200], ['Springbok', 520], ['Steenbok', 520], ['Tsessebe', 2100], ['Facóquero de 8" o más', 570], ['Facóquero', 400], ['Waterbuck', 2850], ['Cebra', 980],
+      ['Sable', 4200], ['Springbok', 520], ['Steenbok', 520], ['Tsessebe', 2100], ['Facochero de 8" o más', 570], ['Facochero', 400], ['Waterbuck', 2850], ['Cebra', 980],
     ]),
     fees: [{ id: 'rifle', label: 'Alquiler de rifle', price: 490, per: 'hunter', optional: true }],
     notes: ['Alquiler de rifle: 70 € al día (7 días). Helicóptero: 650 € por hora. Excursión turística: 210 € por día.'],
@@ -428,7 +428,7 @@ export const simulators = {
     currency: 'USD', hunters: { min: 2, max: 4 },
     packages: [{ id: 'p', label: '7 días de caza, 2×1, 2 búfalos por cazador', days: 7, price: 28000, includedTrophies: 2, hunterStep: 2 }],
     companions: [{ label: 'Acompañante', price: 300, per: 'day' }],
-    trophies: tr(null, [['Facóquero', 1150], ['Impala', 1150], ['Cebra', 2200], ['Hartebeest', 3000]]),
+    trophies: tr(null, [['Facochero', 1150], ['Impala', 1150], ['Cebra', 2200], ['Hartebeest', 3000]]),
     fees: [],
   },
   'tayikistan-grandes-cochinos': {

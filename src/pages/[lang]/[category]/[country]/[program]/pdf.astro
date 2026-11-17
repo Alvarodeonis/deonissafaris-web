@@ -1,0 +1,8 @@
+---
+// Misma página de impresión en otro idioma.
+import Page from '../../../../[category]/[country]/[program]/pdf.astro';
+import { inLangs } from '../../../../../lib/routes.js';
+import { getStaticPaths as base } from '../../../../[category]/[country]/[program]/pdf.astro';
+export const getStaticPaths = () => inLangs(base());
+---
+<Page {...Astro.props} />

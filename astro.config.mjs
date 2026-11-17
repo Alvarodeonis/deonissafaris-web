@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from '
 import { join } from 'node:path';
 import { translateDist } from './src/i18n/translate-html.mjs';
 import { shrinkMedia } from './src/lib/shrink-media.mjs';
+import { makePdfs } from './src/lib/make-pdfs.mjs';
 
 // Fotos y PDF de la web antigua ya copiados a public/: los enlaces apuntan a la copia propia.
 const localMedia = () => ({
@@ -27,6 +28,7 @@ const localMedia = () => ({
       const langs = (process.env.LANGS || 'es').split(',').filter((l) => l !== 'es');
       translateDist(out, langs, process.cwd());
       await shrinkMedia(out);
+      await makePdfs(out.replace(/\/$/, ''), base);
     },
   },
 });

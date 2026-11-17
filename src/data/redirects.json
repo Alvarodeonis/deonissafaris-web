@@ -395,7 +395,7 @@
  "/videos/varios": "/videos",
  "/pesca/espana-pesca": "/pesca/espana",
  "/pesca/pesca-cabo-verde": "/pesca/cabo-verde",
- "/pesca/finlandia/especial-grupo-iberalia-junio-2020": "/pesca/finlandia/finlandia-pesca-grupo-iberalia",
+ "/pesca/finlandia/especial-grupo-iberalia-junio-2020": "/pesca/finlandia",
  "/pesca/bolivia/pesca-en-bolivia": "/pesca/bolivia/bolivia-pesca-amazonia",
  "/pesca/espana-pesca/pesca-en-cadiz-desde-embarcacion": "/pesca/espana/espana-pesca-cadiz",
  "/pesca/eslovenia/pesca-en-eslovenia": "/pesca/eslovenia/eslovenia-pesca-marble-trout",
@@ -429,5 +429,6 @@
  "/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-namibia-0": "/safaris-fotograficos/namibia/namibia-safari-fotografico",
  "/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-sudafrica-0": "/safaris-fotograficos/sudafrica/sudafrica-safari-fotografico",
  "/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-mozambique-0": "/safaris-fotograficos/mozambique/mozambique-safari-fotografico",
- "/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-tanzania-0": "/safaris-fotograficos/tanzania/tanzania-safari-fotografico"
+ "/safaris-fotograficos-tanzania/safaris-fotograficos-tanzania/fotografico-tanzania-0": "/safaris-fotograficos/tanzania/tanzania-safari-fotografico",
+ "/pesca/finlandia/finlandia-pesca-grupo-iberalia": "/pesca/finlandia"
 }

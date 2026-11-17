@@ -1,0 +1,88 @@
+---
+// Página de impresión del programa: se convierte en PDF al compilar y se borra (ver src/lib/own-pdf.js).
+import '../../../../styles/global.css';
+import { programs, fromPrice, money, isCurrent, programYear } from '../../../../data/programs.js';
+import { details } from '../../../../data/details.js';
+import { allCategories as categories, contact } from '../../../../data/site.js';
+import ProgramDetails from '../../../../components/ProgramDetails.astro';
+import LegalNote from '../../../../components/LegalNote.astro';
+import { needsOwnPdf } from '../../../../lib/own-pdf.js';
+import { u } from '../../../../lib/url.js';
+import { lang } from '../../../../i18n/index.js';
+
+export const getStaticPaths = () => programs
+  .filter((p) => needsOwnPdf(details[p.slug] ?? p.details))
+  .map((p) => ({ params: { category: p.category, country: p.country, program: p.slug }, props: { p } }));
+const { p } = Astro.props;
+const d = { ...(details[p.slug] ?? p.details), pdf: undefined };
+const cat = categories.find((c) => c.slug === p.category);
+const unit = cat.unit ?? 'cazador';
+const from = fromPrice(p);
+const cur = isCurrent(p);
+const oldYear = programYear(p);
+const facts = [['Temporada', p.season], ['Duración', p.duration], ['Zona', p.area], ['Alojamiento', p.lodging]].filter(([, v]) => v);
+const web = (Astro.site?.href ?? '').replace(/\/$/, '') + u(`${p.category}/${p.country}/${p.slug}`);
+---
+<!doctype html>
+<html lang={lang()}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>{p.title} · {p.countryName} · de Onís Safaris</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" />
+  <style is:global>
+    @page { size: A4; margin: 16mm 14mm 18mm; }
+    html, body { background: #fff; }
+    body { font-size: 13px; line-height: 1.5; }
+    .wrap { max-width: none; padding: 0; }
+    header.pdf-head { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 2px solid var(--red); padding-bottom: 14px; margin-bottom: 18px; }
+    header.pdf-head img { width: 72px; height: auto; }
+    header.pdf-head .who { text-align: right; font: 400 11px/1.5 var(--label); color: var(--stone); letter-spacing: .04em; }
+    .eyebrow { font: 500 10px var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--red); }
+    h1 { font: 500 34px/1.1 var(--display); margin: 6px 0 8px; }
+    .from { font: 400 15px var(--label); margin: 0 0 10px; }
+    .from b { font-weight: 500; }
+    .old { color: var(--stone); font-style: italic; margin: 0 0 10px; }
+    .hero { width: 100%; max-height: 82mm; object-fit: contain; background: #f1ece2; margin: 6px 0 14px; display: block; }
+    .summary { font: 500 17px/1.4 var(--display); margin: 0 0 12px; }
+    dl.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 28px; margin: 0 0 8px; }
+    dl.facts div { display: flex; gap: 10px; border-bottom: 1px solid var(--line); padding: 5px 0; }
+    dl.facts dt { font: 500 10px var(--label); letter-spacing: .18em; text-transform: uppercase; color: var(--stone); min-width: 7.5em; padding-top: 2px; }
+    dl.facts dd { margin: 0; }
+    .details { padding: 10px 0 0 !important; }
+    .details .sec-head { margin-bottom: 14px; }
+    .details .sec-head h2 { font-size: 24px; }
+    .blocks { columns: 2 !important; column-gap: 28px !important; }
+    .block { margin-bottom: 18px !important; break-inside: auto !important; }
+    .block h3 { break-after: avoid; }
+    .block li, .block dl div, .block tr { break-inside: avoid; }
+    .block h3 { font-size: 19px !important; margin-bottom: 8px !important; padding-bottom: 6px !important; }
+    table { font-size: 12px !important; }
+    dl div { padding: 5px 0 !important; }
+    .legal-note { padding: 6px 0 0 !important; break-inside: avoid; font-size: 10.5px; }
+    .legal-note .box { padding: 14px 16px !important; background: #faf7f1 !important; }
+    .legal-note h2 { font-size: 18px !important; }
+    footer.pdf-foot { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 10px; font: 400 11px/1.6 var(--label); color: var(--stone); break-inside: avoid; }
+    footer.pdf-foot b { color: var(--bone); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <header class="pdf-head">
+    <img src={u('logo.png')} alt="de Onís Safaris" />
+    <div class="who">de Onís Safaris · {contact.address}<br />{contact.mobile} · {contact.email}</div>
+  </header>
+  <div class="eyebrow">{cat.title} · {p.countryName}</div>
+  <h1>{p.title}</h1>
+  {from && <p class="from">Desde <b>{money(from.amount, from.currency)}</b> / {unit}</p>}
+  {!cur && <p class="old">Programa de temporadas anteriores{oldYear ? ` (tarifas ${oldYear})` : ''}. Los precios son orientativos: escríbanos y le confirmamos disponibilidad y tarifa actualizada.</p>}
+  <img class="hero" src={p.hero} alt="" />
+  <p class="summary">{p.summary}</p>
+  <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+  {d.blocks?.length > 0 && <ProgramDetails d={d} title={p.title} />}
+  <LegalNote />
+  <footer class="pdf-foot">
+    <b>Pedir presupuesto</b> · WhatsApp {contact.bowPhone} · {contact.email}<br />
+    {web}
+  </footer>
+</body>
+</html>
