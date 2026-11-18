@@ -53,7 +53,7 @@ export const programs = [
         { name: 'Suni', price: 1800 },
         { name: 'Bushbuck', price: 1700 },
         { name: 'Reedbuck', price: 1400 },
-        { name: 'Potamóquero', price: 1400 },
+        { name: 'Potamoquero', price: 1400 },
         { name: 'Facochero', price: 1100 },
         { name: 'Duiker gris', price: 950 },
         { name: 'Impala', price: 850 },
@@ -86,7 +86,7 @@ export const programs = [
       hunters: { min: 1, max: 8 },
       packages: [
         { id: 'w1', label: 'Windhoek 1 · órix, hartebeest, impala, steenbuck, facochero, babuino y chacal', days: 6, price: 3200, includedTrophies: 7 },
-        { id: 'w2', label: 'Windhoek 2 · kudu, órix, hartebeest, facochero, steenbuck, babuino y chacal', days: 6, price: 4200, includedTrophies: 7 },
+        { id: 'w2', label: 'Windhoek 2 · kudu, órix, hartebeest, facochero, steenbuck, babuino y chacal', days: 6, price: 4300, includedTrophies: 7 },
       ],
       companions: [{ label: 'Acompañante no cazador', price: 750, per: 'trip' }],
       trophies: [
@@ -100,7 +100,7 @@ export const programs = [
       ],
       fees: [
         { id: 'kalahari1', label: 'Extensión Kalahari 1 (2 días, 2 springbuck y 1 blesbuck)', price: 950, per: 'hunter', optional: true },
-        { id: 'kalahari2', label: 'Extensión Kalahari 2 (1 día, 2 springbok)', price: 550, per: 'hunter', optional: true, badge: 'Recomendada · la más vendida' },
+        { id: 'kalahari2', label: 'Extensión Kalahari 2 (1 día, 2 springbok)', price: 650, per: 'hunter', optional: true, badge: 'Recomendada · la más vendida' },
         { id: 'zebra', label: 'Extensión cebra de montaña (Khomas Hochland, 1 día)', price: 1100, per: 'hunter', optional: true },
         { id: 'rifle', label: 'Alquiler de rifle y munición (6 días)', price: 200, per: 'hunter', optional: true },
         { id: 'tips', label: 'Propinas recomendadas', price: 400, per: 'hunter', optional: true, checked: true },

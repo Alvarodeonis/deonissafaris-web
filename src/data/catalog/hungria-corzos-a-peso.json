@@ -18,35 +18,35 @@
    "rows": [
     [
      "3 días de caza / 4 de estancia, 1 cazador",
-     "2.400 €/cazador"
+     "2.400 € / cazador"
     ],
     [
      "3 días de caza / 4 de estancia, grupo de 2-3 cazadores",
-     "1.850 €/cazador"
+     "1.850 € / cazador"
     ],
     [
      "3 días de caza / 4 de estancia, grupo de 4 o más cazadores",
-     "1.700 €/cazador"
+     "1.700 € / cazador"
     ],
     [
      "Acompañante (3 días de caza / 4 de estancia)",
-     "750 €/persona"
+     "750 € / persona"
     ],
     [
      "Día extra de caza, 1 cazador",
-     "485 €/cazador"
+     "485 € / cazador"
     ],
     [
      "Día extra de caza, grupo de 2-3 cazadores",
-     "390 €/cazador"
+     "390 € / cazador"
     ],
     [
      "Día extra de caza, grupo de 4 o más cazadores",
-     "340 €/cazador"
+     "340 € / cazador"
     ],
     [
      "Día extra de caza, acompañante",
-     "120 €/persona"
+     "120 € / persona"
     ]
    ]
   },
@@ -55,27 +55,27 @@
    "rows": [
     [
      "Hasta 249 g",
-     "200 € + 5,06 €/g"
+     "200 € + 5,06 € / g"
     ],
     [
-     "250-349 g",
-     "270 € + 2,8 €/g"
+     "250–349 g",
+     "270 € + 2,8 € / g"
     ],
     [
-     "350-399 g",
-     "550 € + 8 €/g"
+     "350–399 g",
+     "550 € + 8 € / g"
     ],
     [
-     "400-449 g",
-     "950 € + 12 €/g"
+     "400–449 g",
+     "950 € + 12 € / g"
     ],
     [
-     "450-499 g",
-     "1.550 € + 29 €/g"
+     "450–499 g",
+     "1.550 € + 29 € / g"
     ],
     [
      "Más de 500 g",
-     "3.000 € + 45 €/g"
+     "3.000 € + 45 € / g"
     ]
    ]
   },
@@ -106,10 +106,10 @@
    "list": [
     "Billete de avión",
     "Tasas de abate (ver tabla)",
-    "Tasas de homologación obligatorias: 25 €/trofeo",
+    "Tasas de homologación obligatorias: 25 € / trofeo",
     "Envío del trofeo a España con seguro",
-    "Salida extra: 55 €/salida",
-    "Alquiler de rifle: 100 €/día, más bala a 5 €/unidad",
+    "Salida extra: 55 € / salida",
+    "Alquiler de rifle: 100 € / día, más bala a 5 € / unidad",
     "Bebidas de todo tipo y propinas"
    ]
   }

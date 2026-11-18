@@ -81,35 +81,35 @@
     "rows": [
      [
       "1",
-      "3.450 USD",
-      "6.900 USD",
-      "10.350 USD",
-      "13.800 USD",
-      "17.250 USD"
+      "US$ 3.450",
+      "US$ 6.900",
+      "US$ 10.350",
+      "US$ 13.800",
+      "US$ 17.250"
      ],
      [
       "2",
-      "1.950 USD",
-      "3.450 USD",
-      "5.950 USD",
-      "7.950 USD",
-      "9.950 USD"
+      "US$ 1.950",
+      "US$ 3.450",
+      "US$ 5.950",
+      "US$ 7.950",
+      "US$ 9.950"
      ],
      [
       "3",
-      "1.450 USD",
-      "2.450 USD",
-      "3.450 USD",
-      "4.450 USD",
-      "5.450 USD"
+      "US$ 1.450",
+      "US$ 2.450",
+      "US$ 3.450",
+      "US$ 4.450",
+      "US$ 5.450"
      ],
      [
       "4",
-      "1.200 USD",
-      "1.950 USD",
-      "2.700 USD",
-      "3.450 USD",
-      "4.200 USD"
+      "US$ 1.200",
+      "US$ 1.950",
+      "US$ 2.700",
+      "US$ 3.450",
+      "US$ 4.200"
      ]
     ]
    }
@@ -134,7 +134,7 @@
    "list": [
     "Vuelos (unos 600 €).",
     "Comidas, cenas y bebidas fuera del barco.",
-    "Propinas (70–80 €/persona y día).",
+    "Propinas (70–80 € / persona y día).",
     "Visado (80–90 €, se tramita en España un mes antes).",
     "Gastos personales."
    ]

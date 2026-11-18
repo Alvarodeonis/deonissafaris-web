@@ -401,7 +401,7 @@ export const more = {
       { id: 'leo', label: '14 días de leopardo y plains game', days: 14, price: 18000 },
     ],
     companions: [{ label: 'Acompañante, por día', price: 350, per: 'day' }],
-    trophies: mozTrophies([['Leopardo (mín. 14 días)', 9500], ['Hiena (mín. 14 días)', 1950], ['Primer búfalo (mín. 10 días)', 5000], ['Segundo búfalo (según cupo)', 5000], ['Hipopótamo (mín. 10 días)', 5700], ['Sable (mín. 10 días)', 7600], ['Cebra (mín. 10 días)', 4800], ['Nyala (solo C10, mín. 10 días)', 4500], ['Hartebeest (mín. 10 días)', 2375], ['Eland (mín. 10 días)', 4600], ['Waterbuck (mín. 10 días)', 2750], ['Cocodrilo (solo C10, mín. 7 días)', 3650], ['Reedbuck común', 1500], ['Potamóquero', 1250], ['Facochero', 850], ['Bushbuck', 1500], ['Duiker rojo', 1450], ['Duiker azul (solo C10)', 1600], ['Duiker gris', 700], ['Suni (solo C10)', 1600], ['Oribi (C10)', 1600], ['Grysbuck', 1600], ['Babuino', 265], ['Impala', 800], ['Kudu (solo Nairoto)', 3500], ['Ñu de Niassa (solo Nairoto)', 3500]]),
+    trophies: mozTrophies([['Leopardo (mín. 14 días)', 9500], ['Hiena (mín. 14 días)', 1950], ['Primer búfalo (mín. 10 días)', 5000], ['Segundo búfalo (según cupo)', 5000], ['Hipopótamo (mín. 10 días)', 5700], ['Sable (mín. 10 días)', 7600], ['Cebra (mín. 10 días)', 4800], ['Nyala (solo C10, mín. 10 días)', 4500], ['Hartebeest (mín. 10 días)', 2375], ['Eland (mín. 10 días)', 4600], ['Waterbuck (mín. 10 días)', 2750], ['Cocodrilo (solo C10, mín. 7 días)', 3650], ['Reedbuck común', 1500], ['Potamoquero', 1250], ['Facochero', 850], ['Bushbuck', 1500], ['Duiker rojo', 1450], ['Duiker azul (solo C10)', 1600], ['Duiker gris', 700], ['Suni (solo C10)', 1600], ['Oribi (C10)', 1600], ['Grysbuck', 1600], ['Babuino', 265], ['Impala', 800], ['Kudu (solo Nairoto)', 3500], ['Ñu de Niassa (solo Nairoto)', 3500]]),
     fees: mozCharter(['Cessna 206 (3-4 pasajeros)', 'Airvan (4-5 pasajeros)', 'Islander (5-6 pasajeros)']),
     notes: ['Plains game 1×1: 700 US$ por día.'],
   },
@@ -568,7 +568,7 @@ export const more = {
     currency: 'USD', hunters: { min: 1, max: 4 },
     packages: [{ id: 'p', label: '7 días de caza 1×1: búfalo, hipopótamo y cocodrilo', days: 7, price: 10150 }],
     companions: [{ label: 'Acompañante', price: 400, per: 'day' }],
-    trophies: tr('Precio del programa', [['Tasa de abate de búfalo', 5450], ['Tasa de abate de cocodrilo', 4000], ['Tasa de abate de hipopótamo', 4000]]).concat(tr('Trofeos adicionales (según cupo y zona)', [['Babuino', 175], ['Bushbuck', 1150], ['Potamóquero', 900], ['Duiker común', 700], ['Duiker azul', 1150], ['Hartebeest', 2300], ['Impala', 460], ['Kudu', 3450], ['Oribi', 1350], ['Puku', 1700], ['Reedbuck', 1150], ['Lechwe rojo', 6900], ['Sable', 9000], ['Facochero', 1000], ['Waterbuck defassa', 3450], ['Ñu azul', 2000]])),
+    trophies: tr('Precio del programa', [['Tasa de abate de búfalo', 5450], ['Tasa de abate de cocodrilo', 4000], ['Tasa de abate de hipopótamo', 4000]]).concat(tr('Trofeos adicionales (según cupo y zona)', [['Babuino', 175], ['Bushbuck', 1150], ['Potamoquero', 900], ['Duiker común', 700], ['Duiker azul', 1150], ['Hartebeest', 2300], ['Impala', 460], ['Kudu', 3450], ['Oribi', 1350], ['Puku', 1700], ['Reedbuck', 1150], ['Lechwe rojo', 6900], ['Sable', 9000], ['Facochero', 1000], ['Waterbuck defassa', 3450], ['Ñu azul', 2000]])),
     defaultTrophies: { 'Tasa de abate de búfalo': 1, 'Tasa de abate de cocodrilo': 1, 'Tasa de abate de hipopótamo': 1 },
     fees: [
       { id: 'dip', label: 'Dip, pack y crate', price: 2000, per: 'hunter' },
